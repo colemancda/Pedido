@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2C3D296C-08B6-4A39-AD91-26C84F29C884</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CorePedido</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2342E2F3761D07ED95950FB3EA114050ABD5EEFF</key>
+		<string>https://github.com/colemancda/Pedido.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CorePedido/CorePedido.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2342E2F3761D07ED95950FB3EA114050ABD5EEFF</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/colemancda/Pedido.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2342E2F3761D07ED95950FB3EA114050ABD5EEFF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2342E2F3761D07ED95950FB3EA114050ABD5EEFF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Pedido</string>
+		</dict>
+	</array>
+</dict>
+</plist>
