@@ -1,0 +1,3 @@
+[submodule "NetworkObjects"]
+	path = NetworkObjects
+	url = https://github.com/colemancda/NetworkObjects.git
