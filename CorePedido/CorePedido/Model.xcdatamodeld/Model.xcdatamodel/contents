@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C68k" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Establishment" syncable="YES">
+        <attribute name="defaultLanguage" attributeType="String" defaultValueString="en" syncable="YES"/>
+        <attribute name="location" attributeType="String" syncable="YES"/>
+        <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="establishments" inverseEntity="MenuItem" syncable="YES"/>
+    </entity>
+    <entity name="Image" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="menuItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="images" inverseEntity="MenuItem" syncable="YES"/>
+    </entity>
+    <entity name="LocalizedText" syncable="YES">
+        <attribute name="language" attributeType="String" defaultValueString="en" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="menuItemLocalizedDescription" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="localizedDescriptions" inverseEntity="MenuItem" syncable="YES"/>
+    </entity>
+    <entity name="MenuItem" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="establishments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Establishment" inverseName="menuItems" inverseEntity="Establishment" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Image" inverseName="menuItem" inverseEntity="Image" syncable="YES"/>
+        <relationship name="localizedDescriptions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocalizedText" inverseName="menuItemLocalizedDescription" inverseEntity="LocalizedText" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Establishment" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="MenuItem" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="LocalizedText" positionX="-36" positionY="9" width="128" height="88"/>
+        <element name="Image" positionX="-18" positionY="36" width="128" height="73"/>
+    </elements>
+</model>

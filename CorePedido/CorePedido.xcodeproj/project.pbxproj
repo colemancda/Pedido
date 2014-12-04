@@ -11,6 +11,7 @@
 		6E3B1B201A300BE600655F36 /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3B1B141A300BE600655F36 /* CorePedido.framework */; };
 		6E3B1B271A300BE600655F36 /* CorePedidoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B1B261A300BE600655F36 /* CorePedidoTests.swift */; };
 		6E3B1B3C1A300CAC00655F36 /* NetworkObjects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3B1B371A300C8F00655F36 /* NetworkObjects.framework */; };
+		6E3B1B421A300F1F00655F36 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B1B401A300F1F00655F36 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		6E3B1B251A300BE600655F36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E3B1B261A300BE600655F36 /* CorePedidoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorePedidoTests.swift; sourceTree = "<group>"; };
 		6E3B1B301A300C8F00655F36 /* NetworkObjects.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkObjects.xcodeproj; path = ../NetworkObjects/NetworkObjects/NetworkObjects.xcodeproj; sourceTree = "<group>"; };
+		6E3B1B411A300F1F00655F36 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				6E3B1B191A300BE600655F36 /* CorePedido.h */,
+				6E3B1B401A300F1F00655F36 /* Model.xcdatamodeld */,
 				6E3B1B171A300BE600655F36 /* Supporting Files */,
 			);
 			path = CorePedido;
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E3B1B421A300F1F00655F36 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +480,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6E3B1B401A300F1F00655F36 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6E3B1B411A300F1F00655F36 /* Model.xcdatamodel */,
+			);
+			currentVersion = 6E3B1B411A300F1F00655F36 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6E3B1B0B1A300BE600655F36 /* Project object */;
 }
