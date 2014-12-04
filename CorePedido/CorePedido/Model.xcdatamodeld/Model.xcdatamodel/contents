@@ -1,29 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C68k" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DeliveryTarget" isAbstract="YES" syncable="YES">
+        <relationship name="order" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="deliveryTarget" inverseEntity="Order" syncable="YES"/>
+    </entity>
     <entity name="Establishment" syncable="YES">
-        <attribute name="defaultLanguage" attributeType="String" defaultValueString="en" syncable="YES"/>
+        <attribute name="defaultLanguage" attributeType="String" minValueString="2" maxValueString="2" defaultValueString="en" syncable="YES"/>
         <attribute name="location" attributeType="String" syncable="YES"/>
         <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="establishments" inverseEntity="MenuItem" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Order" inverseName="establishment" inverseEntity="Order" syncable="YES"/>
+    </entity>
+    <entity name="ExternalDeliveryTarget" parentEntity="DeliveryTarget" syncable="YES">
+        <attribute name="additionalInstructions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" attributeType="String" minValueString="0" syncable="YES"/>
     </entity>
     <entity name="Image" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <relationship name="menuItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="images" inverseEntity="MenuItem" syncable="YES"/>
+        <relationship name="menuItem" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="images" inverseEntity="MenuItem" syncable="YES"/>
     </entity>
     <entity name="LocalizedText" syncable="YES">
         <attribute name="language" attributeType="String" defaultValueString="en" syncable="YES"/>
-        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="menuItemLocalizedDescription" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="localizedDescriptions" inverseEntity="MenuItem" syncable="YES"/>
+        <attribute name="text" attributeType="String" syncable="YES"/>
+        <relationship name="menuItemLocalizedDescription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="localizedDescriptions" inverseEntity="MenuItem" syncable="YES"/>
     </entity>
     <entity name="MenuItem" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="establishments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Establishment" inverseName="menuItems" inverseEntity="Establishment" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Image" inverseName="menuItem" inverseEntity="Image" syncable="YES"/>
         <relationship name="localizedDescriptions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocalizedText" inverseName="menuItemLocalizedDescription" inverseEntity="LocalizedText" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Order" inverseName="menuItem" inverseEntity="Order" syncable="YES"/>
+    </entity>
+    <entity name="Order" syncable="YES">
+        <attribute name="paymentMethod" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <relationship name="deliveryTarget" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DeliveryTarget" inverseName="order" inverseEntity="DeliveryTarget" syncable="YES"/>
+        <relationship name="establishment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Establishment" inverseName="orders" inverseEntity="Establishment" syncable="YES"/>
+        <relationship name="menuItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="orders" inverseEntity="MenuItem" syncable="YES"/>
+    </entity>
+    <entity name="PickUpDeliveryTarget" parentEntity="DeliveryTarget" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TableDeliveryTarget" parentEntity="DeliveryTarget" syncable="YES">
+        <attribute name="tableNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Establishment" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="MenuItem" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="Establishment" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="MenuItem" positionX="-54" positionY="-9" width="128" height="118"/>
         <element name="LocalizedText" positionX="-36" positionY="9" width="128" height="88"/>
         <element name="Image" positionX="-18" positionY="36" width="128" height="73"/>
+        <element name="Order" positionX="-9" positionY="63" width="128" height="118"/>
+        <element name="DeliveryTarget" positionX="0" positionY="99" width="128" height="58"/>
+        <element name="TableDeliveryTarget" positionX="27" positionY="108" width="128" height="58"/>
+        <element name="PickUpDeliveryTarget" positionX="-27" positionY="63" width="128" height="73"/>
+        <element name="ExternalDeliveryTarget" positionX="-18" positionY="72" width="128" height="73"/>
     </elements>
 </model>
