@@ -1,5 +1,5 @@
 //
-//  Permissions.swift
+//  Permission.swift
 //  CorePedidoServer
 //
 //  Created by Alsey Coleman Miller on 12/4/14.
@@ -8,4 +8,9 @@
 
 import Foundation
 import NetworkObjects
+import CorePedido
 
+protocol PermissionProtocol {
+    
+    func permisssionForUser(user: User) -> ServerPermission
+}

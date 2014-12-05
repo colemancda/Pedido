@@ -10,7 +10,7 @@
 		6E3DA2E61A316BB100290060 /* CorePedidoServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3DA2E51A316BB100290060 /* CorePedidoServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E3DA2EC1A316BB100290060 /* CorePedidoServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DA2E01A316BB100290060 /* CorePedidoServer.framework */; };
 		6E3DA2F31A316BB100290060 /* CorePedidoServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DA2F21A316BB100290060 /* CorePedidoServerTests.swift */; };
-		6E3DA2FD1A316BDD00290060 /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DA2FC1A316BDD00290060 /* Permissions.swift */; };
+		6E3DA2FD1A316BDD00290060 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DA2FC1A316BDD00290060 /* Permission.swift */; };
 		6E3DA3141A316C1F00290060 /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DA3071A316BF900290060 /* CorePedido.framework */; };
 		6E3DA3151A316C1F00290060 /* NetworkObjects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DA30D1A316BF900290060 /* NetworkObjects.framework */; };
 /* End PBXBuildFile section */
@@ -74,7 +74,7 @@
 		6E3DA2EB1A316BB100290060 /* CorePedidoServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorePedidoServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E3DA2F11A316BB100290060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E3DA2F21A316BB100290060 /* CorePedidoServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorePedidoServerTests.swift; sourceTree = "<group>"; };
-		6E3DA2FC1A316BDD00290060 /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		6E3DA2FC1A316BDD00290060 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		6E3DA2FE1A316BF900290060 /* NetworkObjects.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkObjects.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../NetworkObjects/NetworkObjects/NetworkObjects.xcodeproj; sourceTree = "<absolute>"; };
 		6E3DA3011A316BF900290060 /* CorePedido.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePedido.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../CorePedido/CorePedido.xcodeproj; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				6E3DA2E51A316BB100290060 /* CorePedidoServer.h */,
-				6E3DA2FC1A316BDD00290060 /* Permissions.swift */,
+				6E3DA2FC1A316BDD00290060 /* Permission.swift */,
 				6E3DA2E31A316BB100290060 /* Supporting Files */,
 			);
 			path = CorePedidoServer;
@@ -323,7 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E3DA2FD1A316BDD00290060 /* Permissions.swift in Sources */,
+				6E3DA2FD1A316BDD00290060 /* Permission.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +525,7 @@
 				6E3DA2F81A316BB100290060 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E3DA2F91A316BB100290060 /* Build configuration list for PBXNativeTarget "CorePedidoServerTests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +534,7 @@
 				6E3DA2FB1A316BB100290060 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
