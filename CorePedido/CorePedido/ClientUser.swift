@@ -11,7 +11,7 @@ import CoreData
 
 public class ClientUser: User {
 
-    @NSManaged public var locale: NSLocale
+    @NSManaged public var locale: NSLocale?
     @NSManaged public var orders: NSSet?
 
 }

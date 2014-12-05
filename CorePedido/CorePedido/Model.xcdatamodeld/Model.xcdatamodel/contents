@@ -8,7 +8,7 @@
         <relationship name="order" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="deliveryTarget" inverseEntity="Order" syncable="YES"/>
     </entity>
     <entity name="Establishment" representedClassName="CorePedido.Establishment" syncable="YES">
-        <attribute name="locale" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="locale" attributeType="Transformable" syncable="YES"/>
         <attribute name="location" attributeType="String" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="establishment" inverseEntity="Image" syncable="YES"/>
         <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="establishments" inverseEntity="MenuItem" syncable="YES"/>
