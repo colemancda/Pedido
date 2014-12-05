@@ -14,9 +14,5 @@ public class Image: NSManagedObject {
     @NSManaged public var data: NSData
     @NSManaged public var establishment: Establishment?
     @NSManaged public var menuItem: MenuItem?
-    
-    public override func validateForInsert(error: NSErrorPointer) -> Bool {
-        <#code#>
-    }
 
 }

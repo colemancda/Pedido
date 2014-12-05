@@ -37,7 +37,7 @@ public enum PaymentMethod: Int {
 public enum OrderStatus: Int {
     
     case Cancelled  = -1
-    case New        = 0
+    case Backlog    = 0
     case InTransit  = 1
     case Delivered  = 2
 }

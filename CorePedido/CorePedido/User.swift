@@ -15,5 +15,6 @@ public class User: NSManagedObject {
     @NSManaged public var password: String
     @NSManaged public var email: String?
     @NSManaged public var dateCreated: NSDate
-
+    @NSManaged public var name: String
+    
 }

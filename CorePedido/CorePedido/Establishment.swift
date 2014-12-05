@@ -11,11 +11,10 @@ import CoreData
 
 public class Establishment: NSManagedObject {
 
-    @NSManaged public var defaultLanguage: String
     @NSManaged public var location: String
     @NSManaged public var images: NSSet?
     @NSManaged public var menuItems: NSSet?
     @NSManaged public var orders: NSSet?
-    @NSManaged public var currencySymbol: String
+    @NSManaged public var locale: NSLocale
 
 }
