@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C68k" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ClientUser" representedClassName="ClientUser" parentEntity="User" syncable="YES">
+        <attribute name="preferredLanguage" optional="YES" attributeType="String" defaultValueString="en" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Order" inverseName="clientUser" inverseEntity="Order" syncable="YES"/>
+    </entity>
     <entity name="DeliveryTarget" representedClassName="CorePedido.DeliveryTarget" isAbstract="YES" syncable="YES">
         <relationship name="order" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="deliveryTarget" inverseEntity="Order" syncable="YES"/>
     </entity>
@@ -34,18 +38,31 @@
         <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Order" inverseName="menuItem" inverseEntity="Order" syncable="YES"/>
     </entity>
     <entity name="Order" representedClassName="CorePedido.Order" syncable="YES">
+        <attribute name="dateCreated" attributeType="Date" syncable="YES"/>
         <attribute name="paymentMethod" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
-        <attribute name="status" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
-        <relationship name="deliveryTarget" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DeliveryTarget" inverseName="order" inverseEntity="DeliveryTarget" syncable="YES"/>
+        <attribute name="status" attributeType="Integer 16" minValueString="-1" defaultValueString="0" syncable="YES"/>
+        <relationship name="clientUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClientUser" inverseName="orders" inverseEntity="ClientUser" syncable="YES"/>
+        <relationship name="deliveryTarget" maxCount="1" deletionRule="Cascade" destinationEntity="DeliveryTarget" inverseName="order" inverseEntity="DeliveryTarget" syncable="YES"/>
         <relationship name="establishment" maxCount="1" deletionRule="Nullify" destinationEntity="Establishment" inverseName="orders" inverseEntity="Establishment" syncable="YES"/>
         <relationship name="menuItem" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="orders" inverseEntity="MenuItem" syncable="YES"/>
+        <relationship name="staffUserAssigned" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StaffUser" inverseName="ordersAssigned" inverseEntity="StaffUser" syncable="YES"/>
     </entity>
     <entity name="PickUpDeliveryTarget" representedClassName="CorePedido.PickUpDeliveryTarget" parentEntity="DeliveryTarget" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="StaffUser" representedClassName="StaffUser" parentEntity="User" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="ordersAssigned" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Order" inverseName="staffUserAssigned" inverseEntity="Order" syncable="YES"/>
+    </entity>
     <entity name="TableDeliveryTarget" representedClassName="CorePedido.TableDeliveryTarget" parentEntity="DeliveryTarget" syncable="YES">
         <attribute name="tableNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" isAbstract="YES" syncable="YES">
+        <attribute name="dateCreated" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="password" attributeType="String" minValueString="6" syncable="YES"/>
+        <attribute name="username" attributeType="String" minValueString="1" syncable="YES"/>
     </entity>
     <elements>
         <element name="DeliveryTarget" positionX="0" positionY="99" width="128" height="58"/>
@@ -54,8 +71,11 @@
         <element name="Image" positionX="-18" positionY="36" width="128" height="88"/>
         <element name="LocalizedText" positionX="-36" positionY="9" width="128" height="88"/>
         <element name="MenuItem" positionX="-54" positionY="-9" width="128" height="148"/>
-        <element name="Order" positionX="-9" positionY="63" width="128" height="118"/>
+        <element name="Order" positionX="-9" positionY="63" width="128" height="163"/>
         <element name="PickUpDeliveryTarget" positionX="-27" positionY="63" width="128" height="73"/>
         <element name="TableDeliveryTarget" positionX="27" positionY="108" width="128" height="58"/>
+        <element name="User" positionX="-27" positionY="72" width="128" height="103"/>
+        <element name="ClientUser" positionX="-18" positionY="81" width="128" height="73"/>
+        <element name="StaffUser" positionX="-9" positionY="90" width="128" height="73"/>
     </elements>
 </model>

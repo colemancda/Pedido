@@ -16,5 +16,6 @@ public class Order: NSManagedObject {
     @NSManaged public var deliveryTarget: DeliveryTarget
     @NSManaged public var establishment: Establishment
     @NSManaged public var menuItem: MenuItem
-
+    @NSManaged public var clientUser: ClientUser?
+    @NSManaged public var staffUserAssigned: StaffUser?
 }

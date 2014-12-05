@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CorePedidoClient/CorePedidoClient.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:CorePedido/CorePedido.xcodeproj">
    </FileRef>
 </Workspace>
