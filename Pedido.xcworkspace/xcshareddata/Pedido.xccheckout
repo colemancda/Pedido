@@ -28,17 +28,17 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1C75F1C5CFCB95B3702F6F632FA05ED5244B519E</key>
-		<string>..NetworkObjects/RoutingHTTPServer/External/CocoaHTTPServer/CocoaAsyncSocket/</string>
+		<string>..NetworkObjects/RoutingHTTPServer/External/CocoaHTTPServer/CocoaAsyncSocket</string>
 		<key>2342E2F3761D07ED95950FB3EA114050ABD5EEFF</key>
 		<string>..</string>
 		<key>35B5C9A93714EC9BEB56BAE809C5551E5C66E52D</key>
-		<string>..NetworkObjects/RoutingHTTPServer/External/CocoaHTTPServer/CocoaAsyncSocket/CocoaLumberjack/</string>
+		<string>..NetworkObjects/RoutingHTTPServer/External/CocoaHTTPServer/CocoaAsyncSocket/CocoaLumberjack</string>
 		<key>71CFC0DE1DEFC877B0C5B9F98B971EBA2921D608</key>
-		<string>..NetworkObjects/RoutingHTTPServer/External/CocoaHTTPServer/</string>
+		<string>..NetworkObjects/RoutingHTTPServer/External/CocoaHTTPServer</string>
 		<key>9D8E50737BD1955BFF09EC27A96CDD52A2431CCE</key>
-		<string>..NetworkObjects/RoutingHTTPServer/</string>
+		<string>..NetworkObjects/RoutingHTTPServer</string>
 		<key>A5260C930E0CFC29BE4E638F3BCB24458F4E5121</key>
-		<string>..NetworkObjects/</string>
+		<string>..NetworkObjects</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/colemancda/Pedido.git</string>
@@ -76,17 +76,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>A5260C930E0CFC29BE4E638F3BCB24458F4E5121</string>
+			<string>2342E2F3761D07ED95950FB3EA114050ABD5EEFF</string>
 			<key>IDESourceControlWCCName</key>
-			<string>NetworkObjects</string>
+			<string>Pedido</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2342E2F3761D07ED95950FB3EA114050ABD5EEFF</string>
+			<string>A5260C930E0CFC29BE4E638F3BCB24458F4E5121</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Pedido</string>
+			<string>PedidoNetworkObjects</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
