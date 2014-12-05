@@ -10,13 +10,12 @@ import Foundation
 import CoreData
 
 public class MenuItem: NSManagedObject {
-
-    @NSManaged public var currencySymbol: String
+    
     @NSManaged public var name: String
     @NSManaged public var price: NSNumber
     @NSManaged public var establishments: NSSet?
     @NSManaged public var images: NSSet?
     @NSManaged public var localizedDescriptions: NSSet
-    @NSManaged public var orders: NSSet?
+    @NSManaged public var orderItems: NSSet?
 
 }

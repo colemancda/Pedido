@@ -12,6 +12,6 @@ import CoreData
 public class PickUpDeliveryTarget: DeliveryTarget {
 
     @NSManaged public var name: String
-    @NSManaged public var phoneNumber: String
+    @NSManaged public var phoneNumber: String?
 
 }
