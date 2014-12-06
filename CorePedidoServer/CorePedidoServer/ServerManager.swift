@@ -102,9 +102,10 @@ import CorePedido
         return FunctionsForEntity(entity)
     }
     
-    public func server(server: Server, performFunction functionName: String, forManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext, recievedJsonObject: [String : AnyObject]?) -> (ServerFunctionCode, [String : AnyObject]?) {
+    public func server(server: Server, performFunction functionName: String, forManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext, recievedJsonObject: [String : AnyObject]?, request: ServerRequest) -> (ServerFunctionCode, [String : AnyObject]?) {
         
         // get user
+        let user = AuthenticatedUserFromRequestHeaders(request.headers, context)
         
         return PerformFunction(functionName, managedObject, context, user, recievedJsonObject)
     }
@@ -135,17 +136,9 @@ import CorePedido
         
         // get authenticated user from request and return permssions based on authenticated user
         
-        var user: User?
+        let user = AuthenticatedUserFromRequestHeaders(request.headers, context)
         
-        context.performBlockAndWait { () -> Void in
-            
-            // create request
-            let fetchRequest = NSFetchRequest(entityName: "User")
-            
-            
-            
-        }
-                
+        // get permissions
         return permissionForRequest(request, user, managedObject, key, context)
     }
 }

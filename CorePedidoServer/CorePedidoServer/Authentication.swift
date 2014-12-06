@@ -10,3 +10,11 @@ import Foundation
 import CoreData
 import NetworkObjects
 import CorePedido
+
+func AuthenticatedUserFromRequestHeaders(headers: [String: String], context: NSManagedObjectContext) -> User? {
+    
+    return nil
+}
+
+// MARK: - Private Constants
+

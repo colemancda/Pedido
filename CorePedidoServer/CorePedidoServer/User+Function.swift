@@ -16,11 +16,9 @@ func UserEntityFunctions() -> [String] {
     return [UserFunction.ChangePassword.rawValue]
 }
 
-func UserPerformFunction(function: String, managedObject: User, context: NSManagedObjectContext, user: User?, recievedJsonObject: [String : AnyObject]?) -> (ServerFunctionCode, [String : AnyObject]?) {
+func UserPerformFunction(function: UserFunction, managedObject: User, context: NSManagedObjectContext, user: User?, recievedJsonObject: [String : AnyObject]?) -> (ServerFunctionCode, [String : AnyObject]?) {
     
-    let userFunction = UserFunction(rawValue: function)!
-    
-    switch userFunction {
+    switch function {
         
     case .ChangePassword:
         
@@ -49,17 +47,15 @@ func UserPerformFunction(function: String, managedObject: User, context: NSManag
             
             return (ServerFunctionCode.CannotPerformFunction, nil)
         }
-        // change password... 
         
-        var error: NSError?
+        // change password...
         
         context.performBlockAndWait({ () -> Void in
             
             managedObject.password = newPassword!
-            
-            // save
-            context.save(&error)
         })
         
+        // return success
+        return (ServerFunctionCode.PerformedSuccesfully, nil)
     }
 }
