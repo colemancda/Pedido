@@ -99,12 +99,14 @@ import CorePedido
     
     public func server(server: Server, functionsForEntity entity: NSEntityDescription) -> [String] {
         
-        return []
+        return FunctionsForEntity(entity)
     }
     
     public func server(server: Server, performFunction functionName: String, forManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext, recievedJsonObject: [String : AnyObject]?) -> (ServerFunctionCode, [String : AnyObject]?) {
         
-        return (ServerFunctionCode.CannotPerformFunction, nil)
+        // get user
+        
+        return PerformFunction(functionName, managedObject, context, user, recievedJsonObject)
     }
     
     // MARK: - ServerDelegate
@@ -141,9 +143,10 @@ import CorePedido
             let fetchRequest = NSFetchRequest(entityName: "User")
             
             
+            
         }
                 
-        return permissionForRequest(request, user!, managedObject, key, context)
+        return permissionForRequest(request, user, managedObject, key, context)
     }
 }
 

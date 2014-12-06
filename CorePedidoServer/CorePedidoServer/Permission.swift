@@ -11,7 +11,7 @@ import CoreData
 import NetworkObjects
 import CorePedido
 
-func permissionForRequest(request: ServerRequest, user: User, managedObject: NSManagedObject?, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
+func permissionForRequest(request: ServerRequest, user: User?, managedObject: NSManagedObject?, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
     
     switch request.entity.name! {
         

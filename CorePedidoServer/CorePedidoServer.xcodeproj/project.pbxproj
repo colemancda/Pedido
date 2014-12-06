@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6E28637D1A32B6A400F0DD99 /* User+Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E28637C1A32B6A400F0DD99 /* User+Permission.swift */; };
+		6E2BAD951A338F0A00617F87 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAD941A338F0A00617F87 /* Function.swift */; };
+		6E2BAD991A338F7400617F87 /* User+Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAD981A338F7400617F87 /* User+Function.swift */; };
+		6E2BAD9D1A33A06200617F87 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BAD9C1A33A06100617F87 /* Authentication.swift */; };
 		6E3DA2E61A316BB100290060 /* CorePedidoServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3DA2E51A316BB100290060 /* CorePedidoServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E3DA2EC1A316BB100290060 /* CorePedidoServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DA2E01A316BB100290060 /* CorePedidoServer.framework */; };
 		6E3DA2F31A316BB100290060 /* CorePedidoServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DA2F21A316BB100290060 /* CorePedidoServerTests.swift */; };
@@ -71,6 +74,9 @@
 
 /* Begin PBXFileReference section */
 		6E28637C1A32B6A400F0DD99 /* User+Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+Permission.swift"; sourceTree = "<group>"; };
+		6E2BAD941A338F0A00617F87 /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		6E2BAD981A338F7400617F87 /* User+Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+Function.swift"; sourceTree = "<group>"; };
+		6E2BAD9C1A33A06100617F87 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		6E3DA2E01A316BB100290060 /* CorePedidoServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CorePedidoServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E3DA2E41A316BB100290060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E3DA2E51A316BB100290060 /* CorePedidoServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CorePedidoServer.h; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				6E28637C1A32B6A400F0DD99 /* User+Permission.swift */,
+				6E2BAD981A338F7400617F87 /* User+Function.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -136,7 +143,9 @@
 			children = (
 				6E3DA2E51A316BB100290060 /* CorePedidoServer.h */,
 				6E65D24E1A3293D800FEB0B5 /* ServerManager.swift */,
+				6E2BAD9C1A33A06100617F87 /* Authentication.swift */,
 				6E3DA2FC1A316BDD00290060 /* Permission.swift */,
+				6E2BAD941A338F0A00617F87 /* Function.swift */,
 				6E2863791A32B65A00F0DD99 /* Model */,
 				6E3DA2E31A316BB100290060 /* Supporting Files */,
 			);
@@ -348,6 +357,9 @@
 				6E28637D1A32B6A400F0DD99 /* User+Permission.swift in Sources */,
 				6E65D24F1A3293D800FEB0B5 /* ServerManager.swift in Sources */,
 				6E3DA2FD1A316BDD00290060 /* Permission.swift in Sources */,
+				6E2BAD951A338F0A00617F87 /* Function.swift in Sources */,
+				6E2BAD991A338F7400617F87 /* User+Function.swift in Sources */,
+				6E2BAD9D1A33A06200617F87 /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

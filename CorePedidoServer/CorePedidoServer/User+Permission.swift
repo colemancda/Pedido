@@ -11,15 +11,15 @@ import CoreData
 import NetworkObjects
 import CorePedido
 
-func UserPermisssionForRequest(request: ServerRequest, user: User, managedObject: User?, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
+func UserPermisssionForRequest(request: ServerRequest, user: User?, managedObject: User?, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
     
-    // no key specified (create or delete user)
+    // no key specified
     if key == nil {
         
         switch request.requestType {
             
         case .POST: return ServerPermission.EditPermission
-        case .DELETE:
+        case .DELETE, .PUT:
             
             if user === managedObject {
                 

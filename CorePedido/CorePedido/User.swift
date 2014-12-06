@@ -19,3 +19,14 @@ public class User: NSManagedObject {
     @NSManaged public var sessions: NSSet?
     
 }
+
+// MARK: - Enumerations
+
+public enum UserFunction: String {
+    
+    /// Function to change the password. The input JSON keys are:
+    ///
+    /// - oldPassword
+    /// - newPassword
+    case ChangePassword = "ChangePassword"
+}
