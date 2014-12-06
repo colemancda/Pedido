@@ -13,6 +13,7 @@
 		6E3DA2FD1A316BDD00290060 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DA2FC1A316BDD00290060 /* Permission.swift */; };
 		6E3DA3141A316C1F00290060 /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DA3071A316BF900290060 /* CorePedido.framework */; };
 		6E3DA3151A316C1F00290060 /* NetworkObjects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DA30D1A316BF900290060 /* NetworkObjects.framework */; };
+		6E65D24F1A3293D800FEB0B5 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E65D24E1A3293D800FEB0B5 /* ServerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		6E3DA2FC1A316BDD00290060 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		6E3DA2FE1A316BF900290060 /* NetworkObjects.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkObjects.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../NetworkObjects/NetworkObjects/NetworkObjects.xcodeproj; sourceTree = "<absolute>"; };
 		6E3DA3011A316BF900290060 /* CorePedido.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePedido.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../CorePedido/CorePedido.xcodeproj; sourceTree = "<absolute>"; };
+		6E65D24E1A3293D800FEB0B5 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				6E3DA2E51A316BB100290060 /* CorePedidoServer.h */,
+				6E65D24E1A3293D800FEB0B5 /* ServerManager.swift */,
 				6E3DA2FC1A316BDD00290060 /* Permission.swift */,
 				6E3DA2E31A316BB100290060 /* Supporting Files */,
 			);
@@ -323,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E65D24F1A3293D800FEB0B5 /* ServerManager.swift in Sources */,
 				6E3DA2FD1A316BDD00290060 /* Permission.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

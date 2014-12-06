@@ -12,5 +12,5 @@ import CorePedido
 
 protocol PermissionProtocol {
     
-    func permisssionForUser(user: User) -> ServerPermission
+    func permisssionForUser(user: User, key: String) -> ServerPermission
 }
