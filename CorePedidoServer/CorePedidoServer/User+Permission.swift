@@ -13,7 +13,7 @@ import CorePedido
 
 extension User: PermissionProtocol {
     
-    func permisssionForRequest(request: ServerRequest, user: User?, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
+    func permisssionForRequest(request: ServerRequest, user: User, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
         
         // no key specified (create or delete user)
         if key == nil {

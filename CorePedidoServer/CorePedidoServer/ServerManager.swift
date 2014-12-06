@@ -119,12 +119,12 @@ import CorePedido
         println("Successfully performed request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse)")
     }
     
-    public func server(server: Server, statusCodeForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext?) -> ServerStatusCode {
+    public func server(server: Server, statusCodeForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext) -> ServerStatusCode {
         
         return ServerStatusCode.OK
     }
     
-    public func server(server: Server, permissionForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext?, key: String?) -> ServerPermission {
+    public func server(server: Server, permissionForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext, key: String?) -> ServerPermission {
         
         if managedObject == nil {
             
@@ -135,9 +135,17 @@ import CorePedido
         
         var user: User?
         
+        context.performBlockAndWait { () -> Void in
+            
+            // create request
+            let fetchRequest = NSFetchRequest(entityName: "User")
+            
+            
+        }
+        
         // all entities must conform to PermissionProtocol
                 
-        return (managedObject as PermissionProtocol).permisssionForRequest(request, user: user, key: key, context: context)
+        return managedObject!.permisssionForRequest(request, user: user!, key: key, context: context)
     }
 }
 

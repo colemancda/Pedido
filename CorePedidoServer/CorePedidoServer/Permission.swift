@@ -13,5 +13,15 @@ import CorePedido
 
 protocol PermissionProtocol {
     
-    func permisssionForRequest(request: ServerRequest, user: User?, key: String?, context: NSManagedObjectContext?) -> ServerPermission
+    func permisssionForRequest(request: ServerRequest, user: User, key: String?, context: NSManagedObjectContext?) -> ServerPermission
+}
+
+// MARK: - Default Implementation
+
+extension NSManagedObject: PermissionProtocol {
+    
+    func permisssionForRequest(request: ServerRequest, user: User, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
+        
+        return ServerPermission.NoAccess
+    }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C78c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6735" systemVersion="14C78c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="ClientUser" representedClassName="CorePedido.ClientUser" parentEntity="User" syncable="YES">
         <attribute name="locale" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="orders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Order" inverseName="clientUser" inverseEntity="Order" syncable="YES"/>
@@ -55,10 +55,11 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Session" syncable="YES">
+    <entity name="Session" representedClassName="Session" syncable="YES">
         <attribute name="dateCreated" attributeType="Date" syncable="YES"/>
+        <attribute name="expiryDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sessions" inverseEntity="User" syncable="YES"/>
+        <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sessions" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="StaffUser" representedClassName="CorePedido.StaffUser" parentEntity="User" syncable="YES">
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -73,7 +74,7 @@
         <attribute name="name" attributeType="String" minValueString="1" syncable="YES"/>
         <attribute name="password" attributeType="String" minValueString="6" syncable="YES"/>
         <attribute name="username" attributeType="String" minValueString="1" syncable="YES"/>
-        <relationship name="sessions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="user" inverseEntity="Session" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" maxCount="10" deletionRule="Cascade" destinationEntity="Session" inverseName="user" inverseEntity="Session" syncable="YES"/>
     </entity>
     <elements>
         <element name="ClientUser" positionX="-18" positionY="81" width="128" height="73"/>
@@ -86,9 +87,9 @@
         <element name="Order" positionX="-9" positionY="63" width="128" height="163"/>
         <element name="OrderItem" positionX="0" positionY="117" width="128" height="88"/>
         <element name="PickUpDeliveryTarget" positionX="-27" positionY="63" width="128" height="73"/>
+        <element name="Session" positionX="-27" positionY="90" width="128" height="103"/>
         <element name="StaffUser" positionX="-9" positionY="90" width="128" height="73"/>
         <element name="TableDeliveryTarget" positionX="27" positionY="108" width="128" height="58"/>
         <element name="User" positionX="-27" positionY="72" width="128" height="133"/>
-        <element name="Session" positionX="-27" positionY="90" width="128" height="88"/>
     </elements>
 </model>

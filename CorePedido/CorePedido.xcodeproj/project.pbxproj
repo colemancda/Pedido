@@ -24,6 +24,7 @@
 		6E7DFE601A314D8D002BE54B /* LocalizedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE5F1A314D8D002BE54B /* LocalizedText.swift */; };
 		6E7DFE621A314D8D002BE54B /* DeliveryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE611A314D8D002BE54B /* DeliveryTarget.swift */; };
 		6E7DFE641A314D8D002BE54B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE631A314D8D002BE54B /* Image.swift */; };
+		6EBB41B61A3357DB0024986A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB41B51A3357DB0024986A /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		6E7DFE5F1A314D8D002BE54B /* LocalizedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedText.swift; sourceTree = "<group>"; };
 		6E7DFE611A314D8D002BE54B /* DeliveryTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTarget.swift; sourceTree = "<group>"; };
 		6E7DFE631A314D8D002BE54B /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		6EBB41B51A3357DB0024986A /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				6E3DA2D01A315B3700290060 /* User.swift */,
 				6E3DA2CE1A315B3700290060 /* ClientUser.swift */,
 				6E3DA2CC1A315B3700290060 /* StaffUser.swift */,
+				6EBB41B51A3357DB0024986A /* Session.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				6E3DA2CF1A315B3700290060 /* ClientUser.swift in Sources */,
 				6E7DFE5E1A314D8D002BE54B /* ExternalDeliveryTarget.swift in Sources */,
 				6E7DFE601A314D8D002BE54B /* LocalizedText.swift in Sources */,
+				6EBB41B61A3357DB0024986A /* Session.swift in Sources */,
 				6E7DFE581A314D8D002BE54B /* Establishment.swift in Sources */,
 				6E7DFE5A1A314D8D002BE54B /* Order.swift in Sources */,
 				6E3B1B421A300F1F00655F36 /* Model.xcdatamodeld in Sources */,
