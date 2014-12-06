@@ -23,7 +23,7 @@ import NetworkObjects
     
     // MARK: - Private Properties
     
-    private let model = NSManagedObjectModel(contentsOfURL: NSBundle(identifier: "com.ColemanCDA.CorePosts")!.URLForResource("Model", withExtension: "momd")!)!
+    private let model = NSManagedObjectModel(contentsOfURL: NSBundle(identifier: "com.colemancda.CorePedido")!.URLForResource("Model", withExtension: "momd")!)!
     
     private var latestResourceIDForEntity = [NSEntityDescription: UInt]()
     
