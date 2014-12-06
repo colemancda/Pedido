@@ -15,19 +15,43 @@ extension User: PermissionProtocol {
     
     func permisssionForRequest(request: ServerRequest, user: User?, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
         
-        // no key (create or delete user)
+        // no key specified (create or delete user)
         if key == nil {
             
-            
+            switch request.requestType {
+                
+            case .POST: return ServerPermission.EditPermission
+            case .DELETE:
+                
+                if user === self {
+                    
+                    return ServerPermission.EditPermission
+                }
+                
+                return ServerPermission.ReadOnly
+                
+            default:
+                return ServerPermission.ReadOnly
+            }
         }
+        
+        // permission for property
         
         switch key! {
             
-        case username: return ServerPermission.ReadOnly
+        case "password":
             
-        case password: return ServerPermission.NoAccess
+            // needs edit permission for initial creation
+            if request.requestType == ServerRequestType.POST {
+                
+                return ServerPermission.EditPermission
+            }
             
-        default: return ServerPermission.ReadOnly
+            return ServerPermission.NoAccess
+            
+        default:
+            
+            return ServerPermission.ReadOnly
         }
     }
 }
