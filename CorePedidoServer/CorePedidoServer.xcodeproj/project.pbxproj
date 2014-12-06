@@ -105,8 +105,7 @@
 		6E3DA2D61A316BB100290060 = {
 			isa = PBXGroup;
 			children = (
-				6E3DA2FE1A316BF900290060 /* NetworkObjects.xcodeproj */,
-				6E3DA3011A316BF900290060 /* CorePedido.xcodeproj */,
+				6E65D2CA1A32998400FEB0B5 /* Frameworks */,
 				6E3DA2E21A316BB100290060 /* CorePedidoServer */,
 				6E3DA2EF1A316BB100290060 /* CorePedidoServerTests */,
 				6E3DA2E11A316BB100290060 /* Products */,
@@ -174,6 +173,15 @@
 				6E3DA3091A316BF900290060 /* CorePedidoTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6E65D2CA1A32998400FEB0B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E3DA2FE1A316BF900290060 /* NetworkObjects.xcodeproj */,
+				6E3DA3011A316BF900290060 /* CorePedido.xcodeproj */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -29,6 +29,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6E65D26D1A3295AF00FEB0B5"
+            BuildableName = "PedidoServerDaemon"
+            BlueprintName = "PedidoServerDaemon"
+            ReferencedContainer = "container:PedidoServerDaemon.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -39,15 +48,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E65D2841A3296C400FEB0B5"
-            BuildableName = "PedidoServerDaemonBundle.bundle"
-            BlueprintName = "PedidoServerDaemonBundle"
+            BlueprintIdentifier = "6E65D26D1A3295AF00FEB0B5"
+            BuildableName = "PedidoServerDaemon"
+            BlueprintName = "PedidoServerDaemon"
             ReferencedContainer = "container:PedidoServerDaemon.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

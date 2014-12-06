@@ -109,11 +109,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6E7DFE771A3150D1002BE54B = {
+		6E65D2CB1A32999100FEB0B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				6E3DA2BB1A3152A700290060 /* NetworkObjects.xcodeproj */,
 				6E7DFE9D1A3150DE002BE54B /* CorePedido.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E7DFE771A3150D1002BE54B = {
+			isa = PBXGroup;
+			children = (
+				6E65D2CB1A32999100FEB0B5 /* Frameworks */,
 				6E7DFE831A3150D1002BE54B /* CorePedidoClient */,
 				6E7DFE901A3150D1002BE54B /* CorePedidoClientTests */,
 				6E7DFE821A3150D1002BE54B /* Products */,
