@@ -105,9 +105,9 @@ import CorePedido
     public func server(server: Server, performFunction functionName: String, forManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext, recievedJsonObject: [String : AnyObject]?, request: ServerRequest) -> (ServerFunctionCode, [String : AnyObject]?) {
         
         // get user
-        let user = AuthenticatedUserFromRequestHeaders(request.headers, context)
+        let session = AuthenticationSessionFromRequestHeaders(request.headers, context)
         
-        return PerformFunction(functionName, managedObject, context, user, recievedJsonObject)
+        return PerformFunction(functionName, managedObject, context, session, recievedJsonObject)
     }
     
     // MARK: - ServerDelegate
@@ -136,10 +136,10 @@ import CorePedido
         
         // get authenticated user from request and return permssions based on authenticated user
         
-        let user = AuthenticatedUserFromRequestHeaders(request.headers, context)
+        let session = AuthenticationSessionFromRequestHeaders(request.headers, context)
         
         // get permissions
-        return permissionForRequest(request, user, managedObject, key, context)
+        return PermissionForRequest(request, session, managedObject, key, context)
     }
 }
 

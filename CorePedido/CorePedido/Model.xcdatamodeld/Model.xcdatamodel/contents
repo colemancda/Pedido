@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6735" systemVersion="14C78c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C78c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="ClientUser" representedClassName="CorePedido.ClientUser" parentEntity="User" syncable="YES">
         <attribute name="locale" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="orders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Order" inverseName="clientUser" inverseEntity="Order" syncable="YES"/>
@@ -55,10 +55,10 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Session" representedClassName="Session" syncable="YES">
+    <entity name="Session" representedClassName="CorePedido.Session" syncable="YES">
         <attribute name="dateCreated" attributeType="Date" syncable="YES"/>
-        <attribute name="expiryDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="expiryDate" attributeType="Date" syncable="YES"/>
+        <attribute name="token" attributeType="String" syncable="YES"/>
         <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sessions" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="StaffUser" representedClassName="CorePedido.StaffUser" parentEntity="User" syncable="YES">

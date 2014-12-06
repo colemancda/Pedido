@@ -11,12 +11,12 @@ import CoreData
 import NetworkObjects
 import CorePedido
 
-func permissionForRequest(request: ServerRequest, user: User?, managedObject: NSManagedObject?, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
+func PermissionForRequest(request: ServerRequest, session: Session?, managedObject: NSManagedObject?, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
     
     switch request.entity.name! {
         
     case "User":
-        return UserPermisssionForRequest(request, user, managedObject as? User, key, context)
+        return UserPermisssionForRequest(request, session, managedObject as? User, key, context)
         
     default:
         return ServerPermission.ReadOnly

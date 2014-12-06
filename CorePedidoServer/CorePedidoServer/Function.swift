@@ -20,11 +20,11 @@ func FunctionsForEntity(entity: NSEntityDescription) -> [String] {
     }
 }
 
-func PerformFunction(function: String, managedObject: NSManagedObject, context: NSManagedObjectContext, user: User?, recievedJsonObject: [String : AnyObject]?) -> (ServerFunctionCode, [String : AnyObject]?) {
+func PerformFunction(function: String, managedObject: NSManagedObject, context: NSManagedObjectContext, session: Session?, recievedJsonObject: [String : AnyObject]?) -> (ServerFunctionCode, [String : AnyObject]?) {
     
     switch managedObject.entity.name! {
         
-    case "User": return UserPerformFunction(UserFunction(rawValue: function)!, managedObject as User, context, user, recievedJsonObject)
+    case "User": return UserPerformFunction(UserFunction(rawValue: function)!, managedObject as User, context, session?.user, recievedJsonObject)
     
     default: return (ServerFunctionCode.InternalErrorPerformingFunction, nil)
     }
