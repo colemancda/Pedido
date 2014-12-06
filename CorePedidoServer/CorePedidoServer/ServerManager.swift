@@ -142,10 +142,8 @@ import CorePedido
             
             
         }
-        
-        // all entities must conform to PermissionProtocol
                 
-        return managedObject!.permisssionForRequest(request, user: user!, key: key, context: context)
+        return permissionForRequest(request, user!, managedObject, key, context)
     }
 }
 

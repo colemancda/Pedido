@@ -11,47 +11,44 @@ import CoreData
 import NetworkObjects
 import CorePedido
 
-extension User: PermissionProtocol {
+func UserPermisssionForRequest(request: ServerRequest, user: User, managedObject: User?, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
     
-    func permisssionForRequest(request: ServerRequest, user: User, key: String?, context: NSManagedObjectContext?) -> ServerPermission {
+    // no key specified (create or delete user)
+    if key == nil {
         
-        // no key specified (create or delete user)
-        if key == nil {
+        switch request.requestType {
             
-            switch request.requestType {
-                
-            case .POST: return ServerPermission.EditPermission
-            case .DELETE:
-                
-                if user === self {
-                    
-                    return ServerPermission.EditPermission
-                }
-                
-                return ServerPermission.ReadOnly
-                
-            default:
-                return ServerPermission.ReadOnly
-            }
-        }
-        
-        // permission for property
-        
-        switch key! {
+        case .POST: return ServerPermission.EditPermission
+        case .DELETE:
             
-        case "password":
-            
-            // needs edit permission for initial creation
-            if request.requestType == ServerRequestType.POST {
+            if user === managedObject {
                 
                 return ServerPermission.EditPermission
             }
             
-            return ServerPermission.NoAccess
+            return ServerPermission.ReadOnly
             
         default:
-            
             return ServerPermission.ReadOnly
         }
+    }
+    
+    // permission for property
+    
+    switch key! {
+        
+    case "password":
+        
+        // needs edit permission for initial creation
+        if request.requestType == ServerRequestType.POST {
+            
+            return ServerPermission.EditPermission
+        }
+        
+        return ServerPermission.NoAccess
+        
+    default:
+        
+        return ServerPermission.ReadOnly
     }
 }
