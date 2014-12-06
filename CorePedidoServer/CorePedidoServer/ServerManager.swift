@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import NetworkObjects
+import CorePedido
 
 @objc public class ServerManager: ServerDataSource, ServerDelegate {
     
@@ -16,7 +17,7 @@ import NetworkObjects
     
     public lazy var server: Server = {
         
-         return Server(dataSource: self, delegate: self, managedObjectModel: self.model, searchPath: "search", resourceIDAttributeName: "id", prettyPrintJSON: false, sslIdentityAndCertificates: nil, permissionsEnabled: true)
+         return Server(dataSource: self, delegate: self, managedObjectModel: self.model, searchPath: "search", resourceIDAttributeName: "id", sslIdentityAndCertificates: nil, permissionsEnabled: true)
     }()
     
     public let managedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
@@ -125,7 +126,21 @@ import NetworkObjects
     
     public func server(server: Server, permissionForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext?, key: String?) -> ServerPermission {
         
-        return ServerPermission.EditPermission
+        if managedObject == nil {
+            
+            return ServerPermission.EditPermission
+        }
+        
+        // get authenticated user from request and return permssions based on authenticated user
+        
+        var user: User?
+        
+        // all entities must conform to PermissionProtocol
+        
+        return (managedObject as PermissionProtocol).permisssionForRequest(request, user: user, key: key, context: context)
     }
-    
 }
+
+// MARK: - Private Constants
+
+private let ServerApplicationSupportFolderURL = NSFileManager.defaultManager().URLForDirectory(.ApplicationSupportDirectory, inDomain: NSSearchPathDomainMask.LocalDomainMask, appropriateForURL: nil, create: false, error: nil)?.URLByAppendingPathComponent("PedidoServer")

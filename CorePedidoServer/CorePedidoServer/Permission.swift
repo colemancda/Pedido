@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import CoreData
 import NetworkObjects
 import CorePedido
 
 protocol PermissionProtocol {
     
-    func permisssionForUser(user: User, key: String) -> ServerPermission
+    func permisssionForRequest(request: ServerRequest, user: User?, key: String?, context: NSManagedObjectContext?) -> ServerPermission
 }
