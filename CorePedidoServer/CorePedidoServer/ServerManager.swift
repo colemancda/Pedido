@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import NetworkObjects
+import RoutingHTTPServer
 import CorePedido
 
 @objc public class ServerManager: ServerDataSource, ServerDelegate {
@@ -17,10 +18,17 @@ import CorePedido
     
     public lazy var server: Server = {
         
-         return Server(dataSource: self, delegate: self, managedObjectModel: self.model, searchPath: "search", resourceIDAttributeName: "id", sslIdentityAndCertificates: nil, permissionsEnabled: true)
+        // create server
+        let server = Server(dataSource: self, delegate: self, managedObjectModel: self.model, searchPath: "search", resourceIDAttributeName: "id", sslIdentityAndCertificates: nil, permissionsEnabled: true)
+        
+        self.addAuthenticationHandlerToServer(server)
+        
+        return server
     }()
     
     public let managedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+    
+    public let sessionTokenLength: UInt = 25
     
     // MARK: - Private Properties
     
@@ -152,6 +160,95 @@ import CorePedido
         
         // get permissions
         return PermissionForRequest(request, session, managedObject, key, context)
+    }
+    
+    // MARK: - Private Methods
+    
+    private func addAuthenticationHandlerToServer(server: Server) {
+        
+        server.httpServer.post("/login", withBlock: { (request: RouteRequest!, response: RouteResponse!) -> Void in
+            
+            // get values...
+            
+            let jsonObject = NSJSONSerialization.JSONObjectWithData(request.body(), options: NSJSONReadingOptions.allZeros, error: nil) as? [String: String]
+            
+            let username = jsonObject?["username"]
+            
+            let password = jsonObject?["password"]
+            
+            if username == nil || password == nil {
+                
+                response.statusCode = ServerStatusCode.BadRequest.rawValue
+                
+                return
+            }
+            
+            // search for user with specified username and password
+            
+            let fetchRequest = NSFetchRequest(entityName: "user")
+            
+            let usernamePredicate = NSComparisonPredicate(leftExpression: NSExpression(forKeyPath: "username"),
+                rightExpression: NSExpression(forConstantValue: username!),
+                modifier: NSComparisonPredicateModifier.DirectPredicateModifier,
+                type: NSPredicateOperatorType.EqualToPredicateOperatorType,
+                options: NSComparisonPredicateOptions.CaseInsensitivePredicateOption)
+            
+            let passwordPredicate = NSComparisonPredicate(leftExpression: NSExpression(forKeyPath: "password"),
+                rightExpression: NSExpression(forConstantValue: password!),
+                modifier: NSComparisonPredicateModifier.DirectPredicateModifier,
+                type: NSPredicateOperatorType.EqualToPredicateOperatorType,
+                options: NSComparisonPredicateOptions.NormalizedPredicateOption)
+            
+            fetchRequest.predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType,
+                subpredicates: [usernamePredicate, passwordPredicate])
+            
+            // dont prefetch values
+            fetchRequest.includesPropertyValues = false
+            
+            // execute request
+            
+            var error: NSError?
+            
+            var user: User?
+            
+            self.managedObjectContext.performBlockAndWait({ () -> Void in
+                
+                user = self.managedObjectContext.executeFetchRequest(fetchRequest, error: &error)?.first as? User
+            })
+            
+            // internal error
+            if error != nil {
+                
+                response.statusCode = ServerStatusCode.InternalServerError.rawValue
+                
+                return
+            }
+            
+            // incorrect username or password
+            if user == nil {
+                
+                response.statusCode = ServerStatusCode.Forbidden.rawValue
+                
+                return
+            }
+            
+            // create new session
+            
+            var token: String?
+            
+            self.managedObjectContext.performBlockAndWait({ () -> Void in
+                
+                let session = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext: self.managedObjectContext) as Session
+                
+                // create new token
+                session.token = SessionTokenWithLength(self.sessionTokenLength)
+                
+                token = session.token
+            })
+            
+            
+            
+        })
     }
 }
 

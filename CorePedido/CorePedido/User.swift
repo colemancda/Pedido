@@ -18,6 +18,12 @@ public class User: NSManagedObject {
     @NSManaged public var name: String
     @NSManaged public var sessions: NSSet?
     
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        // set date created
+        self.dateCreated = NSDate()
+    }
 }
 
 // MARK: - Enumerations

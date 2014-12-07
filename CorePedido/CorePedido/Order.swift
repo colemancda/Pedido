@@ -19,6 +19,13 @@ public class Order: NSManagedObject {
     @NSManaged public var clientUser: ClientUser?
     @NSManaged public var staffUserAssigned: StaffUser?
     @NSManaged public var dateCreated: NSDate
+    
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        // set date created
+        self.dateCreated = NSDate()
+    }
 }
 
 // MARK: - Enumerations
