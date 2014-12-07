@@ -36,7 +36,7 @@ public class Store: NetworkObjects.Store {
                 searchPath: "search")
     }
     
-    // MARK: - Methods
+    // MARK: - Requests
     
     public func loginWithUsername(username: String, password: String, URLSession: NSURLSession = NSURLSession.sharedSession(), completionBlock: (error: NSError?, token: String?) -> Void) -> NSURLSessionDataTask {
         
@@ -114,6 +114,56 @@ public class Store: NetworkObjects.Store {
         
         return dataTask
     }
+    
+    // MARK: - Build URL Requests
+    
+    public override func requestForSearchEntity(name: String, withParameters parameters: [String : AnyObject]) -> NSURLRequest {
+        
+        return self.appendAuthorizationHeaderToRequest(request: super.requestForSearchEntity(name, withParameters: parameters))
+    }
+    
+    public override func requestForCreateEntity(name: String, withInitialValues initialValues: [String : AnyObject]?) -> NSURLRequest {
+        
+        return self.appendAuthorizationHeaderToRequest(request: super.requestForCreateEntity(name, withInitialValues: initialValues))
+    }
+    
+    public override func requestForFetchEntity(name: String, resourceID: UInt) -> NSURLRequest {
+        
+        return self.appendAuthorizationHeaderToRequest(request: super.requestForFetchEntity(name, resourceID: resourceID))
+    }
+    
+    public override func requestForEditEntity(name: String, resourceID: UInt, changes: [String : AnyObject]) -> NSURLRequest {
+        
+        return self.appendAuthorizationHeaderToRequest(request: super.requestForEditEntity(name, resourceID: resourceID, changes: changes))
+    }
+    
+    public override func requestForDeleteEntity(name: String, resourceID: UInt) -> NSURLRequest {
+        
+        return self.appendAuthorizationHeaderToRequest(request: super.requestForDeleteEntity(name, resourceID: resourceID))
+    }
+    
+    public override func requestForPerformFunction(functionName: String, entityName: String, resourceID: UInt, JSONObject: [String : AnyObject]?) -> NSURLRequest {
+        
+        return self.appendAuthorizationHeaderToRequest(request: self.requestForPerformFunction(functionName, entityName: entityName, resourceID: resourceID, JSONObject: JSONObject))
+    }
+    
+    // MARK: - Private Methods
+    
+    private func appendAuthorizationHeaderToRequest(request originalRequest: NSURLRequest) -> NSURLRequest {
+        
+        let token = self.delegate?.tokenForStore(self)
+        
+        if token == nil {
+            
+            return originalRequest
+        }
+        
+        let request = originalRequest.mutableCopy() as NSMutableURLRequest
+        
+        request.setValue(token, forHTTPHeaderField: AuthorizationHeader)
+        
+        return request
+    }
 }
 
 // MARK: - Protocols
@@ -126,5 +176,9 @@ public protocol StoreDelegate {
     /** Asks the delegate for a stored token. Called before each authenticated request. */
     func tokenForStore(store: Store)  -> String?
 }
+
+// MARK: - Private Constants
+
+private let AuthorizationHeader = "Authorization"
 
 
