@@ -28,7 +28,12 @@ import CorePedido
     
     public let managedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
     
+    // MARK: Server Configuration Properties
+    
     public let sessionTokenLength: UInt = 25
+    
+    /** The amount of time in secounds the session will last. */
+    public let sessionExpiryTimeInterval: NSTimeInterval = 10000000
     
     // MARK: - Private Properties
     
@@ -136,9 +141,9 @@ import CorePedido
         println("Successfully performed request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse)")
     }
     
-    public func server(server: Server, didInsertManagedObject: NSManagedObject, context: NSManagedObjectContext) {
+    public func server(server: Server, didInsertManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext) {
         
-        //
+        
     }
     
     public func server(server: Server, statusCodeForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext) -> ServerStatusCode {
@@ -245,14 +250,20 @@ import CorePedido
                 
                 let session = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext: self.managedObjectContext) as Session
                 
+                // set expiry date
+                session.expiryDate = NSDate(timeInterval: self.sessionExpiryTimeInterval, sinceDate: NSDate())
+                
                 // create new token
                 session.token = SessionTokenWithLength(self.sessionTokenLength)
                 
                 token = session.token
             })
             
+            // return token
             
+            let jsonData = NSJSONSerialization.dataWithJSONObject(["token": token!], options: NSJSONWritingOptions.allZeros, error: nil)
             
+            response.respondWithData(jsonData)
         })
     }
 }
