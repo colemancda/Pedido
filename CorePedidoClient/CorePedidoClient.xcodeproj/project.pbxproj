@@ -14,6 +14,7 @@
 		6E7DFEA81A3150F0002BE54B /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7DFEA31A3150DE002BE54B /* CorePedido.framework */; };
 		6E7DFEAA1A315127002BE54B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFEA91A315127002BE54B /* Store.swift */; };
 		6EE8D6671A33FA1E009DE5FE /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8D6661A33FA1E009DE5FE /* AuthenticationManager.swift */; };
+		6EE8D66F1A34184B009DE5FE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8D66E1A34184B009DE5FE /* Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		6E7DFE9D1A3150DE002BE54B /* CorePedido.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePedido.xcodeproj; path = ../CorePedido/CorePedido.xcodeproj; sourceTree = "<group>"; };
 		6E7DFEA91A315127002BE54B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		6EE8D6661A33FA1E009DE5FE /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		6EE8D66E1A34184B009DE5FE /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				6E7DFE861A3150D1002BE54B /* CorePedidoClient.h */,
 				6E7DFEA91A315127002BE54B /* Store.swift */,
 				6EE8D6661A33FA1E009DE5FE /* AuthenticationManager.swift */,
+				6EE8D66E1A34184B009DE5FE /* Error.swift */,
 				6E7DFE841A3150D1002BE54B /* Supporting Files */,
 			);
 			path = CorePedidoClient;
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E7DFEAA1A315127002BE54B /* Store.swift in Sources */,
+				6EE8D66F1A34184B009DE5FE /* Error.swift in Sources */,
 				6EE8D6671A33FA1E009DE5FE /* AuthenticationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
