@@ -10,7 +10,7 @@
     <entity name="Establishment" representedClassName="CorePedido.Establishment" syncable="YES">
         <attribute name="locale" attributeType="Transformable" syncable="YES"/>
         <attribute name="location" attributeType="String" syncable="YES"/>
-        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="establishment" inverseEntity="Image" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Image" inverseName="establishment" inverseEntity="Image" syncable="YES"/>
         <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="establishments" inverseEntity="MenuItem" syncable="YES"/>
         <relationship name="orders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Order" inverseName="establishment" inverseEntity="Order" syncable="YES"/>
     </entity>
@@ -19,7 +19,7 @@
         <attribute name="address" attributeType="String" minValueString="0" syncable="YES"/>
     </entity>
     <entity name="Image" representedClassName="CorePedido.Image" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="data" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="establishment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Establishment" inverseName="images" inverseEntity="Establishment" syncable="YES"/>
         <relationship name="menuItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="images" inverseEntity="MenuItem" syncable="YES"/>
     </entity>
@@ -58,11 +58,11 @@
     <entity name="Session" representedClassName="CorePedido.Session" syncable="YES">
         <attribute name="dateCreated" attributeType="Date" syncable="YES"/>
         <attribute name="expiryDate" attributeType="Date" syncable="YES"/>
-        <attribute name="token" attributeType="String" syncable="YES"/>
+        <attribute name="token" attributeType="String" minValueString="1" syncable="YES"/>
         <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sessions" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="StaffUser" representedClassName="CorePedido.StaffUser" parentEntity="User" syncable="YES">
-        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" minValueString="0" maxValueString="99" defaultValueString="0" syncable="YES"/>
         <relationship name="ordersAssigned" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Order" inverseName="staffUserAssigned" inverseEntity="Order" syncable="YES"/>
     </entity>
     <entity name="TableDeliveryTarget" representedClassName="CorePedido.TableDeliveryTarget" parentEntity="DeliveryTarget" syncable="YES">
