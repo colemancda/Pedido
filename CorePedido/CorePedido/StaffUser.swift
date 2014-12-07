@@ -15,3 +15,15 @@ public class StaffUser: User {
     @NSManaged public var ordersAssigned: NSSet?
 
 }
+
+// MARK: - Enumerations
+
+public enum StaffUserType: UInt {
+    
+    case Undefined      = 0
+    case Waiter         = 1
+    case Delivery       = 2
+    case Management     = 98
+    case Admin          = 99
+    
+}
