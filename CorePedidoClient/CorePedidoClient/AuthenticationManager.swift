@@ -12,7 +12,7 @@ public class AuthenticationManager: StoreDelegate {
     
     // MARK: - Properties
     
-    /** The store this manager will provide tokens to. Ensures that tokens can only be requested by one object. */
+    /** The store this manager will manage tokens for. Ensures that tokens can only be requested and provided by one object. */
     public let store: Store
     
     // MARK: - Private Properties
