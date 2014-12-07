@@ -58,7 +58,7 @@ extension CorePedidoClient.Store {
         }
         dispatch_once(&Static.onceToken) {
             
-            let psc = NSPersistentStoreCoordinator(managedObjectModel: NSManagedObjectModel())
+            let psc = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel)
             
             // add persistent store
             
@@ -66,7 +66,7 @@ extension CorePedidoClient.Store {
             
             psc.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: &error)
             
-            assert(error == nil, "Could add persistent store. (\(error))")
+            assert(error == nil, "Could add persistent store. (\(error!.localizedDescription))")
             
             let serverURL = NSURL(string: "http://localhost")!
             

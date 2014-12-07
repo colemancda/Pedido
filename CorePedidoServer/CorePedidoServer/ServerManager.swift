@@ -21,7 +21,7 @@ import CorePedido
         // create server
         let server = Server(dataSource: self,
             delegate: self,
-            managedObjectModel: self.model,
+            managedObjectModel: CorePedidoManagedObjectModel,
             searchPath: "search",
             resourceIDAttributeName: "id",
             sslIdentityAndCertificates: nil,
@@ -43,8 +43,6 @@ import CorePedido
     
     // MARK: - Private Properties
     
-    private let model = NSManagedObjectModel(contentsOfURL: NSBundle(identifier: "com.colemancda.CorePedido")!.URLForResource("Model", withExtension: "momd")!)!
-    
     private var latestResourceIDForEntity = [NSEntityDescription: UInt]()
     
     // MARK: - Initialization
@@ -63,7 +61,7 @@ import CorePedido
     public init() {
         
         // setup persistent store
-        self.managedObjectContext.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.model)
+        self.managedObjectContext.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel)
         
         let error = NSErrorPointer()
         

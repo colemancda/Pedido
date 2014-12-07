@@ -25,6 +25,8 @@ public class Store: NetworkObjects.Store {
         prettyPrintJSON: Bool,
         delegate: StoreDelegate?) {
             
+            assert(persistentStoreCoordinator.managedObjectModel === CorePedidoManagedObjectModel, "This class only accepts NSPersistentStoreCoordinator instances configured with the CorePedido managed object model")
+            
             self.delegate = delegate
             
             super.init(persistentStoreCoordinator: persistentStoreCoordinator,
