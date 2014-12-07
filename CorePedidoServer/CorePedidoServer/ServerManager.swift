@@ -136,6 +136,11 @@ import CorePedido
         println("Successfully performed request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse)")
     }
     
+    public func server(server: Server, didInsertManagedObject: NSManagedObject, context: NSManagedObjectContext) {
+        
+        //
+    }
+    
     public func server(server: Server, statusCodeForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext) -> ServerStatusCode {
         
         return ServerStatusCode.OK
