@@ -1,17 +1,12 @@
 //
 //  AppDelegate.swift
-//  Pedido
+//  Pedido Admin
 //
-//  Created by Alsey Coleman Miller on 12/6/14.
+//  Created by Alsey Coleman Miller on 12/7/14.
 //  Copyright (c) 2014 ColemanCDA. All rights reserved.
 //
 
 import UIKit
-import MapKit
-import CoreData
-import NetworkObjects
-import CorePedido
-import CorePedidoClient
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,9 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        
-        
         return true
     }
 
@@ -52,51 +44,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-// MARK: - Extensions
-
-extension CorePedidoClient.Store {
-    
-    class var sharedStore : CorePedidoClient.Store {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0
-            static var instance : CorePedidoClient.Store? = nil
-        }
-        dispatch_once(&Static.onceToken) {
-            
-            let psc = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel)
-            
-            // add persistent store
-            
-            var error: NSError?
-            
-            psc.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: &error)
-            
-            assert(error == nil, "Could add persistent store. (\(error!.localizedDescription))")
-            
-            let serverURL = NSURL(string: "http://localhost")!
-            
-            let store = CorePedidoClient.Store(persistentStoreCoordinator: psc,
-                managedObjectContextConcurrencyType: .MainQueueConcurrencyType,
-                serverURL: serverURL,
-                prettyPrintJSON: true,
-                delegate: AuthenticationManager.sharedManager)
-            
-            Static.instance = store
-        }
-        return Static.instance!
-    }
-}
-
-extension AuthenticationManager {
-    
-    class var sharedManager : AuthenticationManager {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0
-            static var instance : AuthenticationManager? = nil
-        }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = AuthenticationManager(store: Store.sharedStore)
-        }
-        return Static.instance!
-    }
-}

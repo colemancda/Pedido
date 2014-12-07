@@ -19,15 +19,18 @@ class EstablishmentsViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    // MARK: - Properties
+    
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     
 }
