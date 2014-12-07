@@ -250,6 +250,9 @@ import CorePedido
                 
                 let session = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext: self.managedObjectContext) as Session
                 
+                // set user
+                session.user = user!
+                
                 // set expiry date
                 session.expiryDate = NSDate(timeInterval: self.sessionExpiryTimeInterval, sinceDate: NSDate())
                 

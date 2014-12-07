@@ -15,5 +15,11 @@ public class Session: NSManagedObject {
     @NSManaged public var expiryDate: NSDate
     @NSManaged public var token: String
     @NSManaged public var user: User
-
+    
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        // set date created
+        self.dateCreated = NSDate()
+    }
 }

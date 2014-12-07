@@ -13,12 +13,23 @@ public class StaffUser: User {
 
     @NSManaged public var type: NSNumber
     @NSManaged public var ordersAssigned: NSSet?
-
+    
+    public func validateType(inout newValue: NSNumber, error outError: NSErrorPointer) -> Bool {
+        
+        if (StaffUserType(rawValue: newValue.integerValue) == nil) {
+            
+            // create error
+            
+            return false
+        }
+        
+        return true
+    }
 }
 
 // MARK: - Enumerations
 
-public enum StaffUserType: UInt {
+public enum StaffUserType: Int {
     
     case Undefined      = 0
     case Waiter         = 1
