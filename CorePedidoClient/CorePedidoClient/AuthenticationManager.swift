@@ -17,11 +17,11 @@ public class AuthenticationManager: StoreDelegate {
     
     // MARK: - Private Properties
     
-    private let tokenOperationQueue: NSOperationQueue = {
+    private let accessOperationQueue: NSOperationQueue = {
         
         let operationQueue = NSOperationQueue()
         
-        operationQueue.name = "AuthenticationManager Token Operation Queue"
+        operationQueue.name = "AuthenticationManager Private Variables Access Operation Queue"
         
         operationQueue.maxConcurrentOperationCount = 1
         
@@ -29,6 +29,10 @@ public class AuthenticationManager: StoreDelegate {
     }()
     
     private var token: String?
+    
+    private var username: String?
+    
+    private var password: String?
     
     // MARK: - Initialization
     
@@ -45,7 +49,7 @@ public class AuthenticationManager: StoreDelegate {
         
         var token: String?
         
-        self.tokenOperationQueue.addOperations([NSBlockOperation(block: { () -> Void in
+        self.accessOperationQueue.addOperations([NSBlockOperation(block: { () -> Void in
             
             token = self.token
             
@@ -58,9 +62,13 @@ public class AuthenticationManager: StoreDelegate {
         
         assert(store === self.store, "Only the manager's store can call the delegate methods")
         
-        self.tokenOperationQueue.addOperationWithBlock { () -> Void in
+        self.accessOperationQueue.addOperationWithBlock { () -> Void in
             
             self.token = token
+            
+            self.username = username
+            
+            self.password = password
         }
     }
 }
