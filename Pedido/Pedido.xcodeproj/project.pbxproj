@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6E79A3F21A34C7D100C7DE76 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E79A3F11A34C7D100C7DE76 /* LoginViewController.swift */; };
-		6E79A43C1A34C9AD00C7DE76 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79A4391A34C95C00C7DE76 /* CocoaLumberjack.framework */; };
-		6E79A43D1A34C9AD00C7DE76 /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79A4391A34C95C00C7DE76 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E79A4401A34C9AD00C7DE76 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79A4301A34C95500C7DE76 /* CocoaAsyncSocket.framework */; };
 		6E79A4411A34C9AD00C7DE76 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79A4301A34C95500C7DE76 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E79A4441A34C9AD00C7DE76 /* CocoaHTTPServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79A4271A34C94E00C7DE76 /* CocoaHTTPServer.framework */; };
@@ -29,6 +27,7 @@
 		6E7B3E761A3341A600DC278B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7B3E751A3341A600DC278B /* Images.xcassets */; };
 		6E7B3E791A3341A600DC278B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7B3E771A3341A600DC278B /* LaunchScreen.xib */; };
 		6E7B3E851A3341A600DC278B /* PedidoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7B3E841A3341A600DC278B /* PedidoTests.swift */; };
+		6EEA6B281A34F7DD00105413 /* EstablishmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA6B271A34F7DD00105413 /* EstablishmentsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,13 +129,6 @@
 			remoteGlobalIDString = DCB318CA14ED6C3B001CFBEE;
 			remoteInfo = FmwkTest;
 		};
-		6E79A43E1A34C9AD00C7DE76 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6E79A4331A34C95B00C7DE76 /* Lumberjack.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = DCB3185014EB418E001CFBEE;
-			remoteInfo = CocoaLumberjack;
-		};
 		6E79A4421A34C9AD00C7DE76 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6E79A42A1A34C95500C7DE76 /* CocoaAsyncSocket.xcodeproj */;
@@ -209,7 +201,6 @@
 				6E79A4491A34C9AD00C7DE76 /* RoutingHTTPServer.framework in Embed Frameworks */,
 				6E79A4511A34C9AE00C7DE76 /* NetworkObjects.framework in Embed Frameworks */,
 				6E79A4551A34C9AE00C7DE76 /* CorePedido.framework in Embed Frameworks */,
-				6E79A43D1A34C9AD00C7DE76 /* CocoaLumberjack.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +225,7 @@
 		6E7B3E7E1A3341A600DC278B /* PedidoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PedidoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7B3E831A3341A600DC278B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E7B3E841A3341A600DC278B /* PedidoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoTests.swift; sourceTree = "<group>"; };
+		6EEA6B271A34F7DD00105413 /* EstablishmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishmentsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +240,6 @@
 				6E79A4481A34C9AD00C7DE76 /* RoutingHTTPServer.framework in Frameworks */,
 				6E79A4501A34C9AE00C7DE76 /* NetworkObjects.framework in Frameworks */,
 				6E79A4541A34C9AE00C7DE76 /* CorePedido.framework in Frameworks */,
-				6E79A43C1A34C9AD00C7DE76 /* CocoaLumberjack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +357,7 @@
 				6E7B3E751A3341A600DC278B /* Images.xcassets */,
 				6E7B3E771A3341A600DC278B /* LaunchScreen.xib */,
 				6E79A3F11A34C7D100C7DE76 /* LoginViewController.swift */,
+				6EEA6B271A34F7DD00105413 /* EstablishmentsViewController.swift */,
 				6E7B3E6C1A3341A600DC278B /* Supporting Files */,
 			);
 			path = Pedido;
@@ -411,7 +403,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6E79A43F1A34C9AD00C7DE76 /* PBXTargetDependency */,
 				6E79A4431A34C9AD00C7DE76 /* PBXTargetDependency */,
 				6E79A4471A34C9AD00C7DE76 /* PBXTargetDependency */,
 				6E79A44B1A34C9AD00C7DE76 /* PBXTargetDependency */,
@@ -639,6 +630,7 @@
 			files = (
 				6E79A3F21A34C7D100C7DE76 /* LoginViewController.swift in Sources */,
 				6E7B3E6F1A3341A600DC278B /* AppDelegate.swift in Sources */,
+				6EEA6B281A34F7DD00105413 /* EstablishmentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,11 +645,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6E79A43F1A34C9AD00C7DE76 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CocoaLumberjack;
-			targetProxy = 6E79A43E1A34C9AD00C7DE76 /* PBXContainerItemProxy */;
-		};
 		6E79A4431A34C9AD00C7DE76 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CocoaAsyncSocket;

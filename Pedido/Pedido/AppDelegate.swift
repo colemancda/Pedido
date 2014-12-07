@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import MapKit
 import CoreData
+import NetworkObjects
 import CorePedido
 import CorePedidoClient
 
@@ -51,10 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension CorePedidoClient.Store {
     
-    class var sharedStore : Store {
+    class var sharedStore : CorePedidoClient.Store {
         struct Static {
             static var onceToken : dispatch_once_t = 0
-            static var instance : Store? = nil
+            static var instance : CorePedidoClient.Store? = nil
         }
         dispatch_once(&Static.onceToken) {
             
@@ -70,7 +72,7 @@ extension CorePedidoClient.Store {
             
             let serverURL = NSURL(string: "http://localhost")!
             
-            let store = Store(persistentStoreCoordinator: psc,
+            let store = CorePedidoClient.Store(persistentStoreCoordinator: psc,
                 managedObjectContextConcurrencyType: .MainQueueConcurrencyType,
                 serverURL: serverURL,
                 prettyPrintJSON: true,
