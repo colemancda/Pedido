@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-import UIKit
-
 class LoginViewController: UIViewController {
     
     override func viewDidLoad() {

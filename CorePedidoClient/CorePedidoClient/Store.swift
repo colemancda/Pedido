@@ -17,15 +17,14 @@ public class Store: NetworkObjects.Store {
     
     public var delegate: StoreDelegate?
     
+    public let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel)
+    
     // MARK: - Initialization
     
-    public init(persistentStoreCoordinator: NSPersistentStoreCoordinator,
-        managedObjectContextConcurrencyType: NSManagedObjectContextConcurrencyType,
+    public init(managedObjectContextConcurrencyType: NSManagedObjectContextConcurrencyType,
         serverURL: NSURL,
         prettyPrintJSON: Bool,
         delegate: StoreDelegate?) {
-            
-            assert(persistentStoreCoordinator.managedObjectModel === CorePedidoManagedObjectModel, "This class only accepts NSPersistentStoreCoordinator instances configured with the CorePedido managed object model")
             
             self.delegate = delegate
             

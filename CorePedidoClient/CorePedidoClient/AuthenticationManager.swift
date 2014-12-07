@@ -10,11 +10,6 @@ import Foundation
 
 public class AuthenticationManager: StoreDelegate {
     
-    // MARK: - Properties
-    
-    /** The store this manager will manage tokens for. Ensures that tokens can only be requested and provided by one object. */
-    public let store: Store
-    
     // MARK: - Private Properties
     
     private let accessOperationQueue: NSOperationQueue = {
@@ -36,16 +31,14 @@ public class AuthenticationManager: StoreDelegate {
     
     // MARK: - Initialization
     
-    public init(store: Store) {
+    public init() {
         
-        self.store = store
+        
     }
     
     // MARK: - StoreDelegate
     
     public func tokenForStore(store: Store) -> String? {
-        
-        assert(store === self.store, "Only the manager's store can call the delegate methods")
         
         var token: String?
         
@@ -59,9 +52,7 @@ public class AuthenticationManager: StoreDelegate {
     }
     
     public func store(store: Store, didLoginWithUsername username: String, password: String, token: String) {
-        
-        assert(store === self.store, "Only the manager's store can call the delegate methods")
-        
+                
         self.accessOperationQueue.addOperationWithBlock { () -> Void in
             
             self.token = token

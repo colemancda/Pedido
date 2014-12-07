@@ -6,7 +6,12 @@
 //  Copyright (c) 2014 ColemanCDA. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import CoreData
+import NetworkObjects
+import CorePedido
+import CorePedidoClient
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -44,3 +49,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+// MARK: - Enumerations
+
+enum MainStoryboardSegueIdentifier: String {
+    
+    case AuthenticationSegue = "authenticationSegue"
+}
+
+// MARK: - Extensions
+
+extension CorePedidoClient.Store {
+    
+    class var sharedStore : CorePedidoClient.Store {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0
+            static var instance : CorePedidoClient.Store? = nil
+        }
+        dispatch_once(&Static.onceToken) {
+            
+            let psc = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel)
+            
+            // add persistent store
+            
+            var error: NSError?
+            
+            psc.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: &error)
+            
+            assert(error == nil, "Could add persistent store. (\(error!.localizedDescription))")
+            
+            let serverURL = NSURL(string: "http://localhost")!
+            
+            let store = CorePedidoClient.Store(persistentStoreCoordinator: psc,
+                managedObjectContextConcurrencyType: .MainQueueConcurrencyType,
+                serverURL: serverURL,
+                prettyPrintJSON: true,
+                delegate: AuthenticationManager.sharedManager)
+            
+            Static.instance = store
+        }
+        return Static.instance!
+    }
+}
+
+extension AuthenticationManager {
+    
+    class var sharedManager : AuthenticationManager {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0
+            static var instance : AuthenticationManager? = nil
+        }
+        dispatch_once(&Static.onceToken) {
+            Static.instance = AuthenticationManager()
+        }
+        return Static.instance!
+    }
+}
