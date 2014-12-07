@@ -15,11 +15,11 @@ public class Store: NetworkObjects.Store {
     
     // MARK: - Properties
     
-    var delegate: StoreDelegate?
+    public var delegate: StoreDelegate?
     
     // MARK: - Initialization
     
-    init(persistentStoreCoordinator: NSPersistentStoreCoordinator,
+    public init(persistentStoreCoordinator: NSPersistentStoreCoordinator,
         managedObjectContextConcurrencyType: NSManagedObjectContextConcurrencyType,
         serverURL: NSURL,
         prettyPrintJSON: Bool,

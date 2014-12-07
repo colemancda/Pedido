@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreData
+import CorePedido
+import CorePedidoClient
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -46,15 +49,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // MARK: - Extensions
 
-public extension Store {
+extension CorePedidoClient.Store {
     
-    public class var sharedStore : Store {
+    class var sharedStore : Store {
         struct Static {
             static var onceToken : dispatch_once_t = 0
             static var instance : Store? = nil
         }
         dispatch_once(&Static.onceToken) {
-            Static.instance = Store()
+            
+            let psc = NSPersistentStoreCoordinator(managedObjectModel: NSManagedObjectModel())
+            
+            // add persistent store
+            
+            var error: NSError?
+            
+            psc.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: &error)
+            
+            assert(error == nil, "Could add persistent store. (\(error))")
+            
+            let serverURL = NSURL(string: "http://localhost")!
+            
+            let store = Store(persistentStoreCoordinator: psc,
+                managedObjectContextConcurrencyType: .MainQueueConcurrencyType,
+                serverURL: serverURL,
+                prettyPrintJSON: true,
+                delegate: AuthenticationManager.sharedManager)
+            
+            Static.instance = store
+        }
+        return Static.instance!
+    }
+}
+
+extension AuthenticationManager {
+    
+    class var sharedManager : AuthenticationManager {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0
+            static var instance : AuthenticationManager? = nil
+        }
+        dispatch_once(&Static.onceToken) {
+            Static.instance = AuthenticationManager(store: Store.sharedStore)
         }
         return Static.instance!
     }
