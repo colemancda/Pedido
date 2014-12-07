@@ -18,6 +18,9 @@ func PermissionForRequest(request: ServerRequest, session: Session?, managedObje
     case "User":
         return UserPermisssionForRequest(request, session, managedObject as? User, key, context)
         
+    case "Session":
+        return SessionPermisssionForRequest(request, session, managedObject as? Session, key, context)
+        
     default:
         return ServerPermission.ReadOnly
     }

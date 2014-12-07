@@ -105,7 +105,13 @@ import CorePedido
     public func server(server: Server, performFunction functionName: String, forManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext, recievedJsonObject: [String : AnyObject]?, request: ServerRequest) -> (ServerFunctionCode, [String : AnyObject]?) {
         
         // get user
-        let session = AuthenticationSessionFromRequestHeaders(request.headers, context)
+        let (session, error) = AuthenticationSessionFromRequestHeaders(request.headers, context)
+        
+        // report internal error
+        if error != nil {
+            
+            println("Internal error occurred while trying to get session from authentication headers. (\(error?.localizedDescription))")
+        }
         
         return PerformFunction(functionName, managedObject, context, session, recievedJsonObject)
     }
@@ -136,7 +142,13 @@ import CorePedido
         
         // get authenticated user from request and return permssions based on authenticated user
         
-        let session = AuthenticationSessionFromRequestHeaders(request.headers, context)
+        let (session, error) = AuthenticationSessionFromRequestHeaders(request.headers, context)
+        
+        // report internal error
+        if error != nil {
+            
+            println("Internal error occurred while trying to get session from authentication headers. (\(error?.localizedDescription))")
+        }
         
         // get permissions
         return PermissionForRequest(request, session, managedObject, key, context)
