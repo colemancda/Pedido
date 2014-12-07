@@ -44,3 +44,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: - Extensions
+
+public extension Store {
+    
+    public class var sharedStore : Store {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0
+            static var instance : Store? = nil
+        }
+        dispatch_once(&Static.onceToken) {
+            Static.instance = Store()
+        }
+        return Static.instance!
+    }
+}

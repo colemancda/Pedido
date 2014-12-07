@@ -19,7 +19,13 @@ import CorePedido
     public lazy var server: Server = {
         
         // create server
-        let server = Server(dataSource: self, delegate: self, managedObjectModel: self.model, searchPath: "search", resourceIDAttributeName: "id", sslIdentityAndCertificates: nil, permissionsEnabled: true)
+        let server = Server(dataSource: self,
+            delegate: self,
+            managedObjectModel: self.model,
+            searchPath: "search",
+            resourceIDAttributeName: "id",
+            sslIdentityAndCertificates: nil,
+            permissionsEnabled: true)
         
         self.addAuthenticationHandlerToServer(server)
         
