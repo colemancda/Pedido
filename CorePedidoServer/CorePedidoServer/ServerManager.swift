@@ -21,7 +21,7 @@ import CorePedido
         // create server
         let server = Server(dataSource: self,
             delegate: self,
-            managedObjectModel: CorePedidoManagedObjectModel,
+            managedObjectModel: CorePedidoManagedObjectModel(),
             searchPath: "search",
             resourceIDAttributeName: "id",
             sslIdentityAndCertificates: nil,
@@ -61,7 +61,7 @@ import CorePedido
     public init() {
         
         // setup persistent store
-        self.managedObjectContext.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel)
+        self.managedObjectContext.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.server.managedObjectModel)
         
         let error = NSErrorPointer()
         
@@ -199,7 +199,7 @@ import CorePedido
             
             // search for user with specified username and password
             
-            let fetchRequest = NSFetchRequest(entityName: "user")
+            let fetchRequest = NSFetchRequest(entityName: "User")
             
             let usernamePredicate = NSComparisonPredicate(leftExpression: NSExpression(forKeyPath: "username"),
                 rightExpression: NSExpression(forConstantValue: username!),

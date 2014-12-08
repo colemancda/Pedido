@@ -17,18 +17,16 @@ public class Store: NetworkObjects.Store {
     
     public var delegate: StoreDelegate?
     
-    public let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel)
-    
     // MARK: - Initialization
     
-    public init(managedObjectContextConcurrencyType: NSManagedObjectContextConcurrencyType,
-        serverURL: NSURL,
-        prettyPrintJSON: Bool,
+    public init(managedObjectContextConcurrencyType: NSManagedObjectContextConcurrencyType = .MainQueueConcurrencyType,
+        serverURL: NSURL = NSURL(string: "http://localhost:8080")!,
+        prettyPrintJSON: Bool = false,
         delegate: StoreDelegate?) {
             
             self.delegate = delegate
             
-            super.init(persistentStoreCoordinator: persistentStoreCoordinator,
+            super.init(managedObjectModel: CorePedidoManagedObjectModel(),
                 managedObjectContextConcurrencyType: managedObjectContextConcurrencyType,
                 serverURL: serverURL,
                 prettyPrintJSON: prettyPrintJSON,
@@ -45,6 +43,8 @@ public class Store: NetworkObjects.Store {
         
         let request = NSMutableURLRequest(URL: loginURL)
         
+        request.HTTPMethod = "POST"
+        
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(["username": username, "password": password], options: NSJSONWritingOptions.allZeros, error: nil)
         
         let dataTask = URLSession.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
@@ -52,6 +52,8 @@ public class Store: NetworkObjects.Store {
             if error != nil {
                 
                 completionBlock(error: error, token: nil)
+                
+                return
             }
             
             let httpResponse = response as NSHTTPURLResponse

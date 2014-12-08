@@ -68,23 +68,15 @@ extension CorePedidoClient.Store {
         }
         dispatch_once(&Static.onceToken) {
             
-            let psc = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel)
+            let store = CorePedidoClient.Store(prettyPrintJSON: true, delegate: AuthenticationManager.sharedManager)
             
             // add persistent store
             
             var error: NSError?
             
-            psc.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: &error)
+            store.managedObjectContext.persistentStoreCoordinator!.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: &error)
             
-            assert(error == nil, "Could add persistent store. (\(error!.localizedDescription))")
-            
-            let serverURL = NSURL(string: "http://localhost")!
-            
-            let store = CorePedidoClient.Store(persistentStoreCoordinator: psc,
-                managedObjectContextConcurrencyType: .MainQueueConcurrencyType,
-                serverURL: serverURL,
-                prettyPrintJSON: true,
-                delegate: AuthenticationManager.sharedManager)
+            assert(error == nil, "Could not add persistent store. (\(error!.localizedDescription))")
             
             Static.instance = store
         }

@@ -25,10 +25,6 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
-    // MARK: - Properties
-    
-    var store: CorePedidoClient.Store?
-    
     // MARK: - Initialization
     
     override func viewDidLoad() {
@@ -46,23 +42,18 @@ class LoginViewController: UIViewController {
         
         sender.enabled = false
         
-        let psc = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel)
-        
-        // add persistent store
-        
-        var error: NSError?
-        
-        psc.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: &error)
-        
-        assert(error == nil, "Could add persistent store. (\(error!.localizedDescription))")
-        
-        let serverURL = NSURL(string: self.serverURLTextField.text)
+        let serverURL = NSURL(string: self.serverURLTextField.text)?.standardizedURL
         
         if serverURL == nil {
             
             let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Error"),
                 message: NSLocalizedString("Invalid server URL", comment: "Invalid server URL"),
                 preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }))
             
             self.presentViewController(alert, animated: true, completion: nil)
             
@@ -71,15 +62,12 @@ class LoginViewController: UIViewController {
             return
         }
         
-        self.store = CorePedidoClient.Store(persistentStoreCoordinator: psc,
-            managedObjectContextConcurrencyType: .MainQueueConcurrencyType,
-            serverURL: serverURL!,
-            prettyPrintJSON: true,
-            delegate: AuthenticationManager())
+        // set new server URL
+        CorePedidoClient.Store.sharedStore.serverURL = serverURL!
         
         // login request
         
-        self.store!.loginWithUsername(usernameTextField.text, password: passwordTextField.text, completionBlock: { (error, token) -> Void in
+        CorePedidoClient.Store.sharedStore.loginWithUsername(usernameTextField.text, password: passwordTextField.text, completionBlock: { (error, token) -> Void in
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
@@ -93,6 +81,11 @@ class LoginViewController: UIViewController {
                     let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Error"),
                         message: error!.localizedDescription,
                         preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+                        
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    }))
                     
                     self.presentViewController(alert, animated: true, completion: nil)
                     

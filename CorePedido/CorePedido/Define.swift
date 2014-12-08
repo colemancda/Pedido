@@ -10,4 +10,7 @@ import Foundation
 import CoreData
 
 /** The managed object model for the CorePedido framework. */
-public let CorePedidoManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSBundle(identifier: "com.colemancda.Pedido")!.URLForResource("Model", withExtension: "momd")!)!
+public func CorePedidoManagedObjectModel() -> NSManagedObjectModel {
+    
+    return NSManagedObjectModel(contentsOfURL: NSBundle(identifier: "com.colemancda.CorePedido")!.URLForResource("Model", withExtension: "momd")!)!
+}
