@@ -43,7 +43,7 @@ import CorePedido
     
     // MARK: - Private Properties
     
-    private var latestResourceIDForEntity = [NSEntityDescription: UInt]()
+    private var latestResourceIDForEntity = [String: UInt]()
     
     // MARK: - Initialization
     
@@ -63,9 +63,12 @@ import CorePedido
         // setup persistent store
         self.managedObjectContext.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.server.managedObjectModel)
         
-        let error = NSErrorPointer()
+        var error: NSError?
         
-        self.managedObjectContext.persistentStoreCoordinator?.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: error)!
+        self.managedObjectContext.persistentStoreCoordinator!.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: &error)!
+        
+        // setup for empty server
+        self.addAdminUserIfEmpty()
     }
     
     // MARK: - Actions
@@ -96,20 +99,24 @@ import CorePedido
     
     public func server(server: Server, newResourceIDForEntity entity: NSEntityDescription) -> UInt {
         
-        // get last resource ID
-        let lastResourceID = self.latestResourceIDForEntity[entity]
-        
         // create new one
         var newResourceID: UInt = 0
         
-        // if not first resource ID, increment by 1
-        if lastResourceID != nil {
+        self.managedObjectContext.performBlockAndWait { () -> Void in
             
-            newResourceID = lastResourceID! + 1;
+            // get last resource ID
+            let lastResourceID = self.latestResourceIDForEntity[entity.name!]
+            
+            // if not first resource ID, increment by 1
+            if lastResourceID != nil {
+                
+                newResourceID = lastResourceID! + 1;
+            }
+            
+            // save new one
+            self.latestResourceIDForEntity[entity.name!] = newResourceID;
+
         }
-        
-        // save new one
-        self.latestResourceIDForEntity[entity] = newResourceID;
         
         return newResourceID
     }
@@ -272,6 +279,55 @@ import CorePedido
             
             response.respondWithData(jsonData)
         })
+    }
+    
+    private func addAdminUserIfEmpty() {
+        
+        let adminFetchRequest = NSFetchRequest(entityName: "StaffUser")
+        
+        adminFetchRequest.predicate = NSComparisonPredicate(leftExpression: NSExpression(forKeyPath: "username"),
+            rightExpression: NSExpression(forConstantValue: "admin"),
+            modifier: NSComparisonPredicateModifier.DirectPredicateModifier,
+            type: NSPredicateOperatorType.EqualToPredicateOperatorType,
+            options: NSComparisonPredicateOptions.CaseInsensitivePredicateOption)
+        
+        adminFetchRequest.includesPropertyValues = false
+        
+        var error: NSError?
+        
+        var results: [NSManagedObject]?
+        
+        self.managedObjectContext.performBlockAndWait { () -> Void in
+            
+            results = self.managedObjectContext.executeFetchRequest(adminFetchRequest, error: &error) as? [NSManagedObject]
+        }
+        
+        assert(error == nil, "Error while trying to fetch admin user. (\(error!.localizedDescription))")
+        
+        // admin found
+        if results!.count > 0 {
+            
+            return
+        }
+        
+        // create new admin
+        self.managedObjectContext.performBlockAndWait { () -> Void in
+            
+            let admin = NSEntityDescription.insertNewObjectForEntityForName("StaffUser", inManagedObjectContext: self.managedObjectContext) as StaffUser
+            
+            // set default values
+            admin.username = "admin"
+            admin.password = "admin1234"
+            admin.name = "Administrator"
+            admin.type = StaffUserType.Admin.rawValue
+            admin.setValue(0, forKey: self.server.resourceIDAttributeName)
+            
+            // update lastResourceID
+            self.latestResourceIDForEntity["User"] = 0;
+            
+            // save
+            assert(self.managedObjectContext.save(&error), "Error while trying to save new Admin user. (\(error!.localizedDescription))")
+        }
     }
 }
 
