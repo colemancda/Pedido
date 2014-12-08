@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E4507391A353A3300F5C7F1 /* GUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E4507381A353A3300F5C7F1 /* GUI.xcassets */; };
 		6E79A3F21A34C7D100C7DE76 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E79A3F11A34C7D100C7DE76 /* LoginViewController.swift */; };
 		6E79A4401A34C9AD00C7DE76 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79A4301A34C95500C7DE76 /* CocoaAsyncSocket.framework */; };
 		6E79A4411A34C9AD00C7DE76 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E79A4301A34C95500C7DE76 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -208,6 +209,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6E4507381A353A3300F5C7F1 /* GUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GUI.xcassets; path = "../../Shared Resources/GUI.xcassets"; sourceTree = "<group>"; };
 		6E79A3F11A34C7D100C7DE76 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6E79A3FD1A34C90600C7DE76 /* NetworkObjects.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkObjects.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../NetworkObjects/NetworkObjects/NetworkObjects.xcodeproj; sourceTree = "<absolute>"; };
 		6E79A4001A34C90600C7DE76 /* CorePedido.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePedido.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../CorePedido/CorePedido.xcodeproj; sourceTree = "<absolute>"; };
@@ -355,6 +357,7 @@
 				6E7B3E6E1A3341A600DC278B /* AppDelegate.swift */,
 				6E7B3E721A3341A600DC278B /* Main.storyboard */,
 				6E7B3E751A3341A600DC278B /* Images.xcassets */,
+				6E4507381A353A3300F5C7F1 /* GUI.xcassets */,
 				6E7B3E771A3341A600DC278B /* LaunchScreen.xib */,
 				6E79A3F11A34C7D100C7DE76 /* LoginViewController.swift */,
 				6EEA6B271A34F7DD00105413 /* EstablishmentsViewController.swift */,
@@ -609,6 +612,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E7B3E741A3341A600DC278B /* Main.storyboard in Resources */,
+				6E4507391A353A3300F5C7F1 /* GUI.xcassets in Resources */,
 				6E7B3E791A3341A600DC278B /* LaunchScreen.xib in Resources */,
 				6E7B3E761A3341A600DC278B /* Images.xcassets in Resources */,
 			);

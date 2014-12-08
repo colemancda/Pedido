@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E4507421A353A3A00F5C7F1 /* GUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E4507411A353A3A00F5C7F1 /* GUI.xcassets */; };
 		6EEA6B3F1A35002A00105413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA6B3E1A35002A00105413 /* AppDelegate.swift */; };
 		6EEA6B441A35002A00105413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EEA6B421A35002A00105413 /* Main.storyboard */; };
 		6EEA6B461A35002A00105413 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EEA6B451A35002A00105413 /* Images.xcassets */; };
@@ -207,6 +208,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6E4507411A353A3A00F5C7F1 /* GUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GUI.xcassets; path = "../../Shared Resources/GUI.xcassets"; sourceTree = "<group>"; };
 		6EEA6B391A35002A00105413 /* Pedido Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pedido Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEA6B3D1A35002A00105413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EEA6B3E1A35002A00105413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				6EEA6B3E1A35002A00105413 /* AppDelegate.swift */,
 				6EEA6B421A35002A00105413 /* Main.storyboard */,
 				6EEA6B451A35002A00105413 /* Images.xcassets */,
+				6E4507411A353A3A00F5C7F1 /* GUI.xcassets */,
 				6EEA6B471A35002A00105413 /* LaunchScreen.xib */,
 				6EEA6BE71A3505B700105413 /* LoginViewController.swift */,
 				6EEA6B3C1A35002A00105413 /* Supporting Files */,
@@ -606,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EEA6B441A35002A00105413 /* Main.storyboard in Resources */,
+				6E4507421A353A3A00F5C7F1 /* GUI.xcassets in Resources */,
 				6EEA6B491A35002A00105413 /* LaunchScreen.xib in Resources */,
 				6EEA6B461A35002A00105413 /* Images.xcassets in Resources */,
 			);
@@ -865,6 +869,7 @@
 				6EEA6B5A1A35002A00105413 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EEA6B5B1A35002A00105413 /* Build configuration list for PBXNativeTarget "Pedido AdminTests" */ = {
 			isa = XCConfigurationList;
@@ -873,6 +878,7 @@
 				6EEA6B5D1A35002A00105413 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
