@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
             
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
                 
-                self.dismissViewControllerAnimated(true, completion: nil)
+                alert.dismissViewControllerAnimated(true, completion: nil)
             }))
             
             self.presentViewController(alert, animated: true, completion: nil)
@@ -84,7 +84,7 @@ class LoginViewController: UIViewController {
                     
                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
                         
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                        alert.dismissViewControllerAnimated(true, completion: nil)
                     }))
                     
                     self.presentViewController(alert, animated: true, completion: nil)
