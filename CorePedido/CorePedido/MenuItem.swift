@@ -13,6 +13,7 @@ public class MenuItem: NSManagedObject {
     
     @NSManaged public var name: String
     @NSManaged public var price: NSNumber
+    @NSManaged public var currencyLocale: NSLocale
     @NSManaged public var establishments: NSSet?
     @NSManaged public var images: NSSet?
     @NSManaged public var localizedDescriptions: NSSet

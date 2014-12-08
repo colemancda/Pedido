@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E4507421A353A3A00F5C7F1 /* GUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E4507411A353A3A00F5C7F1 /* GUI.xcassets */; };
+		6E4507441A353B4E00F5C7F1 /* MenuItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */; };
 		6EEA6B3F1A35002A00105413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA6B3E1A35002A00105413 /* AppDelegate.swift */; };
 		6EEA6B441A35002A00105413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EEA6B421A35002A00105413 /* Main.storyboard */; };
 		6EEA6B461A35002A00105413 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EEA6B451A35002A00105413 /* Images.xcassets */; };
@@ -209,6 +210,7 @@
 
 /* Begin PBXFileReference section */
 		6E4507411A353A3A00F5C7F1 /* GUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GUI.xcassets; path = "../../Shared Resources/GUI.xcassets"; sourceTree = "<group>"; };
+		6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsViewController.swift; sourceTree = "<group>"; };
 		6EEA6B391A35002A00105413 /* Pedido Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pedido Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEA6B3D1A35002A00105413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EEA6B3E1A35002A00105413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				6E4507411A353A3A00F5C7F1 /* GUI.xcassets */,
 				6EEA6B471A35002A00105413 /* LaunchScreen.xib */,
 				6EEA6BE71A3505B700105413 /* LoginViewController.swift */,
+				6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */,
 				6EEA6B3C1A35002A00105413 /* Supporting Files */,
 			);
 			path = "Pedido Admin";
@@ -630,6 +633,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EEA6BE81A3505B700105413 /* LoginViewController.swift in Sources */,
+				6E4507441A353B4E00F5C7F1 /* MenuItemsViewController.swift in Sources */,
 				6EEA6B3F1A35002A00105413 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

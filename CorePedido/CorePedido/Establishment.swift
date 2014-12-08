@@ -15,6 +15,5 @@ public class Establishment: NSManagedObject {
     @NSManaged public var images: NSSet?
     @NSManaged public var menuItems: NSSet?
     @NSManaged public var orders: NSSet?
-    @NSManaged public var locale: NSLocale
 
 }

@@ -106,10 +106,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5oM-r3-cDw">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="K9b-0m-z0Z" detailTextLabel="dbK-ya-2sJ" style="IBUITableViewCellStyleValue1" id="5oM-r3-cDw">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5oM-r3-cDw" id="EvK-It-EzP">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Lomo Saltado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K9b-0m-z0Z">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="$10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dbK-ya-2sJ">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -128,7 +142,7 @@
         <scene sceneID="H20-xw-IX6">
             <objects>
                 <navigationController id="9d0-or-ES6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Menu Items" id="gpN-fo-1eF"/>
+                    <tabBarItem key="tabBarItem" title="Menu Items" image="titles" id="gpN-fo-1eF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fs2-Vs-Vu3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -172,7 +186,7 @@
         <scene sceneID="H87-Hu-XQn">
             <objects>
                 <navigationController id="4yf-hO-Cqf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Establishments" id="ntR-xh-UKp"/>
+                    <tabBarItem key="tabBarItem" title="Establishments" image="location pin" id="ntR-xh-UKp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zDx-0W-ynw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -216,7 +230,7 @@
         <scene sceneID="rCo-4U-gj3">
             <objects>
                 <navigationController id="fU5-zQ-F9n" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Orders" id="ekV-zS-qae"/>
+                    <tabBarItem key="tabBarItem" title="Orders" image="cart" id="ekV-zS-qae"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="m7k-x2-R05">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -287,7 +301,7 @@
         <scene sceneID="FwB-0S-Pew">
             <objects>
                 <navigationController id="Yfw-m3-YEt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" id="dSb-L2-AxM"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="user" id="dSb-L2-AxM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dp3-do-EI6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -304,7 +318,7 @@
         <scene sceneID="IGd-lz-lrS">
             <objects>
                 <navigationController id="U76-7Z-f8V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Users" id="w3d-x8-OAM"/>
+                    <tabBarItem key="tabBarItem" title="Users" image="user" id="w3d-x8-OAM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cUS-0Z-TVT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -318,4 +332,10 @@
             <point key="canvasLocation" x="873" y="1678"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cart" width="25" height="25"/>
+        <image name="location pin" width="20" height="25"/>
+        <image name="titles" width="25" height="25"/>
+        <image name="user" width="25" height="25"/>
+    </resources>
 </document>
