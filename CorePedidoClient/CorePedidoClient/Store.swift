@@ -94,7 +94,7 @@ public class Store: NetworkObjects.Store {
             
             // parse response...
             
-            let jsonObject = NSJSONSerialization.JSONObjectWithData(request.HTTPBody!, options: NSJSONReadingOptions.allZeros, error: nil) as? [String: String]
+            let jsonObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: nil) as? [String: String]
             
             let token = jsonObject?["token"]
             

@@ -24,6 +24,7 @@ import CorePedido
             managedObjectModel: CorePedidoManagedObjectModel(),
             searchPath: "search",
             resourceIDAttributeName: "id",
+            prettyPrintJSON: true,
             sslIdentityAndCertificates: nil,
             permissionsEnabled: true)
         
