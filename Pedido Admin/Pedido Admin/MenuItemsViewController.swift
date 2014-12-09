@@ -153,6 +153,13 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
         
         cell.detailTextLabel!.text = self.numberFormatter.stringFromNumber(menuItem.price)
     }
+    
+    // MARK: - Segues
+    
+    @IBAction func savedMenuItem(sender: UIStoryboardSegue) {
+        
+        
+    }
 }
 
 // MARK: - Private Enumerations
