@@ -31,37 +31,28 @@ class MenuItemViewController: UITableViewController {
         }
     }
     
-    var currencyLocale: NSLocale {
-        
-        didSet {
-            
-            // update UI
-            
-            self.currencyNumberFormatter.locale = self.currencyLocale
-            
-            self.currencySymbolLabel.text = self.currencyNumberFormatter.currencySymbol
-        }
-    }
-    
-    // MARK: - Private Properties
-    
-    private let currencyNumberFormatter: NSNumberFormatter = {
-        
-        let numberFormatter = NSNumberFormatter()
-        
-        numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-        
-        return numberFormatter
-        }()
-    
     // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // set defualt locale
-        self.currencyLocale = NSLocale.currentLocale()
+        // set UI to initial values
+        self.resetUI()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func save(sender: AnyObject) {
+        
+        
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func cancel(sender: AnyObject) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Private Methods
@@ -77,11 +68,15 @@ class MenuItemViewController: UITableViewController {
         
         // update UI
         
-        
+        self.nameTextField.text = menuItem!.name
+        self.priceTextfield.text = "\(menuItem!.price)"
+        self.currencySymbolLabel.text = menuItem!.currencyLocale.objectForKey(NSLocaleCurrencySymbol) as? String
     }
     
     private func resetUI() {
         
-        
+        self.nameTextField.text = ""
+        self.priceTextfield.text = ""
+        self.currencySymbolLabel.text = NSLocale.currentLocale().objectForKey(NSLocaleCurrencySymbol) as? String
     }
 }

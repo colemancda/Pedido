@@ -143,7 +143,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="bth-wI-tsW" kind="show" id="22X-sA-Hss"/>
+                                    <segue destination="bth-wI-tsW" kind="show" identifier="showMenuItem" id="22X-sA-Hss"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -153,7 +153,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu Items" id="gUQ-wA-4Ke">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="RPI-XH-4Vh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="RPI-XH-4Vh">
+                            <connections>
+                                <segue destination="WNa-fP-Koy" kind="presentation" id="Xzp-Lc-gVp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="0NL-JN-H0J">
                         <autoresizingMask key="autoresizingMask"/>
@@ -161,9 +165,6 @@
                             <action selector="reloadData:" destination="Zt8-R2-fRK" eventType="valueChanged" id="9dE-yL-sc5"/>
                         </connections>
                     </refreshControl>
-                    <connections>
-                        <segue destination="WNa-fP-Koy" kind="presentation" id="kKc-fF-RmG"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqb-zB-t8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -307,12 +308,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu Item" id="9Vj-XC-n7u">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="w0z-Y8-qb4"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="h3U-5G-ZO4"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="w0z-Y8-qb4">
+                            <connections>
+                                <action selector="cancel:" destination="bth-wI-tsW" id="OPv-9n-nfu"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="h3U-5G-ZO4">
+                            <connections>
+                                <action selector="save:" destination="bth-wI-tsW" id="bna-IX-tAS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="currencySymbolLabel" destination="fG3-0B-avl" id="6st-mb-Eg8"/>
-                        <outlet property="nameLabel" destination="M1B-u4-XCo" id="MNM-G5-asN"/>
                         <outlet property="nameTextField" destination="M1B-u4-XCo" id="fGh-vb-LRa"/>
                         <outlet property="priceTextfield" destination="YwD-BN-6cA" id="MIh-qi-R5f"/>
                         <segue destination="pLT-hn-2IO" kind="unwind" identifier="savedMenuItem" unwindAction="savedMenuItem:" id="LZX-8C-vWy"/>
