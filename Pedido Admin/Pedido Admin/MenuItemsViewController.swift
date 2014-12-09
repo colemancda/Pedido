@@ -38,25 +38,35 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
         return fetchedResultsController
     }()
     
+    // MARK: - Private Properties
+    
+    var datedRefreshed: NSDate?
+    
     // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        var error: NSError?
         
+        self.fetchedResultsController.performFetch(&error)
+        
+        assert(error == nil, "Could not execute -performFetch: on NSFetchedResultsController. (\(error!.localizedDescription))")
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         // reload data on appear
-        self.reloadData(self)
+        self.refresh(self)
     }
     
     // MARK: - Actions
     
-    @IBAction func reloadData(sender: AnyObject) {
+    @IBAction func refresh(sender: AnyObject) {
+        
+        self.datedRefreshed = NSDate()
         
         Store.sharedStore.performSearch(self.fetchedResultsController.fetchRequest, completionBlock: { (error, results) -> Void in
             
@@ -69,11 +79,13 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
                     
                     self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
                         
-                        self.reloadData(self)
+                        self.refresh(self)
                     })
                     
                     return
                 }
+                
+                self.tableView.reloadData()
             })
         })
     }
@@ -82,7 +94,7 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        return 0
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,7 +106,28 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
         
         let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MenuItemCell.rawValue, forIndexPath: indexPath) as UITableViewCell
         
+        // configure cell
+        self.configureCell(cell, atIndexPath: indexPath)
         
+        // fetch from server... (loading table view after -refresh:)
+        
+        if self.datedRefreshed != nil {
+            
+            // get model object
+            let menuItem = self.fetchedResultsController.objectAtIndexPath(indexPath) as MenuItem
+            
+            // get date cached
+            let dateCached = menuItem.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
+            
+            // fetch if older than refresh date
+            if dateCached == nil || dateCached?.compare(self.datedRefreshed!) == NSComparisonResult.OrderedDescending {
+                
+                Store.sharedStore.fetchEntity("MenuItem", resourceID: menuItem.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
+                    
+                    // fetched results controller should update cell
+                })
+            }
+        }
         
         return cell
     }
@@ -137,7 +170,26 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
         // get model object
         let menuItem = self.fetchedResultsController.objectAtIndexPath(indexPath) as MenuItem
         
+        let dateCached = menuItem.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
+        
+        // not cached
+        
+        if dateCached == nil {
+            
+            // configure empty cell... 
+            
+            cell.textLabel!.text = NSLocalizedString("Loading...", comment: "Loading...")
+            
+            cell.detailTextLabel!.text = ""
+            
+            cell.userInteractionEnabled = false
+            
+            return
+        }
+        
         // configure cell...
+        
+        cell.userInteractionEnabled = true
         
         cell.textLabel!.text = menuItem.name
         

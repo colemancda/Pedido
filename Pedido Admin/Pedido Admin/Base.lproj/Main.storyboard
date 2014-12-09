@@ -162,7 +162,7 @@
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="0NL-JN-H0J">
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
-                            <action selector="reloadData:" destination="Zt8-R2-fRK" eventType="valueChanged" id="9dE-yL-sc5"/>
+                            <action selector="refresh:" destination="Zt8-R2-fRK" eventType="valueChanged" id="6ue-Dh-5oj"/>
                         </connections>
                     </refreshControl>
                 </tableViewController>
