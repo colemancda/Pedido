@@ -23,7 +23,7 @@
         <relationship name="menuItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="images" inverseEntity="MenuItem" syncable="YES"/>
     </entity>
     <entity name="LocalizedText" representedClassName="CorePedido.LocalizedText" syncable="YES">
-        <attribute name="language" attributeType="String" minValueString="2" maxValueString="2" defaultValueString="en" syncable="YES"/>
+        <attribute name="locale" attributeType="Transformable" minValueString="2" maxValueString="2" defaultValueString="en" syncable="YES"/>
         <attribute name="text" attributeType="String" minValueString="1" syncable="YES"/>
         <relationship name="menuItemLocalizedDescription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="localizedDescriptions" inverseEntity="MenuItem" syncable="YES"/>
     </entity>
@@ -82,7 +82,7 @@
         <element name="Establishment" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="ExternalDeliveryTarget" positionX="-18" positionY="72" width="128" height="73"/>
         <element name="Image" positionX="-18" positionY="36" width="128" height="88"/>
-        <element name="LocalizedText" positionX="-36" positionY="9" width="128" height="88"/>
+        <element name="LocalizedText" positionX="-36" positionY="9" width="128" height="90"/>
         <element name="MenuItem" positionX="-54" positionY="-9" width="128" height="150"/>
         <element name="Order" positionX="-9" positionY="63" width="128" height="163"/>
         <element name="OrderItem" positionX="0" positionY="117" width="128" height="88"/>
