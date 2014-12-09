@@ -125,6 +125,8 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
                 Store.sharedStore.fetchEntity("MenuItem", resourceID: menuItem.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
                     
                     // fetched results controller should update cell
+                    
+                    println(managedObject)
                 })
             }
         }
