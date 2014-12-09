@@ -150,7 +150,7 @@ import CorePedido
     
     public func server(server: Server, didPerformRequest request: ServerRequest, withResponse response: ServerResponse, userInfo: [ServerUserInfoKey: AnyObject]) {
         
-        println("Successfully performed request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse)")
+        println("Successfully performed \(request.requestType.hashValue) request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse?)")
     }
     
     public func server(server: Server, didInsertManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext) {

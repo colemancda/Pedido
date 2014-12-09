@@ -62,23 +62,26 @@ class LoginViewController: UIViewController {
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
-                // enable login button
-                
-                self.loginButton.enabled = true
-                
                 // show error
                 if error != nil {
                     
-                    self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
+                    self.showErrorAlert(error!.localizedDescription, okHandler: { () -> Void in
                         
-                        self.login(self)
+                        // enable login button
+                        self.loginButton.enabled = true
+                        
+                    }, retryHandler: { () -> Void in
+                        
+                         self.login(self)
                     })
                     
                     return
                 }
                 
-                // present tab bar controller
+                // enable login button
+                self.loginButton.enabled = true
                 
+                // present tab bar controller
                 self.performSegueWithIdentifier(MainStoryboardSegueIdentifier.AuthenticationSegue.rawValue, sender: self)
             })
         })

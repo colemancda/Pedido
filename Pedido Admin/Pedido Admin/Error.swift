@@ -20,7 +20,9 @@ extension UIViewController {
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
             
-            alert.dismissViewControllerAnimated(true, completion: okHandler)
+            okHandler?()
+            
+            alert.dismissViewControllerAnimated(true, completion: nil)
         }))
         
         // optionally add retry button
@@ -29,10 +31,9 @@ extension UIViewController {
             
             alert.addAction(UIAlertAction(title: NSLocalizedString("Retry", comment: "Retry"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
                 
-                alert.dismissViewControllerAnimated(true, completion: { () -> Void in
-                    
-                    retryHandler!()
-                })
+                retryHandler!()
+                
+                alert.dismissViewControllerAnimated(true, completion: nil)
             }))
         }
         
