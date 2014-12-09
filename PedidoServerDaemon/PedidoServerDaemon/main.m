@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-@import NetworkObjects;
 @import CorePedidoServer;
 
 int main(int argc, const char * argv[]) {

@@ -54,7 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 enum MainStoryboardSegueIdentifier: String {
     
-    case AuthenticationSegue = "authenticationSegue"
+    case Authentication = "authentication"
+    case ShowMenuItem = "showMenuItem"
+    case NewMenuItem = "newMenuItem"
 }
 
 // MARK: - Extensions

@@ -124,9 +124,18 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
                 
                 Store.sharedStore.fetchEntity("MenuItem", resourceID: menuItem.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
                     
-                    // fetched results controller should update cell
+                    // configure error cell
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        
+                        if error != nil {
+                            
+                            // get cell for error request (may have changed)
+                            
+                            // TODO: handle error (show error text in cell)
+                        }
+                    })
                     
-                    println(managedObject)
+                    // fetched results controller should update cell
                 })
             }
         }
@@ -207,6 +216,36 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
     @IBAction func savedMenuItem(sender: UIStoryboardSegue) {
         
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let segueIdentifier = MainStoryboardSegueIdentifier(rawValue: segue.identifier!)!
+        
+        switch segueIdentifier {
+            
+        case .ShowMenuItem:
+            
+            // get destination VC
+            let menuItemVC = segue.destinationViewController as MenuItemViewController
+            
+            // get model object
+            let menuItem = self.fetchedResultsController.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as MenuItem
+            
+            // configure VC
+            menuItemVC.menuItem = menuItem
+            
+        case .NewMenuItem:
+            
+            // get destination VC
+            let menuItemVC = (segue.destinationViewController as UINavigationController).topViewController as MenuItemViewController
+            
+            // add cancel button
+            menuItemVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: menuItemVC, action: "cancel:")            
+            
+        default:
+            return
+        }
     }
 }
 

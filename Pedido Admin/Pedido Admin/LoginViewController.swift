@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
                 self.loginButton.enabled = true
                 
                 // present tab bar controller
-                self.performSegueWithIdentifier(MainStoryboardSegueIdentifier.AuthenticationSegue.rawValue, sender: self)
+                self.performSegueWithIdentifier(MainStoryboardSegueIdentifier.Authentication.rawValue, sender: self)
             })
         })
     }

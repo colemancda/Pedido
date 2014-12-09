@@ -91,7 +91,7 @@
                         <outlet property="passwordTextField" destination="nLq-xe-RV5" id="PjT-2A-3LX"/>
                         <outlet property="serverURLTextField" destination="fx0-fY-F0z" id="fQb-2i-su1"/>
                         <outlet property="usernameTextField" destination="SBU-Zw-iO4" id="Jxr-mS-Vmv"/>
-                        <segue destination="GpX-pZ-n4r" kind="presentation" identifier="authenticationSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="muv-I0-Wlk"/>
+                        <segue destination="GpX-pZ-n4r" kind="presentation" identifier="authentication" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="muv-I0-Wlk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QeT-AJ-5ew" sceneMemberID="firstResponder"/>
@@ -155,7 +155,7 @@
                     <navigationItem key="navigationItem" title="Menu Items" id="gUQ-wA-4Ke">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="RPI-XH-4Vh">
                             <connections>
-                                <segue destination="WNa-fP-Koy" kind="presentation" id="Xzp-Lc-gVp"/>
+                                <segue destination="WNa-fP-Koy" kind="presentation" identifier="newMenuItem" id="Xzp-Lc-gVp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -308,11 +308,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu Item" id="9Vj-XC-n7u">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="w0z-Y8-qb4">
-                            <connections>
-                                <action selector="cancel:" destination="bth-wI-tsW" id="OPv-9n-nfu"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="h3U-5G-ZO4">
                             <connections>
                                 <action selector="save:" destination="bth-wI-tsW" id="bna-IX-tAS"/>
