@@ -67,16 +67,10 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
                 // show error
                 if error != nil {
                     
-                    let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Error"),
-                        message: error!.localizedDescription,
-                        preferredStyle: UIAlertControllerStyle.Alert)
-                    
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+                    self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
                         
-                        alert.dismissViewControllerAnimated(true, completion: nil)
-                    }))
-                    
-                    self.presentViewController(alert, animated: true, completion: nil)
+                        self.reloadData(self)
+                    })
                     
                     return
                 }

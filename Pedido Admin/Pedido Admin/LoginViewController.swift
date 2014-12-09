@@ -36,28 +36,19 @@ class LoginViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func login(sender: UIButton) {
+    @IBAction func login(sender: AnyObject) {
         
         // disable button and start authentication process
         
-        sender.enabled = false
+        self.loginButton.enabled = false
         
         let serverURL = NSURL(string: self.serverURLTextField.text)?.standardizedURL
         
         if serverURL == nil {
             
-            let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Error"),
-                message: NSLocalizedString("Invalid server URL", comment: "Invalid server URL"),
-                preferredStyle: UIAlertControllerStyle.Alert)
+            self.showErrorAlert(NSLocalizedString("Invalid server URL", comment: "Invalid server URL"))
             
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
-                
-                alert.dismissViewControllerAnimated(true, completion: nil)
-            }))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-            sender.enabled = true
+            self.loginButton.enabled = true
             
             return
         }
@@ -73,21 +64,15 @@ class LoginViewController: UIViewController {
                 
                 // enable login button
                 
-                sender.enabled = true
+                self.loginButton.enabled = true
                 
                 // show error
                 if error != nil {
                     
-                    let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Error"),
-                        message: error!.localizedDescription,
-                        preferredStyle: UIAlertControllerStyle.Alert)
-                    
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+                    self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
                         
-                        alert.dismissViewControllerAnimated(true, completion: nil)
-                    }))
-                    
-                    self.presentViewController(alert, animated: true, completion: nil)
+                        self.login(self)
+                    })
                     
                     return
                 }
