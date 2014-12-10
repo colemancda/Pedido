@@ -15,14 +15,16 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"Initializing Server Manager");
         
-        [ServerManager sharedManager];
+        NSError *error = [[ServerManager sharedManager] start];
         
-        NSUInteger port = 8080;
+        if (error != nil) {
+            
+            NSLog(@"Could not start server on port %lu (%@)", [ServerManager sharedManager].serverPort, error.localizedDescription);
+            
+            return 1;
+        }
         
-        NSLog(@"Starting Server on port %ld", port);
-        
-        [[ServerManager sharedManager] startOnPort: port];
-        
+        NSLog(@"Started server on port %lu", [ServerManager sharedManager].serverPort);
     }
     
     [[NSRunLoop currentRunLoop] run];

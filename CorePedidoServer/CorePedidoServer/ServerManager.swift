@@ -33,6 +33,19 @@ import CorePedido
         return server
     }()
     
+    public lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+       
+        let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.server.managedObjectModel)
+        
+        var error: NSError?
+        
+        persistentStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: ServerSQLiteFileURL, options: nil, error: &error)
+        
+        assert(error == nil, "Could not add persistent store")
+        
+        return persistentStoreCoordinator
+    }()
+    
     // MARK: Server Configuration Properties
     
     public let sessionTokenLength: UInt = LoadServerSetting(ServerSetting.SessionTokenLength) as? UInt ?? 30
@@ -44,16 +57,7 @@ import CorePedido
     
     // MARK: - Private Properties
     
-    private var lastResourceIDByEntityName: [String: UInt] = {
-       
-        // try to get archived dictionary from disk
-        if let archivedLastResourceIDByEntityName = NSDictionary(contentsOfURL: ServerLastResourceIDByEntityNameFileURL) as? [String: UInt] {
-            
-            return archivedLastResourceIDByEntityName
-        }
-        
-        return [String: UInt]()
-    }()
+    private var lastResourceIDByEntityName: [String: UInt] = NSDictionary(contentsOfURL: ServerLastResourceIDByEntityNameFileURL) as? [String: UInt] ?? [String: UInt]()
     
     private var lastResourceIDByEntityNameOperationQueue: NSOperationQueue = {
        
@@ -74,7 +78,7 @@ import CorePedido
         
         cache.name = "CorePedidoServer.ServerManager sessionTokenCache"
         
-        cache.countLimit = 300;
+        cache.countLimit = LoadServerSetting(ServerSetting.SessionTokenCacheLimit) as? Int ?? 300;
         
         return cache
     }()
@@ -92,21 +96,19 @@ import CorePedido
         return Static.instance!
     }
     
-    public init() {
+    // MARK: - Actions
+    
+    /** Starts broadcasting the server. */
+    public func start() -> NSError? {
         
         // make sure we have the app support folder
         self.createApplicationSupportFolderIfNotPresent()
         
         // setup for empty server
         self.addAdminUserIfEmpty()
-    }
-    
-    // MARK: - Actions
-    
-    /** Starts broadcasting the server. */
-    public func start(onPort port: UInt) -> NSError? {
         
-        return self.server.start(onPort: port);
+        // start HTTP server
+        return self.server.start(onPort: self.serverPort);
     }
     
     /** Stops broadcasting the server. */
@@ -129,13 +131,10 @@ import CorePedido
         
         self.lastResourceIDByEntityNameOperationQueue.addOperations([NSBlockOperation(block: { () -> Void in
             
-            // get last resource ID
-            let lastResourceID = self.lastResourceIDByEntityName[entity.name!]
-            
-            // if not first resource ID, increment by 1
-            if lastResourceID != nil {
+            // get last resource ID and increment by 1
+            if let lastResourceID = self.lastResourceIDByEntityName[entity.name!] {
                 
-                newResourceID = lastResourceID! + 1;
+                newResourceID = lastResourceID + 1;
             }
             
             // save new one
@@ -210,19 +209,12 @@ import CorePedido
     private func newManagedObjectContext() -> NSManagedObjectContext {
         
         // create a new managed object context
-        
         let managedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         
         // setup persistent store coordinator
-        let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.server.managedObjectModel)
+        managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
         
-        var error: NSError?
-        
-        persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: nil, options: nil, error: &error)
-        
-        assert(error == nil, "Could not add persistent store")
-        
-        
+        return managedObjectContext
     }
     
     private func addAuthenticationHandlerToServer(server: Server) {
@@ -272,9 +264,11 @@ import CorePedido
             
             var user: User?
             
-            self.managedObjectContext.performBlockAndWait({ () -> Void in
+            let managedObjectContext = self.newManagedObjectContext()
+            
+            managedObjectContext.performBlockAndWait({ () -> Void in
                 
-                user = self.managedObjectContext.executeFetchRequest(fetchRequest, error: &error)?.first as? User
+                user = managedObjectContext.executeFetchRequest(fetchRequest, error: &error)?.first as? User
             })
             
             // internal error
@@ -294,12 +288,13 @@ import CorePedido
             }
             
             // create new session
-            
             var token: String?
             
-            self.managedObjectContext.performBlockAndWait({ () -> Void in
+            var sessionManagedObjectID: NSManagedObjectID?
+            
+            managedObjectContext.performBlockAndWait({ () -> Void in
                 
-                let session = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext: self.managedObjectContext) as Session
+                let session = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext: managedObjectContext) as Session
                 
                 // set user
                 session.user = user!
@@ -311,7 +306,22 @@ import CorePedido
                 session.token = SessionTokenWithLength(self.sessionTokenLength)
                 
                 token = session.token
+                sessionManagedObjectID = session.objectID
+                
+                // save
+                managedObjectContext.save(&error)
             })
+            
+            // internal error
+            if error != nil {
+                
+                response.statusCode = ServerStatusCode.InternalServerError.rawValue
+                
+                return
+            }
+            
+            // add token to cache
+            self.sessionTokenCache.setObject(sessionManagedObjectID!, forKey: token!)
             
             // return token
             
