@@ -71,18 +71,6 @@ import CorePedido
         
     }()
     
-    /** Session cache. Will store session tokens by the session's managed object ID. */
-    private var sessionTokenCache: NSCache = {
-       
-        let cache = NSCache()
-        
-        cache.name = "CorePedidoServer.ServerManager sessionTokenCache"
-        
-        cache.countLimit = LoadServerSetting(ServerSetting.SessionTokenCacheLimit) as? Int ?? 300;
-        
-        return cache
-    }()
-    
     // MARK: - Initialization
     
     public class var sharedManager : ServerManager {
@@ -126,27 +114,7 @@ import CorePedido
     
     public func server(server: Server, newResourceIDForEntity entity: NSEntityDescription) -> UInt {
         
-        // create new one
-        var newResourceID: UInt = 0
-        
-        self.lastResourceIDByEntityNameOperationQueue.addOperations([NSBlockOperation(block: { () -> Void in
-            
-            // get last resource ID and increment by 1
-            if let lastResourceID = self.lastResourceIDByEntityName[entity.name!] {
-                
-                newResourceID = lastResourceID + 1;
-            }
-            
-            // save new one
-            self.lastResourceIDByEntityName[entity.name!] = newResourceID;
-            
-            let saved = (self.lastResourceIDByEntityName as NSDictionary).writeToURL(ServerLastResourceIDByEntityNameFileURL, atomically: true)
-            
-            assert(saved, "Could not save lastResourceIDByEntityName dictionary to disk")
-            
-        })], waitUntilFinished: true)
-        
-        return newResourceID
+        return self.newResourceIDForEntity(entity)
     }
     
     public func server(server: Server, functionsForEntity entity: NSEntityDescription) -> [String] {
@@ -179,7 +147,7 @@ import CorePedido
     
     public func server(server: Server, didPerformRequest request: ServerRequest, withResponse response: ServerResponse, userInfo: [ServerUserInfoKey: AnyObject]) {
         
-        println("Processed \(request.requestType.hashValue) request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse?)")
+        println("Processed (\(request.requestType.hashValue)) request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse?)")
     }
     
     public func server(server: Server, didInsertManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext) {
@@ -215,6 +183,31 @@ import CorePedido
         managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
         
         return managedObjectContext
+    }
+    
+    private func newResourceIDForEntity(entity: NSEntityDescription) -> UInt {
+        
+        // create new one
+        var newResourceID: UInt = 0
+        
+        self.lastResourceIDByEntityNameOperationQueue.addOperations([NSBlockOperation(block: { () -> Void in
+            
+            // get last resource ID and increment by 1
+            if let lastResourceID = self.lastResourceIDByEntityName[entity.name!] {
+                
+                newResourceID = lastResourceID + 1;
+            }
+            
+            // save new one
+            self.lastResourceIDByEntityName[entity.name!] = newResourceID;
+            
+            let saved = (self.lastResourceIDByEntityName as NSDictionary).writeToURL(ServerLastResourceIDByEntityNameFileURL, atomically: true)
+            
+            assert(saved, "Could not save lastResourceIDByEntityName dictionary to disk")
+            
+        })], waitUntilFinished: true)
+        
+        return newResourceID
     }
     
     private func addAuthenticationHandlerToServer(server: Server) {
@@ -320,9 +313,6 @@ import CorePedido
                 return
             }
             
-            // add token to cache
-            self.sessionTokenCache.setObject(sessionManagedObjectID!, forKey: token!)
-            
             // return token
             
             let jsonData = NSJSONSerialization.dataWithJSONObject(["token": token!], options: NSJSONWritingOptions.allZeros, error: nil)
@@ -332,6 +322,8 @@ import CorePedido
     }
     
     private func addAdminUserIfEmpty() {
+        
+        let managedObjectContext = self.newManagedObjectContext()
         
         let adminFetchRequest = NSFetchRequest(entityName: "StaffUser")
         
@@ -347,9 +339,9 @@ import CorePedido
         
         var results: [NSManagedObject]?
         
-        self.managedObjectContext.performBlockAndWait { () -> Void in
+        managedObjectContext.performBlockAndWait { () -> Void in
             
-            results = self.managedObjectContext.executeFetchRequest(adminFetchRequest, error: &error) as? [NSManagedObject]
+            results = managedObjectContext.executeFetchRequest(adminFetchRequest, error: &error) as? [NSManagedObject]
         }
         
         assert(error == nil, "Error while trying to fetch admin user. (\(error!.localizedDescription))")
@@ -361,9 +353,9 @@ import CorePedido
         }
         
         // create new admin
-        self.managedObjectContext.performBlockAndWait { () -> Void in
+        managedObjectContext.performBlockAndWait { () -> Void in
             
-            let admin = NSEntityDescription.insertNewObjectForEntityForName("StaffUser", inManagedObjectContext: self.managedObjectContext) as StaffUser
+            let admin = NSEntityDescription.insertNewObjectForEntityForName("StaffUser", inManagedObjectContext: managedObjectContext) as StaffUser
             
             // set default values
             admin.username = "admin"
@@ -373,11 +365,13 @@ import CorePedido
             admin.setValue(0, forKey: self.server.resourceIDAttributeName)
             
             // update lastResourceID
-            self.latestResourceIDForEntity["User"] = 0;
+            self.lastResourceIDByEntityName["User"] = self.newResourceIDForEntity(NSEntityDescription.entityForName("StaffUser", inManagedObjectContext: managedObjectContext)!);
             
             // save
-            assert(self.managedObjectContext.save(&error), "Error while trying to save new Admin user. (\(error!.localizedDescription))")
+            managedObjectContext.save(&error)
         }
+        
+        assert(error == nil, "Error while trying to save new Admin user. (\(error!.localizedDescription))")
     }
     
     private func createApplicationSupportFolderIfNotPresent() {

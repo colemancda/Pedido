@@ -25,7 +25,6 @@ public enum ServerSetting: String {
     case ServerPort = "ServerPort"
     case SessionTokenLength = "SessionTokenLength"
     case SessionExpiryTimeInterval = "SessionExpiryTimeInterval"
-    case SessionTokenCacheLimit = "SessionTokenCacheLimit"
 }
 
 // MARK: - Functions
