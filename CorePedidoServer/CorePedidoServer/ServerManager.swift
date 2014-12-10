@@ -39,9 +39,10 @@ import CorePedido
         
         var error: NSError?
         
-        persistentStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: ServerSQLiteFileURL, options: nil, error: &error)
-        
-        assert(error == nil, "Could not add persistent store")
+        if persistentStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: ServerSQLiteFileURL, options: nil, error: &error) == nil {
+            
+            NSException(name: NSInternalInconsistencyException, reason: "Could not add persistent store. (\(error!.localizedDescription))", userInfo: nil)
+        }
         
         return persistentStoreCoordinator
     }()
@@ -375,7 +376,10 @@ import CorePedido
             managedObjectContext.save(&error)
         }
         
-        assert(error == nil, "Error while trying to save new Admin user. (\(error!.localizedDescription))")
+        if error != nil {
+            
+            NSException(name: NSInternalInconsistencyException, reason: "Error while trying to save new Admin user. (\(error!.localizedDescription))", userInfo: nil).raise()
+        }
         
         println("Created admin user")
     }
@@ -391,7 +395,10 @@ import CorePedido
             // create directory
             NSFileManager.defaultManager().createDirectoryAtURL(ServerApplicationSupportFolderURL, withIntermediateDirectories: true, attributes: nil, error: &error)
             
-            assert(error == nil, "Could not create application support directory")
+            if error != nil {
+                
+                NSException(name: NSInternalInconsistencyException, reason: "Could not create application support directory. (\(error!.localizedDescription))", userInfo: nil).raise()
+            }
         }
     }
 }
