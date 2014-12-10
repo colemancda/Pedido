@@ -380,12 +380,3 @@ import CorePedido
         }
     }
 }
-
-// MARK: - Private Constants
-
-private let ServerApplicationSupportFolderURL: NSURL = NSFileManager.defaultManager().URLForDirectory(.ApplicationSupportDirectory, inDomain: NSSearchPathDomainMask.LocalDomainMask, appropriateForURL: nil, create: false, error: nil)!.URLByAppendingPathComponent("PedidoServer")
-
-private let ServerSQLiteFileURL = ServerApplicationSupportFolderURL.URLByAppendingPathComponent("data.sqlite")
-
-private let ServerLastResourceIDByEntityNameFileURL = ServerApplicationSupportFolderURL.URLByAppendingPathComponent("lastResourceIDByEntityName.plist")
-

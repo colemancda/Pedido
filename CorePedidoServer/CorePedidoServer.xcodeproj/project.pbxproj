@@ -18,6 +18,7 @@
 		6E3DA3141A316C1F00290060 /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DA3071A316BF900290060 /* CorePedido.framework */; };
 		6E3DA3151A316C1F00290060 /* NetworkObjects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3DA30D1A316BF900290060 /* NetworkObjects.framework */; };
 		6E65D24F1A3293D800FEB0B5 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E65D24E1A3293D800FEB0B5 /* ServerManager.swift */; };
+		6EBADEBE1A37F8CD00E5CB7A /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBADEBD1A37F8CD00E5CB7A /* File.swift */; };
 		6EE8D6631A33C934009DE5FE /* Session+Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8D6621A33C934009DE5FE /* Session+Permission.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		6E3DA2FE1A316BF900290060 /* NetworkObjects.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkObjects.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../NetworkObjects/NetworkObjects/NetworkObjects.xcodeproj; sourceTree = "<absolute>"; };
 		6E3DA3011A316BF900290060 /* CorePedido.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePedido.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../CorePedido/CorePedido.xcodeproj; sourceTree = "<absolute>"; };
 		6E65D24E1A3293D800FEB0B5 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		6EBADEBD1A37F8CD00E5CB7A /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		6EE8D6621A33C934009DE5FE /* Session+Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+Permission.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 			children = (
 				6E3DA2E51A316BB100290060 /* CorePedidoServer.h */,
 				6E65D24E1A3293D800FEB0B5 /* ServerManager.swift */,
+				6EBADEBD1A37F8CD00E5CB7A /* File.swift */,
 				6E2BAD9C1A33A06100617F87 /* Authentication.swift */,
 				6E3DA2FC1A316BDD00290060 /* Permission.swift */,
 				6E2BAD941A338F0A00617F87 /* Function.swift */,
@@ -362,6 +365,7 @@
 				6E3DA2FD1A316BDD00290060 /* Permission.swift in Sources */,
 				6E2BAD951A338F0A00617F87 /* Function.swift in Sources */,
 				6E2BAD991A338F7400617F87 /* User+Function.swift in Sources */,
+				6EBADEBE1A37F8CD00E5CB7A /* File.swift in Sources */,
 				6E2BAD9D1A33A06200617F87 /* Authentication.swift in Sources */,
 				6EE8D6631A33C934009DE5FE /* Session+Permission.swift in Sources */,
 			);
