@@ -158,8 +158,10 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
             case .Insert:
                 self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
             case .Update:
-                let cell = self.tableView.cellForRowAtIndexPath(indexPath)
-                self.configureCell(cell!, atIndexPath: indexPath)
+                if let cell = self.tableView.cellForRowAtIndexPath(indexPath) {
+                    
+                    self.configureCell(cell, atIndexPath: indexPath)
+                }
             case .Move:
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                 self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
@@ -198,6 +200,8 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
             return
         }
         
+        println("Configuring cell for \(menuItem.description)")
+        
         // configure cell...
         
         cell.userInteractionEnabled = true
@@ -207,6 +211,10 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
         // build price text
         
         self.numberFormatter.locale = menuItem.currencyLocale
+        
+        let priceText = self.numberFormatter.stringFromNumber(menuItem.price)
+        
+        println("Price Text: \(priceText)")
         
         cell.detailTextLabel!.text = self.numberFormatter.stringFromNumber(menuItem.price)
     }

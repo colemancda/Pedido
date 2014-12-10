@@ -148,6 +148,16 @@ import CorePedido
     
     public func server(server: Server, didPerformRequest request: ServerRequest, withResponse response: ServerResponse, userInfo: [ServerUserInfoKey: AnyObject]) {
         
+        // save context
+        if let managedObjectContext = userInfo[ServerUserInfoKey.ManagedObjectContext] as? NSManagedObjectContext {
+            
+            var error: NSError?
+            
+            managedObjectContext.save(&error)
+            
+            
+        }
+        
         println("Processed (\(request.requestType.hashValue)) request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse?)")
     }
     

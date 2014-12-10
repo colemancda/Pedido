@@ -16,7 +16,7 @@ public class MenuItem: NSManagedObject {
     @NSManaged public var currencyLocale: NSLocale
     @NSManaged public var establishments: NSSet?
     @NSManaged public var images: NSSet?
-    @NSManaged public var localizedDescriptions: NSSet
+    @NSManaged public var localizedDescriptions: NSSet?
     @NSManaged public var orderItems: NSSet?
 
 }
