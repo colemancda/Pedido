@@ -376,13 +376,16 @@ import CorePedido
     
     private func createApplicationSupportFolderIfNotPresent() {
         
-        var isDirectory: Bool?
+        let fileExists = NSFileManager.defaultManager().fileExistsAtPath(ServerApplicationSupportFolderURL.path!, isDirectory: nil)
         
-        let fileExists = NSFileManager.defaultManager().fileExistsAtPath(ServerSQLiteFileURL.path!, isDirectory: &directory)
-        
-        if !fileExists || !isDirectory {
+        if !fileExists {
             
+            var error: NSError?
             
+            // create directory
+            NSFileManager.defaultManager().createDirectoryAtURL(ServerApplicationSupportFolderURL, withIntermediateDirectories: true, attributes: nil, error: &error)
+            
+            assert(error == nil, "Could not create application support directory")
         }
     }
 }
