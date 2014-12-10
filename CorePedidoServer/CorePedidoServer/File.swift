@@ -22,6 +22,7 @@ public let ServerSettingsFileURL = ServerApplicationSupportFolderURL.URLByAppend
 
 public enum ServerSetting: String {
     
+    case ServerPort = "ServerPort"
     case SessionTokenLength = "SessionTokenLength"
     case SessionExpiryTimeInterval = "SessionExpiryTimeInterval"
     case SessionTokenCacheLimit = "SessionTokenCacheLimit"
@@ -54,7 +55,7 @@ public func SaveServerSetting(serverSetting: ServerSetting, value: AnyObject) ->
     currentSettings![serverSetting.rawValue] = value
     
     // try to save
-    return  NSDictionary(dictionary: currentSettings!).writeToURL(ServerSettingsFileURL, atomically: true)
+    return NSDictionary(dictionary: currentSettings!).writeToURL(ServerSettingsFileURL, atomically: true)
 }
 
 

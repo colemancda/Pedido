@@ -35,10 +35,12 @@ import CorePedido
     
     // MARK: Server Configuration Properties
     
-    public let sessionTokenLength: UInt = 25
+    public let sessionTokenLength: UInt = LoadServerSetting(ServerSetting.SessionTokenLength) as? UInt ?? 30
     
     /** The amount of time in secounds the session will last. */
-    public let sessionExpiryTimeInterval: NSTimeInterval = 10000000
+    public let sessionExpiryTimeInterval: NSTimeInterval = LoadServerSetting(ServerSetting.SessionExpiryTimeInterval) as? NSTimeInterval ?? 10000000
+    
+    public let serverPort: UInt = LoadServerSetting(ServerSetting.ServerPort) as? UInt ?? 8080
     
     // MARK: - Private Properties
     
