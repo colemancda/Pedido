@@ -33,8 +33,6 @@ import CorePedido
         return server
     }()
     
-    public let managedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-    
     // MARK: Server Configuration Properties
     
     public let sessionTokenLength: UInt = 25
@@ -44,7 +42,40 @@ import CorePedido
     
     // MARK: - Private Properties
     
-    private var latestResourceIDForEntity = [String: UInt]()
+    private var lastResourceIDByEntityName: [String: UInt] = {
+       
+        // try to get archived dictionary from disk
+        if let archivedLastResourceIDByEntityName = NSDictionary(contentsOfURL: ServerLastResourceIDByEntityNameFileURL) as? [String: UInt] {
+            
+            return archivedLastResourceIDByEntityName
+        }
+        
+        return [String: UInt]()
+    }()
+    
+    private var lastResourceIDByEntityNameOperationQueue: NSOperationQueue = {
+       
+        let operationQueue = NSOperationQueue()
+        
+        operationQueue.name = "CorePedidoServer.ServerManager lastResourceIDByEntityName Access Queue"
+        
+        operationQueue.maxConcurrentOperationCount = 1
+        
+        return operationQueue
+        
+    }()
+    
+    /** Session cache. Will store session tokens by the session's managed object ID. */
+    private var sessionTokenCache: NSCache = {
+       
+        let cache = NSCache()
+        
+        cache.name = "CorePedidoServer.ServerManager sessionTokenCache"
+        
+        cache.countLimit = 300;
+        
+        return cache
+    }()
     
     // MARK: - Initialization
     
@@ -61,12 +92,8 @@ import CorePedido
     
     public init() {
         
-        // setup persistent store
-        self.managedObjectContext.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.server.managedObjectModel)
-        
-        var error: NSError?
-        
-        self.managedObjectContext.persistentStoreCoordinator!.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: &error)!
+        // make sure we have the app support folder
+        self.createApplicationSupportFolderIfNotPresent()
         
         // setup for empty server
         self.addAdminUserIfEmpty()
@@ -88,14 +115,9 @@ import CorePedido
     
     // MARK: - ServerDataSource
     
-    public func server(server: Server, resourcePathForEntity entity: NSEntityDescription) -> String {
-        
-        return entity.name!
-    }
-    
     public func server(server: Server, managedObjectContextForRequest request: ServerRequest) -> NSManagedObjectContext {
         
-        return managedObjectContext;
+        return self.newManagedObjectContext();
     }
     
     public func server(server: Server, newResourceIDForEntity entity: NSEntityDescription) -> UInt {
@@ -103,10 +125,10 @@ import CorePedido
         // create new one
         var newResourceID: UInt = 0
         
-        self.managedObjectContext.performBlockAndWait { () -> Void in
+        self.lastResourceIDByEntityNameOperationQueue.addOperations([NSBlockOperation(block: { () -> Void in
             
             // get last resource ID
-            let lastResourceID = self.latestResourceIDForEntity[entity.name!]
+            let lastResourceID = self.lastResourceIDByEntityName[entity.name!]
             
             // if not first resource ID, increment by 1
             if lastResourceID != nil {
@@ -115,9 +137,13 @@ import CorePedido
             }
             
             // save new one
-            self.latestResourceIDForEntity[entity.name!] = newResourceID;
-
-        }
+            self.lastResourceIDByEntityName[entity.name!] = newResourceID;
+            
+            let saved = (self.lastResourceIDByEntityName as NSDictionary).writeToURL(ServerLastResourceIDByEntityNameFileURL, atomically: true)
+            
+            assert(saved, "Could not save lastResourceIDByEntityName dictionary to disk")
+            
+        })], waitUntilFinished: true)
         
         return newResourceID
     }
@@ -136,6 +162,8 @@ import CorePedido
         if error != nil {
             
             println("Internal error occurred while trying to get session from authentication headers. (\(error?.localizedDescription))")
+            
+            return (ServerFunctionCode.InternalErrorPerformingFunction, nil)
         }
         
         return PerformFunction(functionName, managedObject, context, session, recievedJsonObject)
@@ -165,26 +193,35 @@ import CorePedido
     
     public func server(server: Server, permissionForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext, key: String?) -> ServerPermission {
         
-        if managedObject == nil {
-            
-            return ServerPermission.EditPermission
-        }
-        
         // get authenticated user from request and return permssions based on authenticated user
         
         let (session, error) = AuthenticationSessionFromRequestHeaders(request.headers, context)
         
-        // report internal error
-        if error != nil {
-            
-            println("Internal error occurred while trying to get session from authentication headers. (\(error?.localizedDescription))")
-        }
+        assert(error == nil, "Internal error occurred while trying to get session from authentication headers. (\(error?.localizedDescription))")
         
         // get permissions
         return PermissionForRequest(request, session, managedObject, key, context)
     }
     
     // MARK: - Private Methods
+    
+    private func newManagedObjectContext() -> NSManagedObjectContext {
+        
+        // create a new managed object context
+        
+        let managedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        
+        // setup persistent store coordinator
+        let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.server.managedObjectModel)
+        
+        var error: NSError?
+        
+        persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: nil, options: nil, error: &error)
+        
+        assert(error == nil, "Could not add persistent store")
+        
+        
+    }
     
     private func addAuthenticationHandlerToServer(server: Server) {
         
@@ -330,8 +367,25 @@ import CorePedido
             assert(self.managedObjectContext.save(&error), "Error while trying to save new Admin user. (\(error!.localizedDescription))")
         }
     }
+    
+    private func createApplicationSupportFolderIfNotPresent() {
+        
+        var isDirectory: Bool?
+        
+        let fileExists = NSFileManager.defaultManager().fileExistsAtPath(ServerSQLiteFileURL.path!, isDirectory: &directory)
+        
+        if !fileExists || !isDirectory {
+            
+            
+        }
+    }
 }
 
 // MARK: - Private Constants
 
-private let ServerApplicationSupportFolderURL = NSFileManager.defaultManager().URLForDirectory(.ApplicationSupportDirectory, inDomain: NSSearchPathDomainMask.LocalDomainMask, appropriateForURL: nil, create: false, error: nil)?.URLByAppendingPathComponent("PedidoServer")
+private let ServerApplicationSupportFolderURL: NSURL = NSFileManager.defaultManager().URLForDirectory(.ApplicationSupportDirectory, inDomain: NSSearchPathDomainMask.LocalDomainMask, appropriateForURL: nil, create: false, error: nil)!.URLByAppendingPathComponent("PedidoServer")
+
+private let ServerSQLiteFileURL = ServerApplicationSupportFolderURL.URLByAppendingPathComponent("data.sqlite")
+
+private let ServerLastResourceIDByEntityNameFileURL = ServerApplicationSupportFolderURL.URLByAppendingPathComponent("lastResourceIDByEntityName.plist")
+
