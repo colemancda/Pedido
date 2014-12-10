@@ -163,6 +163,7 @@ import CorePedido
     
     public func server(server: Server, didInsertManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext) {
         
+        // cleanup sessions
         
     }
     

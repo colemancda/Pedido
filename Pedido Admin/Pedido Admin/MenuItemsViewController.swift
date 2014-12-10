@@ -212,11 +212,10 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
         
         self.numberFormatter.locale = menuItem.currencyLocale
         
-        let priceText = self.numberFormatter.stringFromNumber(menuItem.price)
-        
-        println("Price Text: \(priceText)")
-        
         cell.detailTextLabel!.text = self.numberFormatter.stringFromNumber(menuItem.price)
+        
+        // fix detail text label not showing
+        cell.layoutIfNeeded()
     }
     
     // MARK: - Segues
