@@ -114,7 +114,7 @@ import CorePedido
     
     public func server(server: Server, newResourceIDForEntity entity: NSEntityDescription) -> UInt {
         
-        return self.newResourceIDForEntity(entity)
+        return self.newResourceIDForEntity(entity.name!)
     }
     
     public func server(server: Server, functionsForEntity entity: NSEntityDescription) -> [String] {
@@ -185,7 +185,7 @@ import CorePedido
         return managedObjectContext
     }
     
-    private func newResourceIDForEntity(entity: NSEntityDescription) -> UInt {
+    private func newResourceIDForEntity(entityName: String) -> UInt {
         
         // create new one
         var newResourceID: UInt = 0
@@ -193,13 +193,13 @@ import CorePedido
         self.lastResourceIDByEntityNameOperationQueue.addOperations([NSBlockOperation(block: { () -> Void in
             
             // get last resource ID and increment by 1
-            if let lastResourceID = self.lastResourceIDByEntityName[entity.name!] {
+            if let lastResourceID = self.lastResourceIDByEntityName[entityName] {
                 
                 newResourceID = lastResourceID + 1;
             }
             
             // save new one
-            self.lastResourceIDByEntityName[entity.name!] = newResourceID;
+            self.lastResourceIDByEntityName[entityName] = newResourceID;
             
             let saved = (self.lastResourceIDByEntityName as NSDictionary).writeToURL(ServerLastResourceIDByEntityNameFileURL, atomically: true)
             
@@ -289,6 +289,9 @@ import CorePedido
                 
                 let session = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext: managedObjectContext) as Session
                 
+                // set resource id
+                session.setValue(self.newResourceIDForEntity("Session"), forKey: self.server.resourceIDAttributeName)
+                
                 // set user
                 session.user = user!
                 
@@ -298,6 +301,7 @@ import CorePedido
                 // create new token
                 session.token = SessionTokenWithLength(self.sessionTokenLength)
                 
+                // set pointers
                 token = session.token
                 sessionManagedObjectID = session.objectID
                 
@@ -365,13 +369,15 @@ import CorePedido
             admin.setValue(0, forKey: self.server.resourceIDAttributeName)
             
             // update lastResourceID
-            self.lastResourceIDByEntityName["User"] = self.newResourceIDForEntity(NSEntityDescription.entityForName("StaffUser", inManagedObjectContext: managedObjectContext)!);
+            self.lastResourceIDByEntityName["User"] = self.newResourceIDForEntity("StaffUser");
             
             // save
             managedObjectContext.save(&error)
         }
         
         assert(error == nil, "Error while trying to save new Admin user. (\(error!.localizedDescription))")
+        
+        println("Created admin user")
     }
     
     private func createApplicationSupportFolderIfNotPresent() {
