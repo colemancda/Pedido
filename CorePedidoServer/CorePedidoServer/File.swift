@@ -54,7 +54,7 @@ public func SaveServerSetting(serverSetting: ServerSetting, value: AnyObject) ->
     currentSettings![serverSetting.rawValue] = value
     
     // try to save
-    return (currentSettings as NSDictionary).writeToURL(ServerSettingsFileURL, atomically: true)
+    return  NSDictionary(dictionary: currentSettings!).writeToURL(ServerSettingsFileURL, atomically: true)
 }
 
 
