@@ -167,7 +167,10 @@ import CorePedido
         
         let (session, error) = AuthenticationSessionFromRequestHeaders(request.headers, context)
         
-        assert(error == nil, "Internal error occurred while trying to get session from authentication headers. (\(error?.localizedDescription))")
+        if error != nil {
+            
+            println("Internal error occurred while trying to get session from authentication headers. (\(error?.localizedDescription))")
+        }
         
         // get permissions
         return PermissionForRequest(request, session, managedObject, key, context)
