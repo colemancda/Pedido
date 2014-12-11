@@ -31,6 +31,8 @@
 		6EEA6BE31A35055E00105413 /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEA6BAF1A35053E00105413 /* CorePedido.framework */; };
 		6EEA6BE41A35055E00105413 /* CorePedido.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEA6BAF1A35053E00105413 /* CorePedido.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EEA6BE81A3505B700105413 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA6BE71A3505B700105413 /* LoginViewController.swift */; };
+		6EF7129A1A393BF800F7BAE6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF712991A393BF800F7BAE6 /* PickerViewController.swift */; };
+		6EF7129C1A39532900F7BAE6 /* FetchedResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +234,8 @@
 		6EEA6B9A1A35053E00105413 /* NetworkObjects.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkObjects.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../NetworkObjects/NetworkObjects/NetworkObjects.xcodeproj; sourceTree = "<absolute>"; };
 		6EEA6B9D1A35053E00105413 /* CorePedido.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePedido.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../CorePedido/CorePedido.xcodeproj; sourceTree = "<absolute>"; };
 		6EEA6BE71A3505B700105413 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6EF712991A393BF800F7BAE6 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,9 +291,7 @@
 				6E4507411A353A3A00F5C7F1 /* GUI.xcassets */,
 				6EEA6B471A35002A00105413 /* LaunchScreen.xib */,
 				6E6DC8121A36A0AE006C15DE /* Error.swift */,
-				6EEA6BE71A3505B700105413 /* LoginViewController.swift */,
-				6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */,
-				6E6DC8091A368357006C15DE /* MenuItemViewController.swift */,
+				6EF712981A393BDA00F7BAE6 /* Controllers */,
 				6EEA6B3C1A35002A00105413 /* Supporting Files */,
 			);
 			path = "Pedido Admin";
@@ -396,6 +398,26 @@
 				6EEA6BB11A35053E00105413 /* CorePedidoTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6EF712901A393BCD00F7BAE6 /* Picker View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6EF712991A393BF800F7BAE6 /* PickerViewController.swift */,
+			);
+			name = "Picker View Controller";
+			sourceTree = "<group>";
+		};
+		6EF712981A393BDA00F7BAE6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6EEA6BE71A3505B700105413 /* LoginViewController.swift */,
+				6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */,
+				6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */,
+				6E6DC8091A368357006C15DE /* MenuItemViewController.swift */,
+				6EF712901A393BCD00F7BAE6 /* Picker View Controller */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -638,7 +660,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EF7129A1A393BF800F7BAE6 /* PickerViewController.swift in Sources */,
 				6EEA6BE81A3505B700105413 /* LoginViewController.swift in Sources */,
+				6EF7129C1A39532900F7BAE6 /* FetchedResultsViewController.swift in Sources */,
 				6E4507441A353B4E00F5C7F1 /* MenuItemsViewController.swift in Sources */,
 				6E6DC80A1A368357006C15DE /* MenuItemViewController.swift in Sources */,
 				6E6DC8131A36A0AE006C15DE /* Error.swift in Sources */,
