@@ -216,7 +216,7 @@ import CorePedido
             
             if !(self.lastResourceIDByEntityName as NSDictionary).writeToURL(ServerLastResourceIDByEntityNameFileURL, atomically: true) {
                 
-                NSException(name: NSInternalInconsistencyException, reason: "Could not save lastResourceIDByEntityName dictionary to disk. (\(error!.localizedDescription))", userInfo: nil)
+                NSException(name: NSInternalInconsistencyException, reason: "Could not save lastResourceIDByEntityName dictionary to disk", userInfo: nil)
             }
         })], waitUntilFinished: true)
         
@@ -293,9 +293,6 @@ import CorePedido
                 return
             }
             
-            // remove old sessions so we dont have a validation error
-            error = self.removeOldSessions(fromUser: user!, inManagedObjectContext: managedObjectContext)
-            
             // internal error
             if error != nil {
                 
@@ -347,27 +344,6 @@ import CorePedido
             
             response.respondWithData(jsonData)
         })
-    }
-    
-    private func removeOldSessions(fromUser user: User, inManagedObjectContext context: NSManagedObjectContext) -> NSError? {
-        
-        // dont to anything
-        if user.sessions == nil {
-            
-            return nil
-        }
-        
-        var error: NSError?
-        
-        context.performBlockAndWait { () -> Void in
-            
-            // sort sessions
-            let sessions = user.sessions!.sortedArrayUsingDescriptors([NSSortDescriptor(key: self.server.resourceIDAttributeName, ascending: false)]) as [Session]
-            
-            // remove everything after 9th item (index 8)
-            
-            
-        }
     }
     
     private func addAdminUserIfEmpty() {

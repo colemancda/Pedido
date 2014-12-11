@@ -73,6 +73,8 @@ class MenuItemViewController: UITableViewController {
         
         numberFormatter.locale = self.currencyLocale
         
+        numberFormatter.currencySymbol = ""
+        
         let price = numberFormatter.numberFromString(self.priceTextfield.text)
         
         // invalid price text
@@ -103,11 +105,7 @@ class MenuItemViewController: UITableViewController {
                         return
                     }
                     
-                    // dismiss VC
-                    if self.presentingViewController != nil {
-                        
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                    }
+                    self.performSegueWithIdentifier(MainStoryboardSegueIdentifier.SavedMenuItem.rawValue, sender: self)
                 })
             })
             
@@ -131,11 +129,7 @@ class MenuItemViewController: UITableViewController {
                     return
                 }
                 
-                // dismiss VC
-                if self.presentingViewController != nil {
-                    
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                }
+                self.performSegueWithIdentifier(MainStoryboardSegueIdentifier.SavedMenuItem.rawValue, sender: self)
             })
         })
     }
