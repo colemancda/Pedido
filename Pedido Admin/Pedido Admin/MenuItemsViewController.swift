@@ -12,7 +12,7 @@ import CoreData
 import CorePedido
 import CorePedidoClient
 
-class MenuItemsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MenuItemsViewController: FetchedResultsViewController {
     
     // MARK: - Properties
     
@@ -25,163 +25,35 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
         return numberFormatter
     }()
     
-    lazy var fetchedResultsController: NSFetchedResultsController = {
-        
-        let fetchRequest = NSFetchRequest(entityName: "MenuItem")
-        
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CorePedidoClient.Store.sharedStore.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        fetchedResultsController.delegate = self
-        
-        return fetchedResultsController
-    }()
-    
-    // MARK: - Private Properties
-    
-    var datedRefreshed: NSDate?
-    
     // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        var error: NSError?
+        // set fetch request
+        let fetchRequest = NSFetchRequest(entityName: "MenuItem")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
-        self.fetchedResultsController.performFetch(&error)
-        
-        assert(error == nil, "Could not execute -performFetch: on NSFetchedResultsController. (\(error!.localizedDescription))")
+        self.fetchRequest = fetchRequest
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    // MARK: - Methods
+    
+    override func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         
-        // reload data on appear
-        self.refresh(self)
+        return self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MenuItemCell.rawValue, forIndexPath: indexPath) as UITableViewCell
     }
     
-    // MARK: - Actions
-    
-    @IBAction func refresh(sender: AnyObject) {
+    override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError?) {
         
-        self.datedRefreshed = NSDate()
-        
-        Store.sharedStore.performSearch(self.fetchedResultsController.fetchRequest, completionBlock: { (error, results) -> Void in
+        if error != nil {
             
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                
-                self.refreshControl!.endRefreshing()
-                
-                // show error
-                if error != nil {
-                    
-                    self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
-                        
-                        self.refresh(self)
-                    })
-                    
-                    return
-                }
-                
-                self.tableView.reloadData()
-            })
-        })
-    }
-    
-    // MARK: - UITableViewDataSource
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return self.fetchedResultsController.fetchedObjects?.count ?? 0
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MenuItemCell.rawValue, forIndexPath: indexPath) as UITableViewCell
-        
-        // configure cell
-        self.configureCell(cell, atIndexPath: indexPath)
-        
-        // fetch from server... (loading table view after -refresh:)
-        
-        if self.datedRefreshed != nil {
+            // TODO: Configure cell for error
             
-            // get model object
-            let menuItem = self.fetchedResultsController.objectAtIndexPath(indexPath) as MenuItem
-            
-            // get date cached
-            let dateCached = menuItem.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
-            
-            // fetch if older than refresh date
-            if dateCached == nil || dateCached?.compare(self.datedRefreshed!) == NSComparisonResult.OrderedDescending {
-                
-                Store.sharedStore.fetchEntity("MenuItem", resourceID: menuItem.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
-                    
-                    // configure error cell
-                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                        
-                        if error != nil {
-                            
-                            // get cell for error request (may have changed)
-                            
-                            // TODO: handle error (show error text in cell)
-                        }
-                    })
-                    
-                    // fetched results controller should update cell
-                })
-            }
         }
         
-        return cell
-    }
-    
-    // MARK: - NSFetchedResultsControllerDelegate
-    
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        self.tableView.beginUpdates()
-    }
-    
-    func controller(controller: NSFetchedResultsController,
-        didChangeObject object: AnyObject,
-        atIndexPath indexPath: NSIndexPath,
-        forChangeType type: NSFetchedResultsChangeType,
-        newIndexPath: NSIndexPath) {
-            switch type {
-            case .Insert:
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
-            case .Update:
-                if let cell = self.tableView.cellForRowAtIndexPath(indexPath) {
-                    
-                    self.configureCell(cell, atIndexPath: indexPath)
-                }
-            case .Move:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
-            case .Delete:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-            default:
-                return
-            }
-    }
-    
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        self.tableView.endUpdates()
-    }
-    
-    // MARK: - Private Methods
-    
-    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        
         // get model object
-        let menuItem = self.fetchedResultsController.objectAtIndexPath(indexPath) as MenuItem
+        let menuItem = self.fetchedResultsController!.objectAtIndexPath(indexPath) as MenuItem
         
         let dateCached = menuItem.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
         
@@ -235,7 +107,7 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
             let menuItemVC = segue.destinationViewController as MenuItemViewController
             
             // get model object
-            let menuItem = self.fetchedResultsController.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as MenuItem
+            let menuItem = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as MenuItem
             
             // configure VC
             menuItemVC.menuItem = menuItem

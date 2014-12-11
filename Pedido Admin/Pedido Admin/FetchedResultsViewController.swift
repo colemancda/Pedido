@@ -49,11 +49,9 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         }
     }
     
-    // MARK: - Private Properties
+    var datedRefreshed: NSDate?
     
-    private var datedRefreshed: NSDate?
-    
-    private var fetchedResultsController: NSFetchedResultsController?
+    var fetchedResultsController: NSFetchedResultsController?
     
     // MARK: - Initialization
     
@@ -71,8 +69,64 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        // reload data on appear
+        // start reloading data before view appears
         self.refresh(self)
+    }
+    
+    
+    
+    // MARK: - Methods
+    
+    /** Subclasses should overrride this to provide custom cells. */
+    func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let CellIdentifier = NSStringFromClass(UITableViewCell)
+        
+        var cell = self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as? UITableViewCell
+        
+        if cell == nil {
+            
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+        }
+        
+        return cell!
+    }
+    
+    /** Subclasses should overrride this to configure custom cells. */
+    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError? = nil) {
+        
+        if error != nil {
+            
+            // TODO: Configure cell for error
+            
+        }
+        
+        // get model object
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+        
+        let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
+        
+        // not cached
+        
+        if dateCached == nil {
+            
+            // configure empty cell...
+            
+            cell.textLabel!.text = NSLocalizedString("Loading...", comment: "Loading...")
+            
+            cell.detailTextLabel!.text = ""
+            
+            cell.userInteractionEnabled = false
+            
+            return
+        }
+        
+        // configure cell...
+        
+        cell.userInteractionEnabled = true
+        
+        // Entity name + resource ID
+        cell.textLabel!.text = "\(managedObject.entity)" + "\(managedObject.valueForKey(Store.sharedStore.resourceIDAttributeName))"
     }
     
     // MARK: - Actions
@@ -187,58 +241,5 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.endUpdates()
-    }
-    
-    // MARK: - Private Methods
-    
-    /** Subclasses should overrride this to provide custom cells. */
-    private func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let CellIdentifier = NSStringFromClass(UITableViewCell)
-        
-        var cell = self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as? UITableViewCell
-        
-        if cell == nil {
-            
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
-        }
-        
-        return cell!
-    }
-    
-    private func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError? = nil) {
-        
-        if error != nil {
-            
-            // TODO: Configure cell for error
-            
-        }
-        
-        // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
-        
-        let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
-        
-        // not cached
-        
-        if dateCached == nil {
-            
-            // configure empty cell...
-            
-            cell.textLabel!.text = NSLocalizedString("Loading...", comment: "Loading...")
-            
-            cell.detailTextLabel!.text = ""
-            
-            cell.userInteractionEnabled = false
-            
-            return
-        }
-        
-        // configure cell...
-        
-        cell.userInteractionEnabled = true
-        
-        // Entity name + resource ID
-        cell.textLabel!.text = "\(managedObject.entity)" + "\(managedObject.valueForKey(Store.sharedStore.resourceIDAttributeName))"
     }
 }
