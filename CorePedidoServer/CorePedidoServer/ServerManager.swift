@@ -22,8 +22,6 @@ import CorePedido
         let server = Server(dataSource: self,
             delegate: self,
             managedObjectModel: CorePedidoManagedObjectModel(),
-            searchPath: "search",
-            resourceIDAttributeName: "id",
             prettyPrintJSON: true,
             sslIdentityAndCertificates: nil,
             permissionsEnabled: true)
@@ -216,10 +214,10 @@ import CorePedido
             // save new one
             self.lastResourceIDByEntityName[entityName] = newResourceID;
             
-            let saved = (self.lastResourceIDByEntityName as NSDictionary).writeToURL(ServerLastResourceIDByEntityNameFileURL, atomically: true)
-            
-            assert(saved, "Could not save lastResourceIDByEntityName dictionary to disk")
-            
+            if !(self.lastResourceIDByEntityName as NSDictionary).writeToURL(ServerLastResourceIDByEntityNameFileURL, atomically: true) {
+                
+                NSException(name: NSInternalInconsistencyException, reason: "Could not save lastResourceIDByEntityName dictionary to disk. (\(error!.localizedDescription))", userInfo: nil)
+            }
         })], waitUntilFinished: true)
         
         return newResourceID
@@ -295,6 +293,17 @@ import CorePedido
                 return
             }
             
+            // remove old sessions so we dont have a validation error
+            error = self.removeOldSessions(fromUser: user!, inManagedObjectContext: managedObjectContext)
+            
+            // internal error
+            if error != nil {
+                
+                response.statusCode = ServerStatusCode.InternalServerError.rawValue
+                
+                return
+            }
+            
             // create new session
             var token: String?
             
@@ -340,6 +349,27 @@ import CorePedido
         })
     }
     
+    private func removeOldSessions(fromUser user: User, inManagedObjectContext context: NSManagedObjectContext) -> NSError? {
+        
+        // dont to anything
+        if user.sessions == nil {
+            
+            return nil
+        }
+        
+        var error: NSError?
+        
+        context.performBlockAndWait { () -> Void in
+            
+            // sort sessions
+            let sessions = user.sessions!.sortedArrayUsingDescriptors([NSSortDescriptor(key: self.server.resourceIDAttributeName, ascending: false)]) as [Session]
+            
+            // remove everything after 9th item (index 8)
+            
+            
+        }
+    }
+    
     private func addAdminUserIfEmpty() {
         
         let managedObjectContext = self.newManagedObjectContext()
@@ -363,7 +393,10 @@ import CorePedido
             results = managedObjectContext.executeFetchRequest(adminFetchRequest, error: &error) as? [NSManagedObject]
         }
         
-        assert(error == nil, "Error while trying to fetch admin user. (\(error!.localizedDescription))")
+        if error != nil {
+            
+            NSException(name: NSInternalInconsistencyException, reason: "Error while trying to fetch admin user. (\(error!.localizedDescription))", userInfo: nil).raise()
+        }
         
         // admin found
         if results!.count > 0 {

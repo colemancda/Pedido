@@ -74,7 +74,7 @@
         <attribute name="name" attributeType="String" minValueString="1" syncable="YES"/>
         <attribute name="password" attributeType="String" minValueString="6" syncable="YES"/>
         <attribute name="username" attributeType="String" minValueString="1" syncable="YES"/>
-        <relationship name="sessions" optional="YES" toMany="YES" maxCount="10" deletionRule="Cascade" destinationEntity="Session" inverseName="user" inverseEntity="Session" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Session" inverseName="user" inverseEntity="Session" syncable="YES"/>
     </entity>
     <elements>
         <element name="ClientUser" positionX="-18" positionY="81" width="128" height="73"/>
@@ -90,6 +90,6 @@
         <element name="Session" positionX="-27" positionY="90" width="128" height="103"/>
         <element name="StaffUser" positionX="-9" positionY="90" width="128" height="73"/>
         <element name="TableDeliveryTarget" positionX="27" positionY="108" width="128" height="58"/>
-        <element name="User" positionX="-27" positionY="72" width="128" height="133"/>
+        <element name="User" positionX="-27" positionY="72" width="128" height="135"/>
     </elements>
 </model>
