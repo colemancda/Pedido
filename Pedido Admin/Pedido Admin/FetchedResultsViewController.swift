@@ -12,28 +12,32 @@ import CoreData
 import CorePedido
 import CorePedidoClient
 
+/** Fetches instances of an entity on the server and displays them in a table view. */
 class FetchedResultsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     // MARK: - Properties
     
-    
-    
-    lazy var fetchedResultsController: NSFetchedResultsController = {
+    var configuration: FetchedResultsViewControllerConfiguration? {
         
-        let fetchRequest = NSFetchRequest(entityName: "MenuItem")
-        
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CorePedidoClient.Store.sharedStore.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        fetchedResultsController.delegate = self
-        
-        return fetchedResultsController
-        }()
+        didSet {
+            
+            let fetchRequest = NSFetchRequest(entityName: entityName)
+            
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            
+            let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CorePedidoClient.Store.sharedStore.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+            
+            fetchedResultsController.delegate = self
+            
+            self.fetchedResultsController = fetchedResultsController
+        }
+    }
     
     // MARK: - Private Properties
     
-    var datedRefreshed: NSDate?
+    private var datedRefreshed: NSDate?
+    
+    private var fetchedResultsController: NSFetchedResultsController?
     
     // MARK: - Initialization
     
@@ -43,7 +47,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         
         var error: NSError?
         
-        self.fetchedResultsController.performFetch(&error)
+        self.fetchedResultsController?.performFetch(&error)
         
         assert(error == nil, "Could not execute -performFetch: on NSFetchedResultsController. (\(error!.localizedDescription))")
     }
@@ -97,7 +101,9 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MenuItemCell.rawValue, forIndexPath: indexPath) as UITableViewCell
+        let CellIdentifier = NSStringFromClass(UITableViewCell)
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
         // configure cell
         self.configureCell(cell, atIndexPath: indexPath)
@@ -107,15 +113,15 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         if self.datedRefreshed != nil {
             
             // get model object
-            let menuItem = self.fetchedResultsController.objectAtIndexPath(indexPath) as MenuItem
+            let managedObject = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
             
             // get date cached
-            let dateCached = menuItem.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
+            let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
             
             // fetch if older than refresh date
             if dateCached == nil || dateCached?.compare(self.datedRefreshed!) == NSComparisonResult.OrderedDescending {
                 
-                Store.sharedStore.fetchEntity("MenuItem", resourceID: menuItem.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
+                Store.sharedStore.fetchEntity(self.entityName, resourceID: menuItem.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
                     
                     // configure error cell
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
@@ -238,4 +244,18 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
             return
         }
     }
+}
+
+// MARK: - Supporting Classes
+
+class FetchedResultsViewControllerConfiguration {
+    
+    let entityName: String
+    
+    let sortDescriptors: [NSSortDescriptor]
+    
+    let
+    
+    
+    
 }
