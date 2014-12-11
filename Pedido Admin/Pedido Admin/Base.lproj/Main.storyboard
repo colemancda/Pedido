@@ -383,7 +383,7 @@
         <!--Root View Controller-->
         <scene sceneID="SCJ-lj-bKZ">
             <objects>
-                <tableViewController id="Ruz-Og-ABu" sceneMemberID="viewController">
+                <tableViewController id="Ruz-Og-ABu" customClass="FetchedResultsViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QrU-iu-YgE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

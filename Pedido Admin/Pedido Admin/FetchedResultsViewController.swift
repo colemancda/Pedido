@@ -133,6 +133,11 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
     
     @IBAction func refresh(sender: AnyObject) {
         
+        if self.fetchRequest == nil {
+            
+            return
+        }
+        
         self.datedRefreshed = NSDate()
         
         Store.sharedStore.performSearch(self.fetchRequest!, completionBlock: { (error, results) -> Void in
