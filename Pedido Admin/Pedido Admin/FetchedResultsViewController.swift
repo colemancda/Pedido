@@ -191,7 +191,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
             // get date cached
             let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
             
-            // fetch if older than refresh date
+            // fetch if older than refresh date or not fetched yet
             if dateCached == nil || dateCached?.compare(self.datedRefreshed!) == NSComparisonResult.OrderedDescending {
                 
                 Store.sharedStore.fetchEntity(managedObject.entity.name!, resourceID: managedObject.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
@@ -213,6 +213,37 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         }
         
         return cell
+    }
+    
+    // MARK: - UITableViewDelegate
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // get model object
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+        
+        switch editingStyle {
+            
+        case .Delete:
+            
+            Store.sharedStore.deleteManagedObject(managedObject, completionBlock: { (error) -> Void in
+                
+                // show error
+                if error != nil {
+                    
+                    self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
+                        
+                        self.refresh(self)
+                    })
+                    
+                    return
+                }
+            })
+            
+        default:
+            
+            return
+        }
     }
     
     // MARK: - NSFetchedResultsControllerDelegate

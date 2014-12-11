@@ -153,7 +153,6 @@ import CorePedido
             
             managedObjectContext.save(&error)
             
-            
         }
         
         println("Processed (\(request.requestType.hashValue)) request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse?)")
