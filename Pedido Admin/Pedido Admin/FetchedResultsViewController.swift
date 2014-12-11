@@ -17,19 +17,35 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
     
     // MARK: - Properties
     
-    var configuration: FetchedResultsViewControllerConfiguration? {
+    var fetchRequest: NSFetchRequest? {
         
         didSet {
             
-            let fetchRequest = NSFetchRequest(entityName: entityName)
+            if fetchRequest == nil {
+                
+                return
+            }
             
-            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            // create new fetched results controller
             
-            let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CorePedidoClient.Store.sharedStore.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+            let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest!, managedObjectContext: Store.sharedStore.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
             
             fetchedResultsController.delegate = self
             
             self.fetchedResultsController = fetchedResultsController
+            
+            // perform fetch if view is loaded
+            if self.isViewLoaded() {
+                
+                var error: NSError?
+                
+                self.fetchedResultsController?.performFetch(&error)
+                
+                assert(error == nil, "Could not execute -performFetch: on NSFetchedResultsController. (\(error!.localizedDescription))")
+                
+                // load from server
+                self.refresh(self)
+            }
         }
     }
     
@@ -52,8 +68,8 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         assert(error == nil, "Could not execute -performFetch: on NSFetchedResultsController. (\(error!.localizedDescription))")
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         // reload data on appear
         self.refresh(self)
@@ -65,7 +81,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         
         self.datedRefreshed = NSDate()
         
-        Store.sharedStore.performSearch(self.fetchedResultsController.fetchRequest, completionBlock: { (error, results) -> Void in
+        Store.sharedStore.performSearch(self.fetchRequest!, completionBlock: { (error, results) -> Void in
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
@@ -96,14 +112,12 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.fetchedResultsController.fetchedObjects?.count ?? 0
+        return self.fetchedResultsController?.fetchedObjects?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let CellIdentifier = NSStringFromClass(UITableViewCell)
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as UITableViewCell
+        let cell = self.dequeueReusableCellForIndexPath(indexPath) as UITableViewCell
         
         // configure cell
         self.configureCell(cell, atIndexPath: indexPath)
@@ -113,7 +127,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         if self.datedRefreshed != nil {
             
             // get model object
-            let managedObject = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
+            let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
             
             // get date cached
             let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
@@ -121,7 +135,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
             // fetch if older than refresh date
             if dateCached == nil || dateCached?.compare(self.datedRefreshed!) == NSComparisonResult.OrderedDescending {
                 
-                Store.sharedStore.fetchEntity(self.entityName, resourceID: menuItem.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
+                Store.sharedStore.fetchEntity(managedObject.entity.name!, resourceID: managedObject.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
                     
                     // configure error cell
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
@@ -177,12 +191,33 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
     
     // MARK: - Private Methods
     
-    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
+    /** Subclasses should overrride this to provide custom cells. */
+    private func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let CellIdentifier = NSStringFromClass(UITableViewCell)
+        
+        var cell = self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as? UITableViewCell
+        
+        if cell == nil {
+            
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+        }
+        
+        return cell!
+    }
+    
+    private func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError? = nil) {
+        
+        if error != nil {
+            
+            // TODO: Configure cell for error
+            
+        }
         
         // get model object
-        let menuItem = self.fetchedResultsController.objectAtIndexPath(indexPath) as MenuItem
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
         
-        let dateCached = menuItem.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
+        let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
         
         // not cached
         
@@ -203,59 +238,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         
         cell.userInteractionEnabled = true
         
-        cell.textLabel!.text = menuItem.name
-        
-        // build price text
-        
-        self.numberFormatter.locale = menuItem.currencyLocale
-        
-        cell.detailTextLabel!.text = self.numberFormatter.stringFromNumber(menuItem.price)
-        
-        // fix detail text label not showing
-        cell.layoutIfNeeded()
+        // Entity name + resource ID
+        cell.textLabel!.text = "\(managedObject.entity)" + "\(managedObject.valueForKey(Store.sharedStore.resourceIDAttributeName))"
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        let segueIdentifier = MainStoryboardSegueIdentifier(rawValue: segue.identifier!)!
-        
-        switch segueIdentifier {
-            
-        case .ShowMenuItem:
-            
-            // get destination VC
-            let menuItemVC = segue.destinationViewController as MenuItemViewController
-            
-            // get model object
-            let menuItem = self.fetchedResultsController.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as MenuItem
-            
-            // configure VC
-            menuItemVC.menuItem = menuItem
-            
-        case .NewMenuItem:
-            
-            // get destination VC
-            let menuItemVC = (segue.destinationViewController as UINavigationController).topViewController as MenuItemViewController
-            
-            // add cancel button
-            menuItemVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: menuItemVC, action: "cancel:")
-            
-        default:
-            return
-        }
-    }
-}
-
-// MARK: - Supporting Classes
-
-class FetchedResultsViewControllerConfiguration {
-    
-    let entityName: String
-    
-    let sortDescriptors: [NSSortDescriptor]
-    
-    let
-    
-    
-    
 }
