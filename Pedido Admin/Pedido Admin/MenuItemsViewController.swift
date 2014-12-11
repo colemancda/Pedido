@@ -200,8 +200,6 @@ class MenuItemsViewController: UITableViewController, NSFetchedResultsController
             return
         }
         
-        println("Configuring cell for \(menuItem.description)")
-        
         // configure cell...
         
         cell.userInteractionEnabled = true

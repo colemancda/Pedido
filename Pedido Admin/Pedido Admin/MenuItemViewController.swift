@@ -29,7 +29,10 @@ class MenuItemViewController: UITableViewController {
         
         didSet {
             
-            self.updateUIForMenuItem(menuItem)
+            if self.isViewLoaded() {
+                
+                self.updateUIForMenuItem(menuItem)
+            }
         }
     }
     
@@ -53,8 +56,7 @@ class MenuItemViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // set UI to initial values
-        self.resetUI()
+        self.updateUIForMenuItem(self.menuItem)
     }
     
     // MARK: - Actions
