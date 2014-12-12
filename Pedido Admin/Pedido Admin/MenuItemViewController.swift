@@ -42,13 +42,32 @@ class MenuItemViewController: UITableViewController {
         
         didSet {
             
+            // update UI
             self.currencySymbolLabel.text = currencyLocale.objectForKey(NSLocaleCurrencySymbol) as? String
+            
+            // set locale on number formatter
+            self.numberFormatter.locale = self.currencyLocale
         }
     }
     
     // MARK: Relationships
     
     
+    
+    // MARK: - Private Properties
+    
+    lazy var numberFormatter: NSNumberFormatter = {
+        
+        let numberFormatter = NSNumberFormatter()
+        
+        numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        
+        numberFormatter.locale = self.currencyLocale
+        
+        numberFormatter.currencySymbol = ""
+        
+        return numberFormatter
+    }()
     
     // MARK: - Initialization
     
@@ -67,15 +86,7 @@ class MenuItemViewController: UITableViewController {
         
         let name = self.nameTextField.text
         
-        let numberFormatter = NSNumberFormatter()
-        
-        numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-        
-        numberFormatter.locale = self.currencyLocale
-        
-        numberFormatter.currencySymbol = ""
-        
-        let price = numberFormatter.numberFromString(self.priceTextfield.text)
+        let price = self.numberFormatter.numberFromString(self.priceTextfield.text)
         
         // invalid price text
         if price == nil {

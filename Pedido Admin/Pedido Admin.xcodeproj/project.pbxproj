@@ -11,6 +11,7 @@
 		6E4507441A353B4E00F5C7F1 /* MenuItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */; };
 		6E6DC80A1A368357006C15DE /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC8091A368357006C15DE /* MenuItemViewController.swift */; };
 		6E6DC8131A36A0AE006C15DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC8121A36A0AE006C15DE /* Error.swift */; };
+		6E81863C1A3A719000291F73 /* ManagedObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */; };
 		6EEA6B3F1A35002A00105413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA6B3E1A35002A00105413 /* AppDelegate.swift */; };
 		6EEA6B441A35002A00105413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EEA6B421A35002A00105413 /* Main.storyboard */; };
 		6EEA6B461A35002A00105413 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EEA6B451A35002A00105413 /* Images.xcassets */; };
@@ -217,6 +218,7 @@
 		6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsViewController.swift; sourceTree = "<group>"; };
 		6E6DC8091A368357006C15DE /* MenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
 		6E6DC8121A36A0AE006C15DE /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectViewController.swift; sourceTree = "<group>"; };
 		6EEA6B391A35002A00105413 /* Pedido Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pedido Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEA6B3D1A35002A00105413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EEA6B3E1A35002A00105413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -411,8 +413,9 @@
 		6EF712981A393BDA00F7BAE6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6EEA6BE71A3505B700105413 /* LoginViewController.swift */,
 				6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */,
+				6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */,
+				6EEA6BE71A3505B700105413 /* LoginViewController.swift */,
 				6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */,
 				6E6DC8091A368357006C15DE /* MenuItemViewController.swift */,
 				6EF712901A393BCD00F7BAE6 /* Picker View Controller */,
@@ -665,6 +668,7 @@
 				6EF7129C1A39532900F7BAE6 /* FetchedResultsViewController.swift in Sources */,
 				6E4507441A353B4E00F5C7F1 /* MenuItemsViewController.swift in Sources */,
 				6E6DC80A1A368357006C15DE /* MenuItemViewController.swift in Sources */,
+				6E81863C1A3A719000291F73 /* ManagedObjectViewController.swift in Sources */,
 				6E6DC8131A36A0AE006C15DE /* Error.swift in Sources */,
 				6EEA6B3F1A35002A00105413 /* AppDelegate.swift in Sources */,
 			);
