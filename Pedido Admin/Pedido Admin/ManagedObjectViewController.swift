@@ -12,6 +12,7 @@ import CoreData
 import CorePedido
 import CorePedidoClient
 
+/** Abstract class for creating or saving a managed object. */
 class ManagedObjectViewController: UITableViewController {
     
     // MARK: - Properties
@@ -31,18 +32,21 @@ class ManagedObjectViewController: UITableViewController {
         }
     }
     
-    var delegate: ManagedObjectViewControllerDelegate?
+    // MARK: Action Blocks
     
-    var cancelButtonEnabled: Bool = false {
+    var didCreateManagedObjectHandler: ((managedObject: NSManagedObject) -> Void)?
+    
+    var didEditManagedObjectHandler: ((managedObject: NSManagedObject) -> Void)?
+    
+    var didCancelHandler: (() -> Void)? {
         
         didSet {
             
-            if cancelButtonEnabled {
+            if didCancelHandler != nil {
                 
                 // add cancel button
                 self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancel:")
             }
-            
             else {
                 
                 self.navigationItem.leftBarButtonItem = nil
@@ -79,7 +83,7 @@ class ManagedObjectViewController: UITableViewController {
     
     // MARK: - Private Methods
     
-    func updateUI() {
+    private func updateUI() {
         
         // reset UI
         if self.managedObject == nil {
@@ -124,7 +128,9 @@ class ManagedObjectViewController: UITableViewController {
                         return
                     }
                     
-                    self.delegate?.managedObjectViewController(self, didCreateManagedObject: managedObject!)
+                    self.managedObject = managedObject
+                    
+                    self.didCreateManagedObjectHandler?(managedObject: managedObject!)
                 })
             })
             
@@ -150,25 +156,14 @@ class ManagedObjectViewController: UITableViewController {
                     return
                 }
                 
-                self.delegate?.managedObjectViewController(self, didEditManagedObject: self.managedObject!)
+                self.didEditManagedObjectHandler?(managedObject: self.managedObject!)
             })
         })
     }
     
     @IBAction func cancel(sender: AnyObject) {
         
-        self.delegate?.managedObjectViewControllerDidCancel(self)
+        self.didCancelHandler?()
     }
-}
-
-// MARK: - Protocols
-
-protocol ManagedObjectViewControllerDelegate {
-    
-    func managedObjectViewController(managedObjectViewController: ManagedObjectViewController, didEditManagedObject managedObject: NSManagedObject)
-    
-    func managedObjectViewController(managedObjectViewController: ManagedObjectViewController, didCreateManagedObject managedObject: NSManagedObject)
-    
-    func managedObjectViewControllerDidCancel(managedObjectViewController: ManagedObjectViewController)
 }
 

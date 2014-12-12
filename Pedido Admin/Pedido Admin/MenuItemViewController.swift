@@ -8,10 +8,11 @@
 
 import Foundation
 import UIKit
+import CoreData
 import CorePedido
 import CorePedidoClient
 
-class MenuItemViewController: UITableViewController {
+class MenuItemViewController: ManagedObjectViewController {
     
     // MARK: - IB Outlets
     
@@ -23,20 +24,7 @@ class MenuItemViewController: UITableViewController {
     
     // MARK: - Properties
     
-    // MARK: Model
-    
-    var menuItem: MenuItem? {
-        
-        didSet {
-            
-            if self.isViewLoaded() {
-                
-                self.updateUIForMenuItem(menuItem)
-            }
-        }
-    }
-    
-    // MARK: - Attributes
+    // MARK: Attributes
     
     var currencyLocale: NSLocale = NSLocale.currentLocale() {
         
@@ -69,18 +57,9 @@ class MenuItemViewController: UITableViewController {
         return numberFormatter
     }()
     
-    // MARK: - Initialization
+    // MARK: - Methods
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        self.updateUIForMenuItem(self.menuItem)
-    }
-    
-    // MARK: - Actions
-    
-    @IBAction func save(sender: AnyObject) {
+    override func getNewValues() -> [String : AnyObject]? {
         
         // attributes
         
@@ -93,82 +72,24 @@ class MenuItemViewController: UITableViewController {
             
             self.showErrorAlert(NSLocalizedString("Invalid value for price.", comment: "Invalid value for price."))
             
-            return
+            return nil
         }
         
-        let newValues = ["name": name, "price": price!, "currencyLocale": self.currencyLocale]
-        
-        // create new menu item
-        if self.menuItem == nil {
-            
-            Store.sharedStore.createEntity("MenuItem", withInitialValues: newValues, completionBlock: { (error, managedObject) -> Void in
-                
-                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    
-                    // show error
-                    if error != nil {
-                        
-                        self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
-                            
-                            self.save(self)
-                        })
-                        
-                        return
-                    }
-                    
-                    self.performSegueWithIdentifier(MainStoryboardSegueIdentifier.SavedMenuItem.rawValue, sender: self)
-                })
-            })
-            
-            return
-        }
-        
-        // update existing menu item
-        
-        Store.sharedStore.editManagedObject(self.menuItem!, changes: newValues, completionBlock: { (error) -> Void in
-            
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                
-                // show error
-                if error != nil {
-                    
-                    self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
-                        
-                        self.save(self)
-                    })
-                    
-                    return
-                }
-                
-                self.performSegueWithIdentifier(MainStoryboardSegueIdentifier.SavedMenuItem.rawValue, sender: self)
-            })
-        })
+        return ["name": name, "price": price!, "currencyLocale": self.currencyLocale]
     }
     
-    @IBAction func cancel(sender: AnyObject) {
+    override func configureUI(forManagedObject managedObject: NSManagedObject) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    // MARK: - Private Methods
-    
-    private func updateUIForMenuItem(menuItem: MenuItem?) {
-        
-        if menuItem == nil {
-            
-            self.resetUI()
-            
-            return
-        }
+        let menuItem = managedObject as MenuItem
         
         // update UI
         
-        self.nameTextField.text = menuItem!.name
-        self.priceTextfield.text = "\(menuItem!.price)"
-        self.currencyLocale = menuItem!.currencyLocale
+        self.nameTextField.text = menuItem.name
+        self.priceTextfield.text = self.numberFormatter.stringFromNumber(menuItem.price)
+        self.currencyLocale = menuItem.currencyLocale
     }
     
-    private func resetUI() {
+    override func resetUI() {
         
         self.nameTextField.text = ""
         self.priceTextfield.text = ""

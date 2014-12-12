@@ -90,11 +90,6 @@ class MenuItemsViewController: FetchedResultsViewController {
     
     // MARK: - Segues
     
-    @IBAction func savedMenuItem(sender: UIStoryboardSegue) {
-        
-        
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let segueIdentifier = MainStoryboardSegueIdentifier(rawValue: segue.identifier!)!
@@ -110,7 +105,9 @@ class MenuItemsViewController: FetchedResultsViewController {
             let menuItem = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as MenuItem
             
             // configure VC
-            menuItemVC.menuItem = menuItem
+            menuItemVC.managedObject = menuItem
+            
+            menuItemVC.didEditManagedObjectHandler = (NSManagedObject)
             
         case .NewMenuItem:
             
