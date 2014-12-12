@@ -402,23 +402,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6EF712901A393BCD00F7BAE6 /* Picker View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				6EF712991A393BF800F7BAE6 /* PickerViewController.swift */,
-			);
-			name = "Picker View Controller";
-			sourceTree = "<group>";
-		};
 		6EF712981A393BDA00F7BAE6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */,
 				6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */,
+				6EF712991A393BF800F7BAE6 /* PickerViewController.swift */,
 				6EEA6BE71A3505B700105413 /* LoginViewController.swift */,
 				6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */,
 				6E6DC8091A368357006C15DE /* MenuItemViewController.swift */,
-				6EF712901A393BCD00F7BAE6 /* Picker View Controller */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

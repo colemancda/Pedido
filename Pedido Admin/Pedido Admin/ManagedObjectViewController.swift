@@ -34,9 +34,9 @@ class ManagedObjectViewController: UITableViewController {
     
     // MARK: Action Blocks
     
-    var didCreateManagedObjectHandler: ((managedObject: NSManagedObject) -> Void)?
+    var didCreateManagedObjectHandler: (() -> Void)?
     
-    var didEditManagedObjectHandler: ((managedObject: NSManagedObject) -> Void)?
+    var didEditManagedObjectHandler: (() -> Void)?
     
     var didCancelHandler: (() -> Void)? {
         
@@ -130,7 +130,7 @@ class ManagedObjectViewController: UITableViewController {
                     
                     self.managedObject = managedObject
                     
-                    self.didCreateManagedObjectHandler?(managedObject: managedObject!)
+                    self.didCreateManagedObjectHandler?()
                 })
             })
             
@@ -156,7 +156,7 @@ class ManagedObjectViewController: UITableViewController {
                     return
                 }
                 
-                self.didEditManagedObjectHandler?(managedObject: self.managedObject!)
+                self.didEditManagedObjectHandler?()
             })
         })
     }

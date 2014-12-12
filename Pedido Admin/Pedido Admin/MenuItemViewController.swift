@@ -57,6 +57,14 @@ class MenuItemViewController: ManagedObjectViewController {
         return numberFormatter
     }()
     
+    // MARK: - Initialization
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.entityName = "MenuItem"
+    }
+    
     // MARK: - Methods
     
     override func getNewValues() -> [String : AnyObject]? {

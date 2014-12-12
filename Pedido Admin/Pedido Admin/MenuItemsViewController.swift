@@ -107,15 +107,35 @@ class MenuItemsViewController: FetchedResultsViewController {
             // configure VC
             menuItemVC.managedObject = menuItem
             
-            menuItemVC.didEditManagedObjectHandler = (NSManagedObject)
+            // set edit handler
+            menuItemVC.didEditManagedObjectHandler = {
+                
+                // pop VC
+                self.navigationController!.popViewControllerAnimated(true)
+                
+                return
+            }
             
         case .NewMenuItem:
             
             // get destination VC
             let menuItemVC = (segue.destinationViewController as UINavigationController).topViewController as MenuItemViewController
             
+            // set creation handler
+            menuItemVC.didCreateManagedObjectHandler = {
+                
+                menuItemVC.dismissViewControllerAnimated(true, completion: nil)
+                
+                return
+            }
+            
             // add cancel button
-            menuItemVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: menuItemVC, action: "cancel:")            
+            menuItemVC.didCancelHandler = {
+                
+                menuItemVC.dismissViewControllerAnimated(true, completion: nil)
+                
+                return
+            }
             
         default:
             return

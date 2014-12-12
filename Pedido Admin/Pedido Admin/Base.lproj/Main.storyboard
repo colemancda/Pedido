@@ -153,6 +153,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu Items" id="gUQ-wA-4Ke">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="S0U-c4-Vlh"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="RPI-XH-4Vh">
                             <connections>
                                 <segue destination="WNa-fP-Koy" kind="modal" identifier="newMenuItem" id="Xzp-Lc-gVp"/>
@@ -173,7 +174,7 @@
         <!--Menu Item-->
         <scene sceneID="R0H-iF-at5">
             <objects>
-                <tableViewController id="bth-wI-tsW" customClass="MenuItemViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Menu Item" id="bth-wI-tsW" customClass="MenuItemViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="N7h-mW-TMH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -558,6 +559,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="w4h-Cx-5ch"/>
+        <segue reference="22X-sA-Hss"/>
     </inferredMetricsTieBreakers>
 </document>
