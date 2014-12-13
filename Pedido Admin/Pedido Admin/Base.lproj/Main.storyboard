@@ -206,16 +206,21 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cVY-tV-pPA" id="UkN-I5-pLc">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YwD-BN-6cA">
-                                                    <rect key="frame" x="16" y="8" width="241" height="27.5"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YwD-BN-6cA">
+                                                    <rect key="frame" x="16" y="8" width="41" height="27.5"/>
+                                                    <color key="tintColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pV-g7-wyS">
-                                                    <rect key="frame" x="277" y="11.5" width="10" height="20.5"/>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pV-g7-wyS">
+                                                    <rect key="frame" x="277" y="11" width="10" height="20.5"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="3eh-Qp-EuO" appends="YES" id="Gcp-pB-DZl"/>
+                                                    </connections>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -224,7 +229,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="3pV-g7-wyS" secondAttribute="trailing" id="N08-7y-Tgo"/>
                                                 <constraint firstAttribute="centerY" secondItem="3pV-g7-wyS" secondAttribute="centerY" id="TEr-qe-BFY"/>
                                                 <constraint firstItem="YwD-BN-6cA" firstAttribute="leading" secondItem="UkN-I5-pLc" secondAttribute="leadingMargin" constant="8" id="WWC-nd-aIP"/>
-                                                <constraint firstItem="3pV-g7-wyS" firstAttribute="leading" secondItem="YwD-BN-6cA" secondAttribute="trailing" constant="20" id="mic-3j-TqF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -310,13 +314,43 @@
                         <outlet property="currencySymbolLabel" destination="3pV-g7-wyS" id="7us-Dv-t6l"/>
                         <outlet property="nameTextField" destination="M1B-u4-XCo" id="fGh-vb-LRa"/>
                         <outlet property="priceTextfield" destination="YwD-BN-6cA" id="MIh-qi-R5f"/>
-                        <segue destination="pLT-hn-2IO" kind="unwind" identifier="savedMenuItem" unwindAction="savedMenuItem:" id="LZX-8C-vWy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUz-aY-pda" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="pLT-hn-2IO" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="3eh-Qp-EuO">
+                    <connections>
+                        <segue destination="V7v-bF-eri" kind="push" id="pER-ar-Fnf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1439" y="-464"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="gUd-cd-kS2">
+            <objects>
+                <tableViewController id="V7v-bF-eri" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pLn-Xr-Ntm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jJR-sG-GcX">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jJR-sG-GcX" id="NFF-JY-FVF">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="V7v-bF-eri" id="3L0-ig-EZC"/>
+                            <outlet property="delegate" destination="V7v-bF-eri" id="B1p-0M-KMZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="K4n-3v-css"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4C8-k5-SKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2083" y="-775"/>
         </scene>
         <!--Picker View Controller-->
         <scene sceneID="Sba-6x-rFp">
@@ -351,7 +385,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clH-YW-GYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="-39"/>
+            <point key="canvasLocation" x="2083" y="-40"/>
         </scene>
         <!--Menu Items-->
         <scene sceneID="H20-xw-IX6">
