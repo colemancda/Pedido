@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CurrencyLocalePickerViewController: UITableViewController {
+class CurrencyLocalePickerViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: - Properties
     
@@ -70,9 +70,12 @@ class CurrencyLocalePickerViewController: UITableViewController {
         }
     }
     
+    /** Block executed when a selection is made. */
     var selectionHandler: (() -> Void)?
     
     // MARK: - Private Properties
+    
+    private var filteredCurrencyLocales: [NSLocale]?
     
     private let numberFormatter: NSNumberFormatter = {
         
@@ -89,6 +92,8 @@ class CurrencyLocalePickerViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // load all locales
+        self.filteredCurrencyLocales = self.dynamicType.currencyLocales
     }
     
     // MARK: - UITableViewDataSource
@@ -100,7 +105,7 @@ class CurrencyLocalePickerViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.dynamicType.currencyLocales.count
+        return self.filteredCurrencyLocales?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -117,7 +122,7 @@ class CurrencyLocalePickerViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         // get model
-        let locale = self.dynamicType.currencyLocales[indexPath.row]
+        let locale = self.filteredCurrencyLocales![indexPath.row]
         
         // set selected
         self.selectedCurrencyLocale = locale
@@ -126,12 +131,38 @@ class CurrencyLocalePickerViewController: UITableViewController {
         self.selectionHandler?()
     }
     
+    // MARK: - UISearchBarDelegate
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        NSOperationQueue().addOperationWithBlock { () -> Void in
+            
+            // filter locales
+            let newFilteredCurrencyLocales: [NSLocale] = {
+                
+                let predicate = NSPredicate(format: "localeIdentifier contains[c] %@", searchText)
+                
+                let filteredResults = (self.dynamicType.currencyLocales as NSArray).filteredArrayUsingPredicate(predicate!) as [NSLocale]
+                
+                return filteredResults
+            }()
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                
+                self.filteredCurrencyLocales = newFilteredCurrencyLocales
+                
+                // reload table view
+                self.tableView.reloadData()
+            })
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         
         // get model
-        let locale = self.dynamicType.currencyLocales[indexPath.row]
+        let locale = self.filteredCurrencyLocales![indexPath.row]
         
         // configure cell
         cell.textLabel!.text = locale.localeIdentifier

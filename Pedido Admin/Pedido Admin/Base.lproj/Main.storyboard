@@ -325,7 +325,7 @@
             </objects>
             <point key="canvasLocation" x="1439" y="-464"/>
         </scene>
-        <!--Currency Locale Picker View Controller-->
+        <!--Currency Locale Picker-->
         <scene sceneID="gUd-cd-kS2">
             <objects>
                 <tableViewController id="V7v-bF-eri" customClass="CurrencyLocalePickerViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
@@ -333,6 +333,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="nl7-Be-NCL">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="V7v-bF-eri" id="yPs-DD-YhW"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="CurrencyLocaleCell" textLabel="BpQ-c9-jG2" detailTextLabel="Rwi-tT-cp7" style="IBUITableViewCellStyleValue2" id="jJR-sG-GcX">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -360,7 +368,8 @@
                             <outlet property="delegate" destination="V7v-bF-eri" id="B1p-0M-KMZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="K4n-3v-css"/>
+                    <navigationItem key="navigationItem" title="Currency Locale Picker" id="K4n-3v-css"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4C8-k5-SKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
