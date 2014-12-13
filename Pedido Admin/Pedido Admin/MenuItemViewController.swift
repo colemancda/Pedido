@@ -83,7 +83,7 @@ class MenuItemViewController: ManagedObjectViewController {
             return nil
         }
         
-        return ["name": name, "price": price!, "currencyLocale": self.currencyLocale]
+        return ["name": name, "price": price!, "currencyLocaleIdentifier": self.currencyLocale.localeIdentifier]
     }
     
     override func configureUI(forManagedObject managedObject: NSManagedObject) {
@@ -94,7 +94,7 @@ class MenuItemViewController: ManagedObjectViewController {
         
         self.nameTextField.text = menuItem.name
         self.priceTextfield.text = self.numberFormatter.stringFromNumber(menuItem.price)
-        self.currencyLocale = menuItem.currencyLocale
+        self.currencyLocale = NSLocale(localeIdentifier: menuItem.currencyLocaleIdentifier)
     }
     
     override func resetUI() {
@@ -102,5 +102,28 @@ class MenuItemViewController: ManagedObjectViewController {
         self.nameTextField.text = ""
         self.priceTextfield.text = ""
         self.currencyLocale = NSLocale.currentLocale()
+    }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch MainStoryboardSegueIdentifier(rawValue: segue.identifier!)! {
+            
+        case .PickCurrencyLocale:
+            
+            let currencyLocalePickerVC = segue.destinationViewController as CurrencyLocalePickerViewController
+            
+            currencyLocalePickerVC.selectedCurrencyLocale = self.currencyLocale
+            
+            // set handler
+            currencyLocalePickerVC.selectionHandler = {
+                
+                self.currencyLocale = currencyLocalePickerVC.selectedCurrencyLocale!
+            }
+            
+        default:
+            return
+        }
     }
 }

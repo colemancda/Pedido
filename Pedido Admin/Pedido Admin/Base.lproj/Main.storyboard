@@ -319,7 +319,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUz-aY-pda" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="3eh-Qp-EuO">
                     <connections>
-                        <segue destination="V7v-bF-eri" kind="push" id="pER-ar-Fnf"/>
+                        <segue destination="V7v-bF-eri" kind="push" identifier="pickCurrencyLocale" id="pER-ar-Fnf"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

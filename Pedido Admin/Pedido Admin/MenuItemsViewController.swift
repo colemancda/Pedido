@@ -80,7 +80,7 @@ class MenuItemsViewController: FetchedResultsViewController {
         
         // build price text
         
-        self.numberFormatter.locale = menuItem.currencyLocale
+        self.numberFormatter.locale = NSLocale(localeIdentifier: menuItem.currencyLocaleIdentifier)
         
         cell.detailTextLabel!.text = self.numberFormatter.stringFromNumber(menuItem.price)
         

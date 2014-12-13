@@ -32,6 +32,7 @@ class CurrencyLocalePickerViewController: UITableViewController {
                     
                     let locale = NSLocale(localeIdentifier: localeID)
                     
+                    // only add locales with currencyCode
                     if let currencyCode = locale.objectForKey(NSLocaleCurrencyCode) as? String {
                         
                         locales.append(NSLocale(localeIdentifier: localeID))
@@ -41,11 +42,11 @@ class CurrencyLocalePickerViewController: UITableViewController {
                 // sort by currency symbol
                 let sortedLocales = (locales as NSArray).sortedArrayUsingComparator({ (first, second) -> NSComparisonResult in
                     
-                    let firstCurrencyCode = (first as NSLocale).objectForKey(NSLocaleCurrencyCode) as String
+                    let firstLocale = first as NSLocale
                     
-                    let secondCurrencyCode = (second as NSLocale).objectForKey(NSLocaleCurrencyCode) as String
+                    let secondLocale = second as NSLocale
                     
-                    return (firstCurrencyCode as NSString).compare(secondCurrencyCode)
+                    return (firstLocale.localeIdentifier as NSString).compare(secondLocale.localeIdentifier)
                 }) as [NSLocale]
                 
                 return sortedLocales
@@ -61,9 +62,15 @@ class CurrencyLocalePickerViewController: UITableViewController {
         
         didSet {
             
-            
+            // reload table view
+            if self.isViewLoaded() {
+                
+                self.tableView.reloadData()
+            }
         }
     }
+    
+    var selectionHandler: (() -> Void)?
     
     // MARK: - Private Properties
     
@@ -81,9 +88,6 @@ class CurrencyLocalePickerViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        // get all locales from system
-        
         
     }
     
@@ -110,15 +114,38 @@ class CurrencyLocalePickerViewController: UITableViewController {
     
     // MARK: - UITableViewDelegate
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // get model
+        let locale = self.dynamicType.currencyLocales[indexPath.row]
+        
+        // set selected
+        self.selectedCurrencyLocale = locale
+        
+        // perform selected handler
+        self.selectionHandler?()
+    }
+    
     // MARK: - Private Methods
     
     private func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         
         // get model
-        
         let locale = self.dynamicType.currencyLocales[indexPath.row]
         
+        // configure cell
+        cell.textLabel!.text = locale.localeIdentifier
+        cell.detailTextLabel!.text = locale.objectForKey(NSLocaleCurrencySymbol) as? String
         
+        // add checkmark if selected
+        if locale == self.selectedCurrencyLocale {
+            
+            cell.accessoryType = .Checkmark
+        }
+        else {
+            
+            cell.accessoryType = .None
+        }
     }
 }
 
