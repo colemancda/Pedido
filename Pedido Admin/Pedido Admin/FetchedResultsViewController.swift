@@ -75,8 +75,6 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         self.refresh(self)
     }
     
-    
-    
     // MARK: - Methods
     
     /** Subclasses should overrride this to provide custom cells. */
@@ -101,6 +99,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
             
             // TODO: Configure cell for error
             
+            return
         }
         
         // get model object

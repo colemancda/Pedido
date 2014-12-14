@@ -14,19 +14,19 @@ class PickerViewController: FetchedResultsViewController {
     
     // MARK: - Properties
     
-    var configuration: PickerViewControllerConfiguration? {
+    var selectedItems = [NSManagedObject]()
+    
+    var selectionHandler: (() -> Void)?
+    
+    var allowsMultipleSelection: Bool {
         
-        didSet {
+        get {
+            return self.tableView.allowsMultipleSelection
+        }
+        
+        set {
             
-            if configuration == nil {
-                
-                return
-            }
-            
-            if self.isViewLoaded() {
-                
-                self.configureViewControllerWithConfiguration(configuration!)
-            }
+            self.tableView.allowsMultipleSelection = allowsMultipleSelection
         }
     }
     
@@ -36,9 +36,25 @@ class PickerViewController: FetchedResultsViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        if self.configuration != nil {
+    }
+    
+    // MARK: - Methods
+    
+    override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError?) {
+        super.configureCell(cell, atIndexPath: indexPath, withError: error)
+        
+        // set cell selection...
+        
+        // get model object
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+        
+        if (self.selectedItems as NSArray).containsObject(managedObject) {
             
-            self.configureViewControllerWithConfiguration(self.configuration!)
+            cell.accessoryType = .Checkmark
+        }
+        else {
+            
+            cell.accessoryType = .None
         }
     }
     
@@ -46,34 +62,15 @@ class PickerViewController: FetchedResultsViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        // try to update relationship on server
+        // get model object
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
         
-    }
-    
-    // MARK: - Private Methods
-    
-    private func configureViewControllerWithConfiguration(configuration: PickerViewControllerConfiguration) {
-        
-        self.tableView.allowsMultipleSelection = configuration.isToMany
-        
-        // create fetch request
-        let fetchRequest =
-    }
-}
-
-
-class PickerViewControllerConfiguration {
-    
-    let inverseRelationshipName: String
-    
-    let inverseRelationshipValue: NSManagedObject
-    
-    let isToMany: Bool
-    
-    init(inverseRelationshipName: String, inverseRelationshipValue: NSManagedObject, isToMany: Bool = false) {
-        
-        self.inverseRelationshipName = inverseRelationshipName
-        self.inverseRelationshipValue = inverseRelationshipValue
-        self.isToMany = isToMany
+        // add to selected items...
+        if !(self.selectedItems as NSArray).containsObject(managedObject) {
+            
+            self.selectedItems.append(managedObject)
+            
+            self.selectionHandler?()
+        }
     }
 }
