@@ -10,34 +10,70 @@ import Foundation
 import UIKit
 import CoreData
 
-class PickerViewController: UITableViewController {
+class PickerViewController: FetchedResultsViewController {
     
     // MARK: - Properties
     
-    var entityName: String?
-    
-    var selectedItems: [NSManagedObject]?
-    
-    var allowsMultipleSelection: Bool {
+    var configuration: PickerViewControllerConfiguration? {
         
-        set {
-            self.tableView.allowsMultipleSelection = allowsMultipleSelection
-        }
-        
-        get {
-            return self.tableView.allowsMultipleSelection
+        didSet {
+            
+            if configuration == nil {
+                
+                return
+            }
+            
+            if self.isViewLoaded() {
+                
+                self.configureViewControllerWithConfiguration(configuration!)
+            }
         }
     }
-    
-    /** The key that will be displayed. */
-    var displayedAttributeName: String?
     
     // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if self.configuration != nil {
+            
+            self.configureViewControllerWithConfiguration(self.configuration!)
+        }
     }
     
+    // MARK: - UITableViewDelegate
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // try to update relationship on server
+        
+    }
+    
+    // MARK: - Private Methods
+    
+    private func configureViewControllerWithConfiguration(configuration: PickerViewControllerConfiguration) {
+        
+        self.tableView.allowsMultipleSelection = configuration.isToMany
+        
+        // create fetch request
+        let fetchRequest =
+    }
+}
+
+
+class PickerViewControllerConfiguration {
+    
+    let inverseRelationshipName: String
+    
+    let inverseRelationshipValue: NSManagedObject
+    
+    let isToMany: Bool
+    
+    init(inverseRelationshipName: String, inverseRelationshipValue: NSManagedObject, isToMany: Bool = false) {
+        
+        self.inverseRelationshipName = inverseRelationshipName
+        self.inverseRelationshipValue = inverseRelationshipValue
+        self.isToMany = isToMany
+    }
 }

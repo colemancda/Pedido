@@ -23,6 +23,8 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
             
             if fetchRequest == nil {
                 
+                self.fetchedResultsController = nil
+                
                 return
             }
             

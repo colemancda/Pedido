@@ -10,6 +10,7 @@
 		6E157C191A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E157C181A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift */; };
 		6E4507421A353A3A00F5C7F1 /* GUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E4507411A353A3A00F5C7F1 /* GUI.xcassets */; };
 		6E4507441A353B4E00F5C7F1 /* MenuItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */; };
+		6E67EC8C1A3D2073002C775A /* EstablishmentsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E67EC8B1A3D2073002C775A /* EstablishmentsPickerViewController.swift */; };
 		6E6DC80A1A368357006C15DE /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC8091A368357006C15DE /* MenuItemViewController.swift */; };
 		6E6DC8131A36A0AE006C15DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC8121A36A0AE006C15DE /* Error.swift */; };
 		6E81863C1A3A719000291F73 /* ManagedObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */; };
@@ -218,6 +219,7 @@
 		6E157C181A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyLocalePickerViewController.swift; sourceTree = "<group>"; };
 		6E4507411A353A3A00F5C7F1 /* GUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GUI.xcassets; path = "../../Shared Resources/GUI.xcassets"; sourceTree = "<group>"; };
 		6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsViewController.swift; sourceTree = "<group>"; };
+		6E67EC8B1A3D2073002C775A /* EstablishmentsPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishmentsPickerViewController.swift; sourceTree = "<group>"; };
 		6E6DC8091A368357006C15DE /* MenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
 		6E6DC8121A36A0AE006C15DE /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectViewController.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */,
 				6E6DC8091A368357006C15DE /* MenuItemViewController.swift */,
 				6E157C181A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift */,
+				6E67EC8B1A3D2073002C775A /* EstablishmentsPickerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				6E157C191A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift in Sources */,
 				6E81863C1A3A719000291F73 /* ManagedObjectViewController.swift in Sources */,
 				6E6DC8131A36A0AE006C15DE /* Error.swift in Sources */,
+				6E67EC8C1A3D2073002C775A /* EstablishmentsPickerViewController.swift in Sources */,
 				6EEA6B3F1A35002A00105413 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
