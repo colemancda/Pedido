@@ -36,6 +36,7 @@ class PickerViewController: FetchedResultsViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.tableView.editing = true
     }
     
     // MARK: - Methods
@@ -43,18 +44,24 @@ class PickerViewController: FetchedResultsViewController {
     override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError?) {
         super.configureCell(cell, atIndexPath: indexPath, withError: error)
         
-        // set cell selection...
+        if error != nil {
+            
+            // TODO: handle error
+            
+            return
+        }
         
         // get model object
         let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
         
-        if (self.selectedItems as NSArray).containsObject(managedObject) {
+        // set editing accesory
+        if (selectedItems as NSArray).containsObject(managedObject) {
             
-            cell.accessoryType = .Checkmark
+            cell.editingAccessoryType = .Checkmark
         }
         else {
             
-            cell.accessoryType = .None
+            cell.editingAccessoryType = .None
         }
     }
     
@@ -62,15 +69,43 @@ class PickerViewController: FetchedResultsViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
-        
-        // add to selected items...
-        if !(self.selectedItems as NSArray).containsObject(managedObject) {
+        if !self.editing {
             
-            self.selectedItems.append(managedObject)
-            
-            self.selectionHandler?()
+            return
         }
+        
+        self.updateSelection()
+    }
+    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if !self.editing {
+            
+            return
+        }
+        
+        self.updateSelection()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func updateSelection() {
+        
+        // get model object from selected indexes...
+        
+        var selectedItems = [NSManagedObject]()
+        
+        for indexPath in tableView.indexPathsForSelectedRows() as [NSIndexPath] {
+            
+            // get model object
+            let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+            
+            selectedItems.append(managedObject)
+        }
+        
+        self.selectedItems = selectedItems
+        
+        self.selectionHandler?()
     }
 }
+

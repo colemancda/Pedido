@@ -59,6 +59,7 @@ enum MainStoryboardSegueIdentifier: String {
     case NewMenuItem = "newMenuItem"
     case SavedMenuItem = "savedMenuItem"
     case PickCurrencyLocale = "pickCurrencyLocale"
+    case MenuItemEstablishments = "menuItemEstablishments"
 }
 
 // MARK: - Extensions
