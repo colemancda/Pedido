@@ -118,24 +118,7 @@ class MenuItemsViewController: FetchedResultsViewController {
             
         case .NewMenuItem:
             
-            // get destination VC
-            let menuItemVC = (segue.destinationViewController as UINavigationController).topViewController as MenuItemViewController
-            
-            // set creation handler
-            menuItemVC.didCreateManagedObjectHandler = {
-                
-                menuItemVC.dismissViewControllerAnimated(true, completion: nil)
-                
-                return
-            }
-            
-            // add cancel button
-            menuItemVC.didCancelHandler = {
-                
-                menuItemVC.dismissViewControllerAnimated(true, completion: nil)
-                
-                return
-            }
+            return
             
         default:
             return

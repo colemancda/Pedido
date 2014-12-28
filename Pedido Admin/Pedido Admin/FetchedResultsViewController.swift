@@ -145,7 +145,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
-                self.refreshControl!.endRefreshing()
+                self.refreshControl?.endRefreshing()
                 
                 // show error
                 if error != nil {

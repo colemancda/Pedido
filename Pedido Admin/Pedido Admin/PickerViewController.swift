@@ -9,26 +9,15 @@
 import Foundation
 import UIKit
 import CoreData
+import CorePedido
+import CorePedidoClient
 
+/** View controller for editing to-many relationships between entities. It allows selection from a list of existing items. */
 class PickerViewController: FetchedResultsViewController {
     
     // MARK: - Properties
     
-    var selectedItems = [NSManagedObject]()
-    
-    var selectionHandler: (() -> Void)?
-    
-    var allowsMultipleSelection: Bool {
-        
-        get {
-            return self.tableView.allowsMultipleSelection
-        }
-        
-        set {
-            
-            self.tableView.allowsMultipleSelection = allowsMultipleSelection
-        }
-    }
+    var relationship: ToManyRelationship?
     
     // MARK: - Initialization
     
@@ -41,71 +30,54 @@ class PickerViewController: FetchedResultsViewController {
     
     // MARK: - Methods
     
-    override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError?) {
-        super.configureCell(cell, atIndexPath: indexPath, withError: error)
-        
-        if error != nil {
-            
-            // TODO: handle error
-            
-            return
-        }
+    
+    
+    // MARK: - UITableViewDataSource
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // get model object
         let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
         
-        // set editing accesory
-        if (selectedItems as NSArray).containsObject(managedObject) {
+        let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
+        
+        let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        
+        // only configure editing accesory if managed object was cached
+        
+        if dateCached != nil {
             
-            cell.editingAccessoryType = .Checkmark
-        }
-        else {
+            // configure editing accessory
             
-            cell.editingAccessoryType = .None
+            if self.relationship!.isMember(managedObject) {
+                
+                cell.editingAccessoryType = .Checkmark
+            }
+            else {
+                
+                cell.editingAccessoryType = .None
+            }
+            
         }
+        
+        return cell
     }
     
     // MARK: - UITableViewDelegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         
         if !self.editing {
             
             return
         }
         
-        self.updateSelection()
-    }
-    
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        // remove or add to relationship
         
-        if !self.editing {
-            
-            return
-        }
+        self.relationship!.managedObject.valueForKey(<#key: String#>)
         
-        self.updateSelection()
-    }
-    
-    // MARK: - Private Methods
-    
-    private func updateSelection() {
         
-        // get model object from selected indexes...
-        
-        var selectedItems = [NSManagedObject]()
-        
-        for indexPath in tableView.indexPathsForSelectedRows() as [NSIndexPath] {
-            
-            // get model object
-            let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
-            
-            selectedItems.append(managedObject)
-        }
-        
-        self.selectedItems = selectedItems
-        
-        self.selectionHandler?()
     }
 }
+
 

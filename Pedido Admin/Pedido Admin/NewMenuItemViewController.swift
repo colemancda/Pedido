@@ -1,18 +1,15 @@
 //
-//  MenuItemViewController.swift
+//  NewMenuItemViewController.swift
 //  Pedido Admin
 //
-//  Created by Alsey Coleman Miller on 12/8/14.
+//  Created by Alsey Coleman Miller on 12/27/14.
 //  Copyright (c) 2014 ColemanCDA. All rights reserved.
 //
 
 import Foundation
 import UIKit
-import CoreData
-import CorePedido
-import CorePedidoClient
 
-class MenuItemViewController: ManagedObjectViewController {
+class NewMenuItemViewController: NewManagedObjectViewController {
     
     // MARK: - IB Outlets
     
@@ -24,7 +21,10 @@ class MenuItemViewController: ManagedObjectViewController {
     
     // MARK: - Properties
     
-    // MARK: Attributes
+    override var entityName: String {
+        
+        return "MenuItem"
+    }
     
     var currencyLocale: NSLocale = NSLocale.currentLocale() {
         
@@ -51,7 +51,7 @@ class MenuItemViewController: ManagedObjectViewController {
         numberFormatter.currencySymbol = ""
         
         return numberFormatter
-    }()
+        }()
     
     // MARK: - Methods
     
@@ -74,31 +74,13 @@ class MenuItemViewController: ManagedObjectViewController {
         return ["name": name, "price": price!, "currencyLocaleIdentifier": self.currencyLocale.localeIdentifier]
     }
     
-    override func configureUI(forManagedObject managedObject: NSManagedObject) {
-        
-        let menuItem = managedObject as MenuItem
-        
-        // update UI
-        
-        self.nameTextField.text = menuItem.name
-        self.priceTextfield.text = self.numberFormatter.stringFromNumber(menuItem.price)
-        self.currencyLocale = NSLocale(localeIdentifier: menuItem.currencyLocaleIdentifier)
-    }
-    
-    override func resetUI() {
-        
-        self.nameTextField.text = ""
-        self.priceTextfield.text = ""
-        self.currencyLocale = NSLocale.currentLocale()
-    }
-    
     // MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         switch MainStoryboardSegueIdentifier(rawValue: segue.identifier!)! {
             
-        case .MenuItemPickCurrencyLocale:
+        case .NewMenuItemPickCurrencyLocale:
             
             let currencyLocalePickerVC = segue.destinationViewController as CurrencyLocalePickerViewController
             
@@ -114,4 +96,5 @@ class MenuItemViewController: ManagedObjectViewController {
             return
         }
     }
+    
 }

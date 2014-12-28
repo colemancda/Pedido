@@ -107,12 +107,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="bth-wI-tsW" kind="relationship" relationship="rootViewController" id="w4h-Cx-5ch"/>
+                        <segue destination="zCs-4f-W99" kind="relationship" relationship="rootViewController" id="gz3-Xc-cvY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTV-Ic-tuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2578.125" y="-1352.1126760563379"/>
+            <point key="canvasLocation" x="2578" y="-2109"/>
         </scene>
         <!--Menu Items-->
         <scene sceneID="JaG-R6-fw0">
@@ -156,7 +156,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="S0U-c4-Vlh"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="RPI-XH-4Vh">
                             <connections>
-                                <segue destination="WNa-fP-Koy" kind="presentation" identifier="newMenuItem" id="Xzp-Lc-gVp"/>
+                                <segue destination="WNa-fP-Koy" kind="presentation" identifier="newMenuItem" modalPresentationStyle="pageSheet" id="Xzp-Lc-gVp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -305,11 +305,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUz-aY-pda" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="3eh-Qp-EuO">
                     <connections>
-                        <segue destination="V7v-bF-eri" kind="show" identifier="pickCurrencyLocale" id="pER-ar-Fnf"/>
+                        <segue destination="V7v-bF-eri" kind="show" identifier="menuItemPickCurrencyLocale" id="pER-ar-Fnf"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2578.125" y="-490.14084507042253"/>
+        </scene>
+        <!--New Menu Item-->
+        <scene sceneID="Bxp-LQ-bJI">
+            <objects>
+                <tableViewController id="zCs-4f-W99" customClass="NewMenuItemViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="tUW-Pr-Stt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="zVl-lA-2wc">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="qds-Kk-CHo">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qds-Kk-CHo" id="xU8-te-OPV">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BUp-Io-oxu">
+                                                    <rect key="frame" x="16" y="8" width="576" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BUp-Io-oxu" firstAttribute="trailing" secondItem="xU8-te-OPV" secondAttribute="trailingMargin" id="2a2-Cu-gXx"/>
+                                                <constraint firstItem="BUp-Io-oxu" firstAttribute="leading" secondItem="xU8-te-OPV" secondAttribute="leadingMargin" constant="8" id="3Nu-gy-blL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BUp-Io-oxu" secondAttribute="bottom" id="JO3-wz-HfD"/>
+                                                <constraint firstItem="BUp-Io-oxu" firstAttribute="top" secondItem="xU8-te-OPV" secondAttribute="topMargin" id="WaL-Ou-T34"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="g2j-wy-iqQ">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g2j-wy-iqQ" id="YMY-HD-DQw">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P1p-dS-TRU">
+                                                    <rect key="frame" x="16" y="8" width="41" height="27.5"/>
+                                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="310-VN-y3O">
+                                                    <rect key="frame" x="557" y="11" width="10" height="20.5"/>
+                                                    <gestureRecognizers/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="flg-7d-f9T" appends="YES" id="NAW-Dr-tCk"/>
+                                                    </connections>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="P1p-dS-TRU" secondAttribute="bottom" id="fAR-Is-fNQ"/>
+                                                <constraint firstAttribute="centerY" secondItem="310-VN-y3O" secondAttribute="centerY" id="hAW-uU-RR1"/>
+                                                <constraint firstItem="P1p-dS-TRU" firstAttribute="leading" secondItem="YMY-HD-DQw" secondAttribute="leadingMargin" constant="8" id="lmX-5x-Fcz"/>
+                                                <constraint firstAttribute="trailing" secondItem="310-VN-y3O" secondAttribute="trailing" id="qsB-yn-ikt"/>
+                                                <constraint firstItem="P1p-dS-TRU" firstAttribute="top" secondItem="YMY-HD-DQw" secondAttribute="topMargin" id="vRa-g5-eKZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="zCs-4f-W99" id="CWd-73-ASI"/>
+                            <outlet property="delegate" destination="zCs-4f-W99" id="gUo-dx-XE5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Menu Item" id="Hlt-xf-T33"/>
+                    <connections>
+                        <outlet property="currencySymbolLabel" destination="310-VN-y3O" id="cBI-6x-VVb"/>
+                        <outlet property="nameTextField" destination="BUp-Io-oxu" id="XxM-ZE-QAt"/>
+                        <outlet property="priceTextfield" destination="P1p-dS-TRU" id="PQx-qF-tzX"/>
+                    </connections>
+                </tableViewController>
+                <tapGestureRecognizer id="flg-7d-f9T">
+                    <connections>
+                        <segue destination="V7v-bF-eri" kind="show" identifier="newMenuItemPickCurrencyLocale" id="SHM-pI-bdb"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q6d-Cw-eCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3412" y="-2109"/>
         </scene>
         <!--Currency Locale Picker-->
         <scene sceneID="gUd-cd-kS2">
@@ -359,7 +444,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4C8-k5-SKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3650.625" y="-1352.1126760563379"/>
+            <point key="canvasLocation" x="3412" y="-1259"/>
         </scene>
         <!--Establishments-->
         <scene sceneID="aCX-el-40K">
@@ -394,7 +479,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CyJ-bv-74D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3650" y="-490"/>
+            <point key="canvasLocation" x="3412" y="-491"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="wnZ-M9-ktF">
@@ -659,6 +744,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="02G-TT-WJx"/>
-        <segue reference="w4h-Cx-5ch"/>
+        <segue reference="SHM-pI-bdb"/>
     </inferredMetricsTieBreakers>
 </document>
