@@ -275,6 +275,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E58A3CB1A55BBF900970F1A /* Menu Item View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */,
+				6E6DC8091A368357006C15DE /* MenuItemViewController.swift */,
+				6EAD376B1A4F5C0A0073905A /* NewMenuItemViewController.swift */,
+			);
+			name = "Menu Item View Controllers";
+			sourceTree = "<group>";
+		};
+		6E58A3D31A55BC1C00970F1A /* Picker View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6EF712991A393BF800F7BAE6 /* PickerViewController.swift */,
+				6E157C181A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift */,
+				6E67EC8B1A3D2073002C775A /* EstablishmentPickerViewController.swift */,
+			);
+			name = "Picker View Controllers";
+			sourceTree = "<group>";
+		};
+		6E58A3D41A55BC3200970F1A /* Establishment View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E67EC941A3E1E39002C775A /* EstablishmentsViewController.swift */,
+			);
+			name = "Establishment View Controllers";
+			sourceTree = "<group>";
+		};
 		6EEA6B301A35002A00105413 = {
 			isa = PBXGroup;
 			children = (
@@ -417,15 +445,11 @@
 			children = (
 				6EEA6BE71A3505B700105413 /* LoginViewController.swift */,
 				6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */,
-				6EF712991A393BF800F7BAE6 /* PickerViewController.swift */,
 				6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */,
 				6E9D2ABE1A4CC3A800F78363 /* NewManagedObjectViewController.swift */,
-				6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */,
-				6E6DC8091A368357006C15DE /* MenuItemViewController.swift */,
-				6EAD376B1A4F5C0A0073905A /* NewMenuItemViewController.swift */,
-				6E157C181A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift */,
-				6E67EC8B1A3D2073002C775A /* EstablishmentPickerViewController.swift */,
-				6E67EC941A3E1E39002C775A /* EstablishmentsViewController.swift */,
+				6E58A3D31A55BC1C00970F1A /* Picker View Controllers */,
+				6E58A3CB1A55BBF900970F1A /* Menu Item View Controllers */,
+				6E58A3D41A55BC3200970F1A /* Establishment View Controllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
