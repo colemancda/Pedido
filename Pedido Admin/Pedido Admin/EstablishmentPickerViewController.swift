@@ -14,18 +14,33 @@ import CorePedidoClient
 
 class EstablishmentPickerViewController: PickerViewController {
     
+    // MARK: - Properties
+    
+    override var relationship: (NSManagedObject, String)? {
+        
+        didSet {
+            
+            super.relationship = relationship
+            
+            if self.relationship != nil {
+                
+                // set fetch request
+                let fetchRequest = NSFetchRequest(entityName: "Establishment")
+                
+                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "location", ascending: true)]
+                
+                self.fetchRequest = fetchRequest
+            }
+        }
+    }
+    
     // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // set fetch request
-        let fetchRequest = NSFetchRequest(entityName: "Establishment")
         
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "location", ascending: true)]
-        
-        self.fetchRequest = fetchRequest
     }
     
     // MARK: - Methods
@@ -46,16 +61,6 @@ class EstablishmentPickerViewController: PickerViewController {
         
         // get model object
         let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as Establishment
-        
-        // set editing accesory
-        if (selectedItems as NSArray).containsObject(managedObject) {
-            
-            cell.editingAccessoryType = .Checkmark
-        }
-        else {
-            
-            cell.editingAccessoryType = .None
-        }
         
         // check if fully downloaded
         let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate

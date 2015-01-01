@@ -17,7 +17,34 @@ class PickerViewController: FetchedResultsViewController {
     
     // MARK: - Properties
     
-    var relationship: ToManyRelationship?
+    var relationship: (NSManagedObject, String)? {
+        
+        didSet {
+            
+            // create fetch request
+            if relationship != nil {
+                
+                let (managedObject, key) = self.relationship!
+                
+                let relationshipDescription = managedObject.entity.relationshipsByName[key] as? NSRelationshipDescription
+                
+                assert(relationshipDescription != nil, "Relationship \(key) not found on \(managedObject.entity.name!) entity")
+                
+                assert(relationshipDescription!.toMany, "Relationship \(key) on \(managedObject.entity.name!) is not to-many")
+                
+                let fetchRequest = NSFetchRequest(entityName: relationshipDescription!.destinationEntity!.name!)
+                
+                fetchRequest.sortDescriptors = [NSSortDescriptor(key: Store.sharedStore.resourceIDAttributeName, ascending: true)]
+                
+                self.fetchRequest = fetchRequest
+                
+            }
+            else {
+                
+                self.fetchRequest = nil
+            }
+        }
+    }
     
     // MARK: - Initialization
     
@@ -30,7 +57,64 @@ class PickerViewController: FetchedResultsViewController {
     
     // MARK: - Methods
     
-    
+    func selectManagedObject(managedObject: NSManagedObject) {
+        
+        let (parentManagedObject, relationshipName) = self.relationship!
+        
+        let relationshipValue = parentManagedObject.valueForKey(relationshipName) as? NSSet
+        
+        var newRelationshipValue: NSSet?
+        
+        if relationshipValue?.containsObject(managedObject) ?? false {
+            
+            // remove...
+            
+            let arrayValue = (relationshipValue!.allObjects as NSArray).mutableCopy() as NSMutableArray
+            
+            arrayValue.removeObject(managedObject)
+            
+            newRelationshipValue = NSSet(array: arrayValue)
+            
+        }
+        else {
+            
+            // add to set...
+            
+            var arrayValue: NSMutableArray?
+            
+            if relationshipValue != nil {
+                
+                arrayValue = (relationshipValue!.allObjects as NSArray).mutableCopy() as? NSMutableArray
+            }
+            else {
+                
+                arrayValue = NSMutableArray()
+            }
+            
+            arrayValue!.addObject(managedObject)
+            
+        }
+        
+        // edit managed object
+        
+        Store.sharedStore.editManagedObject(parentManagedObject, changes: [relationshipName: newRelationshipValue!], completionBlock: { (error) -> Void in
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                
+                // show error
+                if error != nil {
+                    
+                    self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
+                        
+                        self.selectManagedObject(managedObject)
+                    })
+                    
+                    return
+                }
+                
+            })
+        })
+    }
     
     // MARK: - UITableViewDataSource
     
@@ -49,7 +133,9 @@ class PickerViewController: FetchedResultsViewController {
             
             // configure editing accessory
             
-            if self.relationship!.isMember(managedObject) {
+            let (parentManagedObject, relationshipName) = self.relationship!
+            
+            if (parentManagedObject.valueForKey(relationshipName) as? NSSet)?.containsObject(managedObject) ?? false {
                 
                 cell.editingAccessoryType = .Checkmark
             }
@@ -72,10 +158,11 @@ class PickerViewController: FetchedResultsViewController {
             return
         }
         
-        // remove or add to relationship
+        // remove or add to relationship...
         
-        self.relationship!.managedObject.valueForKey(<#key: String#>)
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
         
+        self.selectManagedObject(managedObject)
         
     }
 }

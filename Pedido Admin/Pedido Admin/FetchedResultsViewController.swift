@@ -229,6 +229,8 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
             
             Store.sharedStore.deleteManagedObject(managedObject, completionBlock: { (error) -> Void in
                 
+               NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                
                 // show error
                 if error != nil {
                     
@@ -239,6 +241,8 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
                     
                     return
                 }
+                
+               })
             })
             
         default:
