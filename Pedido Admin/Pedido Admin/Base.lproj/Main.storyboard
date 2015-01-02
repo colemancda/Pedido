@@ -250,7 +250,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Rlu-JL-nut" kind="show" identifier="menuItemEstablishments" id="N6l-jj-AZ6"/>
+                                            <segue destination="Rlu-JL-nut" kind="show" identifier="menuItemEstablishmentPicker" id="N6l-jj-AZ6"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="YYy-TD-Mr8" style="IBUITableViewCellStyleDefault" id="zYH-31-CXW">
@@ -455,7 +455,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EstablishmentCell" editingAccessoryType="checkmark" textLabel="ud3-KV-LV8" style="IBUITableViewCellStyleDefault" id="Ght-Au-KdE">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EstablishmentCell" textLabel="ud3-KV-LV8" style="IBUITableViewCellStyleDefault" id="Ght-Au-KdE">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ght-Au-KdE" id="G3H-dd-5T2">
                                     <autoresizingMask key="autoresizingMask"/>

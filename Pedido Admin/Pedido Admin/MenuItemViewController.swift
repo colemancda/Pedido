@@ -110,6 +110,12 @@ class MenuItemViewController: ManagedObjectViewController {
                 self.currencyLocale = currencyLocalePickerVC.selectedCurrencyLocale!
             }
             
+        case .MenuItemEstablishmentPicker:
+            
+            let establishmentPickerVC = segue.destinationViewController as EstablishmentPickerViewController
+            
+            establishmentPickerVC.relationship = (self.managedObject!, "establishments")
+            
         default:
             return
         }

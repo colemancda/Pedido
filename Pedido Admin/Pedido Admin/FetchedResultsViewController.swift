@@ -165,6 +165,29 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         })
     }
     
+    // MARK: - Private Methods
+    
+    private func deleteManagedObject(managedObject: NSManagedObject) {
+        
+        Store.sharedStore.deleteManagedObject(managedObject, completionBlock: { (error) -> Void in
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                
+                // show error
+                if error != nil {
+                    
+                    self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
+                        
+                        self.deleteManagedObject(managedObject)
+                    })
+                    
+                    return
+                }
+                
+            })
+        })
+    }
+    
     // MARK: - UITableViewDataSource
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -229,23 +252,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
             
         case .Delete:
             
-            Store.sharedStore.deleteManagedObject(managedObject, completionBlock: { (error) -> Void in
-                
-               NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                
-                // show error
-                if error != nil {
-                    
-                    self.showErrorAlert(error!.localizedDescription, retryHandler: { () -> Void in
-                        
-                        self.refresh(self)
-                    })
-                    
-                    return
-                }
-                
-               })
-            })
+            self.deleteManagedObject(managedObject)
             
         default:
             

@@ -52,7 +52,9 @@ class PickerViewController: FetchedResultsViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.tableView.editing = true
+        self.editing = true
+        
+        self.tableView.allowsMultipleSelectionDuringEditing = true
     }
     
     // MARK: - Methods
@@ -93,6 +95,7 @@ class PickerViewController: FetchedResultsViewController {
             
             arrayValue!.addObject(managedObject)
             
+            newRelationshipValue = NSSet(array: arrayValue!)
         }
         
         // edit managed object
@@ -127,22 +130,19 @@ class PickerViewController: FetchedResultsViewController {
         
         let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
         
-        // only configure editing accesory if managed object was cached
+        // only set selection if managed object was cached
         
         if dateCached != nil {
             
-            // configure editing accessory
+            // set selection
             
             let (parentManagedObject, relationshipName) = self.relationship!
             
-            if (parentManagedObject.valueForKey(relationshipName) as? NSSet)?.containsObject(managedObject) ?? false {
-                
-                cell.editingAccessoryType = .Checkmark
-            }
-            else {
-                
-                cell.editingAccessoryType = .None
-            }
+            let relationshipValue = parentManagedObject.valueForKey(relationshipName) as? NSSet
+            
+            cell.selected = relationshipValue?.containsObject(managedObject) ?? false
+            
+            println((parentManagedObject.valueForKey(relationshipName) as? NSSet)?.containsObject(managedObject))
             
         }
         
@@ -151,7 +151,7 @@ class PickerViewController: FetchedResultsViewController {
     
     // MARK: - UITableViewDelegate
     
-    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if !self.editing {
             
@@ -163,7 +163,20 @@ class PickerViewController: FetchedResultsViewController {
         let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
         
         self.selectManagedObject(managedObject)
+    }
+    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         
+        if !self.editing {
+            
+            return
+        }
+        
+        // remove or add to relationship...
+        
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+        
+        self.selectManagedObject(managedObject)
     }
 }
 
