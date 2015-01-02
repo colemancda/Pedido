@@ -63,7 +63,7 @@ extension CorePedidoClient.Store {
         }
         dispatch_once(&Static.onceToken) {
             
-            let psc = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel)
+            let psc = NSPersistentStoreCoordinator(managedObjectModel: CorePedidoManagedObjectModel())
             
             // add persistent store
             

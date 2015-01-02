@@ -490,7 +490,7 @@
         <!--Establishment-->
         <scene sceneID="wnZ-M9-ktF">
             <objects>
-                <tableViewController id="0iU-kP-psC" sceneMemberID="viewController">
+                <tableViewController id="0iU-kP-psC" customClass="EstablishmentViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zTr-dE-m82">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -575,6 +575,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Establishment" id="CI0-AQ-LUb"/>
+                    <connections>
+                        <outlet property="locationTextField" destination="pnp-DM-dOT" id="vdU-Jj-y1i"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Wq-js-fQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -717,13 +720,13 @@
         <!--Establishments-->
         <scene sceneID="SCJ-lj-bKZ">
             <objects>
-                <tableViewController id="Ruz-Og-ABu" customClass="FetchedResultsViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ruz-Og-ABu" customClass="EstablishmentsViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QrU-iu-YgE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="JA3-Wc-QaV" style="IBUITableViewCellStyleDefault" id="fqP-kD-60M">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EstablishmentCell" textLabel="JA3-Wc-QaV" style="IBUITableViewCellStyleDefault" id="fqP-kD-60M">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fqP-kD-60M" id="LaI-fl-h8b">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -753,10 +756,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Nzn-JQ-aBe">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="Ruz-Og-ABu" eventType="valueChanged" id="5wi-ve-VJP"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VdE-Y1-kmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1773" y="953"/>
+            <point key="canvasLocation" x="1807" y="953"/>
         </scene>
         <!--Establishments-->
         <scene sceneID="H87-Hu-XQn">
@@ -800,7 +809,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCf-4z-9mo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1773" y="1774"/>
+            <point key="canvasLocation" x="1807" y="1774"/>
         </scene>
         <!--Orders-->
         <scene sceneID="rCo-4U-gj3">
@@ -844,7 +853,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4s-Hz-oNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1757" y="2557"/>
+            <point key="canvasLocation" x="1807" y="2577"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="0Ih-0X-5Ck">
@@ -871,7 +880,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NB-m4-uJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1691" y="3198"/>
+            <point key="canvasLocation" x="1807" y="3422"/>
         </scene>
         <!--Account-->
         <scene sceneID="FwB-0S-Pew">
@@ -888,7 +897,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0K8-qE-3mK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="3190"/>
+            <point key="canvasLocation" x="880" y="3422"/>
         </scene>
         <!--Users-->
         <scene sceneID="IGd-lz-lrS">
@@ -905,12 +914,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cf-GB-Bpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976" y="2589"/>
+            <point key="canvasLocation" x="880" y="2577"/>
         </scene>
         <!--New Establishment-->
         <scene sceneID="t4o-nc-3nw">
             <objects>
-                <tableViewController id="2rM-Wc-thO" sceneMemberID="viewController">
+                <tableViewController id="2rM-Wc-thO" customClass="NewEstablishmentViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HRB-nl-roH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -949,6 +958,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Establishment" id="h7v-Ec-lZx"/>
+                    <connections>
+                        <outlet property="locationTextField" destination="ycL-c7-eFx" id="SKW-C5-Z56"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSx-5K-eGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

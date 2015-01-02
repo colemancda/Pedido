@@ -51,9 +51,9 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         }
     }
     
-    var datedRefreshed: NSDate?
+    private(set) var datedRefreshed: NSDate?
     
-    var fetchedResultsController: NSFetchedResultsController?
+    private(set) var fetchedResultsController: NSFetchedResultsController?
     
     // MARK: - Initialization
     
@@ -135,6 +135,8 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
     @IBAction func refresh(sender: AnyObject) {
         
         if self.fetchRequest == nil {
+            
+            self.refreshControl?.endRefreshing()
             
             return
         }
