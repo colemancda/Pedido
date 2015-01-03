@@ -51,10 +51,6 @@ class PickerViewController: FetchedResultsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        self.editing = true
-        
-        self.tableView.allowsMultipleSelectionDuringEditing = true
     }
     
     // MARK: - Methods
@@ -140,10 +136,14 @@ class PickerViewController: FetchedResultsViewController {
             
             let relationshipValue = parentManagedObject.valueForKey(relationshipName) as? NSSet
             
-            cell.selected = relationshipValue?.containsObject(managedObject) ?? false
-            
-            println((parentManagedObject.valueForKey(relationshipName) as? NSSet)?.containsObject(managedObject))
-            
+            if relationshipValue?.containsObject(managedObject) ?? false {
+                
+                cell.accessoryType = .Checkmark
+            }
+            else {
+                
+                cell.accessoryType = .None
+            }
         }
         
         return cell
@@ -153,30 +153,63 @@ class PickerViewController: FetchedResultsViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if !self.editing {
-            
-            return
-        }
-        
         // remove or add to relationship...
         
         let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
         
         self.selectManagedObject(managedObject)
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if !self.editing {
-            
-            return
-        }
-        
-        // remove or add to relationship...
-        
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
-        
-        self.selectManagedObject(managedObject)
+    // MARK: - NSFetchedResultsControllerDelegate
+    
+    override func controller(controller: NSFetchedResultsController,
+        didChangeObject object: AnyObject,
+        atIndexPath indexPath: NSIndexPath,
+        forChangeType type: NSFetchedResultsChangeType,
+        newIndexPath: NSIndexPath) {
+            switch type {
+            case .Insert:
+                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+            case .Update:
+                if let cell = self.tableView.cellForRowAtIndexPath(indexPath) {
+                    
+                    self.configureCell(cell, atIndexPath: indexPath)
+                    
+                    // get model object
+                    let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+                    
+                    let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
+                    
+                    // only set selection if managed object was cached
+                    
+                    if dateCached != nil {
+                        
+                        // set selection
+                        
+                        let (parentManagedObject, relationshipName) = self.relationship!
+                        
+                        let relationshipValue = parentManagedObject.valueForKey(relationshipName) as? NSSet
+                        
+                        if relationshipValue?.containsObject(managedObject) ?? false {
+                            
+                            cell.accessoryType = .Checkmark
+                        }
+                        else {
+                            
+                            cell.accessoryType = .None
+                        }
+                    }
+                }
+            case .Move:
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+            case .Delete:
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            default:
+                return
+            }
     }
 }
 
