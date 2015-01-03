@@ -551,6 +551,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Iw8-lH-EZD" kind="show" identifier="establishmentMenuItemPicker" id="gYX-Kf-1pD"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="MFC-DV-wM2" style="IBUITableViewCellStyleDefault" id="hdc-8T-bIa">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -623,6 +626,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vR2-F7-AO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3412" y="953"/>
+        </scene>
+        <!--Menu Items-->
+        <scene sceneID="CTm-2q-ZbI">
+            <objects>
+                <tableViewController id="Iw8-lH-EZD" customClass="MenuItemPickerViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ShK-BV-u3f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuItemCell" textLabel="Ox3-w2-rlf" style="IBUITableViewCellStyleDefault" id="ifk-gp-aWL">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ifk-gp-aWL" id="MjD-Tv-6qk">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Lomo Saltado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ox3-w2-rlf">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Iw8-lH-EZD" id="cWP-5g-YKj"/>
+                            <outlet property="delegate" destination="Iw8-lH-EZD" id="p5C-jW-SKj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Menu Items" id="oOa-x4-b4K"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BSJ-M8-Eoo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3412" y="1774"/>
         </scene>
         <!--Search for Location-->
         <scene sceneID="aui-HR-tRC">
@@ -974,7 +1012,7 @@
         <image name="user" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nfp-Gd-nGk"/>
-        <segue reference="pER-ar-Fnf"/>
+        <segue reference="gcs-1Q-If8"/>
+        <segue reference="SHM-pI-bdb"/>
     </inferredMetricsTieBreakers>
 </document>

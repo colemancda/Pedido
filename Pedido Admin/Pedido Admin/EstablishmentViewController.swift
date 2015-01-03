@@ -51,4 +51,21 @@ class EstablishmentViewController: ManagedObjectViewController {
         
         self.locationTextField.text = ""
     }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch MainStoryboardSegueIdentifier(rawValue: segue.identifier!)! {
+            
+        case .EstablishmentMenuItemPicker:
+            
+            let pickerVC = segue.destinationViewController as PickerViewController
+            
+            pickerVC.relationship = (self.managedObject!, "menuItems")
+            
+        default:
+            return
+        }
+    }
 }

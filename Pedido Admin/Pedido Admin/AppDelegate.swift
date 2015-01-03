@@ -62,6 +62,7 @@ enum MainStoryboardSegueIdentifier: String {
     case MenuItemEstablishmentPicker = "menuItemEstablishmentPicker"
     case ShowEstablishment = "showEstablishment"
     case NewEstablishment = "newEstablishment"
+    case EstablishmentMenuItemPicker = "establishmentMenuItemPicker"
 }
 
 // MARK: - Extensions
