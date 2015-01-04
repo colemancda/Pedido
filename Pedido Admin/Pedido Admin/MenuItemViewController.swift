@@ -116,6 +116,12 @@ class MenuItemViewController: ManagedObjectViewController {
             
             establishmentPickerVC.relationship = (self.managedObject!, "establishments")
             
+        case .MenuItemLocalizedDescriptions:
+            
+            let relationshipVC = segue.destinationViewController as RelationshipViewController
+            
+            relationshipVC.relationship = (self.managedObject!, "localizedDescriptions")
+            
         default:
             return
         }

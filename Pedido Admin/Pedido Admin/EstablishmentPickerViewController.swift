@@ -34,15 +34,6 @@ class EstablishmentPickerViewController: PickerViewController {
         }
     }
     
-    // MARK: - Initialization
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
-    }
-    
     // MARK: - Methods
     
     override func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {

@@ -23,7 +23,7 @@
         <relationship name="menuItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="images" inverseEntity="MenuItem" syncable="YES"/>
     </entity>
     <entity name="LocalizedText" representedClassName="CorePedido.LocalizedText" syncable="YES">
-        <attribute name="locale" attributeType="Transformable" minValueString="2" maxValueString="2" defaultValueString="en" syncable="YES"/>
+        <attribute name="locale" attributeType="String" minValueString="2" maxValueString="5" defaultValueString="en_US" syncable="YES"/>
         <attribute name="text" attributeType="String" minValueString="1" syncable="YES"/>
         <relationship name="menuItemLocalizedDescription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="localizedDescriptions" inverseEntity="MenuItem" syncable="YES"/>
     </entity>

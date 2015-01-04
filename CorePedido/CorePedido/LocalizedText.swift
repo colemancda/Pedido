@@ -11,8 +11,7 @@ import CoreData
 
 public class LocalizedText: NSManagedObject {
 
-    @NSManaged public var locale: NSLocale
+    @NSManaged public var locale: String
     @NSManaged public var text: String
     @NSManaged public var menuItemLocalizedDescription: MenuItem?
-
 }
