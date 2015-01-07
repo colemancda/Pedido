@@ -61,6 +61,8 @@ enum MainStoryboardSegueIdentifier: String {
     case NewMenuItemPickCurrencyLocale = "newMenuItemPickCurrencyLocale"
     case MenuItemEstablishmentPicker = "menuItemEstablishmentPicker"
     case MenuItemLocalizedDescriptions = "menuItemLocalizedDescriptions"
+    case ShowLocalizedDescription = "showLocalizedDescription"
+    case NewLocalizedDescription = "newLocalizedDescription"
     case ShowEstablishment = "showEstablishment"
     case NewEstablishment = "newEstablishment"
     case EstablishmentMenuItemPicker = "establishmentMenuItemPicker"

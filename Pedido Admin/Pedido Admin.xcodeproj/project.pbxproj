@@ -42,6 +42,9 @@
 		6EEA6BE31A35055E00105413 /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEA6BAF1A35053E00105413 /* CorePedido.framework */; };
 		6EEA6BE41A35055E00105413 /* CorePedido.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEA6BAF1A35053E00105413 /* CorePedido.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EEA6BE81A3505B700105413 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA6BE71A3505B700105413 /* LoginViewController.swift */; };
+		6EF494E71A5CBDAF0002CAF5 /* LocalizedTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF494E61A5CBDAF0002CAF5 /* LocalizedTextViewController.swift */; };
+		6EF494F01A5CD3310002CAF5 /* NewLocalizedTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF494EF1A5CD3310002CAF5 /* NewLocalizedTextViewController.swift */; };
+		6EF494F21A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF494F11A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift */; };
 		6EF7129A1A393BF800F7BAE6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF712991A393BF800F7BAE6 /* PickerViewController.swift */; };
 		6EF7129C1A39532900F7BAE6 /* FetchedResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -256,6 +259,9 @@
 		6EEA6B9A1A35053E00105413 /* NetworkObjects.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkObjects.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../NetworkObjects/NetworkObjects/NetworkObjects.xcodeproj; sourceTree = "<absolute>"; };
 		6EEA6B9D1A35053E00105413 /* CorePedido.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePedido.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/CorePedidoClient/../CorePedido/CorePedido.xcodeproj; sourceTree = "<absolute>"; };
 		6EEA6BE71A3505B700105413 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6EF494E61A5CBDAF0002CAF5 /* LocalizedTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedTextViewController.swift; sourceTree = "<group>"; };
+		6EF494EF1A5CD3310002CAF5 /* NewLocalizedTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewLocalizedTextViewController.swift; sourceTree = "<group>"; };
+		6EF494F11A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageLocalePickerViewController.swift; sourceTree = "<group>"; };
 		6EF712991A393BF800F7BAE6 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -293,6 +299,15 @@
 			name = "Relationship View Controllers";
 			sourceTree = "<group>";
 		};
+		6E04560B1A58E39E00A83602 /* Localized Text View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6EF494E61A5CBDAF0002CAF5 /* LocalizedTextViewController.swift */,
+				6EF494EF1A5CD3310002CAF5 /* NewLocalizedTextViewController.swift */,
+			);
+			name = "Localized Text View Controller";
+			sourceTree = "<group>";
+		};
 		6E58A3CB1A55BBF900970F1A /* Menu Item View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				6E157C181A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift */,
+				6EF494F11A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift */,
 				6E67EC8B1A3D2073002C775A /* EstablishmentPickerViewController.swift */,
 				6E0455FD1A585C9900A83602 /* MenuItemPickerViewController.swift */,
 			);
@@ -469,6 +485,7 @@
 				6E9D2ABE1A4CC3A800F78363 /* NewManagedObjectViewController.swift */,
 				6EF712991A393BF800F7BAE6 /* PickerViewController.swift */,
 				6E0456061A586E7100A83602 /* RelationshipViewController.swift */,
+				6E04560B1A58E39E00A83602 /* Localized Text View Controller */,
 				6E0456081A58CA7C00A83602 /* Relationship View Controllers */,
 				6E58A3D31A55BC1C00970F1A /* Picker View Controllers */,
 				6E58A3CB1A55BBF900970F1A /* Menu Item View Controllers */,
@@ -725,11 +742,14 @@
 				6E6DC80A1A368357006C15DE /* MenuItemViewController.swift in Sources */,
 				6E0456071A586E7100A83602 /* RelationshipViewController.swift in Sources */,
 				6E0455FE1A585C9900A83602 /* MenuItemPickerViewController.swift in Sources */,
+				6EF494E71A5CBDAF0002CAF5 /* LocalizedTextViewController.swift in Sources */,
 				6EAD376C1A4F5C0A0073905A /* NewMenuItemViewController.swift in Sources */,
 				6E157C191A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift in Sources */,
 				6E81863C1A3A719000291F73 /* ManagedObjectViewController.swift in Sources */,
+				6EF494F01A5CD3310002CAF5 /* NewLocalizedTextViewController.swift in Sources */,
 				6E6DC8131A36A0AE006C15DE /* Error.swift in Sources */,
 				6E58A3D81A55FE6B00970F1A /* NewEstablishmentViewController.swift in Sources */,
+				6EF494F21A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift in Sources */,
 				6E9D2ABF1A4CC3A800F78363 /* NewManagedObjectViewController.swift in Sources */,
 				6E67EC951A3E1E39002C775A /* EstablishmentsViewController.swift in Sources */,
 				6E67EC8C1A3D2073002C775A /* EstablishmentPickerViewController.swift in Sources */,
