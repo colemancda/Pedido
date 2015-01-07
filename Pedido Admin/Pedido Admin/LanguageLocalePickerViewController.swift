@@ -156,7 +156,7 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
         let locale = self.filteredLanguageLocales![indexPath.row]
         
         // configure cell
-        cell.textLabel!.text = locale.localeIdentifier
+        cell.textLabel!.text = (locale.objectForKey(NSLocaleLanguageCode) as NSString).uppercaseString
         
         // add checkmark if selected
         if locale == self.selectedLanguageLocale {

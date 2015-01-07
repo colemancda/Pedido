@@ -56,9 +56,51 @@ class LocalizedDescriptionRelationshipViewController: RelationshipViewController
         
         cell.userInteractionEnabled = true
         
-        localizedDescriptionCell.languageLabel.text = managedObject.locale
+        localizedDescriptionCell.languageLabel.text = (managedObject.locale as NSString).uppercaseString
         
         localizedDescriptionCell.descriptionLabel.text = managedObject.text
+    }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch MainStoryboardSegueIdentifier(rawValue: segue.identifier!)! {
+            
+        case .NewLocalizedDescription:
+            
+            let newLocalizedTextVC = (segue.destinationViewController as UINavigationController).topViewController as NewLocalizedTextViewController
+            
+            let (parentManagedObject, key) = self.relationship!
+            
+            // get relationship description
+            let relationshipDescription = parentManagedObject.entity.relationshipsByName[key] as NSRelationshipDescription
+            
+            newLocalizedTextVC.parentManagedObject = (parentManagedObject, relationshipDescription.inverseRelationship!.name)
+            
+        case .ShowLocalizedDescription:
+            
+            // get destination VC
+            let managedObjectVC = segue.destinationViewController as ManagedObjectViewController
+            
+            // get model object
+            let managedObject = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as NSManagedObject
+            
+            // configure VC
+            managedObjectVC.managedObject = managedObject
+            
+            // set edit handler
+            managedObjectVC.didEditManagedObjectHandler = {
+                
+                // pop VC
+                self.navigationController!.popViewControllerAnimated(true)
+                
+                return
+            }
+            
+        default:
+            return
+        }
     }
 }
 

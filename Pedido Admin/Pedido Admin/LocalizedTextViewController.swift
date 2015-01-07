@@ -25,7 +25,7 @@ class LocalizedTextViewController: ManagedObjectViewController {
         
         didSet {
             
-            self.languageLabel.text = languageLocale.localeIdentifier
+            self.languageLabel.text = (languageLocale.objectForKey(NSLocaleLanguageCode) as? NSString)!.uppercaseString
         }
     }
     
@@ -35,6 +35,8 @@ class LocalizedTextViewController: ManagedObjectViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // load initial value
+        self.languageLabel.text = (languageLocale.objectForKey(NSLocaleLanguageCode) as? NSString)!.uppercaseString
     }
     
     // MARK: - Methods
@@ -55,7 +57,7 @@ class LocalizedTextViewController: ManagedObjectViewController {
             return nil
         }
         
-        return ["text": text, "locale": languageLocale]
+        return ["text": text, "locale": languageLocaleIdentifier]
     }
     
     override func configureUI(forManagedObject managedObject: NSManagedObject) {
@@ -69,9 +71,30 @@ class LocalizedTextViewController: ManagedObjectViewController {
     
     override func resetUI() {
         
-        self.languageLocale = NSLocale.currentLocale()
+        self.languageLocale = NSLocale(localeIdentifier: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as String)
         self.textView.text = ""
     }
     
+    // MARK: - Segues
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch MainStoryboardSegueIdentifier(rawValue: segue.identifier!)! {
+            
+        case .LocalizedDescriptionPickLanguageLocale:
+            
+            let languageLocalePickerVC = segue.destinationViewController as LanguageLocalePickerViewController
+            
+            languageLocalePickerVC.selectedLanguageLocale = self.languageLocale
+            
+            // set handler
+            languageLocalePickerVC.selectionHandler = {
+                
+                self.languageLocale = languageLocalePickerVC.selectedLanguageLocale!
+            }
+            
+        default:
+            return
+        }
+    }
 }

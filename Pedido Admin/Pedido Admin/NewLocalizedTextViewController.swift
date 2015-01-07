@@ -25,13 +25,14 @@ class NewLocalizedTextViewController: NewManagedObjectViewController {
         return "LocalizedText"
     }
     
-    var keyedParentManagedObject: (NSManagedObject, String)!
+    var parentManagedObject: (NSManagedObject, String)!
     
-    var languageLocale: NSLocale! = NSLocale.currentLocale() {
+    var languageLocale: NSLocale! = NSLocale(localeIdentifier: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as String)
+        {
         
         didSet {
             
-            self.languageLabel.text = languageLocale.localeIdentifier
+            self.languageLabel.text = (languageLocale.objectForKey(NSLocaleLanguageCode) as? NSString)!.uppercaseString
         }
     }
     
@@ -47,6 +48,9 @@ class NewLocalizedTextViewController: NewManagedObjectViewController {
         
         // cache view size
         self.viewSizeCache = self.view.bounds.size
+        
+        // load initial value
+        self.languageLabel.text = (languageLocale.objectForKey(NSLocaleLanguageCode) as? NSString)!.uppercaseString
     }
     
     // MARK: - View Layout
@@ -81,9 +85,9 @@ class NewLocalizedTextViewController: NewManagedObjectViewController {
         }
         
         // relationship
-        let (parentManagedObject, parentManagedObjectKey) = self.keyedParentManagedObject
+        let (managedObject, parentManagedObjectKey) = self.parentManagedObject
         
-        return ["text": text, "locale": languageLocaleIdentifier, parentManagedObjectKey: parentManagedObject]
+        return ["text": text, "locale": languageLocaleIdentifier, parentManagedObjectKey: managedObject]
     }
     
     // MARK: - UITableViewDelegate
@@ -103,4 +107,26 @@ class NewLocalizedTextViewController: NewManagedObjectViewController {
         }
     }
     
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch MainStoryboardSegueIdentifier(rawValue: segue.identifier!)! {
+            
+        case .NewLocalizedDescriptionPickLanguageLocale:
+            
+            let languageLocalePickerVC = segue.destinationViewController as LanguageLocalePickerViewController
+            
+            languageLocalePickerVC.selectedLanguageLocale = self.languageLocale
+            
+            // set handler
+            languageLocalePickerVC.selectionHandler = {
+                
+                self.languageLocale = languageLocalePickerVC.selectedLanguageLocale!
+            }
+            
+        default:
+            return
+        }
+    }
 }

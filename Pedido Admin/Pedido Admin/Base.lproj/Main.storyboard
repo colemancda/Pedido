@@ -504,21 +504,21 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ELu-Cs-G5X" id="VQN-vs-062">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="en_US" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZn-AK-NzC">
-                                            <rect key="frame" x="8" y="8" width="584" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="EN" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZn-AK-NzC">
+                                            <rect key="frame" x="20" y="8" width="572" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.68827954790000001" green="0.68827954790000001" blue="0.68827954790000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Delicious food" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhL-IA-igV">
-                                            <rect key="frame" x="8" y="34" width="584" height="26"/>
+                                            <rect key="frame" x="20" y="34" width="572" height="26"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="oZn-AK-NzC" firstAttribute="leading" secondItem="VQN-vs-062" secondAttribute="leadingMargin" id="1Yy-zr-tGK"/>
+                                        <constraint firstItem="oZn-AK-NzC" firstAttribute="leading" secondItem="VQN-vs-062" secondAttribute="leading" constant="20" id="1Yy-zr-tGK"/>
                                         <constraint firstAttribute="bottom" secondItem="fhL-IA-igV" secondAttribute="bottom" constant="8" id="8eP-WU-YTt"/>
                                         <constraint firstItem="oZn-AK-NzC" firstAttribute="top" secondItem="VQN-vs-062" secondAttribute="topMargin" id="CrL-93-MEL"/>
                                         <constraint firstItem="oZn-AK-NzC" firstAttribute="trailing" secondItem="fhL-IA-igV" secondAttribute="trailing" id="QyE-tV-sW6"/>
@@ -579,7 +579,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="en_US" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="btk-Je-SSc">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="en" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="btk-Je-SSc">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -752,7 +752,13 @@
                             <outlet property="delegate" destination="670-Nn-Q9o" id="lrK-Fx-VB0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Localized Description" id="E3m-5z-CKy"/>
+                    <navigationItem key="navigationItem" title="Localized Description" id="E3m-5z-CKy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TsK-7R-hIm">
+                            <connections>
+                                <action selector="save:" destination="670-Nn-Q9o" id="om8-wf-bIc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="languageLabel" destination="ZMt-FX-kXb" id="5s1-VJ-nUQ"/>
@@ -1289,7 +1295,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gcs-1Q-If8"/>
-        <segue reference="17E-gM-UYx"/>
+        <segue reference="EEn-h5-SHZ"/>
         <segue reference="pER-ar-Fnf"/>
     </inferredMetricsTieBreakers>
 </document>
