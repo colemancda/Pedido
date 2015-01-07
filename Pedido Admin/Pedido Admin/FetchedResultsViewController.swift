@@ -218,7 +218,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
             let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
             
             // fetch if older than refresh date or not fetched yet
-            if dateCached == nil || dateCached?.compare(self.datedRefreshed!) == NSComparisonResult.OrderedDescending {
+            if dateCached == nil || dateCached?.compare(self.datedRefreshed!) == NSComparisonResult.OrderedAscending {
                 
                 Store.sharedStore.fetchEntity(managedObject.entity.name!, resourceID: managedObject.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
                     
