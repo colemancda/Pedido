@@ -35,7 +35,7 @@ class CurrencyLocalePickerViewController: UITableViewController, UISearchBarDele
                     // only add locales with currencyCode
                     if let currencyCode = locale.objectForKey(NSLocaleCurrencyCode) as? String {
                         
-                        locales.append(NSLocale(localeIdentifier: localeID))
+                        locales.append(locale)
                     }
                 }
                 
