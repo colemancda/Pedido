@@ -13,7 +13,7 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
     
     // MARK: - Properties
     
-    /** Currency Locales sorted by ISO code. */
+    /** Language locales sorted by ISO code. */
     class var languageLocales: [NSLocale] {
         struct Static {
             static var onceToken : dispatch_once_t = 0
@@ -23,7 +23,7 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
             
             let languageLocales: [NSLocale] = {
                 
-                let languageCodes = NSLocale.ISOLanguageCodes() as [String]
+                let languageCodes = (NSLocale.ISOLanguageCodes() as NSArray).sortedArrayUsingSelector("localizedCaseInsensitiveCompare:") as [String]
                 
                 // create locales
                 var locales = [NSLocale]()
@@ -35,26 +35,16 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
                     locales.append(locale)
                 }
                 
-                // sort by currency symbol
-                let sortedLocales = (locales as NSArray).sortedArrayUsingComparator({ (first, second) -> NSComparisonResult in
-                    
-                    let firstLocale = first as NSLocale
-                    
-                    let secondLocale = second as NSLocale
-                    
-                    return (firstLocale.localeIdentifier as NSString).compare(secondLocale.localeIdentifier)
-                }) as [NSLocale]
-                
-                return sortedLocales
-                }()
+                return locales
+            }()
             
-            Static.instance = currencylocales
+            Static.instance = languageLocales
         }
         return Static.instance!
     }
     
-    /** The selected currency locale. */
-    var selectedCurrencyLocale: NSLocale? {
+    /** The selected language locale. */
+    var selectedLanguageLocale: NSLocale? {
         
         didSet {
             
@@ -71,16 +61,7 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
     
     // MARK: - Private Properties
     
-    private var filteredCurrencyLocales: [NSLocale]?
-    
-    private let numberFormatter: NSNumberFormatter = {
-        
-        let numberFormatter = NSNumberFormatter()
-        
-        numberFormatter.numberStyle = .CurrencyStyle
-        
-        return numberFormatter
-        }()
+    private var filteredLanguageLocales: [NSLocale]?
     
     // MARK: - Initialization
     
@@ -89,7 +70,7 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
         // Do any additional setup after loading the view, typically from a nib.
         
         // load all locales
-        self.filteredCurrencyLocales = self.dynamicType.currencyLocales
+        self.filteredLanguageLocales = self.dynamicType.languageLocales
     }
     
     // MARK: - UITableViewDataSource
@@ -101,12 +82,12 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.filteredCurrencyLocales?.count ?? 0
+        return self.filteredLanguageLocales?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.CurrencyLocaleCell.rawValue, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.LanguageLocaleCell.rawValue, forIndexPath: indexPath) as UITableViewCell
         
         self.configureCell(cell, atIndexPath: indexPath)
         
@@ -118,10 +99,10 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         // get model
-        let locale = self.filteredCurrencyLocales![indexPath.row]
+        let locale = self.filteredLanguageLocales![indexPath.row]
         
         // set selected
-        self.selectedCurrencyLocale = locale
+        self.selectedLanguageLocale = locale
         
         // perform selected handler
         self.selectionHandler?()
@@ -133,19 +114,33 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
         
         NSOperationQueue().addOperationWithBlock { () -> Void in
             
+            if searchText == "" {
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    
+                    // load all locales
+                    self.filteredLanguageLocales = self.dynamicType.languageLocales
+                    
+                    // reload table view
+                    self.tableView.reloadData()
+                })
+                
+                return
+            }
+            
             // filter locales
-            let newFilteredCurrencyLocales: [NSLocale] = {
+            let newFilteredLanguageLocales: [NSLocale] = {
                 
                 let predicate = NSPredicate(format: "localeIdentifier contains[c] %@", searchText)
                 
-                let filteredResults = (self.dynamicType.currencyLocales as NSArray).filteredArrayUsingPredicate(predicate!) as [NSLocale]
+                let filteredResults = (self.dynamicType.languageLocales as NSArray).filteredArrayUsingPredicate(predicate!) as [NSLocale]
                 
                 return filteredResults
                 }()
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
-                self.filteredCurrencyLocales = newFilteredCurrencyLocales
+                self.filteredLanguageLocales = newFilteredLanguageLocales
                 
                 // reload table view
                 self.tableView.reloadData()
@@ -158,14 +153,13 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
     private func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         
         // get model
-        let locale = self.filteredCurrencyLocales![indexPath.row]
+        let locale = self.filteredLanguageLocales![indexPath.row]
         
         // configure cell
         cell.textLabel!.text = locale.localeIdentifier
-        cell.detailTextLabel!.text = locale.objectForKey(NSLocaleCurrencySymbol) as? String
         
         // add checkmark if selected
-        if locale == self.selectedCurrencyLocale {
+        if locale == self.selectedLanguageLocale {
             
             cell.accessoryType = .Checkmark
         }
@@ -180,5 +174,5 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
 
 private enum CellIdentifier: String {
     
-    case CurrencyLocaleCell = "CurrencyLocaleCell"
+    case LanguageLocaleCell = "LanguageLocaleCell"
 }
