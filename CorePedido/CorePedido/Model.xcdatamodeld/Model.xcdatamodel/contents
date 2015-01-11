@@ -25,7 +25,7 @@
     <entity name="LocalizedText" representedClassName="CorePedido.LocalizedText" syncable="YES">
         <attribute name="locale" attributeType="String" minValueString="2" maxValueString="3" defaultValueString="en" syncable="YES"/>
         <attribute name="text" attributeType="String" minValueString="1" syncable="YES"/>
-        <relationship name="menuItemLocalizedDescription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="localizedDescriptions" inverseEntity="MenuItem" syncable="YES"/>
+        <relationship name="menuItemLocalizedDescription" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="MenuItem" inverseName="localizedDescriptions" inverseEntity="MenuItem" syncable="YES"/>
     </entity>
     <entity name="MenuItem" representedClassName="CorePedido.MenuItem" syncable="YES">
         <attribute name="currencyLocaleIdentifier" attributeType="String" defaultValueString="en_US" syncable="YES"/>
@@ -33,7 +33,7 @@
         <attribute name="price" attributeType="Float" minValueString="0" defaultValueString="0" syncable="YES"/>
         <relationship name="establishments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Establishment" inverseName="menuItems" inverseEntity="Establishment" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Image" inverseName="menuItem" inverseEntity="Image" syncable="YES"/>
-        <relationship name="localizedDescriptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocalizedText" inverseName="menuItemLocalizedDescription" inverseEntity="LocalizedText" syncable="YES"/>
+        <relationship name="localizedDescriptions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LocalizedText" inverseName="menuItemLocalizedDescription" inverseEntity="LocalizedText" syncable="YES"/>
         <relationship name="orderItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OrderItem" inverseName="menuItem" inverseEntity="OrderItem" syncable="YES"/>
     </entity>
     <entity name="Order" representedClassName="CorePedido.Order" syncable="YES">
