@@ -24,6 +24,8 @@
 		<string>https://github.com/colemancda/RoutingHTTPServer.git</string>
 		<key>A5260C930E0CFC29BE4E638F3BCB24458F4E5121</key>
 		<string>https://github.com/colemancda/NetworkObjects.git</string>
+		<key>DC18223934B917196E5F3B715858561F7A31DB73</key>
+		<string>https://github.com/colemancda/ColorCube.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Pedido.xcworkspace</string>
@@ -43,6 +45,8 @@
 		<string>..NetworkObjects/RoutingHTTPServer</string>
 		<key>A5260C930E0CFC29BE4E638F3BCB24458F4E5121</key>
 		<string>..NetworkObjects</string>
+		<key>DC18223934B917196E5F3B715858561F7A31DB73</key>
+		<string>../ColorCube/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/colemancda/Pedido.git</string>
@@ -75,6 +79,14 @@
 			<string>35B5C9A93714EC9BEB56BAE809C5551E5C66E52D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CocoaLumberjack</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DC18223934B917196E5F3B715858561F7A31DB73</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ColorCube</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

@@ -51,6 +51,8 @@
 		6EF494F21A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF494F11A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift */; };
 		6EF7129A1A393BF800F7BAE6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF712991A393BF800F7BAE6 /* PickerViewController.swift */; };
 		6EF7129C1A39532900F7BAE6 /* FetchedResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */; };
+		6EF81DF41A6B097900D58682 /* ColorCube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF81DF31A6B097900D58682 /* ColorCube.framework */; };
+		6EF81DF51A6B097900D58682 /* ColorCube.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF81DF31A6B097900D58682 /* ColorCube.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +245,27 @@
 			remoteGlobalIDString = 6E3B1B131A300BE600655F36;
 			remoteInfo = CorePedido;
 		};
+		6EF81DBA1A6B056400D58682 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7F98C637192504D3009C124F;
+			remoteInfo = ColorCube;
+		};
+		6EF81DF21A6B097900D58682 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EF81DCB1A6B05F600D58682;
+			remoteInfo = ColorCube;
+		};
+		6EF81DF61A6B097900D58682 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EF81DCA1A6B05F600D58682;
+			remoteInfo = ColorCube;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -259,6 +282,7 @@
 				6EEA6BD81A35055D00105413 /* RoutingHTTPServer.framework in Embed Frameworks */,
 				6EEA6BE01A35055E00105413 /* NetworkObjects.framework in Embed Frameworks */,
 				6EEA6BE41A35055E00105413 /* CorePedido.framework in Embed Frameworks */,
+				6EF81DF51A6B097900D58682 /* ColorCube.framework in Embed Frameworks */,
 				6EEA6BCB1A35054800105413 /* CocoaLumberjack.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -307,6 +331,7 @@
 		6EF494F11A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageLocalePickerViewController.swift; sourceTree = "<group>"; };
 		6EF712991A393BF800F7BAE6 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsViewController.swift; sourceTree = "<group>"; };
+		6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ColorCube.xcodeproj; path = ../ColorCube/ColorCube.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +346,7 @@
 				6EEA6BCF1A35055D00105413 /* CocoaAsyncSocket.framework in Frameworks */,
 				6EEA6BD31A35055D00105413 /* CocoaHTTPServer.framework in Frameworks */,
 				6EEA6BD71A35055D00105413 /* RoutingHTTPServer.framework in Frameworks */,
+				6EF81DF41A6B097900D58682 /* ColorCube.framework in Frameworks */,
 				6EEA6BDF1A35055E00105413 /* NetworkObjects.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +491,7 @@
 		6EEA6B651A3504EE00105413 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */,
 				6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */,
 				6EEA6B8B1A35053E00105413 /* Lumberjack.xcodeproj */,
 				6EEA6B8E1A35053E00105413 /* CocoaAsyncSocket.xcodeproj */,
@@ -560,6 +587,15 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		6EF81DB41A6B056400D58682 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EF81DBB1A6B056400D58682 /* ColorCube.app */,
+				6EF81DF31A6B097900D58682 /* ColorCube.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -583,6 +619,7 @@
 				6EEA6BE21A35055E00105413 /* PBXTargetDependency */,
 				6EEA6BE61A35055E00105413 /* PBXTargetDependency */,
 				6E06C3A11A6AC9EC0000D72F /* PBXTargetDependency */,
+				6EF81DF71A6B097900D58682 /* PBXTargetDependency */,
 			);
 			name = "Pedido Admin";
 			productName = "Pedido Admin";
@@ -644,6 +681,10 @@
 				{
 					ProductGroup = 6EEA6B921A35053E00105413 /* Products */;
 					ProjectRef = 6EEA6B911A35053E00105413 /* CocoaHTTPServer.xcodeproj */;
+				},
+				{
+					ProductGroup = 6EF81DB41A6B056400D58682 /* Products */;
+					ProjectRef = 6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */;
 				},
 				{
 					ProductGroup = 6EEA6B9E1A35053E00105413 /* Products */;
@@ -805,6 +846,20 @@
 			remoteRef = 6EEA6BC81A35053E00105413 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		6EF81DBB1A6B056400D58682 /* ColorCube.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ColorCube.app;
+			remoteRef = 6EF81DBA1A6B056400D58682 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6EF81DF31A6B097900D58682 /* ColorCube.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ColorCube.framework;
+			remoteRef = 6EF81DF21A6B097900D58682 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -914,6 +969,11 @@
 			isa = PBXTargetDependency;
 			name = CorePedido;
 			targetProxy = 6EEA6BE51A35055E00105413 /* PBXContainerItemProxy */;
+		};
+		6EF81DF71A6B097900D58682 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ColorCube;
+			targetProxy = 6EF81DF61A6B097900D58682 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
