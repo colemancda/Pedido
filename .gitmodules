@@ -1,3 +1,6 @@
 [submodule "NetworkObjects"]
 	path = NetworkObjects
 	url = https://github.com/colemancda/NetworkObjects.git
+[submodule "JTSImageViewController"]
+	path = JTSImageViewController
+	url = https://github.com/colemancda/JTSImageViewController
