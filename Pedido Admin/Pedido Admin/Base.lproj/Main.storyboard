@@ -578,8 +578,8 @@
                                         <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yHO-tS-a3M">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200.5"/>
                                         </imageView>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-Eo-nnz">
-                                            <rect key="frame" x="290" y="91" width="20" height="20"/>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-Eo-nnz">
+                                            <rect key="frame" x="281" y="82" width="37" height="37"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>

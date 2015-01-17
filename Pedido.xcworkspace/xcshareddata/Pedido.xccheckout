@@ -46,7 +46,7 @@
 		<key>A5260C930E0CFC29BE4E638F3BCB24458F4E5121</key>
 		<string>..NetworkObjects</string>
 		<key>DC18223934B917196E5F3B715858561F7A31DB73</key>
-		<string>../ColorCube/</string>
+		<string>../ColorCube</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/colemancda/Pedido.git</string>

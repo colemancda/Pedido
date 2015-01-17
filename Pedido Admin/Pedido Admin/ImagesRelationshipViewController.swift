@@ -12,6 +12,7 @@ import CoreData
 import CorePedido
 import CorePedidoClient
 import JTSImage
+import ColorCube
 
 class ImagesRelationshipViewController: RelationshipViewController {
     
@@ -77,6 +78,9 @@ class ImagesRelationshipViewController: RelationshipViewController {
             
             // TODO: Configure cell for error
             
+            // set background to red
+            imageCell.backgroundColor = UIColor.redColor()
+            
             return
         }
         
@@ -99,6 +103,16 @@ class ImagesRelationshipViewController: RelationshipViewController {
             
             imageCell.activityIndicatorView.startAnimating()
             
+            // make light grey if even row
+            if (indexPath.row % 2) == 0 {
+                
+                imageCell.backgroundColor = UIColor(white: 0.95, alpha: 1)
+            }
+            else {
+                
+                imageCell.backgroundColor = UIColor(white: 0.85, alpha: 1)
+            }
+            
             cell.userInteractionEnabled = false
             
             return
@@ -108,9 +122,20 @@ class ImagesRelationshipViewController: RelationshipViewController {
         
         cell.userInteractionEnabled = true
         
-        imageCell.largeImageView.image = UIImage(data: managedObject.data)
+        let image = UIImage(data: managedObject.data)!
         
-        imageCell.largeImageView.layer.displayIfNeeded()
+        imageCell.largeImageView.image = image
+        
+        let dominantColor: UIColor = {
+            
+            let colorCube = CCColorCube()
+            
+            let colors = colorCube.extractColorsFromImage(image, flags: 0) as [UIColor]
+            
+            return colors.first ?? UIColor.whiteColor()
+        }()
+        
+        imageCell.backgroundColor = dominantColor
         
         imageCell.activityIndicatorView.stopAnimating()
     }
