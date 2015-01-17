@@ -2,6 +2,9 @@
 *.xcuserstate
 
 Pedido.xcworkspace/xcuserdata/*
+Pedido Admin/Pedido Admin.xcodeproj/xcuserdata/*
+PedidoServer/PedidoServer.xcodeproj/xcuserdata/*
+PedidoServerDaemon/PedidoServerDaemon.xcodeproj/xcuserdata/*
 CorePedido/CorePedido.xcodeproj/xcuserdata/*
 CorePedidoClient/CorePedidoClient.xcodeproj/xcuserdata/*
 CorePedidoServer/CorePedidoServer.xcodeproj/xcuserdata/*
