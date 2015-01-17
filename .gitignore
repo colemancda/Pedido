@@ -1,4 +1,7 @@
 
 *.xcuserstate
 
-Pedido.xcworkspace/xcuserdata/Coleman.xcuserdatad/UserInterfaceState.xcuserstate
+Pedido.xcworkspace/xcuserdata/*
+CorePedido/CorePedido.xcodeproj/xcuserdata/*
+CorePedidoClient/CorePedidoClient.xcodeproj/xcuserdata/*
+CorePedidoServer/CorePedidoServer.xcodeproj/xcuserdata/*
