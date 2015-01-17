@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 import CorePedido
+import JTSImage
 
 class NewImageViewController: NewManagedObjectViewController {
     
@@ -26,13 +27,66 @@ class NewImageViewController: NewManagedObjectViewController {
     
     var parentManagedObject: (NSManagedObject, String)!
     
+    /** The data of the new image. Do not set this to nil. */
+    var imageData: NSData? {
+        
+        didSet {
+            
+            self.imageView.image = UIImage(data: imageData!)
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func tappedImageView(sender: UIGestureRecognizer) {
         
+        // table view cell...
         let imageView = sender.view as UIImageView
         
+        if imageView.image != nil {
+            
+            // create image info
+            let imageInfo = JTSImageInfo()
+            imageInfo.image = imageView.image!
+            imageInfo.referenceRect = imageView.frame
+            imageInfo.referenceView = imageView.superview!
+            
+            // create image VC
+            let imageVC = JTSImageViewController(imageInfo: imageInfo,
+                mode: JTSImageViewControllerMode.Image,
+                backgroundStyle: JTSImageViewControllerBackgroundOptions.Blurred)
+            
+            // present VC
+            imageVC.showFromViewController(self, transition: JTSImageViewControllerTransition.FromOriginalPosition)
+        }
+        
+    }
+    
+    @IBAction func takePhoto(sender: AnyObject) {
         
         
+    }
+    
+    @IBAction func choosePhoto(sender: AnyObject) {
+        
+        
+    }
+    
+    // MARK: - Methods
+    
+    override func getNewValues() -> [String : AnyObject]? {
+        
+        // no image set
+        if self.imageData == nil {
+            
+            self.showErrorAlert(NSLocalizedString("Must set image.", comment: "Must set image."))
+            
+            return nil
+        }
+        
+        // relationship
+        let (managedObject, parentManagedObjectKey) = self.parentManagedObject
+        
+        return ["data": self.imageData!, parentManagedObjectKey: managedObject]
     }
 }

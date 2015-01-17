@@ -872,16 +872,26 @@
                         <connections>
                             <outlet property="dataSource" destination="59X-dA-zvH" id="0sH-Lj-xmN"/>
                             <outlet property="delegate" destination="59X-dA-zvH" id="Mvc-by-pSI"/>
-                            <outletCollection property="gestureRecognizers" destination="pYm-Os-DmS" appends="YES" id="mEk-1t-pcW"/>
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="Item" systemItem="camera" id="Qhl-Fm-XGu"/>
+                        <barButtonItem systemItem="organize" id="Qhl-Fm-XGu">
+                            <connections>
+                                <action selector="choosePhoto:" destination="59X-dA-zvH" id="Tuo-Wx-A02"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Gdz-Co-nIk"/>
-                        <barButtonItem systemItem="organize" id="pfA-k8-vkC"/>
+                        <barButtonItem systemItem="camera" id="pfA-k8-vkC">
+                            <connections>
+                                <action selector="takePhoto:" destination="59X-dA-zvH" id="TQp-w0-RL4"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="New Image" id="FZ7-6r-3KW"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="navigationController.toolbarHidden" value="NO"/>
+                    </userDefinedRuntimeAttributes>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgr-Ox-6T4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="pYm-Os-DmS">
