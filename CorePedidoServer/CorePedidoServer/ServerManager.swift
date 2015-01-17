@@ -199,8 +199,8 @@ import CorePedido
     
     private func newResourceIDForEntity(entityName: String) -> UInt {
         
-        // create new one
-        var newResourceID: UInt = 0
+        // create new resourceID
+        var newResourceID = UInt(0)
         
         self.lastResourceIDByEntityNameOperationQueue.addOperations([NSBlockOperation(block: { () -> Void in
             
