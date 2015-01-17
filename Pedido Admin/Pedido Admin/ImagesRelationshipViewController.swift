@@ -106,11 +106,13 @@ class ImagesRelationshipViewController: RelationshipViewController {
             // make light grey if even row
             if (indexPath.row % 2) == 0 {
                 
-                imageCell.backgroundColor = UIColor(white: 0.95, alpha: 1)
+                imageCell.backgroundColor = UIColor(white: 0.7, alpha: 0.95)
             }
+            
+            // darker grey
             else {
                 
-                imageCell.backgroundColor = UIColor(white: 0.85, alpha: 1)
+                imageCell.backgroundColor = UIColor(white: 0.8, alpha: 0.95)
             }
             
             cell.userInteractionEnabled = false
