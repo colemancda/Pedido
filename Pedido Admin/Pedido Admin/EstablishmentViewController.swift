@@ -64,6 +64,12 @@ class EstablishmentViewController: ManagedObjectViewController {
             
             pickerVC.relationship = (self.managedObject!, "menuItems")
             
+        case .EstablishmentImages:
+            
+            let relationshipVC = segue.destinationViewController as RelationshipViewController
+            
+            relationshipVC.relationship = (self.managedObject!, "images")
+            
         default:
             return
         }
