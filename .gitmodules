@@ -4,3 +4,6 @@
 [submodule "JTSImageViewController"]
 	path = JTSImageViewController
 	url = https://github.com/colemancda/JTSImageViewController
+[submodule "ColorCube"]
+	path = ColorCube
+	url = https://github.com/colemancda/ColorCube.git
