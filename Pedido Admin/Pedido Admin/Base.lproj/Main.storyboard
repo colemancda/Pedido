@@ -846,7 +846,7 @@
                         <sections>
                             <tableViewSection headerTitle="" id="sTy-bF-nEK">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="438" id="n1k-NU-efT">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="438" id="n1k-NU-efT">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n1k-NU-efT" id="2qI-88-ilZ">
                                             <autoresizingMask key="autoresizingMask"/>

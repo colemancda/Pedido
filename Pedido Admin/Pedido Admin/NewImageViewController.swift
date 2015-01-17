@@ -12,7 +12,7 @@ import CoreData
 import CorePedido
 import JTSImage
 
-class NewImageViewController: NewManagedObjectViewController {
+class NewImageViewController: NewManagedObjectViewController, UIImagePickerControllerDelegate {
     
     // MARK: - IB Outlets
     
@@ -62,14 +62,30 @@ class NewImageViewController: NewManagedObjectViewController {
         
     }
     
-    @IBAction func takePhoto(sender: AnyObject) {
+    @IBAction func takePhoto(sender: UIBarButtonItem) {
         
+        // detect no camera
+        if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) == nil && UIImagePickerController.availableCaptureModesForCameraDevice(.Front) == nil {
+            
+            self.showErrorAlert(NSLocalizedString("No Camera", comment: "No Camera"))
+            
+            return
+        }
         
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func choosePhoto(sender: AnyObject) {
+    @IBAction func choosePhoto(sender: UIBarButtonItem) {
         
-        
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.modalPresentationStyle = .Popover
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+        imagePicker.popoverPresentationController?.barButtonItem = sender
     }
     
     // MARK: - Methods
@@ -88,5 +104,12 @@ class NewImageViewController: NewManagedObjectViewController {
         let (managedObject, parentManagedObjectKey) = self.parentManagedObject
         
         return ["data": self.imageData!, parentManagedObjectKey: managedObject]
+    }
+    
+    // MARK: - UIImagePickerControllerDelegate
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        
+        
     }
 }
