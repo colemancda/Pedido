@@ -56,7 +56,7 @@ import CorePedido
     
     // MARK: - Private Properties
     
-    private var lastResourceIDByEntityName: [String: UInt] = NSDictionary(contentsOfURL: ServerLastResourceIDByEntityNameFileURL) as? [String: UInt] ?? [String: UInt]()
+    private var lastResourceIDByEntityName: NSMutableDictionary = NSMutableDictionary(contentsOfURL: ServerLastResourceIDByEntityNameFileURL) ?? NSMutableDictionary()
     
     private var lastResourceIDByEntityNameOperationQueue: NSOperationQueue = {
        
@@ -205,7 +205,7 @@ import CorePedido
         self.lastResourceIDByEntityNameOperationQueue.addOperations([NSBlockOperation(block: { () -> Void in
             
             // get last resource ID and increment by 1
-            if let lastResourceID = self.lastResourceIDByEntityName[entityName] {
+            if let lastResourceID = self.lastResourceIDByEntityName[entityName] as? UInt {
                 
                 newResourceID = lastResourceID + 1;
             }
@@ -217,6 +217,7 @@ import CorePedido
                 
                 NSException(name: NSInternalInconsistencyException, reason: "Could not save lastResourceIDByEntityName dictionary to disk", userInfo: nil)
             }
+            
         })], waitUntilFinished: true)
         
         return newResourceID
