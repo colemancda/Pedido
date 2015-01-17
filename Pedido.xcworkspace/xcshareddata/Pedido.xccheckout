@@ -38,7 +38,7 @@
 		<key>71CFC0DE1DEFC877B0C5B9F98B971EBA2921D608</key>
 		<string>..NetworkObjects/RoutingHTTPServer/External/CocoaHTTPServer</string>
 		<key>80DA628EAE81E418FCA5040B6FD2F14B521C07CB</key>
-		<string>../JTSImageViewController/</string>
+		<string>../JTSImageViewController</string>
 		<key>9D8E50737BD1955BFF09EC27A96CDD52A2431CCE</key>
 		<string>..NetworkObjects/RoutingHTTPServer</string>
 		<key>A5260C930E0CFC29BE4E638F3BCB24458F4E5121</key>

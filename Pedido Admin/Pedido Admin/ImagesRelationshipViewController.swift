@@ -15,11 +15,19 @@ import JTSImage
 
 class ImagesRelationshipViewController: RelationshipViewController {
     
+    // MARK: - Initialization
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.tableView.layoutMargins = UIEdgeInsetsZero
+    }
+    
     // MARK: - Actions
     
     @IBAction func tappedImageView(sender: UIGestureRecognizer) {
         
-        // table view cell...
         let imageView = sender.view as UIImageView
         
         if imageView.image != nil {
@@ -27,8 +35,8 @@ class ImagesRelationshipViewController: RelationshipViewController {
             // create image info
             let imageInfo = JTSImageInfo()
             imageInfo.image = imageView.image!
-            imageInfo.referenceRect = imageView.frame
-            imageInfo.referenceView = imageView.superview!
+            imageInfo.referenceRect = imageView.convertRect(imageView.frame, toView: self.view)
+            imageInfo.referenceView = self.view
             
             // create image VC
             let imageVC = JTSImageViewController(imageInfo: imageInfo,
@@ -45,7 +53,20 @@ class ImagesRelationshipViewController: RelationshipViewController {
     
     override func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         
-        return self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.ImageCell.rawValue, forIndexPath: indexPath) as UITableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.ImageCell.rawValue, forIndexPath: indexPath) as ImageTableViewCell
+        
+        // set image tap gesture recognizer
+        if cell.tapGestureRecognizer == nil {
+            
+            cell.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tappedImageView:")
+            
+            cell.largeImageView.addGestureRecognizer(cell.tapGestureRecognizer!)
+        }
+        
+        // adjust insets
+        cell.layoutMargins = UIEdgeInsetsZero
+        
+        return cell
     }
     
     override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError?) {
@@ -72,7 +93,7 @@ class ImagesRelationshipViewController: RelationshipViewController {
             
             // imageCell.textLabel?.text = NSLocalizedString("Loading...", comment: "Loading...")
             
-            imageCell.imageView!.image = nil
+            imageCell.largeImageView.image = nil
             
             imageCell.activityIndicatorView.hidden = false
             
@@ -87,7 +108,9 @@ class ImagesRelationshipViewController: RelationshipViewController {
         
         cell.userInteractionEnabled = true
         
-        imageCell.imageView!.image = UIImage(data: managedObject.data)
+        imageCell.largeImageView.image = UIImage(data: managedObject.data)
+        
+        imageCell.largeImageView.layer.displayIfNeeded()
         
         imageCell.activityIndicatorView.stopAnimating()
     }
@@ -126,7 +149,13 @@ private enum CellIdentifier: String {
 
 class ImageTableViewCell: UITableViewCell {
     
-    // @IBOutlet weak var imageView: UIImageView!
+    // MARK: - IB Outlets
+    
+    @IBOutlet weak var largeImageView: UIImageView!
 
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
+    // MARK: - Properties
+    
+    var tapGestureRecognizer: UITapGestureRecognizer?
 }

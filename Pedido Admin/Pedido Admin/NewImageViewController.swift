@@ -12,7 +12,7 @@ import CoreData
 import CorePedido
 import JTSImage
 
-class NewImageViewController: NewManagedObjectViewController, UIImagePickerControllerDelegate {
+class NewImageViewController: NewManagedObjectViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - IB Outlets
     
@@ -26,15 +26,6 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
     }
     
     var parentManagedObject: (NSManagedObject, String)!
-    
-    /** The data of the new image. Do not set this to nil. */
-    var imageData: NSData? {
-        
-        didSet {
-            
-            self.imageView.image = UIImage(data: imageData!)
-        }
-    }
     
     // MARK: - Actions
     
@@ -65,7 +56,7 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
     @IBAction func takePhoto(sender: UIBarButtonItem) {
         
         // detect no camera
-        if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) == nil && UIImagePickerController.availableCaptureModesForCameraDevice(.Front) == nil {
+        if !UIImagePickerController.isSourceTypeAvailable(.Camera) {
             
             self.showErrorAlert(NSLocalizedString("No Camera", comment: "No Camera"))
             
@@ -73,6 +64,7 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
         }
         
         let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         imagePicker.allowsEditing = true
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         self.presentViewController(imagePicker, animated: true, completion: nil)
@@ -81,6 +73,7 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
     @IBAction func choosePhoto(sender: UIBarButtonItem) {
         
         let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         imagePicker.allowsEditing = true
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePicker.modalPresentationStyle = .Popover
@@ -93,7 +86,7 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
     override func getNewValues() -> [String : AnyObject]? {
         
         // no image set
-        if self.imageData == nil {
+        if self.imageView.image == nil {
             
             self.showErrorAlert(NSLocalizedString("Must set image.", comment: "Must set image."))
             
@@ -103,13 +96,28 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
         // relationship
         let (managedObject, parentManagedObjectKey) = self.parentManagedObject
         
-        return ["data": self.imageData!, parentManagedObjectKey: managedObject]
+        // get data from image
+        let imageData = UIImagePNGRepresentation(self.imageView.image)
+        
+        return ["data": imageData, parentManagedObjectKey: managedObject]
     }
     
     // MARK: - UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
+        let image: UIImage = {
+            
+            if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+                
+                return editedImage
+            }
+            
+            return info[UIImagePickerControllerOriginalImage] as UIImage
+        }()
         
+        self.imageView.image = image
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
 }

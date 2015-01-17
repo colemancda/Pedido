@@ -564,21 +564,19 @@
         <scene sceneID="tbh-SV-Wqc">
             <objects>
                 <tableViewController id="cIR-tO-aUW" customClass="ImagesRelationshipViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="201" sectionHeaderHeight="22" sectionFooterHeight="22" id="kmv-UE-PJx">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="201" sectionHeaderHeight="22" sectionFooterHeight="22" id="kmv-UE-PJx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="201" id="RJ8-VM-LFA" customClass="ImageTableViewCell" customModule="Pedido_Admin" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ImageCell" rowHeight="201" id="RJ8-VM-LFA" customClass="ImageTableViewCell" customModule="Pedido_Admin" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJ8-VM-LFA" id="HlQ-N7-rT2">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yHO-tS-a3M">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200.5"/>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="onx-Lz-TyC" appends="YES" id="mGP-iB-5M2"/>
-                                            </connections>
                                         </imageView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-Eo-nnz">
                                             <rect key="frame" x="290" y="91" width="20" height="20"/>
@@ -593,9 +591,11 @@
                                         <constraint firstAttribute="trailing" secondItem="yHO-tS-a3M" secondAttribute="trailing" id="xlr-Ai-0eO"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="activityIndicatorView" destination="cs1-Eo-nnz" id="2xW-Pr-96e"/>
-                                    <outlet property="imageView" destination="yHO-tS-a3M" id="MO7-Un-Wa7"/>
+                                    <outlet property="largeImageView" destination="yHO-tS-a3M" id="jbv-zA-zIL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -614,11 +614,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aa8-Ti-4hS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="onx-Lz-TyC">
-                    <connections>
-                        <action selector="tappedImageView:" destination="cIR-tO-aUW" id="wSx-Nh-Vhp"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5855" y="256"/>
         </scene>
@@ -851,7 +846,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n1k-NU-efT" id="2qI-88-ilZ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ff-J9-QzJ">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ff-J9-QzJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="437.5"/>
                                                     <connections>
                                                         <outletCollection property="gestureRecognizers" destination="pYm-Os-DmS" appends="YES" id="ZOJ-BS-bVy"/>
@@ -892,6 +887,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="navigationController.toolbarHidden" value="NO"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="imageView" destination="0Ff-J9-QzJ" id="kSj-7T-UHx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgr-Ox-6T4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="pYm-Os-DmS">
