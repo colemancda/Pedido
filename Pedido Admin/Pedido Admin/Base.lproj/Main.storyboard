@@ -569,7 +569,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="201" id="RJ8-VM-LFA" customClass="ImageTableViewCell" customModule="Pedido_Admin" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="201" id="RJ8-VM-LFA" customClass="ImageTableViewCell" customModule="Pedido_Admin" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJ8-VM-LFA" id="HlQ-N7-rT2">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -596,7 +596,6 @@
                                 <connections>
                                     <outlet property="activityIndicatorView" destination="cs1-Eo-nnz" id="2xW-Pr-96e"/>
                                     <outlet property="imageView" destination="yHO-tS-a3M" id="MO7-Un-Wa7"/>
-                                    <segue destination="zfX-xb-nVY" kind="showDetail" identifier="showImage" id="CFl-Hq-sBn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -615,7 +614,11 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aa8-Ti-4hS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="onx-Lz-TyC"/>
+                <tapGestureRecognizer id="onx-Lz-TyC">
+                    <connections>
+                        <action selector="tappedImageView:" destination="cIR-tO-aUW" id="wSx-Nh-Vhp"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5855" y="256"/>
         </scene>
@@ -831,30 +834,57 @@
             </objects>
             <point key="canvasLocation" x="5053" y="-490"/>
         </scene>
-        <!--Root View Controller-->
+        <!--New Image-->
         <scene sceneID="hNO-nW-MOE">
             <objects>
-                <tableViewController id="59X-dA-zvH" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gR2-QR-Ri8">
+                <tableViewController id="59X-dA-zvH" customClass="NewImageViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="gR2-QR-Ri8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="n1k-NU-efT">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n1k-NU-efT" id="2qI-88-ilZ">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <sections>
+                            <tableViewSection headerTitle="" id="sTy-bF-nEK">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="438" id="n1k-NU-efT">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n1k-NU-efT" id="2qI-88-ilZ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ff-J9-QzJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="437.5"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="pYm-Os-DmS" appends="YES" id="ZOJ-BS-bVy"/>
+                                                    </connections>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0Ff-J9-QzJ" firstAttribute="top" secondItem="2qI-88-ilZ" secondAttribute="top" id="Cav-1h-Uvc"/>
+                                                <constraint firstAttribute="bottom" secondItem="0Ff-J9-QzJ" secondAttribute="bottom" id="Fwy-VS-nE7"/>
+                                                <constraint firstItem="0Ff-J9-QzJ" firstAttribute="leading" secondItem="2qI-88-ilZ" secondAttribute="leading" id="hz8-pN-DDD"/>
+                                                <constraint firstAttribute="trailing" secondItem="0Ff-J9-QzJ" secondAttribute="trailing" id="kQE-G4-5JW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="59X-dA-zvH" id="0sH-Lj-xmN"/>
                             <outlet property="delegate" destination="59X-dA-zvH" id="Mvc-by-pSI"/>
+                            <outletCollection property="gestureRecognizers" destination="pYm-Os-DmS" appends="YES" id="mEk-1t-pcW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="FZ7-6r-3KW"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" systemItem="camera" id="Qhl-Fm-XGu"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Gdz-Co-nIk"/>
+                        <barButtonItem systemItem="organize" id="pfA-k8-vkC"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="New Image" id="FZ7-6r-3KW"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgr-Ox-6T4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pYm-Os-DmS"/>
             </objects>
             <point key="canvasLocation" x="6675" y="-491"/>
         </scene>
@@ -873,49 +903,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RsR-Lc-F3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5855" y="-491"/>
-        </scene>
-        <!--Image-->
-        <scene sceneID="aHY-iJ-fjt">
-            <objects>
-                <tableViewController id="zfX-xb-nVY" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="iEU-n2-YDc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection id="1Cy-XY-mMq">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="470" id="Vzs-Er-meh">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vzs-Er-meh" id="7wn-7D-qk7">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lQV-Fy-HWO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="469.5"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="lQV-Fy-HWO" firstAttribute="top" secondItem="7wn-7D-qk7" secondAttribute="top" id="1iF-iO-Rb6"/>
-                                                <constraint firstItem="lQV-Fy-HWO" firstAttribute="leading" secondItem="7wn-7D-qk7" secondAttribute="leading" id="Lp7-Mh-gUv"/>
-                                                <constraint firstAttribute="trailing" secondItem="lQV-Fy-HWO" secondAttribute="trailing" id="REI-Tu-VVS"/>
-                                                <constraint firstAttribute="bottom" secondItem="lQV-Fy-HWO" secondAttribute="bottom" id="bRG-uI-qfB"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="zfX-xb-nVY" id="2e9-he-FEC"/>
-                            <outlet property="delegate" destination="zfX-xb-nVY" id="dAI-DE-8xi"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Image" id="2sv-5Y-Cbe"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gpu-72-8ox" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6675" y="256"/>
         </scene>
         <!--Establishment-->
         <scene sceneID="wnZ-M9-ktF">

@@ -18,6 +18,8 @@
 		<string>https://github.com/colemancda/CocoaLumberjack.git</string>
 		<key>71CFC0DE1DEFC877B0C5B9F98B971EBA2921D608</key>
 		<string>https://github.com/colemancda/CocoaHTTPServer.git</string>
+		<key>80DA628EAE81E418FCA5040B6FD2F14B521C07CB</key>
+		<string>https://github.com/colemancda/JTSImageViewController</string>
 		<key>9D8E50737BD1955BFF09EC27A96CDD52A2431CCE</key>
 		<string>https://github.com/colemancda/RoutingHTTPServer.git</string>
 		<key>A5260C930E0CFC29BE4E638F3BCB24458F4E5121</key>
@@ -35,6 +37,8 @@
 		<string>..NetworkObjects/RoutingHTTPServer/External/CocoaHTTPServer/CocoaAsyncSocket/CocoaLumberjack</string>
 		<key>71CFC0DE1DEFC877B0C5B9F98B971EBA2921D608</key>
 		<string>..NetworkObjects/RoutingHTTPServer/External/CocoaHTTPServer</string>
+		<key>80DA628EAE81E418FCA5040B6FD2F14B521C07CB</key>
+		<string>../JTSImageViewController/</string>
 		<key>9D8E50737BD1955BFF09EC27A96CDD52A2431CCE</key>
 		<string>..NetworkObjects/RoutingHTTPServer</string>
 		<key>A5260C930E0CFC29BE4E638F3BCB24458F4E5121</key>
@@ -71,6 +75,14 @@
 			<string>35B5C9A93714EC9BEB56BAE809C5551E5C66E52D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CocoaLumberjack</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>80DA628EAE81E418FCA5040B6FD2F14B521C07CB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>JTSImageViewController</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

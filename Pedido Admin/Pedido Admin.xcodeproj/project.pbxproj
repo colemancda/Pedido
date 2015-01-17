@@ -11,6 +11,9 @@
 		6E0456071A586E7100A83602 /* RelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0456061A586E7100A83602 /* RelationshipViewController.swift */; };
 		6E04560A1A58CAAF00A83602 /* LocalizedDescriptionsRelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0456091A58CAAF00A83602 /* LocalizedDescriptionsRelationshipViewController.swift */; };
 		6E06C35A1A6A02330000D72F /* ImagesRelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06C3591A6A02330000D72F /* ImagesRelationshipViewController.swift */; };
+		6E06C39E1A6AC9EC0000D72F /* JTSImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E06C39B1A6AC9DA0000D72F /* JTSImage.framework */; };
+		6E06C39F1A6AC9EC0000D72F /* JTSImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E06C39B1A6AC9DA0000D72F /* JTSImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E06C3A41A6ACD690000D72F /* NewImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06C3A31A6ACD690000D72F /* NewImageViewController.swift */; };
 		6E157C191A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E157C181A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift */; };
 		6E4507421A353A3A00F5C7F1 /* GUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E4507411A353A3A00F5C7F1 /* GUI.xcassets */; };
 		6E4507441A353B4E00F5C7F1 /* MenuItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */; };
@@ -51,6 +54,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6E06C3961A6AC9DA0000D72F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7F9A78FB18E754A7000CAA69;
+			remoteInfo = JTSImageVC;
+		};
+		6E06C3981A6AC9DA0000D72F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7F9A791C18E754A7000CAA69;
+			remoteInfo = JTSImageVCTests;
+		};
+		6E06C39A1A6AC9DA0000D72F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E06C3631A6AC6580000D72F;
+			remoteInfo = JTSImage;
+		};
+		6E06C39C1A6AC9DA0000D72F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E06C36D1A6AC6580000D72F;
+			remoteInfo = JTSImageTests;
+		};
+		6E06C3A01A6AC9EC0000D72F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E06C3621A6AC6580000D72F;
+			remoteInfo = JTSImage;
+		};
 		6EEA6B4F1A35002A00105413 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6EEA6B311A35002A00105413 /* Project object */;
@@ -216,6 +254,7 @@
 			files = (
 				6EEA6BD41A35055D00105413 /* CocoaHTTPServer.framework in Embed Frameworks */,
 				6EEA6BDC1A35055E00105413 /* CorePedidoClient.framework in Embed Frameworks */,
+				6E06C39F1A6AC9EC0000D72F /* JTSImage.framework in Embed Frameworks */,
 				6EEA6BD01A35055D00105413 /* CocoaAsyncSocket.framework in Embed Frameworks */,
 				6EEA6BD81A35055D00105413 /* RoutingHTTPServer.framework in Embed Frameworks */,
 				6EEA6BE01A35055E00105413 /* NetworkObjects.framework in Embed Frameworks */,
@@ -232,6 +271,8 @@
 		6E0456061A586E7100A83602 /* RelationshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipViewController.swift; sourceTree = "<group>"; };
 		6E0456091A58CAAF00A83602 /* LocalizedDescriptionsRelationshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedDescriptionsRelationshipViewController.swift; sourceTree = "<group>"; };
 		6E06C3591A6A02330000D72F /* ImagesRelationshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesRelationshipViewController.swift; sourceTree = "<group>"; };
+		6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JTSImageVC.xcodeproj; path = "../JTSImageViewController/Sample App/JTSImageVC/JTSImageVC.xcodeproj"; sourceTree = "<group>"; };
+		6E06C3A31A6ACD690000D72F /* NewImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewImageViewController.swift; sourceTree = "<group>"; };
 		6E157C181A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyLocalePickerViewController.swift; sourceTree = "<group>"; };
 		6E4507411A353A3A00F5C7F1 /* GUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GUI.xcassets; path = "../../Shared Resources/GUI.xcassets"; sourceTree = "<group>"; };
 		6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +316,7 @@
 			files = (
 				6EEA6BDB1A35055E00105413 /* CorePedidoClient.framework in Frameworks */,
 				6EEA6BE31A35055E00105413 /* CorePedido.framework in Frameworks */,
+				6E06C39E1A6AC9EC0000D72F /* JTSImage.framework in Frameworks */,
 				6EEA6BCA1A35054800105413 /* CocoaLumberjack.framework in Frameworks */,
 				6EEA6BCF1A35055D00105413 /* CocoaAsyncSocket.framework in Frameworks */,
 				6EEA6BD31A35055D00105413 /* CocoaHTTPServer.framework in Frameworks */,
@@ -309,6 +351,25 @@
 				6EF494EF1A5CD3310002CAF5 /* NewLocalizedTextViewController.swift */,
 			);
 			name = "Localized Text View Controller";
+			sourceTree = "<group>";
+		};
+		6E06C3901A6AC9D90000D72F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E06C3971A6AC9DA0000D72F /* JTSImageVC.app */,
+				6E06C3991A6AC9DA0000D72F /* JTSImageVCTests.xctest */,
+				6E06C39B1A6AC9DA0000D72F /* JTSImage.framework */,
+				6E06C39D1A6AC9DA0000D72F /* JTSImageTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E06C3A21A6ACD550000D72F /* Image View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E06C3A31A6ACD690000D72F /* NewImageViewController.swift */,
+			);
+			name = "Image View Controller";
 			sourceTree = "<group>";
 		};
 		6E58A3CB1A55BBF900970F1A /* Menu Item View Controllers */ = {
@@ -404,6 +465,7 @@
 		6EEA6B651A3504EE00105413 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */,
 				6EEA6B8B1A35053E00105413 /* Lumberjack.xcodeproj */,
 				6EEA6B8E1A35053E00105413 /* CocoaAsyncSocket.xcodeproj */,
 				6EEA6B911A35053E00105413 /* CocoaHTTPServer.xcodeproj */,
@@ -488,6 +550,7 @@
 				6E9D2ABE1A4CC3A800F78363 /* NewManagedObjectViewController.swift */,
 				6EF712991A393BF800F7BAE6 /* PickerViewController.swift */,
 				6E0456061A586E7100A83602 /* RelationshipViewController.swift */,
+				6E06C3A21A6ACD550000D72F /* Image View Controller */,
 				6E04560B1A58E39E00A83602 /* Localized Text View Controller */,
 				6E0456081A58CA7C00A83602 /* To-Many Relationship View Controllers */,
 				6E58A3D31A55BC1C00970F1A /* Picker View Controllers */,
@@ -519,6 +582,7 @@
 				6EEA6BDE1A35055E00105413 /* PBXTargetDependency */,
 				6EEA6BE21A35055E00105413 /* PBXTargetDependency */,
 				6EEA6BE61A35055E00105413 /* PBXTargetDependency */,
+				6E06C3A11A6AC9EC0000D72F /* PBXTargetDependency */,
 			);
 			name = "Pedido Admin";
 			productName = "Pedido Admin";
@@ -590,6 +654,10 @@
 					ProjectRef = 6EEA6B971A35053E00105413 /* CorePedidoClient.xcodeproj */;
 				},
 				{
+					ProductGroup = 6E06C3901A6AC9D90000D72F /* Products */;
+					ProjectRef = 6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */;
+				},
+				{
 					ProductGroup = 6EEA6B8C1A35053E00105413 /* Products */;
 					ProjectRef = 6EEA6B8B1A35053E00105413 /* Lumberjack.xcodeproj */;
 				},
@@ -611,6 +679,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		6E06C3971A6AC9DA0000D72F /* JTSImageVC.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = JTSImageVC.app;
+			remoteRef = 6E06C3961A6AC9DA0000D72F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E06C3991A6AC9DA0000D72F /* JTSImageVCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = JTSImageVCTests.xctest;
+			remoteRef = 6E06C3981A6AC9DA0000D72F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E06C39B1A6AC9DA0000D72F /* JTSImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JTSImage.framework;
+			remoteRef = 6E06C39A1A6AC9DA0000D72F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E06C39D1A6AC9DA0000D72F /* JTSImageTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = JTSImageTests.xctest;
+			remoteRef = 6E06C39C1A6AC9DA0000D72F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		6EEA6BA31A35053E00105413 /* CocoaAsyncSocket.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -737,6 +833,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E06C3A41A6ACD690000D72F /* NewImageViewController.swift in Sources */,
 				6E06C35A1A6A02330000D72F /* ImagesRelationshipViewController.swift in Sources */,
 				6EF7129A1A393BF800F7BAE6 /* PickerViewController.swift in Sources */,
 				6EEA6BE81A3505B700105413 /* LoginViewController.swift in Sources */,
@@ -773,6 +870,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6E06C3A11A6AC9EC0000D72F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JTSImage;
+			targetProxy = 6E06C3A01A6AC9EC0000D72F /* PBXContainerItemProxy */;
+		};
 		6EEA6B501A35002A00105413 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6EEA6B381A35002A00105413 /* Pedido Admin */;

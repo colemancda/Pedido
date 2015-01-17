@@ -14,6 +14,18 @@ import CorePedidoClient
 
 class ImagesRelationshipViewController: RelationshipViewController {
     
+    // MARK: - Actions
+    
+    @IBAction func tappedImageView(sender: UIGestureRecognizer) {
+        
+        // table view cell...
+        let imageView = sender.view as UIImageView
+        let imageViewPosition = imageView.convertPoint(CGPointZero, toView: self.tableView)
+        let indexPath = self.tableView.indexPathForRowAtPoint(imageViewPosition)
+        
+        
+    }
+    
     // MARK: - Methods
     
     override func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
@@ -71,7 +83,7 @@ class ImagesRelationshipViewController: RelationshipViewController {
         
         switch MainStoryboardSegueIdentifier(rawValue: segue.identifier!)! {
             
-        case .NewLocalizedDescription:
+        case .NewImage:
             
             let newLocalizedTextVC = (segue.destinationViewController as UINavigationController).topViewController as NewLocalizedTextViewController
             
@@ -81,26 +93,6 @@ class ImagesRelationshipViewController: RelationshipViewController {
             let relationshipDescription = parentManagedObject.entity.relationshipsByName[key] as NSRelationshipDescription
             
             newLocalizedTextVC.parentManagedObject = (parentManagedObject, relationshipDescription.inverseRelationship!.name)
-            
-        case .ShowLocalizedDescription:
-            
-            // get destination VC
-            let managedObjectVC = segue.destinationViewController as ManagedObjectViewController
-            
-            // get model object
-            let managedObject = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as NSManagedObject
-            
-            // configure VC
-            managedObjectVC.managedObject = managedObject
-            
-            // set edit handler
-            managedObjectVC.didEditManagedObjectHandler = {
-                
-                // pop VC
-                self.navigationController!.popViewControllerAnimated(true)
-                
-                return
-            }
             
         default:
             return

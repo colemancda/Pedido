@@ -70,8 +70,8 @@ enum MainStoryboardSegueIdentifier: String {
     case NewEstablishment = "newEstablishment"
     case EstablishmentMenuItemPicker = "establishmentMenuItemPicker"
     case EstablishmentImages = "establishmentImages"
-    case ShowImage = "showImage"
     case NewImage = "newImage"
+    
 }
 
 // MARK: - Extensions
