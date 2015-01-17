@@ -122,6 +122,12 @@ class MenuItemViewController: ManagedObjectViewController {
             
             relationshipVC.relationship = (self.managedObject!, "localizedDescriptions")
             
+        case .MenuItemImages:
+            
+            let relationshipVC = segue.destinationViewController as RelationshipViewController
+            
+            relationshipVC.relationship = (self.managedObject!, "images")
+            
         default:
             return
         }

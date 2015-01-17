@@ -851,7 +851,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n1k-NU-efT" id="2qI-88-ilZ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ff-J9-QzJ">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ff-J9-QzJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="437.5"/>
                                                     <connections>
                                                         <outletCollection property="gestureRecognizers" destination="pYm-Os-DmS" appends="YES" id="ZOJ-BS-bVy"/>
@@ -884,9 +884,13 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgr-Ox-6T4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="pYm-Os-DmS"/>
+                <tapGestureRecognizer id="pYm-Os-DmS">
+                    <connections>
+                        <action selector="tappedImageView:" destination="59X-dA-zvH" id="V3N-jf-xuB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="6675" y="-491"/>
+            <point key="canvasLocation" x="7375" y="256"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cen-xn-jDX">
@@ -902,7 +906,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RsR-Lc-F3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5855" y="-491"/>
+            <point key="canvasLocation" x="6638" y="256"/>
         </scene>
         <!--Establishment-->
         <scene sceneID="wnZ-M9-ktF">
@@ -1432,9 +1436,9 @@
         <image name="user" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mcK-24-IpQ"/>
         <segue reference="EEn-h5-SHZ"/>
         <segue reference="gcs-1Q-If8"/>
+        <segue reference="mcK-24-IpQ"/>
         <segue reference="pER-ar-Fnf"/>
     </inferredMetricsTieBreakers>
 </document>

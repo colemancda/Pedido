@@ -11,6 +11,7 @@ import UIKit
 import CoreData
 import CorePedido
 import CorePedidoClient
+import JTSImage
 
 class ImagesRelationshipViewController: RelationshipViewController {
     
@@ -20,9 +21,23 @@ class ImagesRelationshipViewController: RelationshipViewController {
         
         // table view cell...
         let imageView = sender.view as UIImageView
-        let imageViewPosition = imageView.convertPoint(CGPointZero, toView: self.tableView)
-        let indexPath = self.tableView.indexPathForRowAtPoint(imageViewPosition)
         
+        if imageView.image != nil {
+            
+            // create image info
+            let imageInfo = JTSImageInfo()
+            imageInfo.image = imageView.image!
+            imageInfo.referenceRect = imageView.frame
+            imageInfo.referenceView = imageView.superview!
+            
+            // create image VC
+            let imageVC = JTSImageViewController(imageInfo: imageInfo,
+                mode: JTSImageViewControllerMode.Image,
+                backgroundStyle: JTSImageViewControllerBackgroundOptions.Blurred)
+            
+            // present VC
+            imageVC.showFromViewController(self, transition: JTSImageViewControllerTransition.FromOriginalPosition)
+        }
         
     }
     
@@ -85,14 +100,14 @@ class ImagesRelationshipViewController: RelationshipViewController {
             
         case .NewImage:
             
-            let newLocalizedTextVC = (segue.destinationViewController as UINavigationController).topViewController as NewLocalizedTextViewController
+            let newImageVC = (segue.destinationViewController as UINavigationController).topViewController as NewImageViewController
             
             let (parentManagedObject, key) = self.relationship!
             
             // get relationship description
             let relationshipDescription = parentManagedObject.entity.relationshipsByName[key] as NSRelationshipDescription
             
-            newLocalizedTextVC.parentManagedObject = (parentManagedObject, relationshipDescription.inverseRelationship!.name)
+            newImageVC.parentManagedObject = (parentManagedObject, relationshipDescription.inverseRelationship!.name)
             
         default:
             return

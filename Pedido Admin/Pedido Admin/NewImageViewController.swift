@@ -13,11 +13,23 @@ import CorePedido
 
 class NewImageViewController: NewManagedObjectViewController {
     
+    // MARK: - IB Outlets
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    // MARK: - Properties
+    
+    override var entityName: String {
+        
+        return "Image"
+    }
+    
+    var parentManagedObject: (NSManagedObject, String)!
+    
     // MARK: - Actions
     
     @IBAction func tappedImageView(sender: UIGestureRecognizer) {
         
-        // table view cell...
         let imageView = sender.view as UIImageView
         
         
