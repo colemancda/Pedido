@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		6E0455FE1A585C9900A83602 /* MenuItemPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0455FD1A585C9900A83602 /* MenuItemPickerViewController.swift */; };
 		6E0456071A586E7100A83602 /* RelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0456061A586E7100A83602 /* RelationshipViewController.swift */; };
-		6E04560A1A58CAAF00A83602 /* LocalizedDescriptionRelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0456091A58CAAF00A83602 /* LocalizedDescriptionRelationshipViewController.swift */; };
+		6E04560A1A58CAAF00A83602 /* LocalizedDescriptionsRelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0456091A58CAAF00A83602 /* LocalizedDescriptionsRelationshipViewController.swift */; };
+		6E06C35A1A6A02330000D72F /* ImagesRelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E06C3591A6A02330000D72F /* ImagesRelationshipViewController.swift */; };
 		6E157C191A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E157C181A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift */; };
 		6E4507421A353A3A00F5C7F1 /* GUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E4507411A353A3A00F5C7F1 /* GUI.xcassets */; };
 		6E4507441A353B4E00F5C7F1 /* MenuItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */; };
@@ -229,7 +230,8 @@
 /* Begin PBXFileReference section */
 		6E0455FD1A585C9900A83602 /* MenuItemPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemPickerViewController.swift; sourceTree = "<group>"; };
 		6E0456061A586E7100A83602 /* RelationshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipViewController.swift; sourceTree = "<group>"; };
-		6E0456091A58CAAF00A83602 /* LocalizedDescriptionRelationshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedDescriptionRelationshipViewController.swift; sourceTree = "<group>"; };
+		6E0456091A58CAAF00A83602 /* LocalizedDescriptionsRelationshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedDescriptionsRelationshipViewController.swift; sourceTree = "<group>"; };
+		6E06C3591A6A02330000D72F /* ImagesRelationshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesRelationshipViewController.swift; sourceTree = "<group>"; };
 		6E157C181A3BF4D60004F913 /* CurrencyLocalePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyLocalePickerViewController.swift; sourceTree = "<group>"; };
 		6E4507411A353A3A00F5C7F1 /* GUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GUI.xcassets; path = "../../Shared Resources/GUI.xcassets"; sourceTree = "<group>"; };
 		6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsViewController.swift; sourceTree = "<group>"; };
@@ -291,12 +293,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6E0456081A58CA7C00A83602 /* Relationship View Controllers */ = {
+		6E0456081A58CA7C00A83602 /* To-Many Relationship View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6E0456091A58CAAF00A83602 /* LocalizedDescriptionRelationshipViewController.swift */,
+				6E0456091A58CAAF00A83602 /* LocalizedDescriptionsRelationshipViewController.swift */,
+				6E06C3591A6A02330000D72F /* ImagesRelationshipViewController.swift */,
 			);
-			name = "Relationship View Controllers";
+			name = "To-Many Relationship View Controllers";
 			sourceTree = "<group>";
 		};
 		6E04560B1A58E39E00A83602 /* Localized Text View Controller */ = {
@@ -486,7 +489,7 @@
 				6EF712991A393BF800F7BAE6 /* PickerViewController.swift */,
 				6E0456061A586E7100A83602 /* RelationshipViewController.swift */,
 				6E04560B1A58E39E00A83602 /* Localized Text View Controller */,
-				6E0456081A58CA7C00A83602 /* Relationship View Controllers */,
+				6E0456081A58CA7C00A83602 /* To-Many Relationship View Controllers */,
 				6E58A3D31A55BC1C00970F1A /* Picker View Controllers */,
 				6E58A3CB1A55BBF900970F1A /* Menu Item View Controllers */,
 				6E58A3D41A55BC3200970F1A /* Establishment View Controllers */,
@@ -734,6 +737,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E06C35A1A6A02330000D72F /* ImagesRelationshipViewController.swift in Sources */,
 				6EF7129A1A393BF800F7BAE6 /* PickerViewController.swift in Sources */,
 				6EEA6BE81A3505B700105413 /* LoginViewController.swift in Sources */,
 				6E58A3D61A55FE5E00970F1A /* EstablishmentViewController.swift in Sources */,
@@ -754,7 +758,7 @@
 				6E67EC951A3E1E39002C775A /* EstablishmentsViewController.swift in Sources */,
 				6E67EC8C1A3D2073002C775A /* EstablishmentPickerViewController.swift in Sources */,
 				6EEA6B3F1A35002A00105413 /* AppDelegate.swift in Sources */,
-				6E04560A1A58CAAF00A83602 /* LocalizedDescriptionRelationshipViewController.swift in Sources */,
+				6E04560A1A58CAAF00A83602 /* LocalizedDescriptionsRelationshipViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,8 +1,8 @@
 //
-//  LocalizedDescriptionRelationshipViewController.swift
+//  ImagesRelationshipViewController.swift
 //  Pedido Admin
 //
-//  Created by Alsey Coleman Miller on 1/3/15.
+//  Created by Alsey Coleman Miller on 1/16/15.
 //  Copyright (c) 2015 ColemanCDA. All rights reserved.
 //
 
@@ -12,18 +12,18 @@ import CoreData
 import CorePedido
 import CorePedidoClient
 
-class LocalizedDescriptionRelationshipViewController: RelationshipViewController {
+class ImagesRelationshipViewController: RelationshipViewController {
     
     // MARK: - Methods
     
     override func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         
-        return self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.LocalizedDescriptionCell.rawValue, forIndexPath: indexPath) as UITableViewCell
+        return self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.ImageCell.rawValue, forIndexPath: indexPath) as UITableViewCell
     }
     
     override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError?) {
         
-        let localizedDescriptionCell = cell as LocalizedDescriptionTableViewCell
+        let imageCell = cell as ImageTableViewCell
         
         if error != nil {
             
@@ -33,7 +33,7 @@ class LocalizedDescriptionRelationshipViewController: RelationshipViewController
         }
         
         // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as LocalizedText
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as Image
         
         // check if fully downloaded
         let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
@@ -43,9 +43,13 @@ class LocalizedDescriptionRelationshipViewController: RelationshipViewController
             
             // configure empty cell...
             
-            localizedDescriptionCell.languageLabel.text = NSLocalizedString("Loading...", comment: "Loading...")
+            // imageCell.textLabel?.text = NSLocalizedString("Loading...", comment: "Loading...")
             
-            localizedDescriptionCell.descriptionLabel.text = ""
+            imageCell.imageView!.image = nil
+            
+            imageCell.activityIndicatorView.hidden = false
+            
+            imageCell.activityIndicatorView.startAnimating()
             
             cell.userInteractionEnabled = false
             
@@ -56,9 +60,9 @@ class LocalizedDescriptionRelationshipViewController: RelationshipViewController
         
         cell.userInteractionEnabled = true
         
-        localizedDescriptionCell.languageLabel.text = (managedObject.locale as NSString).uppercaseString
+        imageCell.imageView!.image = UIImage(data: managedObject.data)
         
-        localizedDescriptionCell.descriptionLabel.text = managedObject.text
+        imageCell.activityIndicatorView.stopAnimating()
     }
     
     // MARK: - Segues
@@ -108,14 +112,14 @@ class LocalizedDescriptionRelationshipViewController: RelationshipViewController
 
 private enum CellIdentifier: String {
     
-    case LocalizedDescriptionCell = "LocalizedDescriptionCell"
+    case ImageCell = "ImageCell"
 }
 
 // MARK: - Supporting Classes
 
-class LocalizedDescriptionTableViewCell: UITableViewCell {
+class ImageTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var languageLabel: UILabel!
-    
-    @IBOutlet weak var descriptionLabel: UILabel!
+    // @IBOutlet weak var imageView: UIImageView!
+
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 }

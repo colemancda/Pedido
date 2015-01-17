@@ -61,6 +61,7 @@ enum MainStoryboardSegueIdentifier: String {
     case NewMenuItemPickCurrencyLocale = "newMenuItemPickCurrencyLocale"
     case MenuItemEstablishmentPicker = "menuItemEstablishmentPicker"
     case MenuItemLocalizedDescriptions = "menuItemLocalizedDescriptions"
+    case MenuItemImages = "menuItemImages"
     case ShowLocalizedDescription = "showLocalizedDescription"
     case NewLocalizedDescription = "newLocalizedDescription"
     case LocalizedDescriptionPickLanguageLocale = "localizedDescriptionPickLanguageLocale"
@@ -68,6 +69,9 @@ enum MainStoryboardSegueIdentifier: String {
     case ShowEstablishment = "showEstablishment"
     case NewEstablishment = "newEstablishment"
     case EstablishmentMenuItemPicker = "establishmentMenuItemPicker"
+    case EstablishmentImages = "establishmentImages"
+    case ShowImage = "showImage"
+    case NewImage = "newImage"
 }
 
 // MARK: - Extensions
