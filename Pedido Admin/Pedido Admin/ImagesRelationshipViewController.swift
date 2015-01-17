@@ -36,8 +36,9 @@ class ImagesRelationshipViewController: RelationshipViewController {
             // create image info
             let imageInfo = JTSImageInfo()
             imageInfo.image = imageView.image!
-            imageInfo.referenceRect = imageView.convertRect(imageView.frame, toView: self.view)
-            imageInfo.referenceView = self.view
+            imageInfo.referenceRect = imageView.frame
+            imageInfo.referenceView = imageView.superview
+            imageInfo.referenceContentMode = imageView.contentMode
             
             // create image VC
             let imageVC = JTSImageViewController(imageInfo: imageInfo,
