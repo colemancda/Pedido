@@ -11,7 +11,6 @@ import UIKit
 import CoreData
 import CorePedido
 import JTSImage
-import ColorCube
 
 class NewImageViewController: NewManagedObjectViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -29,6 +28,23 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
     }
     
     var parentManagedObject: (NSManagedObject, String)!
+    
+    // MARK: - Private Properties
+    
+    var viewSizeCache: CGSize!
+    
+    // MARK: - View Layout
+    
+    override func viewDidLayoutSubviews() {
+        
+        // check if view did resize
+        if self.viewSizeCache != self.view.bounds.size {
+            
+            self.viewSizeCache = self.view.bounds.size
+            
+            self.tableView.reloadData()
+        }
+    }
     
     // MARK: - Actions
     

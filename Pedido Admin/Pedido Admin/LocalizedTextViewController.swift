@@ -28,11 +28,7 @@ class LocalizedTextViewController: ManagedObjectViewController {
             self.languageLabel.text = (languageLocale.objectForKey(NSLocaleLanguageCode) as? NSString)!.uppercaseString
         }
     }
-    
-    // MARK: - Private Properties
-    
-    var viewSizeCache: CGSize!
-    
+
     // MARK: - Initialization
     
     override func viewDidLoad() {
@@ -41,19 +37,6 @@ class LocalizedTextViewController: ManagedObjectViewController {
         
         // load initial value
         self.languageLabel.text = (languageLocale.objectForKey(NSLocaleLanguageCode) as? NSString)!.uppercaseString
-    }
-    
-    // MARK: - View Layout
-    
-    override func viewDidLayoutSubviews() {
-        
-        // check if view did resize
-        if self.viewSizeCache != self.view.bounds.size {
-            
-            self.viewSizeCache = self.view.bounds.size
-            
-            self.tableView.reloadData()
-        }
     }
     
     // MARK: - Methods

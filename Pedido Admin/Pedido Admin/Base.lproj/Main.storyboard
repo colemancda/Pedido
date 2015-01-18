@@ -78,6 +78,11 @@
         <scene sceneID="MNK-FT-Ltf">
             <objects>
                 <splitViewController id="XA2-8c-Vjy" sceneMemberID="viewController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="preferredDisplayMode">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="GpX-pZ-n4r" kind="relationship" relationship="masterViewController" id="QXg-l3-s1b"/>
                         <segue destination="7vh-rv-sfc" kind="relationship" relationship="detailViewController" id="bws-82-iDL"/>
@@ -619,7 +624,7 @@
                     <navigationItem key="navigationItem" title="Localized Descriptions" id="rUX-04-vSm">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YLp-FM-ycB">
                             <connections>
-                                <segue destination="LOi-za-KQU" kind="presentation" identifier="newLocalizedDescription" id="5JC-5q-ubV"/>
+                                <segue destination="LOi-za-KQU" kind="presentation" identifier="newLocalizedDescription" modalPresentationStyle="formSheet" id="5JC-5q-ubV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -689,7 +694,7 @@
                     <navigationItem key="navigationItem" title="Images" id="FLm-YA-sgi">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bqh-Tq-58g">
                             <connections>
-                                <segue destination="1ni-jo-tt9" kind="presentation" identifier="newImage" id="Ql1-b1-LOa"/>
+                                <segue destination="1ni-jo-tt9" kind="presentation" identifier="newImage" modalPresentationStyle="overCurrentContext" id="Ql1-b1-LOa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1344,7 +1349,7 @@
                     <navigationItem key="navigationItem" title="Establishments" id="HZp-vM-lU4">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wYr-6p-MR0">
                             <connections>
-                                <segue destination="uxh-Wv-3Hk" kind="presentation" identifier="newEstablishment" id="i12-ct-vDL"/>
+                                <segue destination="uxh-Wv-3Hk" kind="presentation" identifier="newEstablishment" modalPresentationStyle="formSheet" id="i12-ct-vDL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1583,8 +1588,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fyn-TC-eKm"/>
-        <segue reference="gcs-1Q-If8"/>
         <segue reference="pER-ar-Fnf"/>
         <segue reference="EEn-h5-SHZ"/>
+        <segue reference="Nfp-Gd-nGk"/>
     </inferredMetricsTieBreakers>
 </document>
