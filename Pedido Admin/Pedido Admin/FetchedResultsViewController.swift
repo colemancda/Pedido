@@ -305,23 +305,35 @@ extension FetchedResultsViewController {
         let managedObject = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as NSManagedObject
         
         // get detail navigation controller stack
-        let navigationVC = self.storyboard!.instantiateViewControllerWithIdentifier(detailController.rawValue) as UINavigationController
-        
-        // set detailVC
-        self.splitViewController!.showDetailViewController(navigationVC, sender: self)
+        let detailNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier(detailController.rawValue) as UINavigationController
         
         // get managed object VC
-        let managedObjectVC = navigationVC.topViewController as ManagedObjectViewController
+        let managedObjectVC = detailNavigationController.topViewController as ManagedObjectViewController
         
+        // set model object
         managedObjectVC.managedObject = managedObject
         
-        // set edit handler
-        managedObjectVC.didEditManagedObjectHandler = {
+        // show navigation stack based on splitVC setup
+        if self.splitViewController!.viewControllers.count == 2 {
             
-            // pop VC
-            managedObjectVC.navigationController!.popViewControllerAnimated(true)
+            // set detailVC
+            self.splitViewController!.showDetailViewController(detailNavigationController, sender: self)
             
-            return
+            // no edit handler
+        }
+        else {
+            
+            // set detailVC
+            self.showViewController(detailNavigationController, sender: self)
+            
+            // set edit handler
+            managedObjectVC.didEditManagedObjectHandler = {
+                
+                // pop VC
+                managedObjectVC.navigationController!.popViewControllerAnimated(true)
+                
+                return
+            }
         }
     }
 }

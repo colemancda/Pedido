@@ -93,6 +93,8 @@ class MenuItemsViewController: FetchedResultsViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         self.showDetailController(.MenuItemDetail, forManagedObjectAtIndexPath: indexPath)
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
 

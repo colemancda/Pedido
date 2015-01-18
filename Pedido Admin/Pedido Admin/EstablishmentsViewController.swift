@@ -74,6 +74,8 @@ class EstablishmentsViewController: FetchedResultsViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         self.showDetailController(.EstablishmentDetail, forManagedObjectAtIndexPath: indexPath)
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
 
