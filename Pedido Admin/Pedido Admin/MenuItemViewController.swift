@@ -92,6 +92,11 @@ class MenuItemViewController: ManagedObjectViewController {
         self.currencyLocale = NSLocale.currentLocale()
     }
     
+    override func managedObjectWasDeleted() {
+        
+        self.handleManagedObjectDeletionForViewControllerInMainStoryboard()
+    }
+    
     // MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

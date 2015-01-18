@@ -52,6 +52,11 @@ class EstablishmentViewController: ManagedObjectViewController {
         self.locationTextField.text = ""
     }
     
+    override func managedObjectWasDeleted() {
+        
+        self.handleManagedObjectDeletionForViewControllerInMainStoryboard()
+    }
+    
     // MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

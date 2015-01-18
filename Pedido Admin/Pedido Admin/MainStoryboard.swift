@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import CoreData
 
+/// Contains code specific to our app's Main Storyboard. Makes our view controllers more reusable and less tied to this specific app.
+
 // MARK: - Enumerations
 
 enum MainStoryboardSegueIdentifier: String {
@@ -35,16 +37,17 @@ enum MainStoryboardSegueIdentifier: String {
 
 enum MainStoryboardDetailControllerIdentifier: String {
     
+    case EmptySelectionDetail = "EmptySelectionDetail"
     case MenuItemDetail = "MenuItemDetail"
     case EstablishmentDetail = "EstablishmentDetail"
-    case EmptySelectionDetail = "EmptySelectionDetail"
+    
 }
 
 // MARK: - Extensions
 
 extension FetchedResultsViewController {
     
-    func showDetailController(detailController: MainStoryboardDetailControllerIdentifier, forManagedObjectAtIndexPath indexPath: NSIndexPath) {
+    func showMainStoryboardDetailController(detailController: MainStoryboardDetailControllerIdentifier, forManagedObjectAtIndexPath indexPath: NSIndexPath) {
         
         // get model object
         let managedObject = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as NSManagedObject
@@ -78,6 +81,39 @@ extension FetchedResultsViewController {
                 managedObjectVC.navigationController!.popViewControllerAnimated(true)
                 
                 return
+            }
+        }
+    }
+}
+
+extension ManagedObjectViewController {
+    
+    func handleManagedObjectDeletionForViewControllerInMainStoryboard() {
+        
+        // Detect if contained in splitViewController
+        let regularLayout = (self.splitViewController!.viewControllers.count == 2) as Bool
+        
+        // Regular layout
+        if regularLayout {
+            
+            // show empty selection if root VC
+            if self.navigationController!.viewControllers.first! as UIViewController == self {
+                
+                // get detail navigation controller stack
+                let detailNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier(MainStoryboardDetailControllerIdentifier.EmptySelectionDetail.rawValue) as UINavigationController
+                
+                // set detailVC
+                self.splitViewController!.showDetailViewController(detailNavigationController, sender: self)
+            }
+        }
+        
+        // Compact layout
+        else {
+            
+            // pop to root VC if top if second VC
+            if self.navigationController!.viewControllers[1] as UIViewController == self {
+                
+                self.navigationController!.popToRootViewControllerAnimated(true)
             }
         }
     }

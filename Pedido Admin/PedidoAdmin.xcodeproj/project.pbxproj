@@ -358,9 +358,9 @@
 			isa = PBXGroup;
 			children = (
 				6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */,
-				6EF494E61A5CBDAF0002CAF5 /* LocalizedTextViewController.swift */,
-				6E58A3D51A55FE5E00970F1A /* EstablishmentViewController.swift */,
 				6E6DC8091A368357006C15DE /* MenuItemViewController.swift */,
+				6E58A3D51A55FE5E00970F1A /* EstablishmentViewController.swift */,
+				6EF494E61A5CBDAF0002CAF5 /* LocalizedTextViewController.swift */,
 			);
 			name = "Managed Object View Controllers";
 			sourceTree = "<group>";
