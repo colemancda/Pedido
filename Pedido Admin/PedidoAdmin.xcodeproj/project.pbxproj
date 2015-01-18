@@ -28,6 +28,7 @@
 		6EAD376C1A4F5C0A0073905A /* NewMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD376B1A4F5C0A0073905A /* NewMenuItemViewController.swift */; };
 		6EBF13D21A6B636E00F57F2F /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF13D11A6B636E00F57F2F /* LocationPickerViewController.swift */; };
 		6EBF13D41A6B63DF00F57F2F /* EditLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF13D31A6B63DE00F57F2F /* EditLocationViewController.swift */; };
+		6EBF13D71A6B69B700F57F2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBF13D61A6B69B700F57F2F /* MapKit.framework */; };
 		6EEA6B3F1A35002A00105413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA6B3E1A35002A00105413 /* AppDelegate.swift */; };
 		6EEA6B441A35002A00105413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EEA6B421A35002A00105413 /* Main.storyboard */; };
 		6EEA6B461A35002A00105413 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EEA6B451A35002A00105413 /* Images.xcassets */; };
@@ -289,6 +290,7 @@
 		6EAD376B1A4F5C0A0073905A /* NewMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMenuItemViewController.swift; sourceTree = "<group>"; };
 		6EBF13D11A6B636E00F57F2F /* LocationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		6EBF13D31A6B63DE00F57F2F /* EditLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditLocationViewController.swift; sourceTree = "<group>"; };
+		6EBF13D61A6B69B700F57F2F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6EEA6B391A35002A00105413 /* PedidoAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PedidoAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEA6B3D1A35002A00105413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EEA6B3E1A35002A00105413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EBF13D71A6B69B700F57F2F /* MapKit.framework in Frameworks */,
 				6EEA6BDB1A35055E00105413 /* CorePedidoClient.framework in Frameworks */,
 				6EEA6BE31A35055E00105413 /* CorePedido.framework in Frameworks */,
 				6E06C39E1A6AC9EC0000D72F /* JTSImage.framework in Frameworks */,
@@ -480,6 +483,7 @@
 		6EEA6B651A3504EE00105413 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EBF13D61A6B69B700F57F2F /* MapKit.framework */,
 				6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */,
 				6EEA6B8B1A35053E00105413 /* Lumberjack.xcodeproj */,
 				6EEA6B8E1A35053E00105413 /* CocoaAsyncSocket.xcodeproj */,
