@@ -694,7 +694,7 @@
                     <navigationItem key="navigationItem" title="Images" id="FLm-YA-sgi">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bqh-Tq-58g">
                             <connections>
-                                <segue destination="1ni-jo-tt9" kind="presentation" identifier="newImage" modalPresentationStyle="overCurrentContext" id="Ql1-b1-LOa"/>
+                                <segue destination="1ni-jo-tt9" kind="presentation" identifier="newImage" modalPresentationStyle="pageSheet" id="Ql1-b1-LOa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1026,11 +1026,14 @@
         <!--Navigation Controller-->
         <scene sceneID="cen-xn-jDX">
             <objects>
-                <navigationController id="1ni-jo-tt9" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="1ni-jo-tt9" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fRo-Ut-th0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="nJz-86-hqC">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="59X-dA-zvH" kind="relationship" relationship="rootViewController" id="hkQ-vV-tXH"/>
                     </connections>

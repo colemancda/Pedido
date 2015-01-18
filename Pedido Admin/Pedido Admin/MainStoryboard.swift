@@ -96,8 +96,9 @@ extension ManagedObjectViewController {
         // Regular layout
         if regularLayout {
             
-            // show empty selection if root VC
-            if self.navigationController!.viewControllers.first! as UIViewController == self {
+            // show empty selection if root VC and visible detail VC
+            if self.navigationController!.viewControllers.first! as UIViewController == self &&
+                self.splitViewController!.viewControllers[1] as UIViewController == self.navigationController! {
                 
                 // get detail navigation controller stack
                 let detailNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier(MainStoryboardDetailControllerIdentifier.EmptySelectionDetail.rawValue) as UINavigationController
