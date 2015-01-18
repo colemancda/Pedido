@@ -70,6 +70,10 @@ class EstablishmentViewController: ManagedObjectViewController {
             
             relationshipVC.relationship = (self.managedObject!, "images")
             
+        case .EstablishmentEditLocation:
+            
+            return
+            
         default:
             return
         }
