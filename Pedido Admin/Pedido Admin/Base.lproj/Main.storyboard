@@ -578,8 +578,8 @@
                                         <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yHO-tS-a3M">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200.5"/>
                                         </imageView>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-Eo-nnz">
-                                            <rect key="frame" x="281" y="82" width="37" height="37"/>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-Eo-nnz">
+                                            <rect key="frame" x="290" y="90" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
@@ -833,10 +833,10 @@
         <scene sceneID="hNO-nW-MOE">
             <objects>
                 <tableViewController id="59X-dA-zvH" customClass="NewImageViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="gR2-QR-Ri8">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gR2-QR-Ri8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <sections>
                             <tableViewSection headerTitle="" id="sTy-bF-nEK">
@@ -846,18 +846,46 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n1k-NU-efT" id="2qI-88-ilZ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ff-J9-QzJ">
+                                                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="36Q-EU-r1Y" customClass="UIImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="437.5"/>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="pYm-Os-DmS" appends="YES" id="ZOJ-BS-bVy"/>
-                                                    </connections>
-                                                </imageView>
+                                                    <subviews>
+                                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XnT-ii-Kjc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="437.5"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wOS-wt-4LB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="600" height="437.5"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <subviews>
+                                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ff-J9-QzJ">
+                                                                        <rect key="frame" x="0.0" y="0.5" width="600" height="437.5"/>
+                                                                        <connections>
+                                                                            <outletCollection property="gestureRecognizers" destination="pYm-Os-DmS" appends="YES" id="ZOJ-BS-bVy"/>
+                                                                        </connections>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="0Ff-J9-QzJ" secondAttribute="bottom" id="g9A-KK-CQp"/>
+                                                                    <constraint firstItem="0Ff-J9-QzJ" firstAttribute="leading" secondItem="wOS-wt-4LB" secondAttribute="leading" id="s0c-2f-IwW"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="0Ff-J9-QzJ" secondAttribute="trailing" id="s6z-2s-EF7"/>
+                                                                    <constraint firstItem="0Ff-J9-QzJ" firstAttribute="top" secondItem="wOS-wt-4LB" secondAttribute="top" id="uyC-Nd-89c"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <blurEffect style="light"/>
+                                                        </visualEffectView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="XnT-ii-Kjc" secondAttribute="trailing" id="BbY-x3-ksN"/>
+                                                        <constraint firstItem="XnT-ii-Kjc" firstAttribute="leading" secondItem="36Q-EU-r1Y" secondAttribute="leading" id="Quu-2Y-O7g"/>
+                                                        <constraint firstItem="XnT-ii-Kjc" firstAttribute="top" secondItem="36Q-EU-r1Y" secondAttribute="top" id="Ss6-9X-aT1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="XnT-ii-Kjc" secondAttribute="bottom" id="Y2n-8b-lhQ"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="0Ff-J9-QzJ" firstAttribute="top" secondItem="2qI-88-ilZ" secondAttribute="top" id="Cav-1h-Uvc"/>
-                                                <constraint firstAttribute="bottom" secondItem="0Ff-J9-QzJ" secondAttribute="bottom" id="Fwy-VS-nE7"/>
-                                                <constraint firstItem="0Ff-J9-QzJ" firstAttribute="leading" secondItem="2qI-88-ilZ" secondAttribute="leading" id="hz8-pN-DDD"/>
-                                                <constraint firstAttribute="trailing" secondItem="0Ff-J9-QzJ" secondAttribute="trailing" id="kQE-G4-5JW"/>
+                                                <constraint firstItem="36Q-EU-r1Y" firstAttribute="leading" secondItem="2qI-88-ilZ" secondAttribute="leading" id="0dI-Qh-LQi"/>
+                                                <constraint firstAttribute="trailing" secondItem="36Q-EU-r1Y" secondAttribute="trailing" id="AF2-YO-DgS"/>
+                                                <constraint firstItem="36Q-EU-r1Y" firstAttribute="top" secondItem="2qI-88-ilZ" secondAttribute="top" id="H1J-e9-Fqh"/>
+                                                <constraint firstAttribute="bottom" secondItem="36Q-EU-r1Y" secondAttribute="bottom" id="Z56-Mh-ZhE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -886,8 +914,10 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="navigationController.toolbarHidden" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="automaticallyAdjustsScrollViewInsets" value="NO"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="blurImageView" destination="36Q-EU-r1Y" id="IQt-ci-V0U"/>
                         <outlet property="imageView" destination="0Ff-J9-QzJ" id="kSj-7T-UHx"/>
                     </connections>
                 </tableViewController>

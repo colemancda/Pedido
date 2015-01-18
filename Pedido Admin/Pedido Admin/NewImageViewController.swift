@@ -11,12 +11,15 @@ import UIKit
 import CoreData
 import CorePedido
 import JTSImage
+import ColorCube
 
 class NewImageViewController: NewManagedObjectViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - IB Outlets
     
     @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var blurImageView: UIImageView!
     
     // MARK: - Properties
     
@@ -41,6 +44,7 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
             imageInfo.image = imageView.image!
             imageInfo.referenceRect = imageView.frame
             imageInfo.referenceView = imageView.superview!
+            imageInfo.referenceContentMode = imageView.contentMode
             
             // create image VC
             let imageVC = JTSImageViewController(imageInfo: imageInfo,
@@ -102,6 +106,18 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
         return ["data": imageData, parentManagedObjectKey: managedObject]
     }
     
+    // MARK: - UITableViewDelegate
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if indexPath.row == 0 {
+            
+            return self.view.bounds.size.height
+        }
+            
+        return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+    }
+    
     // MARK: - UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
@@ -117,6 +133,8 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
         }()
         
         self.imageView.image = image
+        
+        self.blurImageView.image = image
         
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
