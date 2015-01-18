@@ -12,7 +12,6 @@ import CoreData
 import CorePedido
 import CorePedidoClient
 import JTSImage
-import ColorCube
 
 class ImagesRelationshipViewController: RelationshipViewController {
     
@@ -48,7 +47,6 @@ class ImagesRelationshipViewController: RelationshipViewController {
             // present VC
             imageVC.showFromViewController(self, transition: JTSImageViewControllerTransition.FromOriginalPosition)
         }
-        
     }
     
     // MARK: - Methods
@@ -100,6 +98,8 @@ class ImagesRelationshipViewController: RelationshipViewController {
             
             imageCell.largeImageView.image = nil
             
+            imageCell.blurImageView.image = nil
+            
             imageCell.activityIndicatorView.hidden = false
             
             imageCell.activityIndicatorView.startAnimating()
@@ -129,16 +129,7 @@ class ImagesRelationshipViewController: RelationshipViewController {
         
         imageCell.largeImageView.image = image
         
-        let dominantColor: UIColor = {
-            
-            let colorCube = CCColorCube()
-            
-            let colors = colorCube.extractColorsFromImage(image, flags: 0) as [UIColor]
-            
-            return colors.first ?? UIColor.whiteColor()
-        }()
-        
-        imageCell.backgroundColor = dominantColor
+        imageCell.blurImageView.image = image
         
         imageCell.activityIndicatorView.stopAnimating()
     }
@@ -180,6 +171,8 @@ class ImageTableViewCell: UITableViewCell {
     // MARK: - IB Outlets
     
     @IBOutlet weak var largeImageView: UIImageView!
+    
+    @IBOutlet weak var blurImageView: UIImageView!
 
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     

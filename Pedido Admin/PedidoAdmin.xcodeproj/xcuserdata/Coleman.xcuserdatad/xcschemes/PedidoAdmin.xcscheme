@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6EEA6B381A35002A00105413"
-               BuildableName = "Pedido Admin.app"
-               BlueprintName = "Pedido Admin"
-               ReferencedContainer = "container:Pedido Admin.xcodeproj">
+               BuildableName = "PedidoAdmin.app"
+               BlueprintName = "PedidoAdmin"
+               ReferencedContainer = "container:PedidoAdmin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6EEA6B4D1A35002A00105413"
-               BuildableName = "Pedido AdminTests.xctest"
-               BlueprintName = "Pedido AdminTests"
-               ReferencedContainer = "container:Pedido Admin.xcodeproj">
+               BuildableName = "PedidoAdminTests.xctest"
+               BlueprintName = "PedidoAdminTests"
+               ReferencedContainer = "container:PedidoAdmin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6EEA6B4D1A35002A00105413"
-               BuildableName = "Pedido AdminTests.xctest"
-               BlueprintName = "Pedido AdminTests"
-               ReferencedContainer = "container:Pedido Admin.xcodeproj">
+               BuildableName = "PedidoAdminTests.xctest"
+               BlueprintName = "PedidoAdminTests"
+               ReferencedContainer = "container:PedidoAdmin.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6EEA6B381A35002A00105413"
-            BuildableName = "Pedido Admin.app"
-            BlueprintName = "Pedido Admin"
-            ReferencedContainer = "container:Pedido Admin.xcodeproj">
+            BuildableName = "PedidoAdmin.app"
+            BlueprintName = "PedidoAdmin"
+            ReferencedContainer = "container:PedidoAdmin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6EEA6B381A35002A00105413"
-            BuildableName = "Pedido Admin.app"
-            BlueprintName = "Pedido Admin"
-            ReferencedContainer = "container:Pedido Admin.xcodeproj">
+            BuildableName = "PedidoAdmin.app"
+            BlueprintName = "PedidoAdmin"
+            ReferencedContainer = "container:PedidoAdmin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6EEA6B381A35002A00105413"
-            BuildableName = "Pedido Admin.app"
-            BlueprintName = "Pedido Admin"
-            ReferencedContainer = "container:Pedido Admin.xcodeproj">
+            BuildableName = "PedidoAdmin.app"
+            BlueprintName = "PedidoAdmin"
+            ReferencedContainer = "container:PedidoAdmin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

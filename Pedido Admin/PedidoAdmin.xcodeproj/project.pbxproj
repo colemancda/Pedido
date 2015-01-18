@@ -407,8 +407,8 @@
 			isa = PBXGroup;
 			children = (
 				6EEA6B651A3504EE00105413 /* Frameworks */,
-				6EEA6B3B1A35002A00105413 /* Pedido Admin */,
-				6EEA6B511A35002A00105413 /* Pedido AdminTests */,
+				6EEA6B3B1A35002A00105413 /* PedidoAdmin */,
+				6EEA6B511A35002A00105413 /* PedidoAdminTests */,
 				6EEA6B3A1A35002A00105413 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6EEA6B3B1A35002A00105413 /* Pedido Admin */ = {
+		6EEA6B3B1A35002A00105413 /* PedidoAdmin */ = {
 			isa = PBXGroup;
 			children = (
 				6EEA6B3E1A35002A00105413 /* AppDelegate.swift */,
@@ -434,6 +434,7 @@
 				6EF712981A393BDA00F7BAE6 /* Controllers */,
 				6EEA6B3C1A35002A00105413 /* Supporting Files */,
 			);
+			name = PedidoAdmin;
 			path = "Pedido Admin";
 			sourceTree = "<group>";
 		};
@@ -445,12 +446,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6EEA6B511A35002A00105413 /* Pedido AdminTests */ = {
+		6EEA6B511A35002A00105413 /* PedidoAdminTests */ = {
 			isa = PBXGroup;
 			children = (
 				6EEA6B541A35002A00105413 /* Pedido_AdminTests.swift */,
 				6EEA6B521A35002A00105413 /* Supporting Files */,
 			);
+			name = PedidoAdminTests;
 			path = "Pedido AdminTests";
 			sourceTree = "<group>";
 		};

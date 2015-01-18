@@ -1,5 +1,6 @@
 
 *.xcuserstate
+*xcschememanagement.plist
 
 Pedido.xcworkspace/xcuserdata/*
 Pedido Admin/Pedido Admin.xcodeproj/xcuserdata/*

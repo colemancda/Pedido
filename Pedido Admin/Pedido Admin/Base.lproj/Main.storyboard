@@ -30,7 +30,7 @@
         <!--Login-->
         <scene sceneID="Sk3-zu-aiK">
             <objects>
-                <viewController id="7DL-KX-ppb" customClass="LoginViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7DL-KX-ppb" customClass="LoginViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RPo-lq-QOT"/>
                         <viewControllerLayoutGuide type="bottom" id="k3S-vz-X3U"/>
@@ -117,7 +117,7 @@
         <!--Menu Items-->
         <scene sceneID="JaG-R6-fw0">
             <objects>
-                <tableViewController id="Zt8-R2-fRK" customClass="MenuItemsViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Zt8-R2-fRK" customClass="MenuItemsViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2WN-qD-phY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,7 +174,7 @@
         <!--Menu Item-->
         <scene sceneID="R0H-iF-at5">
             <objects>
-                <tableViewController title="Menu Item" id="bth-wI-tsW" customClass="MenuItemViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Menu Item" id="bth-wI-tsW" customClass="MenuItemViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="N7h-mW-TMH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,7 +320,7 @@
         <!--New Menu Item-->
         <scene sceneID="Bxp-LQ-bJI">
             <objects>
-                <tableViewController id="zCs-4f-W99" customClass="NewMenuItemViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="zCs-4f-W99" customClass="NewMenuItemViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="tUW-Pr-Stt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -405,7 +405,7 @@
         <!--Select Currency Locale-->
         <scene sceneID="gUd-cd-kS2">
             <objects>
-                <tableViewController id="V7v-bF-eri" customClass="CurrencyLocalePickerViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="V7v-bF-eri" customClass="CurrencyLocalePickerViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pLn-Xr-Ntm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -455,7 +455,7 @@
         <!--Establishments-->
         <scene sceneID="aCX-el-40K">
             <objects>
-                <tableViewController id="Rlu-JL-nut" customClass="EstablishmentPickerViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Rlu-JL-nut" customClass="EstablishmentPickerViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mBT-bH-FHe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -496,13 +496,13 @@
         <!--Localized Descriptions-->
         <scene sceneID="DA5-tG-QnE">
             <objects>
-                <tableViewController id="u9E-9f-oVz" customClass="LocalizedDescriptionsRelationshipViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="u9E-9f-oVz" customClass="LocalizedDescriptionsRelationshipViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" id="0Sw-86-KEG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocalizedDescriptionCell" id="ELu-Cs-G5X" customClass="LocalizedDescriptionTableViewCell" customModule="Pedido_Admin" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocalizedDescriptionCell" id="ELu-Cs-G5X" customClass="LocalizedDescriptionTableViewCell" customModule="PedidoAdmin" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ELu-Cs-G5X" id="VQN-vs-062">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -563,39 +563,68 @@
         <!--Images-->
         <scene sceneID="tbh-SV-Wqc">
             <objects>
-                <tableViewController id="cIR-tO-aUW" customClass="ImagesRelationshipViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cIR-tO-aUW" customClass="ImagesRelationshipViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="201" sectionHeaderHeight="22" sectionFooterHeight="22" id="kmv-UE-PJx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ImageCell" rowHeight="201" id="RJ8-VM-LFA" customClass="ImageTableViewCell" customModule="Pedido_Admin" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ImageCell" rowHeight="201" id="RJ8-VM-LFA" customClass="ImageTableViewCell" customModule="PedidoAdmin" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJ8-VM-LFA" id="HlQ-N7-rT2">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yHO-tS-a3M">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200.5"/>
-                                        </imageView>
+                                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="2es-3t-yfz" customClass="UIImageView">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="201"/>
+                                            <subviews>
+                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaf-kj-Crh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="201"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lPh-PH-zEH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="201"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XBB-mm-D4H">
+                                                                <rect key="frame" x="0.0" y="0.0" width="600" height="201"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="XBB-mm-D4H" firstAttribute="leading" secondItem="lPh-PH-zEH" secondAttribute="leading" id="9Dy-G7-jYl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="XBB-mm-D4H" secondAttribute="trailing" id="Ib9-5s-cU7"/>
+                                                            <constraint firstItem="XBB-mm-D4H" firstAttribute="top" secondItem="lPh-PH-zEH" secondAttribute="top" id="O8r-5o-sk0"/>
+                                                            <constraint firstAttribute="bottom" secondItem="XBB-mm-D4H" secondAttribute="bottom" id="mX2-NK-wR4"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <blurEffect style="light"/>
+                                                </visualEffectView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="aaf-kj-Crh" secondAttribute="trailing" id="bii-JU-OU9"/>
+                                                <constraint firstAttribute="bottom" secondItem="aaf-kj-Crh" secondAttribute="bottom" id="i6j-DK-n7x"/>
+                                                <constraint firstItem="aaf-kj-Crh" firstAttribute="top" secondItem="2es-3t-yfz" secondAttribute="top" id="ops-ff-bb0"/>
+                                                <constraint firstItem="aaf-kj-Crh" firstAttribute="leading" secondItem="2es-3t-yfz" secondAttribute="leading" id="y3q-8T-apg"/>
+                                            </constraints>
+                                        </view>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-Eo-nnz">
                                             <rect key="frame" x="290" y="90" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="yHO-tS-a3M" secondAttribute="bottom" id="Rke-b8-j0v"/>
-                                        <constraint firstItem="yHO-tS-a3M" firstAttribute="top" secondItem="HlQ-N7-rT2" secondAttribute="top" id="XS6-37-aQu"/>
-                                        <constraint firstItem="yHO-tS-a3M" firstAttribute="leading" secondItem="HlQ-N7-rT2" secondAttribute="leading" id="Zbe-ME-Y5U"/>
+                                        <constraint firstAttribute="bottom" secondItem="2es-3t-yfz" secondAttribute="bottom" id="4zM-81-2eG"/>
+                                        <constraint firstAttribute="trailing" secondItem="2es-3t-yfz" secondAttribute="trailing" id="CtM-Ea-Fwc"/>
+                                        <constraint firstItem="2es-3t-yfz" firstAttribute="leading" secondItem="HlQ-N7-rT2" secondAttribute="leading" id="dkQ-o0-YhB"/>
+                                        <constraint firstItem="2es-3t-yfz" firstAttribute="top" secondItem="HlQ-N7-rT2" secondAttribute="top" id="h9U-Yg-dfO"/>
                                         <constraint firstAttribute="centerY" secondItem="cs1-Eo-nnz" secondAttribute="centerY" id="mHX-qT-5mT"/>
                                         <constraint firstAttribute="centerX" secondItem="cs1-Eo-nnz" secondAttribute="centerX" id="poc-dQ-dDA"/>
-                                        <constraint firstAttribute="trailing" secondItem="yHO-tS-a3M" secondAttribute="trailing" id="xlr-Ai-0eO"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="activityIndicatorView" destination="cs1-Eo-nnz" id="2xW-Pr-96e"/>
-                                    <outlet property="largeImageView" destination="yHO-tS-a3M" id="jbv-zA-zIL"/>
+                                    <outlet property="blurImageView" destination="2es-3t-yfz" id="YCw-eB-onq"/>
+                                    <outlet property="largeImageView" destination="XBB-mm-D4H" id="0tJ-2o-9JW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -620,7 +649,7 @@
         <!--New Localized Description-->
         <scene sceneID="3FF-8Y-yfR">
             <objects>
-                <tableViewController id="ro5-w2-cI2" customClass="NewLocalizedTextViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ro5-w2-cI2" customClass="NewLocalizedTextViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Zjd-wU-Pvn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -693,7 +722,7 @@
         <!--Select Language-->
         <scene sceneID="dF5-bx-tiQ">
             <objects>
-                <tableViewController id="oHs-6A-Qez" customClass="LanguageLocalePickerViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oHs-6A-Qez" customClass="LanguageLocalePickerViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Yf-nd-UPV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -752,7 +781,7 @@
         <!--Localized Description-->
         <scene sceneID="e6k-2Q-3ha">
             <objects>
-                <tableViewController id="670-Nn-Q9o" customClass="LocalizedTextViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="670-Nn-Q9o" customClass="LocalizedTextViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="CtF-We-Gjf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -832,7 +861,7 @@
         <!--New Image-->
         <scene sceneID="hNO-nW-MOE">
             <objects>
-                <tableViewController id="59X-dA-zvH" customClass="NewImageViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="59X-dA-zvH" customClass="NewImageViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gR2-QR-Ri8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -949,7 +978,7 @@
         <!--Establishment-->
         <scene sceneID="wnZ-M9-ktF">
             <objects>
-                <tableViewController id="0iU-kP-psC" customClass="EstablishmentViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="0iU-kP-psC" customClass="EstablishmentViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zTr-dE-m82">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1092,7 +1121,7 @@
         <!--Menu Items-->
         <scene sceneID="CTm-2q-ZbI">
             <objects>
-                <tableViewController id="Iw8-lH-EZD" customClass="MenuItemPickerViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Iw8-lH-EZD" customClass="MenuItemPickerViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ShK-BV-u3f">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1220,7 +1249,7 @@
         <!--Establishments-->
         <scene sceneID="SCJ-lj-bKZ">
             <objects>
-                <tableViewController id="Ruz-Og-ABu" customClass="EstablishmentsViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ruz-Og-ABu" customClass="EstablishmentsViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QrU-iu-YgE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1419,7 +1448,7 @@
         <!--New Establishment-->
         <scene sceneID="t4o-nc-3nw">
             <objects>
-                <tableViewController id="2rM-Wc-thO" customClass="NewEstablishmentViewController" customModule="Pedido_Admin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="2rM-Wc-thO" customClass="NewEstablishmentViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HRB-nl-roH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
