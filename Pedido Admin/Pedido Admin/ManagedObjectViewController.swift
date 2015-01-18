@@ -42,7 +42,7 @@ class ManagedObjectViewController: UITableViewController {
         
         if self.isViewLoaded() {
             
-            self.removeObserver()
+            NSNotificationCenter.defaultCenter().removeObserver(self)
         }
     }
     
@@ -50,52 +50,13 @@ class ManagedObjectViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // KVO
-        self.addObserver()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "managedObjectContextObjectsDidChange:", name: NSManagedObjectContextObjectsDidChangeNotification, object: Store.sharedStore.managedObjectContext)
         
         // tableview default values
         self.tableView.estimatedRowHeight = 44
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         self.updateUI()
-    }
-    
-    
-    // MARK: - KVO
-    
-    override func observeValueForKeyPath(keyPathValue: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
-        
-        if context != KVOContext {
-            
-            super.observeValueForKeyPath(keyPathValue, ofObject: object, change: change, context: context)
-            
-            return
-        }
-        
-        let keypath = Keypath(rawValue: keyPathValue)!
-        
-        switch keypath {
-            
-        case .ManagedObjectDeleted:
-            
-            if self.managedObject?.deleted == true {
-                
-                self.managedObjectWasDeleted()
-            }
-        }
-    }
-    
-    private func addObserver() {
-        
-        self.addObserver(self,
-            forKeyPath: Keypath.ManagedObjectDeleted.rawValue,
-            options: .Initial | .New,
-            context: KVOContext)
-    }
-    
-    private func removeObserver() {
-        
-        self.removeObserver(self, forKeyPath: Keypath.ManagedObjectDeleted.rawValue, context: KVOContext)
     }
     
     // MARK: - Methods
@@ -171,12 +132,22 @@ class ManagedObjectViewController: UITableViewController {
             })
         })
     }
-}
-
-// MARK: - Private Enumerations
-
-private enum Keypath: String {
     
-    case ManagedObjectDeleted = "managedObject.deleted"
+    // MARK: - Notifications
+    
+    @objc private func managedObjectContextObjectsDidChange(notification: NSNotification) {
+        
+        if self.managedObject == nil {
+            
+            return
+        }
+        
+        if let deletedObjects = notification.userInfo![NSDeletedObjectsKey] as? NSSet {
+            
+            if deletedObjects.containsObject(self.managedObject!) {
+                
+                self.managedObjectWasDeleted()
+            }
+        }
+    }
 }
-
