@@ -694,7 +694,7 @@
                     <navigationItem key="navigationItem" title="Images" id="FLm-YA-sgi">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bqh-Tq-58g">
                             <connections>
-                                <segue destination="1ni-jo-tt9" kind="presentation" identifier="newImage" modalPresentationStyle="pageSheet" id="Ql1-b1-LOa"/>
+                                <segue destination="1ni-jo-tt9" kind="presentation" identifier="newImage" modalPresentationStyle="fullScreen" id="Ql1-b1-LOa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1593,9 +1593,9 @@
         <image name="user" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mcK-24-IpQ"/>
-        <segue reference="EEn-h5-SHZ"/>
+        <segue reference="fyn-TC-eKm"/>
         <segue reference="gcs-1Q-If8"/>
         <segue reference="pER-ar-Fnf"/>
+        <segue reference="EEn-h5-SHZ"/>
     </inferredMetricsTieBreakers>
 </document>
