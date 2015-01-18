@@ -39,7 +39,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://localhost:8080" borderStyle="roundedRect" placeholder="Server URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fx0-fY-F0z">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://colemancda.com:8080" borderStyle="roundedRect" placeholder="Server URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fx0-fY-F0z">
                                 <rect key="frame" x="201" y="28" width="199" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="199" id="oKD-IT-EmY"/>
@@ -47,7 +47,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBU-Zw-iO4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBU-Zw-iO4">
                                 <rect key="frame" x="201" y="66" width="199" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="199" id="f0L-v5-z8G"/>
@@ -55,7 +55,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nLq-xe-RV5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin1234" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nLq-xe-RV5">
                                 <rect key="frame" x="201" y="104" width="199" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="199" id="Wnd-hy-KNl"/>
@@ -570,60 +570,39 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ImageCell" rowHeight="201" id="RJ8-VM-LFA" customClass="ImageTableViewCell" customModule="PedidoAdmin" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ImageCell" rowHeight="220" id="RJ8-VM-LFA" customClass="ImageTableViewCell" customModule="PedidoAdmin" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJ8-VM-LFA" id="HlQ-N7-rT2">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="2es-3t-yfz" customClass="UIImageView">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="201"/>
-                                            <subviews>
-                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaf-kj-Crh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="201"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lPh-PH-zEH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="201"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <subviews>
-                                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XBB-mm-D4H">
-                                                                <rect key="frame" x="0.0" y="0.0" width="600" height="201"/>
-                                                            </imageView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="XBB-mm-D4H" firstAttribute="leading" secondItem="lPh-PH-zEH" secondAttribute="leading" id="9Dy-G7-jYl"/>
-                                                            <constraint firstAttribute="trailing" secondItem="XBB-mm-D4H" secondAttribute="trailing" id="Ib9-5s-cU7"/>
-                                                            <constraint firstItem="XBB-mm-D4H" firstAttribute="top" secondItem="lPh-PH-zEH" secondAttribute="top" id="O8r-5o-sk0"/>
-                                                            <constraint firstAttribute="bottom" secondItem="XBB-mm-D4H" secondAttribute="bottom" id="mX2-NK-wR4"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <blurEffect style="light"/>
-                                                </visualEffectView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="aaf-kj-Crh" secondAttribute="trailing" id="bii-JU-OU9"/>
-                                                <constraint firstAttribute="bottom" secondItem="aaf-kj-Crh" secondAttribute="bottom" id="i6j-DK-n7x"/>
-                                                <constraint firstItem="aaf-kj-Crh" firstAttribute="top" secondItem="2es-3t-yfz" secondAttribute="top" id="ops-ff-bb0"/>
-                                                <constraint firstItem="aaf-kj-Crh" firstAttribute="leading" secondItem="2es-3t-yfz" secondAttribute="leading" id="y3q-8T-apg"/>
-                                            </constraints>
-                                        </view>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ow3-Ts-9gt">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XBB-mm-D4H">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
+                                        </imageView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-Eo-nnz">
-                                            <rect key="frame" x="290" y="90" width="20" height="20"/>
+                                            <rect key="frame" x="290" y="100" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="2es-3t-yfz" secondAttribute="bottom" id="4zM-81-2eG"/>
-                                        <constraint firstAttribute="trailing" secondItem="2es-3t-yfz" secondAttribute="trailing" id="CtM-Ea-Fwc"/>
-                                        <constraint firstItem="2es-3t-yfz" firstAttribute="leading" secondItem="HlQ-N7-rT2" secondAttribute="leading" id="dkQ-o0-YhB"/>
-                                        <constraint firstItem="2es-3t-yfz" firstAttribute="top" secondItem="HlQ-N7-rT2" secondAttribute="top" id="h9U-Yg-dfO"/>
+                                        <constraint firstItem="XBB-mm-D4H" firstAttribute="top" secondItem="HlQ-N7-rT2" secondAttribute="top" id="8sg-Pi-xHw"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ow3-Ts-9gt" secondAttribute="trailing" id="MLP-lu-cO6"/>
+                                        <constraint firstItem="Ow3-Ts-9gt" firstAttribute="leading" secondItem="HlQ-N7-rT2" secondAttribute="leading" id="Tmq-tV-G7u"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ow3-Ts-9gt" secondAttribute="bottom" id="Tms-j4-YmF"/>
+                                        <constraint firstItem="XBB-mm-D4H" firstAttribute="leading" secondItem="HlQ-N7-rT2" secondAttribute="leading" id="a1U-jU-2n5"/>
+                                        <constraint firstItem="Ow3-Ts-9gt" firstAttribute="top" secondItem="HlQ-N7-rT2" secondAttribute="top" id="gg1-qN-ATZ"/>
                                         <constraint firstAttribute="centerY" secondItem="cs1-Eo-nnz" secondAttribute="centerY" id="mHX-qT-5mT"/>
+                                        <constraint firstAttribute="bottom" secondItem="XBB-mm-D4H" secondAttribute="bottom" id="pP3-wq-5TG"/>
                                         <constraint firstAttribute="centerX" secondItem="cs1-Eo-nnz" secondAttribute="centerX" id="poc-dQ-dDA"/>
+                                        <constraint firstAttribute="trailing" secondItem="XBB-mm-D4H" secondAttribute="trailing" id="sNF-kd-twh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="activityIndicatorView" destination="cs1-Eo-nnz" id="2xW-Pr-96e"/>
-                                    <outlet property="blurImageView" destination="2es-3t-yfz" id="YCw-eB-onq"/>
+                                    <outlet property="blurImageView" destination="Ow3-Ts-9gt" id="wMk-wp-I7x"/>
                                     <outlet property="largeImageView" destination="XBB-mm-D4H" id="0tJ-2o-9JW"/>
                                 </connections>
                             </tableViewCell>

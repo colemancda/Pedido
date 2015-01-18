@@ -1065,7 +1065,7 @@
 				INFOPLIST_FILE = "Pedido AdminTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = PedidoAdminTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pedido Admin.app/Pedido Admin";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PedidoAdmin.app/PedidoAdmin";
 			};
 			name = Debug;
 		};
@@ -1080,7 +1080,7 @@
 				INFOPLIST_FILE = "Pedido AdminTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = PedidoAdminTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pedido Admin.app/Pedido Admin";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PedidoAdmin.app/PedidoAdmin";
 			};
 			name = Release;
 		};

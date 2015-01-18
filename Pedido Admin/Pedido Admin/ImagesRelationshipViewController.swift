@@ -129,7 +129,7 @@ class ImagesRelationshipViewController: RelationshipViewController {
         
         imageCell.largeImageView.image = image
         
-        imageCell.blurImageView.image = image
+        imageCell.blurImageView.image = image.applyLightEffect()
         
         imageCell.activityIndicatorView.stopAnimating()
     }
