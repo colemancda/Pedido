@@ -51,8 +51,6 @@
 		6EF494F21A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF494F11A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift */; };
 		6EF7129A1A393BF800F7BAE6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF712991A393BF800F7BAE6 /* PickerViewController.swift */; };
 		6EF7129C1A39532900F7BAE6 /* FetchedResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */; };
-		6EF81DF41A6B097900D58682 /* ColorCube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF81DF31A6B097900D58682 /* ColorCube.framework */; };
-		6EF81DF51A6B097900D58682 /* ColorCube.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF81DF31A6B097900D58682 /* ColorCube.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,27 +243,6 @@
 			remoteGlobalIDString = 6E3B1B131A300BE600655F36;
 			remoteInfo = CorePedido;
 		};
-		6EF81DBA1A6B056400D58682 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7F98C637192504D3009C124F;
-			remoteInfo = ColorCube;
-		};
-		6EF81DF21A6B097900D58682 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6EF81DCB1A6B05F600D58682;
-			remoteInfo = ColorCube;
-		};
-		6EF81DF61A6B097900D58682 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6EF81DCA1A6B05F600D58682;
-			remoteInfo = ColorCube;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -282,7 +259,6 @@
 				6EEA6BD81A35055D00105413 /* RoutingHTTPServer.framework in Embed Frameworks */,
 				6EEA6BE01A35055E00105413 /* NetworkObjects.framework in Embed Frameworks */,
 				6EEA6BE41A35055E00105413 /* CorePedido.framework in Embed Frameworks */,
-				6EF81DF51A6B097900D58682 /* ColorCube.framework in Embed Frameworks */,
 				6EEA6BCB1A35054800105413 /* CocoaLumberjack.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -309,13 +285,13 @@
 		6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectViewController.swift; sourceTree = "<group>"; };
 		6E9D2ABE1A4CC3A800F78363 /* NewManagedObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewManagedObjectViewController.swift; sourceTree = "<group>"; };
 		6EAD376B1A4F5C0A0073905A /* NewMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMenuItemViewController.swift; sourceTree = "<group>"; };
-		6EEA6B391A35002A00105413 /* Pedido Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pedido Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EEA6B391A35002A00105413 /* PedidoAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PedidoAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEA6B3D1A35002A00105413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EEA6B3E1A35002A00105413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EEA6B431A35002A00105413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6EEA6B451A35002A00105413 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6EEA6B481A35002A00105413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		6EEA6B4E1A35002A00105413 /* Pedido AdminTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pedido AdminTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EEA6B4E1A35002A00105413 /* PedidoAdminTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PedidoAdminTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEA6B531A35002A00105413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EEA6B541A35002A00105413 /* Pedido_AdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedido_AdminTests.swift; sourceTree = "<group>"; };
 		6EEA6B8B1A35053E00105413 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/NetworkObjects/RoutingHTTPServer/External/CocoaHTTPServer/CocoaAsyncSocket/Framework/CocoaAsyncSocket/../../CocoaLumberjack/Framework/Desktop/Lumberjack.xcodeproj; sourceTree = "<absolute>"; };
@@ -331,7 +307,6 @@
 		6EF494F11A5CDEC20002CAF5 /* LanguageLocalePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageLocalePickerViewController.swift; sourceTree = "<group>"; };
 		6EF712991A393BF800F7BAE6 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		6EF7129B1A39532900F7BAE6 /* FetchedResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsViewController.swift; sourceTree = "<group>"; };
-		6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ColorCube.xcodeproj; path = ../ColorCube/ColorCube.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,7 +321,6 @@
 				6EEA6BCF1A35055D00105413 /* CocoaAsyncSocket.framework in Frameworks */,
 				6EEA6BD31A35055D00105413 /* CocoaHTTPServer.framework in Frameworks */,
 				6EEA6BD71A35055D00105413 /* RoutingHTTPServer.framework in Frameworks */,
-				6EF81DF41A6B097900D58682 /* ColorCube.framework in Frameworks */,
 				6EEA6BDF1A35055E00105413 /* NetworkObjects.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,8 +416,8 @@
 		6EEA6B3A1A35002A00105413 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6EEA6B391A35002A00105413 /* Pedido Admin.app */,
-				6EEA6B4E1A35002A00105413 /* Pedido AdminTests.xctest */,
+				6EEA6B391A35002A00105413 /* PedidoAdmin.app */,
+				6EEA6B4E1A35002A00105413 /* PedidoAdminTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -491,7 +465,6 @@
 		6EEA6B651A3504EE00105413 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */,
 				6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */,
 				6EEA6B8B1A35053E00105413 /* Lumberjack.xcodeproj */,
 				6EEA6B8E1A35053E00105413 /* CocoaAsyncSocket.xcodeproj */,
@@ -587,21 +560,12 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		6EF81DB41A6B056400D58682 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6EF81DBB1A6B056400D58682 /* ColorCube.app */,
-				6EF81DF31A6B097900D58682 /* ColorCube.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6EEA6B381A35002A00105413 /* Pedido Admin */ = {
+		6EEA6B381A35002A00105413 /* PedidoAdmin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6EEA6B581A35002A00105413 /* Build configuration list for PBXNativeTarget "Pedido Admin" */;
+			buildConfigurationList = 6EEA6B581A35002A00105413 /* Build configuration list for PBXNativeTarget "PedidoAdmin" */;
 			buildPhases = (
 				6EEA6B351A35002A00105413 /* Sources */,
 				6EEA6B361A35002A00105413 /* Frameworks */,
@@ -619,16 +583,15 @@
 				6EEA6BE21A35055E00105413 /* PBXTargetDependency */,
 				6EEA6BE61A35055E00105413 /* PBXTargetDependency */,
 				6E06C3A11A6AC9EC0000D72F /* PBXTargetDependency */,
-				6EF81DF71A6B097900D58682 /* PBXTargetDependency */,
 			);
-			name = "Pedido Admin";
+			name = PedidoAdmin;
 			productName = "Pedido Admin";
-			productReference = 6EEA6B391A35002A00105413 /* Pedido Admin.app */;
+			productReference = 6EEA6B391A35002A00105413 /* PedidoAdmin.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6EEA6B4D1A35002A00105413 /* Pedido AdminTests */ = {
+		6EEA6B4D1A35002A00105413 /* PedidoAdminTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6EEA6B5B1A35002A00105413 /* Build configuration list for PBXNativeTarget "Pedido AdminTests" */;
+			buildConfigurationList = 6EEA6B5B1A35002A00105413 /* Build configuration list for PBXNativeTarget "PedidoAdminTests" */;
 			buildPhases = (
 				6EEA6B4A1A35002A00105413 /* Sources */,
 				6EEA6B4B1A35002A00105413 /* Frameworks */,
@@ -639,9 +602,9 @@
 			dependencies = (
 				6EEA6B501A35002A00105413 /* PBXTargetDependency */,
 			);
-			name = "Pedido AdminTests";
+			name = PedidoAdminTests;
 			productName = "Pedido AdminTests";
-			productReference = 6EEA6B4E1A35002A00105413 /* Pedido AdminTests.xctest */;
+			productReference = 6EEA6B4E1A35002A00105413 /* PedidoAdminTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -662,7 +625,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6EEA6B341A35002A00105413 /* Build configuration list for PBXProject "Pedido Admin" */;
+			buildConfigurationList = 6EEA6B341A35002A00105413 /* Build configuration list for PBXProject "PedidoAdmin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -681,10 +644,6 @@
 				{
 					ProductGroup = 6EEA6B921A35053E00105413 /* Products */;
 					ProjectRef = 6EEA6B911A35053E00105413 /* CocoaHTTPServer.xcodeproj */;
-				},
-				{
-					ProductGroup = 6EF81DB41A6B056400D58682 /* Products */;
-					ProjectRef = 6EF81DB31A6B056400D58682 /* ColorCube.xcodeproj */;
 				},
 				{
 					ProductGroup = 6EEA6B9E1A35053E00105413 /* Products */;
@@ -713,8 +672,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				6EEA6B381A35002A00105413 /* Pedido Admin */,
-				6EEA6B4D1A35002A00105413 /* Pedido AdminTests */,
+				6EEA6B381A35002A00105413 /* PedidoAdmin */,
+				6EEA6B4D1A35002A00105413 /* PedidoAdminTests */,
 			);
 		};
 /* End PBXProject section */
@@ -846,20 +805,6 @@
 			remoteRef = 6EEA6BC81A35053E00105413 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6EF81DBB1A6B056400D58682 /* ColorCube.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = ColorCube.app;
-			remoteRef = 6EF81DBA1A6B056400D58682 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6EF81DF31A6B097900D58682 /* ColorCube.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ColorCube.framework;
-			remoteRef = 6EF81DF21A6B097900D58682 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -932,7 +877,7 @@
 		};
 		6EEA6B501A35002A00105413 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6EEA6B381A35002A00105413 /* Pedido Admin */;
+			target = 6EEA6B381A35002A00105413 /* PedidoAdmin */;
 			targetProxy = 6EEA6B4F1A35002A00105413 /* PBXContainerItemProxy */;
 		};
 		6EEA6BCD1A35054800105413 /* PBXTargetDependency */ = {
@@ -969,11 +914,6 @@
 			isa = PBXTargetDependency;
 			name = CorePedido;
 			targetProxy = 6EEA6BE51A35055E00105413 /* PBXContainerItemProxy */;
-		};
-		6EF81DF71A6B097900D58682 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ColorCube;
-			targetProxy = 6EF81DF61A6B097900D58682 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1086,8 +1026,9 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Pedido-aoaqcemrcggophfnpfwatahvmojm/Build/Products/Debug",
 				);
 				INFOPLIST_FILE = "Pedido Admin/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PedidoAdmin;
 			};
 			name = Debug;
 		};
@@ -1101,8 +1042,9 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Pedido-aoaqcemrcggophfnpfwatahvmojm/Build/Products/Debug",
 				);
 				INFOPLIST_FILE = "Pedido Admin/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PedidoAdmin;
 			};
 			name = Release;
 		};
@@ -1120,7 +1062,7 @@
 				);
 				INFOPLIST_FILE = "Pedido AdminTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PedidoAdminTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pedido Admin.app/Pedido Admin";
 			};
 			name = Debug;
@@ -1135,7 +1077,7 @@
 				);
 				INFOPLIST_FILE = "Pedido AdminTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PedidoAdminTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pedido Admin.app/Pedido Admin";
 			};
 			name = Release;
@@ -1143,7 +1085,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6EEA6B341A35002A00105413 /* Build configuration list for PBXProject "Pedido Admin" */ = {
+		6EEA6B341A35002A00105413 /* Build configuration list for PBXProject "PedidoAdmin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6EEA6B561A35002A00105413 /* Debug */,
@@ -1152,7 +1094,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6EEA6B581A35002A00105413 /* Build configuration list for PBXNativeTarget "Pedido Admin" */ = {
+		6EEA6B581A35002A00105413 /* Build configuration list for PBXNativeTarget "PedidoAdmin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6EEA6B591A35002A00105413 /* Debug */,
@@ -1161,7 +1103,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6EEA6B5B1A35002A00105413 /* Build configuration list for PBXNativeTarget "Pedido AdminTests" */ = {
+		6EEA6B5B1A35002A00105413 /* Build configuration list for PBXNativeTarget "PedidoAdminTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6EEA6B5C1A35002A00105413 /* Debug */,
