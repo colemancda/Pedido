@@ -8,7 +8,7 @@
         <!--Navigation Controller-->
         <scene sceneID="nar-1T-YR3">
             <objects>
-                <navigationController id="7vh-rv-sfc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="EmptySelectionDetail" id="7vh-rv-sfc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SFa-vW-9gp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -253,7 +253,7 @@
         <scene sceneID="R0H-iF-at5">
             <objects>
                 <tableViewController title="Menu Item" id="bth-wI-tsW" customClass="MenuItemViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="N7h-mW-TMH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="N7h-mW-TMH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -1043,14 +1043,14 @@
         <scene sceneID="wnZ-M9-ktF">
             <objects>
                 <tableViewController id="0iU-kP-psC" customClass="EstablishmentViewController" customModule="PedidoAdmin" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zTr-dE-m82">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zTr-dE-m82">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="Attributes" id="vZg-6c-Ree">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" indentationWidth="10" id="2kV-Um-4pY">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" indentationWidth="10" rowHeight="44" id="2kV-Um-4pY">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2kV-Um-4pY" id="gPC-a7-O43">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -1309,6 +1309,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="NwH-Y5-SNt">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Zt8-R2-fRK" kind="relationship" relationship="rootViewController" id="KdS-mL-DPc"/>
                     </connections>
@@ -1587,9 +1590,9 @@
         <image name="user" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fyn-TC-eKm"/>
-        <segue reference="pER-ar-Fnf"/>
+        <segue reference="mcK-24-IpQ"/>
         <segue reference="EEn-h5-SHZ"/>
-        <segue reference="Nfp-Gd-nGk"/>
+        <segue reference="gcs-1Q-If8"/>
+        <segue reference="pER-ar-Fnf"/>
     </inferredMetricsTieBreakers>
 </document>

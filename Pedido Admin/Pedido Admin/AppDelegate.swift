@@ -49,35 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-// MARK: - Enumerations
-
-enum MainStoryboardSegueIdentifier: String {
-    
-    case Authentication = "authentication"
-    case NewMenuItem = "newMenuItem"
-    case MenuItemPickCurrencyLocale = "menuItemPickCurrencyLocale"
-    case NewMenuItemPickCurrencyLocale = "newMenuItemPickCurrencyLocale"
-    case MenuItemEstablishmentPicker = "menuItemEstablishmentPicker"
-    case MenuItemLocalizedDescriptions = "menuItemLocalizedDescriptions"
-    case MenuItemImages = "menuItemImages"
-    case ShowLocalizedDescription = "showLocalizedDescription"
-    case NewLocalizedDescription = "newLocalizedDescription"
-    case LocalizedDescriptionPickLanguageLocale = "localizedDescriptionPickLanguageLocale"
-    case NewLocalizedDescriptionPickLanguageLocale = "newLocalizedDescriptionPickLanguageLocale"
-    case NewEstablishment = "newEstablishment"
-    case EstablishmentEditLocation = "establishmentEditLocation"
-    case SearchLocation = "searchLocation"
-    case EstablishmentMenuItemPicker = "establishmentMenuItemPicker"
-    case EstablishmentImages = "establishmentImages"
-    case NewImage = "newImage"
-}
-
-enum MainStoryboardDetailControllerIdentifier: String {
-    
-    case MenuItemDetail = "MenuItemDetail"
-    case EstablishmentDetail = "EstablishmentDetail"
-}
-
 // MARK: - Extensions
 
 extension CorePedidoClient.Store {

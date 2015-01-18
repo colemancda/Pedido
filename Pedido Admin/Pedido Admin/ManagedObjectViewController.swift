@@ -32,16 +32,52 @@ class ManagedObjectViewController: UITableViewController {
     
     var didEditManagedObjectHandler: (() -> Void)?
     
+    // MARK: - Private Properties
+    
+    private let KVOContext = UnsafeMutablePointer<Void>()
+    
     // MARK: - Initialization
+    
+    deinit {
+        
+        if self.isViewLoaded() {
+            
+            self.removeObserver()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        // KVO
+        self.addObserver()
+        
+        // tableview default values
         self.tableView.estimatedRowHeight = 44
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         self.updateUI()
+    }
+    
+    
+    // MARK: - KVO
+    
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        
+        
+    }
+    
+    private func addObserver() {
+        
+        self.addObserver(self,
+            forKeyPath: "managedObject", options: <#NSKeyValueObservingOptions#>, context: <#UnsafeMutablePointer<Void>#>)
+    }
+    
+    private func removeObserver() {
+        
+        
     }
     
     // MARK: - Methods
@@ -61,6 +97,12 @@ class ManagedObjectViewController: UITableViewController {
     func resetUI() {
         
         
+    }
+    
+    /** Subclasses should override this to set custom behavior for when the managedObject is deleted. */
+    func managedObjectWasDeleted() {
+        
+        return
     }
     
     // MARK: - Private Methods
