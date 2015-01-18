@@ -69,37 +69,11 @@ class EstablishmentsViewController: FetchedResultsViewController {
         cell.textLabel!.text = managedObject.location
     }
     
-    // MARK: - Segues
+    // MARK: - UITableViewDelegate
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let segueIdentifier = MainStoryboardSegueIdentifier(rawValue: segue.identifier!)!
-        
-        switch segueIdentifier {
-            
-        case .ShowEstablishment:
-            
-            // get destination VC
-            let managedObjectVC = segue.destinationViewController as ManagedObjectViewController
-            
-            // get model object
-            let managedObject = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as NSManagedObject
-            
-            // configure VC
-            managedObjectVC.managedObject = managedObject
-            
-            // set edit handler
-            managedObjectVC.didEditManagedObjectHandler = {
-                
-                // pop VC
-                self.navigationController!.popViewControllerAnimated(true)
-                
-                return
-            }
-            
-        default:
-            return
-        }
+        self.showDetailController(.EstablishmentDetail, forManagedObjectAtIndexPath: indexPath)
     }
 }
 

@@ -293,3 +293,35 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         self.tableView.endUpdates()
     }
 }
+
+
+// MARK: - Extensions
+
+extension FetchedResultsViewController {
+    
+    func showDetailController(detailController: MainStoryboardDetailControllerIdentifier, forManagedObjectAtIndexPath indexPath: NSIndexPath) {
+        
+        // get model object
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as NSManagedObject
+        
+        // get detail navigation controller stack
+        let navigationVC = self.storyboard!.instantiateViewControllerWithIdentifier(detailController.rawValue) as UINavigationController
+        
+        // set detailVC
+        self.splitViewController!.showDetailViewController(navigationVC, sender: self)
+        
+        // get managed object VC
+        let managedObjectVC = navigationVC.topViewController as ManagedObjectViewController
+        
+        managedObjectVC.managedObject = managedObject
+        
+        // set edit handler
+        managedObjectVC.didEditManagedObjectHandler = {
+            
+            // pop VC
+            managedObjectVC.navigationController!.popViewControllerAnimated(true)
+            
+            return
+        }
+    }
+}

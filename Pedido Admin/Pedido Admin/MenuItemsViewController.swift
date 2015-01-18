@@ -88,41 +88,11 @@ class MenuItemsViewController: FetchedResultsViewController {
         cell.layoutIfNeeded()
     }
     
-    // MARK: - Segues
+    // MARK: - UITableViewDelegate
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let segueIdentifier = MainStoryboardSegueIdentifier(rawValue: segue.identifier!)!
-        
-        switch segueIdentifier {
-            
-        case .ShowMenuItem:
-            
-            // get destination VC
-            let menuItemVC = segue.destinationViewController as MenuItemViewController
-            
-            // get model object
-            let menuItem = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as MenuItem
-            
-            // configure VC
-            menuItemVC.managedObject = menuItem
-            
-            // set edit handler
-            menuItemVC.didEditManagedObjectHandler = {
-                
-                // pop VC
-                self.navigationController!.popViewControllerAnimated(true)
-                
-                return
-            }
-            
-        case .NewMenuItem:
-            
-            return
-            
-        default:
-            return
-        }
+        self.showDetailController(.MenuItemDetail, forManagedObjectAtIndexPath: indexPath)
     }
 }
 
