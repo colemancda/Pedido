@@ -20,18 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var networkRequestsCount: UInt = 0 {
-        
-        didSet {
-            
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = Bool(networkRequestsCount)
-        }
-    }
-    
     // MARK: - UIApplicationDelegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // start network activity indicator manager
+        NetworkActivityIndicatorManager.sharedManager.managingNetworkActivityIndicator = true
+        
         return true
     }
 
