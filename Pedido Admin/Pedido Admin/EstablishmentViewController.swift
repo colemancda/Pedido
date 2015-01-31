@@ -77,6 +77,10 @@ class EstablishmentViewController: ManagedObjectViewController {
             
         case .EstablishmentEditLocation:
             
+            let editLocationVC = segue.destinationViewController as EditLocationViewController
+            
+            
+            
             return
             
         default:
