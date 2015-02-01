@@ -86,6 +86,10 @@ final public class NetworkActivityIndicatorManager {
                 
                 return
             }
+            else {
+                
+                lastNetworkActivityIndicatorVisibleStateTransitionToTrue = nil
+            }
         }
         
         self.URLSession.getTasksWithCompletionHandler { (dataTasks: [AnyObject]!, uploadTasks: [AnyObject]!, downloadTasks: [AnyObject]!) -> Void in

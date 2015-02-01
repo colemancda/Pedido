@@ -78,7 +78,7 @@ extension FetchedResultsViewController {
             managedObjectVC.didEditManagedObjectHandler = {
                 
                 // pop VC
-                managedObjectVC.navigationController!.popViewControllerAnimated(true)
+                (managedObjectVC.tabBarController!.selectedViewController as UINavigationController).popToRootViewControllerAnimated(true)
                 
                 return
             }
