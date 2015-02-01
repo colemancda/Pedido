@@ -15,27 +15,41 @@ final public class NetworkActivityIndicatorManager {
     
     public let URLSession: NSURLSession
     
-    public var managingNetworkActivityIndicator: Bool! {
+    public var managingNetworkActivityIndicator: Bool = false {
         
         didSet {
             
             if managingNetworkActivityIndicator == true {
                 
-                self.updateNetworkActivityIndicator()
+                if self.timer == nil {
+                    
+                    self.timer = NSTimer(timeInterval: self.updateInterval, target: self, selector: "updateNetworkActivityIndicator", userInfo: nil, repeats: true)
+                    
+                    NSRunLoop.currentRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+                }
+                
+                self.timer!.fire()
             }
             else {
                 
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                self.timer?.invalidate()
+                self.timer = nil
             }
         }
     }
+    
+    public let updateInterval: NSTimeInterval
     
     /** The minimum amount of time the activity indicator must be visible. Prevents blinks. */
     public var minimumNetworkActivityIndicatorVisiblityInterval: NSTimeInterval
     
     // MARK: - Private Properties
     
+    private var timer: NSTimer?
+    
     private var lastNetworkActivityIndicatorVisibleState: Bool = false
+    
+    private var lastNetworkActivityIndicatorVisibleStateTransitionToTrue: NSDate?
     
     // MARK: - Initialization
     
@@ -53,48 +67,40 @@ final public class NetworkActivityIndicatorManager {
         return Static.instance!
     }
     
-    public init(URLSession: NSURLSession = NSURLSession.sharedSession(), minimumNetworkActivityIndicatorVisiblityInterval: NSTimeInterval = 2) {
+    public init(URLSession: NSURLSession = NSURLSession.sharedSession(), updateInterval: NSTimeInterval = 0.001, minimumNetworkActivityIndicatorVisiblityInterval: NSTimeInterval = 1) {
         
         self.URLSession = URLSession
+        self.updateInterval = updateInterval
         self.minimumNetworkActivityIndicatorVisiblityInterval = minimumNetworkActivityIndicatorVisiblityInterval
-        self.managingNetworkActivityIndicator = false
     }
     
     // MARK: - Private Methods
     
     @objc private func updateNetworkActivityIndicator() {
         
+        if self.lastNetworkActivityIndicatorVisibleStateTransitionToTrue != nil {
+            
+            let timeInterval = NSDate().timeIntervalSinceDate(lastNetworkActivityIndicatorVisibleStateTransitionToTrue!)
+            
+            if timeInterval < minimumNetworkActivityIndicatorVisiblityInterval {
+                
+                return
+            }
+        }
+        
         self.URLSession.getTasksWithCompletionHandler { (dataTasks: [AnyObject]!, uploadTasks: [AnyObject]!, downloadTasks: [AnyObject]!) -> Void in
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
-                if self.managingNetworkActivityIndicator == false {
-                    
-                    return
-                }
-                
                 let networkActivityIndicatorVisible = Bool(dataTasks.count)
+                
+                if self.lastNetworkActivityIndicatorVisibleState == false && networkActivityIndicatorVisible == true {
+                    
+                    self.lastNetworkActivityIndicatorVisibleStateTransitionToTrue = NSDate()
+                }
                 
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = networkActivityIndicatorVisible
                 
-                // delay updating network activity indicator visiblity if it is showing and it was previously not visible
-                if networkActivityIndicatorVisible == true && self.lastNetworkActivityIndicatorVisibleState == false {
-                    
-                    let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(self.minimumNetworkActivityIndicatorVisiblityInterval * Double(NSEC_PER_SEC)))
-                    
-                    dispatch_after(dispatchTime, dispatch_get_main_queue(), { () -> Void in
-                        
-                        self.updateNetworkActivityIndicator()
-                    })
-                }
-                    
-                // immediately try to get new network activity indicator status
-                else {
-                    
-                    self.updateNetworkActivityIndicator()
-                }
-                
-                // set last state
                 self.lastNetworkActivityIndicatorVisibleState = networkActivityIndicatorVisible
             })
         }
