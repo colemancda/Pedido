@@ -67,7 +67,6 @@ import CorePedido
         operationQueue.maxConcurrentOperationCount = 1
         
         return operationQueue
-        
     }()
     
     // MARK: - Initialization

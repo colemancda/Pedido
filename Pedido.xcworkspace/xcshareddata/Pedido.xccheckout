@@ -26,6 +26,8 @@
 		<string>https://github.com/colemancda/NetworkObjects.git</string>
 		<key>DC18223934B917196E5F3B715858561F7A31DB73</key>
 		<string>https://github.com/colemancda/ColorCube.git</string>
+		<key>E2F476CE895D3596DBE8080E8F363F8F94823E70</key>
+		<string>https://github.com/colemancda/ExSwift.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Pedido.xcworkspace</string>
@@ -47,6 +49,8 @@
 		<string>..NetworkObjects</string>
 		<key>DC18223934B917196E5F3B715858561F7A31DB73</key>
 		<string>../ColorCube</string>
+		<key>E2F476CE895D3596DBE8080E8F363F8F94823E70</key>
+		<string>../NetworkObjects/ExSwift</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/colemancda/Pedido.git</string>
@@ -87,6 +91,14 @@
 			<string>DC18223934B917196E5F3B715858561F7A31DB73</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ColorCube</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E2F476CE895D3596DBE8080E8F363F8F94823E70</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ExSwift</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
