@@ -19,6 +19,8 @@
 		6E4507441A353B4E00F5C7F1 /* MenuItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */; };
 		6E58A3D61A55FE5E00970F1A /* EstablishmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58A3D51A55FE5E00970F1A /* EstablishmentViewController.swift */; };
 		6E58A3D81A55FE6B00970F1A /* NewEstablishmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58A3D71A55FE6B00970F1A /* NewEstablishmentViewController.swift */; };
+		6E5E1E411A8CDAD60019C283 /* ExSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5E1E2F1A8CDABD0019C283 /* ExSwift.framework */; };
+		6E5E1E421A8CDAD60019C283 /* ExSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5E1E2F1A8CDABD0019C283 /* ExSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E67EC8C1A3D2073002C775A /* EstablishmentPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E67EC8B1A3D2073002C775A /* EstablishmentPickerViewController.swift */; };
 		6E67EC951A3E1E39002C775A /* EstablishmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E67EC941A3E1E39002C775A /* EstablishmentsViewController.swift */; };
 		6E6DC80A1A368357006C15DE /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC8091A368357006C15DE /* MenuItemViewController.swift */; };
@@ -93,6 +95,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6E06C3621A6AC6580000D72F;
 			remoteInfo = JTSImage;
+		};
+		6E5E1E2E1A8CDABD0019C283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E5E1E251A8CDABD0019C283 /* ExSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1E11AF841943222D006BCE48;
+			remoteInfo = ExSwift;
+		};
+		6E5E1E301A8CDABD0019C283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E5E1E251A8CDABD0019C283 /* ExSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1E11AF8F1943222D006BCE48;
+			remoteInfo = ExSwiftTests;
+		};
+		6E5E1E391A8CDABD0019C283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EEA6B8B1A35053E00105413 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EF3FE9E1A838A0600C90500;
+			remoteInfo = CocoaLumberjackTests;
+		};
+		6E5E1E3B1A8CDABD0019C283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EEA6B8B1A35053E00105413 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55CCBEFF19BA679200957A39;
+			remoteInfo = SwiftTest;
+		};
+		6E5E1E3D1A8CDABD0019C283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EEA6B8B1A35053E00105413 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55BE8BD119DF190200979D7F;
+			remoteInfo = iOSSwift;
+		};
+		6E5E1E431A8CDAD60019C283 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E5E1E251A8CDABD0019C283 /* ExSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E11AF831943222D006BCE48;
+			remoteInfo = ExSwift;
 		};
 		6EEA6B4F1A35002A00105413 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -263,6 +307,7 @@
 				6EEA6BD01A35055D00105413 /* CocoaAsyncSocket.framework in Embed Frameworks */,
 				6EEA6BD81A35055D00105413 /* RoutingHTTPServer.framework in Embed Frameworks */,
 				6EEA6BE01A35055E00105413 /* NetworkObjects.framework in Embed Frameworks */,
+				6E5E1E421A8CDAD60019C283 /* ExSwift.framework in Embed Frameworks */,
 				6EEA6BE41A35055E00105413 /* CorePedido.framework in Embed Frameworks */,
 				6EEA6BCB1A35054800105413 /* CocoaLumberjack.framework in Embed Frameworks */,
 			);
@@ -283,6 +328,7 @@
 		6E4507431A353B4E00F5C7F1 /* MenuItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsViewController.swift; sourceTree = "<group>"; };
 		6E58A3D51A55FE5E00970F1A /* EstablishmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishmentViewController.swift; sourceTree = "<group>"; };
 		6E58A3D71A55FE6B00970F1A /* NewEstablishmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEstablishmentViewController.swift; sourceTree = "<group>"; };
+		6E5E1E251A8CDABD0019C283 /* ExSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ExSwift.xcodeproj; path = /Users/Coleman/Programming/MyProjects/Pedido/NetworkObjects/NetworkObjects/../ExSwift/ExSwift.xcodeproj; sourceTree = "<absolute>"; };
 		6E67EC8B1A3D2073002C775A /* EstablishmentPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishmentPickerViewController.swift; sourceTree = "<group>"; };
 		6E67EC941A3E1E39002C775A /* EstablishmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishmentsViewController.swift; sourceTree = "<group>"; };
 		6E6DC8091A368357006C15DE /* MenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
@@ -325,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EBF13D71A6B69B700F57F2F /* MapKit.framework in Frameworks */,
+				6E5E1E411A8CDAD60019C283 /* ExSwift.framework in Frameworks */,
 				6EEA6BDB1A35055E00105413 /* CorePedidoClient.framework in Frameworks */,
 				6EEA6BE31A35055E00105413 /* CorePedido.framework in Frameworks */,
 				6E06C39E1A6AC9EC0000D72F /* JTSImage.framework in Frameworks */,
@@ -413,6 +460,15 @@
 			name = "Edit Attribute View Controllers";
 			sourceTree = "<group>";
 		};
+		6E5E1E261A8CDABD0019C283 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E5E1E2F1A8CDABD0019C283 /* ExSwift.framework */,
+				6E5E1E311A8CDABD0019C283 /* ExSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		6EBF13D51A6B649100F57F2F /* Picker View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				6EBF13D61A6B69B700F57F2F /* MapKit.framework */,
+				6E5E1E251A8CDABD0019C283 /* ExSwift.xcodeproj */,
 				6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */,
 				6EEA6B8B1A35053E00105413 /* Lumberjack.xcodeproj */,
 				6EEA6B8E1A35053E00105413 /* CocoaAsyncSocket.xcodeproj */,
@@ -506,7 +563,10 @@
 			isa = PBXGroup;
 			children = (
 				6EEA6BBB1A35053E00105413 /* CocoaLumberjack.framework */,
+				6E5E1E3A1A8CDABD0019C283 /* CocoaLumberjackTests.xctest */,
 				6EEA6BBD1A35053E00105413 /* FmwkTest.app */,
+				6E5E1E3C1A8CDABD0019C283 /* SwiftTest.app */,
+				6E5E1E3E1A8CDABD0019C283 /* iOSSwift.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -601,6 +661,7 @@
 				6EEA6BE21A35055E00105413 /* PBXTargetDependency */,
 				6EEA6BE61A35055E00105413 /* PBXTargetDependency */,
 				6E06C3A11A6AC9EC0000D72F /* PBXTargetDependency */,
+				6E5E1E441A8CDAD60019C283 /* PBXTargetDependency */,
 			);
 			name = PedidoAdmin;
 			productName = "Pedido Admin";
@@ -672,6 +733,10 @@
 					ProjectRef = 6EEA6B971A35053E00105413 /* CorePedidoClient.xcodeproj */;
 				},
 				{
+					ProductGroup = 6E5E1E261A8CDABD0019C283 /* Products */;
+					ProjectRef = 6E5E1E251A8CDABD0019C283 /* ExSwift.xcodeproj */;
+				},
+				{
 					ProductGroup = 6E06C3901A6AC9D90000D72F /* Products */;
 					ProjectRef = 6E06C38F1A6AC9D90000D72F /* JTSImageVC.xcodeproj */;
 				},
@@ -723,6 +788,41 @@
 			fileType = wrapper.cfbundle;
 			path = JTSImageTests.xctest;
 			remoteRef = 6E06C39C1A6AC9DA0000D72F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E5E1E2F1A8CDABD0019C283 /* ExSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ExSwift.framework;
+			remoteRef = 6E5E1E2E1A8CDABD0019C283 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E5E1E311A8CDABD0019C283 /* ExSwiftTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ExSwiftTests.xctest;
+			remoteRef = 6E5E1E301A8CDABD0019C283 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E5E1E3A1A8CDABD0019C283 /* CocoaLumberjackTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CocoaLumberjackTests.xctest;
+			remoteRef = 6E5E1E391A8CDABD0019C283 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E5E1E3C1A8CDABD0019C283 /* SwiftTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftTest.app;
+			remoteRef = 6E5E1E3B1A8CDABD0019C283 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E5E1E3E1A8CDABD0019C283 /* iOSSwift.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = iOSSwift.app;
+			remoteRef = 6E5E1E3D1A8CDABD0019C283 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		6EEA6BA31A35053E00105413 /* CocoaAsyncSocket.framework */ = {
@@ -896,6 +996,11 @@
 			isa = PBXTargetDependency;
 			name = JTSImage;
 			targetProxy = 6E06C3A01A6AC9EC0000D72F /* PBXContainerItemProxy */;
+		};
+		6E5E1E441A8CDAD60019C283 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ExSwift;
+			targetProxy = 6E5E1E431A8CDAD60019C283 /* PBXContainerItemProxy */;
 		};
 		6EEA6B501A35002A00105413 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

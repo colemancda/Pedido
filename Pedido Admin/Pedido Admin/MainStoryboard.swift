@@ -91,7 +91,7 @@ extension ManagedObjectViewController {
     func handleManagedObjectDeletionForViewControllerInMainStoryboard() {
         
         // Detect if contained in splitViewController
-        let regularLayout = (self.splitViewController!.viewControllers.count == 2) as Bool
+        let regularLayout: Bool = (self.splitViewController?.viewControllers.count == 2) ?? false
         
         // Regular layout
         if regularLayout {
@@ -112,7 +112,7 @@ extension ManagedObjectViewController {
         else {
             
             // pop to root VC if top if second VC
-            if self.navigationController!.viewControllers[1] as UIViewController == self {
+            if self.navigationController!.viewControllers[1] as? UIViewController == self {
                 
                 self.navigationController!.popToRootViewControllerAnimated(true)
             }
