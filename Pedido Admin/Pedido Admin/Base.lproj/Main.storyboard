@@ -1268,7 +1268,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search for Location" id="AVv-WM-HOC">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mQo-8V-YDN"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mQo-8V-YDN">
+                            <connections>
+                                <action selector="cancel:" destination="G6F-ar-UvN" id="OLz-X8-o3Z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXn-6m-Gdq" userLabel="First Responder" sceneMemberID="firstResponder"/>

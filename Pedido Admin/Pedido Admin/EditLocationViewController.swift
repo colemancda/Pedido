@@ -40,11 +40,13 @@ class EditLocationViewController: UIViewController, LocationSearchViewController
                 self.mapView.addAnnotation(location)
                 
                 // set region
-                let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+                let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
                 
                 let region  = MKCoordinateRegion(center: location!.coordinate, span: span)
                 
                 self.mapView.setRegion(region, animated: true)
+                
+                self.mapView.selectAnnotation(location, animated: true)
             }
         }
     }
@@ -86,15 +88,18 @@ class EditLocationViewController: UIViewController, LocationSearchViewController
     
     // MARK: - LocationSearchViewControllerDelegate
     
-    func locationSearchViewController(viewController: SearchLocationViewController, didChooseSearchResult searchResult: MKMapItem) {
+    func locationSearchViewController(viewController: SearchLocationViewController, didChooseSearchResult searchResult: MKMapItem, forSearchText searchText: String) {
         
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             
             // create location
-            let location = Location(coordinate: searchResult.placemark.coordinate, locationString: searchResult.placemark.name)
+            let location = Location(coordinate: searchResult.placemark.coordinate, locationString: searchText)
             
             // set location
             self.location = location
+            
+            // tell delegate
+            self.delegate?.editLocationViewController(self, didEditLocation: self.location!)
         })
     }
     
@@ -122,7 +127,7 @@ class EditLocationViewController: UIViewController, LocationSearchViewController
 
 protocol EditLocationViewControllerDelegate: class {
     
-    func editLocationViewController(viewController: EditLocationViewController, didEditLocationString locationString: String)
+    func editLocationViewController(viewController: EditLocationViewController, didEditLocation location: Location)
 }
 
 // MARK: - Supporting Classes

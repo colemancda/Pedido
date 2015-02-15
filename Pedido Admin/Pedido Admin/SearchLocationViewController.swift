@@ -21,9 +21,9 @@ class SearchLocationViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: - Private Properties
     
-    var searchResults: [MKMapItem]?
+    private var searchResults: [MKMapItem]?
     
-    var currentSearch: MKLocalSearch?
+    private var currentSearch: (search: MKLocalSearch, searchText: String)?
     
     // MARK: - Initialization
     
@@ -35,9 +35,9 @@ class SearchLocationViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: - Actions
     
-    func cancel(sender: AnyObject) {
+    @IBAction func cancel(sender: AnyObject) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - UITableViewDataSource
@@ -70,8 +70,10 @@ class SearchLocationViewController: UITableViewController, UISearchBarDelegate {
         // get model object
         let searchResult = self.searchResults![indexPath.row]
         
+        let (search, searchText) = self.currentSearch!
+        
         // tell delegate
-        self.delegate?.locationSearchViewController(self, didChooseSearchResult: searchResult)
+        self.delegate?.locationSearchViewController(self, didChooseSearchResult: searchResult, forSearchText: searchText)
     }
     
     // MARK: - UISearchBarDelegate
@@ -109,7 +111,10 @@ class SearchLocationViewController: UITableViewController, UISearchBarDelegate {
         
         // cancel old request
         
-        self.currentSearch?.cancel()
+        if let (oldSearch, oldSearchText) = self.currentSearch {
+            
+            oldSearch.cancel()
+        }
         
         // create search request
         
@@ -124,9 +129,11 @@ class SearchLocationViewController: UITableViewController, UISearchBarDelegate {
         
         // execute request
         
-        self.currentSearch = MKLocalSearch(request: searchRequest)
+        let search = MKLocalSearch(request: searchRequest)
         
-        self.currentSearch!.startWithCompletionHandler { (response: MKLocalSearchResponse!, error: NSError!) -> Void in
+        self.currentSearch = (search, searchText)
+        
+        search.startWithCompletionHandler { (response: MKLocalSearchResponse!, error: NSError!) -> Void in
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
@@ -164,7 +171,7 @@ class SearchLocationViewController: UITableViewController, UISearchBarDelegate {
 
 protocol LocationSearchViewControllerDelegate: class {
     
-    func locationSearchViewController(viewController: SearchLocationViewController, didChooseSearchResult searchResult: MKMapItem)
+    func locationSearchViewController(viewController: SearchLocationViewController, didChooseSearchResult searchResult: MKMapItem, forSearchText searchText: String)
 }
 
 // MARK: - Private Enumerations

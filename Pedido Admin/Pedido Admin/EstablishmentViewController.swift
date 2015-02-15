@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 import CorePedido
 
-class EstablishmentViewController: ManagedObjectViewController {
+class EstablishmentViewController: ManagedObjectViewController, EditLocationViewControllerDelegate {
     
     // MARK: - IB Outlets
     
@@ -57,6 +57,13 @@ class EstablishmentViewController: ManagedObjectViewController {
         self.handleManagedObjectDeletionForViewControllerInMainStoryboard()
     }
     
+    // MARK: - EditLocationViewControllerDelegate
+    
+    func editLocationViewController(viewController: EditLocationViewController, didEditLocation location: Location) {
+        
+        self.locationTextField.text = location.locationString
+    }
+    
     // MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -78,6 +85,8 @@ class EstablishmentViewController: ManagedObjectViewController {
         case .EstablishmentEditLocation:
             
             let editLocationVC = segue.destinationViewController as EditLocationViewController
+            
+            editLocationVC.delegate = self
             
             editLocationVC.configureMapViewWithLocationString(self.locationTextField.text)
             
