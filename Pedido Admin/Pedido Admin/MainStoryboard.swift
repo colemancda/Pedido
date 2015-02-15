@@ -31,6 +31,7 @@ enum MainStoryboardSegueIdentifier: String {
     case EstablishmentMenuItemPicker = "establishmentMenuItemPicker"
     case EstablishmentImages = "establishmentImages"
     case EstablishmentEditLocation = "establishmentEditLocation"
+    case EstablishmentOrders = "establishmentOrders"
     case SearchLocation = "searchLocation"
     case NewImage = "newImage"
 }

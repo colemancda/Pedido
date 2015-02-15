@@ -80,16 +80,18 @@ class SearchLocationViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if searchText == "" {
+        // cancel old request
+        
+        if let (oldSearch, oldSearchText) = self.currentSearch {
             
-            self.searchResults = nil
-            
-            return
+            oldSearch.cancel()
         }
         
         if searchBar.text == "" {
             
             self.searchResults = nil
+            
+            self.tableView.reloadData()
             
             return
         }
@@ -108,13 +110,6 @@ class SearchLocationViewController: UITableViewController, UISearchBarDelegate {
     }
     
     private func performSearch(searchText: String) {
-        
-        // cancel old request
-        
-        if let (oldSearch, oldSearchText) = self.currentSearch {
-            
-            oldSearch.cancel()
-        }
         
         // create search request
         
