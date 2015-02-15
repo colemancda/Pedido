@@ -79,7 +79,7 @@ class EstablishmentViewController: ManagedObjectViewController {
             
             let editLocationVC = segue.destinationViewController as EditLocationViewController
             
-            
+            editLocationVC.locationString = self.locationTextField.text
             
             return
             
