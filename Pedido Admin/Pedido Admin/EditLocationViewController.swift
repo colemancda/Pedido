@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class EditLocationViewController: UIViewController {
+class EditLocationViewController: UIViewController, LocationSearchViewControllerDelegate {
     
     // MARK: - IB Outlets
     
@@ -20,13 +20,32 @@ class EditLocationViewController: UIViewController {
     
     weak var delegate: EditLocationViewControllerDelegate?
     
-    var locationString: String! {
+    /** The annotation to show in the map view. */
+    var location: Location? {
+        
+        willSet {
+            
+            // remove old
+            if location != nil {
+                
+                self.mapView.removeAnnotation(location)
+            }
+        }
         
         didSet {
             
-            self.configureMapViewWithLocation(locationString)
-            
-            self.delegate?.editLocationViewController(self, didEditLocationString: locationString)
+            if location != nil {
+                
+                // create annotation
+                self.mapView.addAnnotation(location)
+                
+                // set region
+                let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+                
+                let region  = MKCoordinateRegion(center: location!.coordinate, span: span)
+                
+                self.mapView.setRegion(region, animated: true)
+            }
         }
     }
     
@@ -35,20 +54,16 @@ class EditLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.configureMapViewWithLocation(self.locationString)
+        // set location again to refresh map view
+        if let location = self.location {
+            
+            self.location = location
+        }
     }
     
     // MARK: - Methods
     
-    
-    
-    // MARK: - Private Methods
-    
-    private func configureMapViewWithLocation(location: String) {
-        
-        // remove previous annotation
-        
-        
+    func configureMapViewWithLocationString(locationString: String) {
         
         // create annotation based on location
         
@@ -56,17 +71,50 @@ class EditLocationViewController: UIViewController {
             
             if error != nil {
                 
-                self.showErrorAlert(error!.localizedDescription, okHandler: nil, retryHandler: nil)
+                self.showErrorAlert(error!.localizedDescription, retryHandler: {
+                    
+                    self.configureMapViewWithLocationString(locationString)
+                })
                 
                 return
             }
             
-            let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-            
-            let region  = MKCoordinateRegion(center: location!.coordinate, span: span)
-            
-            self.mapView.setRegion(region, animated: true)
+            // set location annotation (will configure map view)
+            self.location = location
         })
+    }
+    
+    // MARK: - LocationSearchViewControllerDelegate
+    
+    func locationSearchViewController(viewController: SearchLocationViewController, didChooseSearchResult searchResult: MKMapItem) {
+        
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+            // create location
+            let location = Location(coordinate: searchResult.placemark.coordinate, locationString: searchResult.placemark.name)
+            
+            // set location
+            self.location = location
+        })
+    }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch MainStoryboardSegueIdentifier(rawValue: segue.identifier!)! {
+            
+        case .SearchLocation:
+            
+            let searchLocationVC = (segue.destinationViewController as UINavigationController).topViewController as SearchLocationViewController
+            
+            searchLocationVC.searchRegion = self.mapView.region
+            
+            searchLocationVC.delegate = self
+            
+        default:
+            return
+        }
     }
 }
 
@@ -83,9 +131,16 @@ final class Location: NSObject, MKAnnotation {
     
     // MARK: - Properties
     
+    let locationString: String
+    
+    // MARK: MKAnnotation
+    
     let coordinate: CLLocationCoordinate2D
     
-    let locationString: String
+    var title: String {
+        
+        return locationString
+    }
     
     // MARK: - Initialization
     
@@ -116,7 +171,7 @@ final class Location: NSObject, MKAnnotation {
         })
     }
     
-    private init(coordinate: CLLocationCoordinate2D, locationString: String) {
+    init(coordinate: CLLocationCoordinate2D, locationString: String) {
         
         self.coordinate = coordinate
         self.locationString = locationString
