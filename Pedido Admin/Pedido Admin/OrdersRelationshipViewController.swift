@@ -14,6 +14,17 @@ import CorePedidoClient
 
 class OrdersRelationshipViewController: RelationshipViewController {
     
+    // MARK: - Private Properties
+    
+    private let dateFormatter: NSDateFormatter = {
+       
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        
+        return dateFormatter
+    }()
+    
     // MARK: - Methods
     
     override func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
@@ -31,7 +42,7 @@ class OrdersRelationshipViewController: RelationshipViewController {
         }
         
         // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as LocalizedText
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as Order
         
         // check if fully downloaded
         let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
@@ -41,9 +52,9 @@ class OrdersRelationshipViewController: RelationshipViewController {
             
             // configure empty cell...
             
-            localizedDescriptionCell.languageLabel.text = NSLocalizedString("Loading...", comment: "Loading...")
+            cell.textLabel!.text = NSLocalizedString("Loading...", comment: "Loading...")
             
-            localizedDescriptionCell.descriptionLabel.text = ""
+            cell.detailTextLabel!.text = ""
             
             cell.userInteractionEnabled = false
             
@@ -54,9 +65,9 @@ class OrdersRelationshipViewController: RelationshipViewController {
         
         cell.userInteractionEnabled = true
         
-        localizedDescriptionCell.languageLabel.text = (managedObject.locale as NSString).uppercaseString
+        cell.textLabel!.text = "\(managedObject.valueForKey(Store.sharedStore.resourceIDAttributeName))"
         
-        localizedDescriptionCell.descriptionLabel.text = managedObject.text
+        cell.detailTextLabel!.text = dateFormatter.stringFromDate(managedObject.dateCreated)
     }
 }
 
