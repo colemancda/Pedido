@@ -1,3 +1,4 @@
+Carthage/*
 
 *.xcuserstate
 *xcschememanagement.plist
@@ -9,3 +10,4 @@ PedidoServerDaemon/PedidoServerDaemon.xcodeproj/xcuserdata/*
 CorePedido/CorePedido.xcodeproj/xcuserdata/*
 CorePedidoClient/CorePedidoClient.xcodeproj/xcuserdata/*
 CorePedidoServer/CorePedidoServer.xcodeproj/xcuserdata/*
+

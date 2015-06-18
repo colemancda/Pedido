@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CorePedidoClient.xcscheme</key>
+		<key>CorePedidoClient OS X.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>CorePedidoClient iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>8</integer>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>6E7DFE8B1A3150D1002BE54B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6E9679321B333E26003AFBBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6E9679471B333E36003AFBBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

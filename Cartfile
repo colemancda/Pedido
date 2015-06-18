@@ -1,2 +1,2 @@
 github "ColemanCDA/NetworkObjects" "develop"
-github "ColemanCDA/JTSImageViewController"
+github "ColemanCDA/JTSImageViewController" "develop"

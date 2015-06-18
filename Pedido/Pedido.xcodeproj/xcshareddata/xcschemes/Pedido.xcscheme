@@ -14,10 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E65D2841A3296C400FEB0B5"
-               BuildableName = "PedidoServerDaemon.bundle"
-               BlueprintName = "PedidoServerDaemonBundle"
-               ReferencedContainer = "container:PedidoServerDaemon.xcodeproj">
+               BlueprintIdentifier = "6E7B3E681A3341A600DC278B"
+               BuildableName = "Pedido.app"
+               BlueprintName = "Pedido"
+               ReferencedContainer = "container:Pedido.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6E7B3E7D1A3341A600DC278B"
+               BuildableName = "PedidoTests.xctest"
+               BlueprintName = "PedidoTests"
+               ReferencedContainer = "container:Pedido.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,34 +42,44 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6E7B3E7D1A3341A600DC278B"
+               BuildableName = "PedidoTests.xctest"
+               BlueprintName = "PedidoTests"
+               ReferencedContainer = "container:Pedido.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E65D26D1A3295AF00FEB0B5"
-            BuildableName = "PedidoServerDaemon"
-            BlueprintName = "PedidoServerDaemon"
-            ReferencedContainer = "container:PedidoServerDaemon.xcodeproj">
+            BlueprintIdentifier = "6E7B3E681A3341A600DC278B"
+            BuildableName = "Pedido.app"
+            BlueprintName = "Pedido"
+            ReferencedContainer = "container:Pedido.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      debugAsWhichUser = "root"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E65D26D1A3295AF00FEB0B5"
-            BuildableName = "PedidoServerDaemon"
-            BlueprintName = "PedidoServerDaemon"
-            ReferencedContainer = "container:PedidoServerDaemon.xcodeproj">
+            BlueprintIdentifier = "6E7B3E681A3341A600DC278B"
+            BuildableName = "Pedido.app"
+            BlueprintName = "Pedido"
+            ReferencedContainer = "container:Pedido.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -67,15 +91,16 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E65D2841A3296C400FEB0B5"
-            BuildableName = "PedidoServerDaemon.bundle"
-            BlueprintName = "PedidoServerDaemonBundle"
-            ReferencedContainer = "container:PedidoServerDaemon.xcodeproj">
+            BlueprintIdentifier = "6E7B3E681A3341A600DC278B"
+            BuildableName = "Pedido.app"
+            BlueprintName = "Pedido"
+            ReferencedContainer = "container:Pedido.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
