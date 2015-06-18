@@ -1,9 +1,0 @@
-[submodule "NetworkObjects"]
-	path = NetworkObjects
-	url = https://github.com/colemancda/NetworkObjects.git
-[submodule "JTSImageViewController"]
-	path = JTSImageViewController
-	url = https://github.com/colemancda/JTSImageViewController
-[submodule "ColorCube"]
-	path = ColorCube
-	url = https://github.com/colemancda/ColorCube.git
