@@ -23,7 +23,7 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
             
             let languageLocales: [NSLocale] = {
                 
-                let languageCodes = (NSLocale.ISOLanguageCodes() as NSArray).sortedArrayUsingSelector("localizedCaseInsensitiveCompare:") as [String]
+                let languageCodes = (NSLocale.ISOLanguageCodes() as NSArray).sortedArrayUsingSelector("localizedCaseInsensitiveCompare:") as! [String]
                 
                 // create locales
                 var locales = [NSLocale]()
@@ -87,7 +87,7 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.LanguageLocaleCell.rawValue, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.LanguageLocaleCell.rawValue, forIndexPath: indexPath) as! UITableViewCell
         
         self.configureCell(cell, atIndexPath: indexPath)
         
@@ -133,7 +133,7 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
                 
                 let predicate = NSPredicate(format: "localeIdentifier contains[c] %@", searchText)
                 
-                let filteredResults = (self.dynamicType.languageLocales as NSArray).filteredArrayUsingPredicate(predicate!) as [NSLocale]
+                let filteredResults = (self.dynamicType.languageLocales as NSArray).filteredArrayUsingPredicate(predicate) as! [NSLocale]
                 
                 return filteredResults
                 }()
@@ -156,7 +156,7 @@ class LanguageLocalePickerViewController: UITableViewController, UISearchBarDele
         let locale = self.filteredLanguageLocales![indexPath.row]
         
         // configure cell
-        cell.textLabel!.text = (locale.objectForKey(NSLocaleLanguageCode) as NSString).uppercaseString
+        cell.textLabel!.text = (locale.objectForKey(NSLocaleLanguageCode) as! NSString).uppercaseString
         
         // add checkmark if selected
         if locale == self.selectedLanguageLocale {

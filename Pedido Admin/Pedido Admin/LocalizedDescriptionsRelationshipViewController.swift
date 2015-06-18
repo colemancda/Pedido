@@ -18,12 +18,12 @@ class LocalizedDescriptionsRelationshipViewController: RelationshipViewControlle
     
     override func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         
-        return self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.LocalizedDescriptionCell.rawValue, forIndexPath: indexPath) as UITableViewCell
+        return self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.LocalizedDescriptionCell.rawValue, forIndexPath: indexPath) as! UITableViewCell
     }
     
     override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError?) {
         
-        let localizedDescriptionCell = cell as LocalizedDescriptionTableViewCell
+        let localizedDescriptionCell = cell as! LocalizedDescriptionTableViewCell
         
         if error != nil {
             
@@ -33,7 +33,7 @@ class LocalizedDescriptionsRelationshipViewController: RelationshipViewControlle
         }
         
         // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as LocalizedText
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! LocalizedText
         
         // check if fully downloaded
         let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
@@ -69,22 +69,22 @@ class LocalizedDescriptionsRelationshipViewController: RelationshipViewControlle
             
         case .NewLocalizedDescription:
             
-            let newLocalizedTextVC = (segue.destinationViewController as UINavigationController).topViewController as NewLocalizedTextViewController
+            let newLocalizedTextVC = (segue.destinationViewController as! UINavigationController).topViewController as! NewLocalizedTextViewController
             
             let (parentManagedObject, key) = self.relationship!
             
             // get relationship description
-            let relationshipDescription = parentManagedObject.entity.relationshipsByName[key] as NSRelationshipDescription
+            let relationshipDescription = parentManagedObject.entity.relationshipsByName[key] as! NSRelationshipDescription
             
             newLocalizedTextVC.parentManagedObject = (parentManagedObject, relationshipDescription.inverseRelationship!.name)
             
         case .ShowLocalizedDescription:
             
             // get destination VC
-            let managedObjectVC = segue.destinationViewController as ManagedObjectViewController
+            let managedObjectVC = segue.destinationViewController as! ManagedObjectViewController
             
             // get model object
-            let managedObject = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as NSManagedObject
+            let managedObject = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as! NSManagedObject
             
             // configure VC
             managedObjectVC.managedObject = managedObject

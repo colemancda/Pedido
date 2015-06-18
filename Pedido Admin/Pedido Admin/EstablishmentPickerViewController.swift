@@ -38,7 +38,7 @@ class EstablishmentPickerViewController: PickerViewController {
     
     override func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         
-        return self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.EstablishmentCell.rawValue, forIndexPath: indexPath) as UITableViewCell
+        return self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.EstablishmentCell.rawValue, forIndexPath: indexPath) as! UITableViewCell
     }
     
     override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError?) {
@@ -51,7 +51,7 @@ class EstablishmentPickerViewController: PickerViewController {
         }
         
         // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as Establishment
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Establishment
         
         // check if fully downloaded
         let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate

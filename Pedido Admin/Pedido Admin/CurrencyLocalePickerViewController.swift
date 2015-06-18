@@ -44,7 +44,7 @@ class CurrencyLocalePickerViewController: UITableViewController, UISearchBarDele
                     
                     let firstLocale = first as! NSLocale
                     
-                    let secondLocale = second as NSLocale
+                    let secondLocale = second as! NSLocale
                     
                     return (firstLocale.localeIdentifier as NSString).compare(secondLocale.localeIdentifier)
                 }) as! [NSLocale]
@@ -142,7 +142,7 @@ class CurrencyLocalePickerViewController: UITableViewController, UISearchBarDele
                 
                 let predicate = NSPredicate(format: "localeIdentifier contains[c] %@", searchText)
                 
-                let filteredResults = (self.dynamicType.currencyLocales as NSArray).filteredArrayUsingPredicate(predicate) as [NSLocale]
+                let filteredResults = (self.dynamicType.currencyLocales as NSArray).filteredArrayUsingPredicate(predicate) as! [NSLocale]
                 
                 return filteredResults
             }()

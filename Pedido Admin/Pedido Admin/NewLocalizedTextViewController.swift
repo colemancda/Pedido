@@ -115,7 +115,7 @@ class NewLocalizedTextViewController: NewManagedObjectViewController {
             
         case .NewLocalizedDescriptionPickLanguageLocale:
             
-            let languageLocalePickerVC = segue.destinationViewController as LanguageLocalePickerViewController
+            let languageLocalePickerVC = segue.destinationViewController as! LanguageLocalePickerViewController
             
             languageLocalePickerVC.selectedLanguageLocale = self.languageLocale
             

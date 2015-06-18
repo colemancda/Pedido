@@ -55,7 +55,7 @@ class SearchLocationViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // dequeue cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.LocationSearchResultCell.rawValue) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.LocationSearchResultCell.rawValue) as! UITableViewCell
         
         // configure cell
         self.configureCell(cell, atIndexPath: indexPath)
@@ -154,7 +154,7 @@ class SearchLocationViewController: UITableViewController, UISearchBarDelegate {
                 
                 // reload table view with results
                 
-                self.searchResults = response.mapItems as [MKMapItem]!
+                self.searchResults = response.mapItems as! [MKMapItem]!
                 
                 self.tableView.reloadData()
             })

@@ -29,8 +29,10 @@
 		6E967A0F1B3356B0003AFBBA /* JTSImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679DD1B334F6A003AFBBA /* JTSImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E967A101B3356B0003AFBBA /* NetworkObjects.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679DE1B334F6A003AFBBA /* NetworkObjects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E967A111B3356B0003AFBBA /* RoutingHTTPServer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679DF1B334F6A003AFBBA /* RoutingHTTPServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6E967A291B335791003AFBBA /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E967A261B335748003AFBBA /* CorePedido.framework */; };
-		6E967A4B1B3357EF003AFBBA /* CorePedidoClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E967A461B3357DA003AFBBA /* CorePedidoClient.framework */; };
+		6E967A501B335A1B003AFBBA /* CorePedidoClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E967A461B3357DA003AFBBA /* CorePedidoClient.framework */; };
+		6E967A511B335A1B003AFBBA /* CorePedidoClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E967A461B3357DA003AFBBA /* CorePedidoClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E967A541B335A1B003AFBBA /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E967A261B335748003AFBBA /* CorePedido.framework */; };
+		6E967A551B335A1B003AFBBA /* CorePedido.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E967A261B335748003AFBBA /* CorePedido.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E9D2ABF1A4CC3A800F78363 /* NewManagedObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9D2ABE1A4CC3A800F78363 /* NewManagedObjectViewController.swift */; };
 		6EAD376C1A4F5C0A0073905A /* NewMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD376B1A4F5C0A0073905A /* NewMenuItemViewController.swift */; };
 		6EBF13D41A6B63DF00F57F2F /* EditLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF13D31A6B63DE00F57F2F /* EditLocationViewController.swift */; };
@@ -122,6 +124,20 @@
 			remoteGlobalIDString = 6E9679321B333E26003AFBBA;
 			remoteInfo = "CorePedidoClient iOS";
 		};
+		6E967A521B335A1B003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9679321B333E26003AFBBA;
+			remoteInfo = "CorePedidoClient iOS";
+		};
+		6E967A561B335A1B003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E967A1A1B335748003AFBBA /* CorePedido.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9679571B334DE1003AFBBA;
+			remoteInfo = "CorePedido iOS";
+		};
 		6EEA6B4F1A35002A00105413 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6EEA6B311A35002A00105413 /* Project object */;
@@ -139,10 +155,12 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6E967A0C1B3356B0003AFBBA /* CocoaAsyncSocket.framework in Embed Frameworks */,
+				6E967A511B335A1B003AFBBA /* CorePedidoClient.framework in Embed Frameworks */,
 				6E967A0D1B3356B0003AFBBA /* CocoaHTTPServer.framework in Embed Frameworks */,
 				6E967A0E1B3356B0003AFBBA /* ExSwift.framework in Embed Frameworks */,
 				6E967A0F1B3356B0003AFBBA /* JTSImage.framework in Embed Frameworks */,
 				6E967A101B3356B0003AFBBA /* NetworkObjects.framework in Embed Frameworks */,
+				6E967A551B335A1B003AFBBA /* CorePedido.framework in Embed Frameworks */,
 				6E967A111B3356B0003AFBBA /* RoutingHTTPServer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -204,8 +222,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E967A4B1B3357EF003AFBBA /* CorePedidoClient.framework in Frameworks */,
-				6E967A291B335791003AFBBA /* CorePedido.framework in Frameworks */,
+				6E967A541B335A1B003AFBBA /* CorePedido.framework in Frameworks */,
+				6E967A501B335A1B003AFBBA /* CorePedidoClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +435,8 @@
 			dependencies = (
 				6E967A4A1B3357EA003AFBBA /* PBXTargetDependency */,
 				6E967A311B3357C3003AFBBA /* PBXTargetDependency */,
+				6E967A531B335A1B003AFBBA /* PBXTargetDependency */,
+				6E967A571B335A1B003AFBBA /* PBXTargetDependency */,
 			);
 			name = PedidoAdmin;
 			productName = "Pedido Admin";
@@ -626,6 +646,16 @@
 			name = "CorePedidoClient iOS";
 			targetProxy = 6E967A491B3357EA003AFBBA /* PBXContainerItemProxy */;
 		};
+		6E967A531B335A1B003AFBBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePedidoClient iOS";
+			targetProxy = 6E967A521B335A1B003AFBBA /* PBXContainerItemProxy */;
+		};
+		6E967A571B335A1B003AFBBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePedido iOS";
+			targetProxy = 6E967A561B335A1B003AFBBA /* PBXContainerItemProxy */;
+		};
 		6EEA6B501A35002A00105413 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6EEA6B381A35002A00105413 /* PedidoAdmin */;
@@ -739,9 +769,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					$SRCROOT/../Carthage/Build/iOS,
-					"/Users/Coleman/Developer/MyProjects/Pedido/CorePedido/build/Debug-iphoneos",
-					"/Users/Coleman/Developer/MyProjects/Pedido/CorePedidoClient/build/Debug-iphoneos",
-					/Users/Coleman/Developer/MyProjects/Pedido/CorePedidoClient/build/Release,
 				);
 				INFOPLIST_FILE = "Pedido Admin/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -757,9 +784,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					$SRCROOT/../Carthage/Build/iOS,
-					"/Users/Coleman/Developer/MyProjects/Pedido/CorePedido/build/Debug-iphoneos",
-					"/Users/Coleman/Developer/MyProjects/Pedido/CorePedidoClient/build/Debug-iphoneos",
-					/Users/Coleman/Developer/MyProjects/Pedido/CorePedidoClient/build/Release,
 				);
 				INFOPLIST_FILE = "Pedido Admin/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
