@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E9679571B334DE1003AFBBA"
-               BuildableName = "CorePedido OS X copy.framework"
+               BuildableName = "CorePedido.framework"
                BlueprintName = "CorePedido iOS"
                ReferencedContainer = "container:CorePedido.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E9679571B334DE1003AFBBA"
-            BuildableName = "CorePedido OS X copy.framework"
+            BuildableName = "CorePedido.framework"
             BlueprintName = "CorePedido iOS"
             ReferencedContainer = "container:CorePedido.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E9679571B334DE1003AFBBA"
-            BuildableName = "CorePedido OS X copy.framework"
+            BuildableName = "CorePedido.framework"
             BlueprintName = "CorePedido iOS"
             ReferencedContainer = "container:CorePedido.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E9679571B334DE1003AFBBA"
-            BuildableName = "CorePedido OS X copy.framework"
+            BuildableName = "CorePedido.framework"
             BlueprintName = "CorePedido iOS"
             ReferencedContainer = "container:CorePedido.xcodeproj">
          </BuildableReference>

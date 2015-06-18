@@ -76,7 +76,7 @@ class MenuItemViewController: ManagedObjectViewController {
     
     override func configureUI(forManagedObject managedObject: NSManagedObject) {
         
-        let menuItem = managedObject as MenuItem
+        let menuItem = managedObject as! MenuItem
         
         // update UI
         
@@ -105,7 +105,7 @@ class MenuItemViewController: ManagedObjectViewController {
             
         case .MenuItemPickCurrencyLocale:
             
-            let currencyLocalePickerVC = segue.destinationViewController as CurrencyLocalePickerViewController
+            let currencyLocalePickerVC = segue.destinationViewController as! CurrencyLocalePickerViewController
             
             currencyLocalePickerVC.selectedCurrencyLocale = self.currencyLocale
             
@@ -117,19 +117,19 @@ class MenuItemViewController: ManagedObjectViewController {
             
         case .MenuItemEstablishmentPicker:
             
-            let establishmentPickerVC = segue.destinationViewController as EstablishmentPickerViewController
+            let establishmentPickerVC = segue.destinationViewController as! EstablishmentPickerViewController
             
             establishmentPickerVC.relationship = (self.managedObject!, "establishments")
             
         case .MenuItemLocalizedDescriptions:
             
-            let relationshipVC = segue.destinationViewController as RelationshipViewController
+            let relationshipVC = segue.destinationViewController as! RelationshipViewController
             
             relationshipVC.relationship = (self.managedObject!, "localizedDescriptions")
             
         case .MenuItemImages:
             
-            let relationshipVC = segue.destinationViewController as RelationshipViewController
+            let relationshipVC = segue.destinationViewController as! RelationshipViewController
             
             relationshipVC.relationship = (self.managedObject!, "images")
             

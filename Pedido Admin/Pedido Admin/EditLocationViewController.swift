@@ -111,7 +111,7 @@ class EditLocationViewController: UIViewController, LocationSearchViewController
             
         case .SearchLocation:
             
-            let searchLocationVC = (segue.destinationViewController as UINavigationController).topViewController as SearchLocationViewController
+            let searchLocationVC = (segue.destinationViewController as! UINavigationController).topViewController as! SearchLocationViewController
             
             searchLocationVC.searchRegion = self.mapView.region
             
@@ -168,7 +168,7 @@ final class Location: NSObject, MKAnnotation {
                 return
             }
             
-            let mapItem = response.mapItems.first as MKMapItem
+            let mapItem = response.mapItems.first as! MKMapItem
             
             let location = Location(coordinate: mapItem.placemark.coordinate, locationString: locationString)
             

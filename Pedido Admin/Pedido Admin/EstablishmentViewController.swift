@@ -42,7 +42,7 @@ class EstablishmentViewController: ManagedObjectViewController, EditLocationView
     
     override func configureUI(forManagedObject managedObject: NSManagedObject) {
         
-        let establishment = managedObject as Establishment
+        let establishment = managedObject as! Establishment
         
         self.locationTextField.text = establishment.location
     }
@@ -72,19 +72,19 @@ class EstablishmentViewController: ManagedObjectViewController, EditLocationView
             
         case .EstablishmentMenuItemPicker:
             
-            let pickerVC = segue.destinationViewController as PickerViewController
+            let pickerVC = segue.destinationViewController as! PickerViewController
             
             pickerVC.relationship = (self.managedObject!, "menuItems")
             
         case .EstablishmentImages:
             
-            let relationshipVC = segue.destinationViewController as RelationshipViewController
+            let relationshipVC = segue.destinationViewController as! RelationshipViewController
             
             relationshipVC.relationship = (self.managedObject!, "images")
             
         case .EstablishmentEditLocation:
             
-            let editLocationVC = segue.destinationViewController as EditLocationViewController
+            let editLocationVC = segue.destinationViewController as! EditLocationViewController
             
             editLocationVC.delegate = self
             

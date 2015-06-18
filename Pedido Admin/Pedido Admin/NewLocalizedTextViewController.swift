@@ -27,7 +27,7 @@ class NewLocalizedTextViewController: NewManagedObjectViewController {
     
     var parentManagedObject: (NSManagedObject, String)!
     
-    var languageLocale: NSLocale! = NSLocale(localeIdentifier: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as String)
+    var languageLocale: NSLocale! = NSLocale(localeIdentifier: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String)
         {
         
         didSet {

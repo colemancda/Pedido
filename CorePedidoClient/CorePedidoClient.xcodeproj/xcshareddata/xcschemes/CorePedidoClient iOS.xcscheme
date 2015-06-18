@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E9679321B333E26003AFBBA"
-               BuildableName = "CorePedidoClient copy.framework"
+               BuildableName = "CorePedidoClient.framework"
                BlueprintName = "CorePedidoClient iOS"
                ReferencedContainer = "container:CorePedidoClient.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E9679471B333E36003AFBBA"
-               BuildableName = "CorePedidoClientTests copy.xctest"
+               BuildableName = "CorePedidoClientTests.xctest"
                BlueprintName = "CorePedidoClientTests iOS"
                ReferencedContainer = "container:CorePedidoClient.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E9679321B333E26003AFBBA"
-            BuildableName = "CorePedidoClient copy.framework"
+            BuildableName = "CorePedidoClient.framework"
             BlueprintName = "CorePedidoClient iOS"
             ReferencedContainer = "container:CorePedidoClient.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E9679321B333E26003AFBBA"
-            BuildableName = "CorePedidoClient copy.framework"
+            BuildableName = "CorePedidoClient.framework"
             BlueprintName = "CorePedidoClient iOS"
             ReferencedContainer = "container:CorePedidoClient.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E9679321B333E26003AFBBA"
-            BuildableName = "CorePedidoClient copy.framework"
+            BuildableName = "CorePedidoClient.framework"
             BlueprintName = "CorePedidoClient iOS"
             ReferencedContainer = "container:CorePedidoClient.xcodeproj">
          </BuildableReference>

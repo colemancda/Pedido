@@ -51,7 +51,7 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
     @IBAction func tappedImageView(sender: UIGestureRecognizer) {
         
         // table view cell...
-        let imageView = sender.view as UIImageView
+        let imageView = sender.view as! UIImageView
         
         if imageView.image != nil {
             
@@ -145,7 +145,7 @@ class NewImageViewController: NewManagedObjectViewController, UIImagePickerContr
                 return editedImage
             }
             
-            return info[UIImagePickerControllerOriginalImage] as UIImage
+            return info[UIImagePickerControllerOriginalImage] as! UIImage
         }()
         
         self.imageView.image = image

@@ -23,8 +23,14 @@
 		6E6DC8131A36A0AE006C15DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC8121A36A0AE006C15DE /* Error.swift */; };
 		6E71F1971A7C966500601C20 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E71F1961A7C966500601C20 /* NetworkActivityIndicatorManager.swift */; };
 		6E81863C1A3A719000291F73 /* ManagedObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */; };
-		6E96792D1B332388003AFBBA /* CorePedidoClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E96792A1B332371003AFBBA /* CorePedidoClient.framework */; };
-		6E96792E1B332388003AFBBA /* CorePedidoClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E96792A1B332371003AFBBA /* CorePedidoClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E967A0C1B3356B0003AFBBA /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679DA1B334F6A003AFBBA /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E967A0D1B3356B0003AFBBA /* CocoaHTTPServer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679DB1B334F6A003AFBBA /* CocoaHTTPServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E967A0E1B3356B0003AFBBA /* ExSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679DC1B334F6A003AFBBA /* ExSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E967A0F1B3356B0003AFBBA /* JTSImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679DD1B334F6A003AFBBA /* JTSImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E967A101B3356B0003AFBBA /* NetworkObjects.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679DE1B334F6A003AFBBA /* NetworkObjects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E967A111B3356B0003AFBBA /* RoutingHTTPServer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679DF1B334F6A003AFBBA /* RoutingHTTPServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E967A291B335791003AFBBA /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E967A261B335748003AFBBA /* CorePedido.framework */; };
+		6E967A4B1B3357EF003AFBBA /* CorePedidoClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E967A461B3357DA003AFBBA /* CorePedidoClient.framework */; };
 		6E9D2ABF1A4CC3A800F78363 /* NewManagedObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9D2ABE1A4CC3A800F78363 /* NewManagedObjectViewController.swift */; };
 		6EAD376C1A4F5C0A0073905A /* NewMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD376B1A4F5C0A0073905A /* NewMenuItemViewController.swift */; };
 		6EBF13D41A6B63DF00F57F2F /* EditLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF13D31A6B63DE00F57F2F /* EditLocationViewController.swift */; };
@@ -46,40 +52,75 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6E9679291B332371003AFBBA /* PBXContainerItemProxy */ = {
+		6E967A211B335748003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E967A1A1B335748003AFBBA /* CorePedido.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E3B1B141A300BE600655F36;
+			remoteInfo = "CorePedido OS X";
+		};
+		6E967A231B335748003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E967A1A1B335748003AFBBA /* CorePedido.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E3B1B1F1A300BE600655F36;
+			remoteInfo = "CorePedidoTests OS X";
+		};
+		6E967A251B335748003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E967A1A1B335748003AFBBA /* CorePedido.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E9679701B334DE1003AFBBA;
+			remoteInfo = "CorePedido iOS";
+		};
+		6E967A271B335748003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E967A1A1B335748003AFBBA /* CorePedido.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E96797D1B334DE3003AFBBA;
+			remoteInfo = "CorePedidoTests iOS";
+		};
+		6E967A301B3357C3003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E967A1A1B335748003AFBBA /* CorePedido.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9679571B334DE1003AFBBA;
+			remoteInfo = "CorePedido iOS";
+		};
+		6E967A411B3357DA003AFBBA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6E7DFE811A3150D1002BE54B;
-			remoteInfo = CorePedidoClient;
+			remoteInfo = "CorePedidoClient OS X";
 		};
-		6E96792B1B332371003AFBBA /* PBXContainerItemProxy */ = {
+		6E967A431B3357DA003AFBBA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6E7DFE8C1A3150D1002BE54B;
-			remoteInfo = CorePedidoClientTests;
+			remoteInfo = "CorePedidoClientTests OS X";
 		};
-		6E96792F1B332388003AFBBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6E7DFE801A3150D1002BE54B;
-			remoteInfo = CorePedidoClient;
-		};
-		6E9679E21B334F6A003AFBBA /* PBXContainerItemProxy */ = {
+		6E967A451B3357DA003AFBBA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6E9679441B333E26003AFBBA;
 			remoteInfo = "CorePedidoClient iOS";
 		};
-		6E9679E41B334F6A003AFBBA /* PBXContainerItemProxy */ = {
+		6E967A471B3357DA003AFBBA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6E9679521B333E36003AFBBA;
 			remoteInfo = "CorePedidoClientTests iOS";
+		};
+		6E967A491B3357EA003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9679321B333E26003AFBBA;
+			remoteInfo = "CorePedidoClient iOS";
 		};
 		6EEA6B4F1A35002A00105413 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -97,7 +138,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6E96792E1B332388003AFBBA /* CorePedidoClient.framework in Embed Frameworks */,
+				6E967A0C1B3356B0003AFBBA /* CocoaAsyncSocket.framework in Embed Frameworks */,
+				6E967A0D1B3356B0003AFBBA /* CocoaHTTPServer.framework in Embed Frameworks */,
+				6E967A0E1B3356B0003AFBBA /* ExSwift.framework in Embed Frameworks */,
+				6E967A0F1B3356B0003AFBBA /* JTSImage.framework in Embed Frameworks */,
+				6E967A101B3356B0003AFBBA /* NetworkObjects.framework in Embed Frameworks */,
+				6E967A111B3356B0003AFBBA /* RoutingHTTPServer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,12 +168,13 @@
 		6E71F1961A7C966500601C20 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectViewController.swift; sourceTree = "<group>"; };
 		6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePedidoClient.xcodeproj; path = ../CorePedidoClient/CorePedidoClient.xcodeproj; sourceTree = "<group>"; };
-		6E9679DA1B334F6A003AFBBA /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaAsyncSocket.framework; sourceTree = "<group>"; };
-		6E9679DB1B334F6A003AFBBA /* CocoaHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaHTTPServer.framework; sourceTree = "<group>"; };
-		6E9679DC1B334F6A003AFBBA /* ExSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExSwift.framework; sourceTree = "<group>"; };
-		6E9679DD1B334F6A003AFBBA /* JTSImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JTSImage.framework; sourceTree = "<group>"; };
-		6E9679DE1B334F6A003AFBBA /* NetworkObjects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkObjects.framework; sourceTree = "<group>"; };
-		6E9679DF1B334F6A003AFBBA /* RoutingHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RoutingHTTPServer.framework; sourceTree = "<group>"; };
+		6E9679DA1B334F6A003AFBBA /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = ../Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		6E9679DB1B334F6A003AFBBA /* CocoaHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaHTTPServer.framework; path = ../Carthage/Build/iOS/CocoaHTTPServer.framework; sourceTree = "<group>"; };
+		6E9679DC1B334F6A003AFBBA /* ExSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExSwift.framework; path = ../Carthage/Build/iOS/ExSwift.framework; sourceTree = "<group>"; };
+		6E9679DD1B334F6A003AFBBA /* JTSImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTSImage.framework; path = ../Carthage/Build/iOS/JTSImage.framework; sourceTree = "<group>"; };
+		6E9679DE1B334F6A003AFBBA /* NetworkObjects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkObjects.framework; path = ../Carthage/Build/iOS/NetworkObjects.framework; sourceTree = "<group>"; };
+		6E9679DF1B334F6A003AFBBA /* RoutingHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RoutingHTTPServer.framework; path = ../Carthage/Build/iOS/RoutingHTTPServer.framework; sourceTree = "<group>"; };
+		6E967A1A1B335748003AFBBA /* CorePedido.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePedido.xcodeproj; path = /Users/Coleman/Developer/MyProjects/Pedido/CorePedidoClient/../CorePedido/CorePedido.xcodeproj; sourceTree = "<absolute>"; };
 		6E9D2ABE1A4CC3A800F78363 /* NewManagedObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewManagedObjectViewController.swift; sourceTree = "<group>"; };
 		6EAD376B1A4F5C0A0073905A /* NewMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMenuItemViewController.swift; sourceTree = "<group>"; };
 		6EBF13D31A6B63DE00F57F2F /* EditLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditLocationViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +204,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E96792D1B332388003AFBBA /* CorePedidoClient.framework in Frameworks */,
+				6E967A4B1B3357EF003AFBBA /* CorePedidoClient.framework in Frameworks */,
+				6E967A291B335791003AFBBA /* CorePedido.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,29 +277,26 @@
 			name = "Edit Attribute View Controllers";
 			sourceTree = "<group>";
 		};
-		6E9679251B332371003AFBBA /* Products */ = {
+		6E967A1B1B335748003AFBBA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6E96792A1B332371003AFBBA /* CorePedidoClient.framework */,
-				6E96792C1B332371003AFBBA /* CorePedidoClientTests.xctest */,
-				6E9679E31B334F6A003AFBBA /* CorePedidoClient.framework */,
-				6E9679E51B334F6A003AFBBA /* CorePedidoClientTests.xctest */,
+				6E967A221B335748003AFBBA /* CorePedido.framework */,
+				6E967A241B335748003AFBBA /* CorePedidoTests.xctest */,
+				6E967A261B335748003AFBBA /* CorePedido.framework */,
+				6E967A281B335748003AFBBA /* CorePedidoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6E9679D91B334F6A003AFBBA /* iOS */ = {
+		6E967A381B3357DA003AFBBA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6E9679DA1B334F6A003AFBBA /* CocoaAsyncSocket.framework */,
-				6E9679DB1B334F6A003AFBBA /* CocoaHTTPServer.framework */,
-				6E9679DC1B334F6A003AFBBA /* ExSwift.framework */,
-				6E9679DD1B334F6A003AFBBA /* JTSImage.framework */,
-				6E9679DE1B334F6A003AFBBA /* NetworkObjects.framework */,
-				6E9679DF1B334F6A003AFBBA /* RoutingHTTPServer.framework */,
+				6E967A421B3357DA003AFBBA /* CorePedidoClient.framework */,
+				6E967A441B3357DA003AFBBA /* CorePedidoClientTests.xctest */,
+				6E967A461B3357DA003AFBBA /* CorePedidoClient.framework */,
+				6E967A481B3357DA003AFBBA /* CorePedidoClientTests.xctest */,
 			);
-			name = iOS;
-			path = ../Carthage/Build/iOS;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		6EBF13D51A6B649100F57F2F /* Picker View Controllers */ = {
@@ -329,8 +374,14 @@
 		6EEA6B651A3504EE00105413 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6E9679D91B334F6A003AFBBA /* iOS */,
 				6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */,
+				6E967A1A1B335748003AFBBA /* CorePedido.xcodeproj */,
+				6E9679DA1B334F6A003AFBBA /* CocoaAsyncSocket.framework */,
+				6E9679DB1B334F6A003AFBBA /* CocoaHTTPServer.framework */,
+				6E9679DC1B334F6A003AFBBA /* ExSwift.framework */,
+				6E9679DD1B334F6A003AFBBA /* JTSImage.framework */,
+				6E9679DE1B334F6A003AFBBA /* NetworkObjects.framework */,
+				6E9679DF1B334F6A003AFBBA /* RoutingHTTPServer.framework */,
 			);
 			name = Frameworks;
 			path = ../Pedido;
@@ -364,7 +415,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				6E9679301B332388003AFBBA /* PBXTargetDependency */,
+				6E967A4A1B3357EA003AFBBA /* PBXTargetDependency */,
+				6E967A311B3357C3003AFBBA /* PBXTargetDependency */,
 			);
 			name = PedidoAdmin;
 			productName = "Pedido Admin";
@@ -420,7 +472,11 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 6E9679251B332371003AFBBA /* Products */;
+					ProductGroup = 6E967A1B1B335748003AFBBA /* Products */;
+					ProjectRef = 6E967A1A1B335748003AFBBA /* CorePedido.xcodeproj */;
+				},
+				{
+					ProductGroup = 6E967A381B3357DA003AFBBA /* Products */;
 					ProjectRef = 6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */;
 				},
 			);
@@ -433,32 +489,60 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		6E96792A1B332371003AFBBA /* CorePedidoClient.framework */ = {
+		6E967A221B335748003AFBBA /* CorePedido.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CorePedido.framework;
+			remoteRef = 6E967A211B335748003AFBBA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E967A241B335748003AFBBA /* CorePedidoTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CorePedidoTests.xctest;
+			remoteRef = 6E967A231B335748003AFBBA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E967A261B335748003AFBBA /* CorePedido.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CorePedido.framework;
+			remoteRef = 6E967A251B335748003AFBBA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E967A281B335748003AFBBA /* CorePedidoTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CorePedidoTests.xctest;
+			remoteRef = 6E967A271B335748003AFBBA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E967A421B3357DA003AFBBA /* CorePedidoClient.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CorePedidoClient.framework;
-			remoteRef = 6E9679291B332371003AFBBA /* PBXContainerItemProxy */;
+			remoteRef = 6E967A411B3357DA003AFBBA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6E96792C1B332371003AFBBA /* CorePedidoClientTests.xctest */ = {
+		6E967A441B3357DA003AFBBA /* CorePedidoClientTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = CorePedidoClientTests.xctest;
-			remoteRef = 6E96792B1B332371003AFBBA /* PBXContainerItemProxy */;
+			remoteRef = 6E967A431B3357DA003AFBBA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6E9679E31B334F6A003AFBBA /* CorePedidoClient.framework */ = {
+		6E967A461B3357DA003AFBBA /* CorePedidoClient.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CorePedidoClient.framework;
-			remoteRef = 6E9679E21B334F6A003AFBBA /* PBXContainerItemProxy */;
+			remoteRef = 6E967A451B3357DA003AFBBA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6E9679E51B334F6A003AFBBA /* CorePedidoClientTests.xctest */ = {
+		6E967A481B3357DA003AFBBA /* CorePedidoClientTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = CorePedidoClientTests.xctest;
-			remoteRef = 6E9679E41B334F6A003AFBBA /* PBXContainerItemProxy */;
+			remoteRef = 6E967A471B3357DA003AFBBA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -532,10 +616,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6E9679301B332388003AFBBA /* PBXTargetDependency */ = {
+		6E967A311B3357C3003AFBBA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = CorePedidoClient;
-			targetProxy = 6E96792F1B332388003AFBBA /* PBXContainerItemProxy */;
+			name = "CorePedido iOS";
+			targetProxy = 6E967A301B3357C3003AFBBA /* PBXContainerItemProxy */;
+		};
+		6E967A4A1B3357EA003AFBBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePedidoClient iOS";
+			targetProxy = 6E967A491B3357EA003AFBBA /* PBXContainerItemProxy */;
 		};
 		6EEA6B501A35002A00105413 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -647,10 +736,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Pedido-aoaqcemrcggophfnpfwatahvmojm/Build/Products/Debug",
+					$SRCROOT/../Carthage/Build/iOS,
+					"/Users/Coleman/Developer/MyProjects/Pedido/CorePedido/build/Debug-iphoneos",
+					"/Users/Coleman/Developer/MyProjects/Pedido/CorePedidoClient/build/Debug-iphoneos",
+					/Users/Coleman/Developer/MyProjects/Pedido/CorePedidoClient/build/Release,
 				);
 				INFOPLIST_FILE = "Pedido Admin/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -663,10 +754,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Pedido-aoaqcemrcggophfnpfwatahvmojm/Build/Products/Debug",
+					$SRCROOT/../Carthage/Build/iOS,
+					"/Users/Coleman/Developer/MyProjects/Pedido/CorePedido/build/Debug-iphoneos",
+					"/Users/Coleman/Developer/MyProjects/Pedido/CorePedidoClient/build/Debug-iphoneos",
+					/Users/Coleman/Developer/MyProjects/Pedido/CorePedidoClient/build/Release,
 				);
 				INFOPLIST_FILE = "Pedido Admin/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

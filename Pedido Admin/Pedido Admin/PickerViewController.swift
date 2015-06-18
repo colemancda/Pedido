@@ -67,11 +67,11 @@ class PickerViewController: FetchedResultsViewController {
             
             // remove...
             
-            let arrayValue = (relationshipValue!.allObjects as NSArray).mutableCopy() as NSMutableArray
+            let arrayValue = (relationshipValue!.allObjects as NSArray).mutableCopy() as! NSMutableArray
             
             arrayValue.removeObject(managedObject)
             
-            newRelationshipValue = NSSet(array: arrayValue)
+            newRelationshipValue = NSSet(array: arrayValue as [AnyObject])
             
         }
         else {
@@ -91,7 +91,7 @@ class PickerViewController: FetchedResultsViewController {
             
             arrayValue!.addObject(managedObject)
             
-            newRelationshipValue = NSSet(array: arrayValue!)
+            newRelationshipValue = NSSet(array: arrayValue! as [AnyObject])
         }
         
         // edit managed object
@@ -120,7 +120,7 @@ class PickerViewController: FetchedResultsViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! NSManagedObject
         
         let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
         
@@ -155,7 +155,7 @@ class PickerViewController: FetchedResultsViewController {
         
         // remove or add to relationship...
         
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! NSManagedObject
         
         self.selectManagedObject(managedObject)
         
@@ -166,19 +166,19 @@ class PickerViewController: FetchedResultsViewController {
     
     override func controller(controller: NSFetchedResultsController,
         didChangeObject object: AnyObject,
-        atIndexPath indexPath: NSIndexPath,
+        atIndexPath indexPath: NSIndexPath?,
         forChangeType type: NSFetchedResultsChangeType,
-        newIndexPath: NSIndexPath) {
+        newIndexPath: NSIndexPath?) {
             switch type {
             case .Insert:
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
             case .Update:
-                if let cell = self.tableView.cellForRowAtIndexPath(indexPath) {
+                if let cell = self.tableView.cellForRowAtIndexPath(indexPath!) {
                     
-                    self.configureCell(cell, atIndexPath: indexPath)
+                    self.configureCell(cell, atIndexPath: indexPath!)
                     
                     // get model object
-                    let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+                    let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath!) as! NSManagedObject
                     
                     let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
                     
@@ -203,10 +203,10 @@ class PickerViewController: FetchedResultsViewController {
                     }
                 }
             case .Move:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
             case .Delete:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
             default:
                 return
             }

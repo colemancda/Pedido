@@ -23,7 +23,7 @@ class CurrencyLocalePickerViewController: UITableViewController, UISearchBarDele
             
             let currencylocales: [NSLocale] = {
                 
-                let localeIdentifiers = NSLocale.availableLocaleIdentifiers() as [String]
+                let localeIdentifiers = NSLocale.availableLocaleIdentifiers() as! [String]
                 
                 // create locales
                 var locales = [NSLocale]()
@@ -42,12 +42,12 @@ class CurrencyLocalePickerViewController: UITableViewController, UISearchBarDele
                 // sort by currency symbol
                 let sortedLocales = (locales as NSArray).sortedArrayUsingComparator({ (first, second) -> NSComparisonResult in
                     
-                    let firstLocale = first as NSLocale
+                    let firstLocale = first as! NSLocale
                     
                     let secondLocale = second as NSLocale
                     
                     return (firstLocale.localeIdentifier as NSString).compare(secondLocale.localeIdentifier)
-                }) as [NSLocale]
+                }) as! [NSLocale]
                 
                 return sortedLocales
                 }()
@@ -110,7 +110,7 @@ class CurrencyLocalePickerViewController: UITableViewController, UISearchBarDele
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.CurrencyLocaleCell.rawValue, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.CurrencyLocaleCell.rawValue, forIndexPath: indexPath) as! UITableViewCell
         
         self.configureCell(cell, atIndexPath: indexPath)
         
@@ -142,7 +142,7 @@ class CurrencyLocalePickerViewController: UITableViewController, UISearchBarDele
                 
                 let predicate = NSPredicate(format: "localeIdentifier contains[c] %@", searchText)
                 
-                let filteredResults = (self.dynamicType.currencyLocales as NSArray).filteredArrayUsingPredicate(predicate!) as [NSLocale]
+                let filteredResults = (self.dynamicType.currencyLocales as NSArray).filteredArrayUsingPredicate(predicate) as [NSLocale]
                 
                 return filteredResults
             }()

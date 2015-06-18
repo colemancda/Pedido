@@ -82,7 +82,7 @@ class NewMenuItemViewController: NewManagedObjectViewController {
             
         case .NewMenuItemPickCurrencyLocale:
             
-            let currencyLocalePickerVC = segue.destinationViewController as CurrencyLocalePickerViewController
+            let currencyLocalePickerVC = segue.destinationViewController as! CurrencyLocalePickerViewController
             
             currencyLocalePickerVC.selectedCurrencyLocale = self.currencyLocale
             

@@ -28,7 +28,7 @@ class ImagesRelationshipViewController: RelationshipViewController {
     
     @IBAction func tappedImageView(sender: UIGestureRecognizer) {
         
-        let imageView = sender.view as UIImageView
+        let imageView = sender.view as! UIImageView
         
         if imageView.image != nil {
             
@@ -53,7 +53,7 @@ class ImagesRelationshipViewController: RelationshipViewController {
     
     override func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.ImageCell.rawValue, forIndexPath: indexPath) as ImageTableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.ImageCell.rawValue, forIndexPath: indexPath) as! ImageTableViewCell
         
         // set image tap gesture recognizer
         if cell.tapGestureRecognizer == nil {
@@ -71,7 +71,7 @@ class ImagesRelationshipViewController: RelationshipViewController {
     
     override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError?) {
         
-        let imageCell = cell as ImageTableViewCell
+        let imageCell = cell as! ImageTableViewCell
         
         if error != nil {
             
@@ -84,7 +84,7 @@ class ImagesRelationshipViewController: RelationshipViewController {
         }
         
         // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as Image
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Image
         
         // check if fully downloaded
         let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
@@ -142,12 +142,12 @@ class ImagesRelationshipViewController: RelationshipViewController {
             
         case .NewImage:
             
-            let newImageVC = (segue.destinationViewController as UINavigationController).topViewController as NewImageViewController
+            let newImageVC = (segue.destinationViewController as! UINavigationController).topViewController as! NewImageViewController
             
             let (parentManagedObject, key) = self.relationship!
             
             // get relationship description
-            let relationshipDescription = parentManagedObject.entity.relationshipsByName[key] as NSRelationshipDescription
+            let relationshipDescription = parentManagedObject.entity.relationshipsByName[key] as! NSRelationshipDescription
             
             newImageVC.parentManagedObject = (parentManagedObject, relationshipDescription.inverseRelationship!.name)
             

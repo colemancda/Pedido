@@ -103,7 +103,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         }
         
         // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! NSManagedObject
         
         let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
         
@@ -212,7 +212,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
         if self.datedRefreshed != nil {
             
             // get model object
-            let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+            let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! NSManagedObject
             
             // get date cached
             let dateCached = managedObject.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
@@ -220,7 +220,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
             // fetch if older than refresh date or not fetched yet
             if dateCached == nil || dateCached?.compare(self.datedRefreshed!) == NSComparisonResult.OrderedAscending {
                 
-                Store.sharedStore.fetchEntity(managedObject.entity.name!, resourceID: managedObject.valueForKey(Store.sharedStore.resourceIDAttributeName) as UInt, completionBlock: { (error, managedObject) -> Void in
+                Store.sharedStore.fetchEntity(managedObject.entity.name!, resourceID: managedObject.valueForKey(Store.sharedStore.resourceIDAttributeName) as! UInt, completionBlock: { (error, managedObject) -> Void in
                     
                     // configure error cell
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
@@ -246,7 +246,7 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as NSManagedObject
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! NSManagedObject
         
         switch editingStyle {
             
@@ -268,22 +268,22 @@ class FetchedResultsViewController: UITableViewController, NSFetchedResultsContr
     
     func controller(controller: NSFetchedResultsController,
         didChangeObject object: AnyObject,
-        atIndexPath indexPath: NSIndexPath,
+        atIndexPath indexPath: NSIndexPath?,
         forChangeType type: NSFetchedResultsChangeType,
-        newIndexPath: NSIndexPath) {
+        newIndexPath: NSIndexPath?) {
             switch type {
             case .Insert:
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
             case .Update:
-                if let cell = self.tableView.cellForRowAtIndexPath(indexPath) {
+                if let cell = self.tableView.cellForRowAtIndexPath(indexPath!) {
                     
-                    self.configureCell(cell, atIndexPath: indexPath)
+                    self.configureCell(cell, atIndexPath: indexPath!)
                 }
             case .Move:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
             case .Delete:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
             default:
                 return
             }

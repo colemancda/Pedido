@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E7DFE801A3150D1002BE54B"
-               BuildableName = "CorePedidoClient OS X.framework"
+               BuildableName = "CorePedidoClient.framework"
                BlueprintName = "CorePedidoClient OS X"
                ReferencedContainer = "container:CorePedidoClient.xcodeproj">
             </BuildableReference>
@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E7DFE8B1A3150D1002BE54B"
-               BuildableName = "CorePedidoClientTests OS X.xctest"
+               BuildableName = "CorePedidoClientTests.xctest"
                BlueprintName = "CorePedidoClientTests OS X"
                ReferencedContainer = "container:CorePedidoClient.xcodeproj">
             </BuildableReference>
@@ -47,7 +47,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E7DFE8B1A3150D1002BE54B"
-               BuildableName = "CorePedidoClientTests OS X.xctest"
+               BuildableName = "CorePedidoClientTests.xctest"
                BlueprintName = "CorePedidoClientTests OS X"
                ReferencedContainer = "container:CorePedidoClient.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E7DFE801A3150D1002BE54B"
-            BuildableName = "CorePedidoClient OS X.framework"
+            BuildableName = "CorePedidoClient.framework"
             BlueprintName = "CorePedidoClient OS X"
             ReferencedContainer = "container:CorePedidoClient.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E7DFE801A3150D1002BE54B"
-            BuildableName = "CorePedidoClient OS X.framework"
+            BuildableName = "CorePedidoClient.framework"
             BlueprintName = "CorePedidoClient OS X"
             ReferencedContainer = "container:CorePedidoClient.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E7DFE801A3150D1002BE54B"
-            BuildableName = "CorePedidoClient OS X.framework"
+            BuildableName = "CorePedidoClient.framework"
             BlueprintName = "CorePedidoClient OS X"
             ReferencedContainer = "container:CorePedidoClient.xcodeproj">
          </BuildableReference>

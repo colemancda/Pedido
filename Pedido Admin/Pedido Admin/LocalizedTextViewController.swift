@@ -62,7 +62,7 @@ class LocalizedTextViewController: ManagedObjectViewController {
     
     override func configureUI(forManagedObject managedObject: NSManagedObject) {
         
-        let localizedText = managedObject as LocalizedText
+        let localizedText = managedObject as! LocalizedText
         
         // update UI
         self.languageLocale = NSLocale(localeIdentifier: localizedText.locale)
@@ -71,7 +71,7 @@ class LocalizedTextViewController: ManagedObjectViewController {
     
     override func resetUI() {
         
-        self.languageLocale = NSLocale(localeIdentifier: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as String)
+        self.languageLocale = NSLocale(localeIdentifier: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String)
         self.textView.text = ""
     }
     
@@ -83,7 +83,7 @@ class LocalizedTextViewController: ManagedObjectViewController {
             
         case .LocalizedDescriptionPickLanguageLocale:
             
-            let languageLocalePickerVC = segue.destinationViewController as LanguageLocalePickerViewController
+            let languageLocalePickerVC = segue.destinationViewController as! LanguageLocalePickerViewController
             
             languageLocalePickerVC.selectedLanguageLocale = self.languageLocale
             

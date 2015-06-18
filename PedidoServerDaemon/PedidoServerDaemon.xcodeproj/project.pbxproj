@@ -15,6 +15,7 @@
 		6E967A041B335537003AFBBA /* ExSwift.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679BE1B334F3B003AFBBA /* ExSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E967A051B335537003AFBBA /* NetworkObjects.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679BF1B334F3B003AFBBA /* NetworkObjects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E967A061B335537003AFBBA /* RoutingHTTPServer.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679C01B334F3B003AFBBA /* RoutingHTTPServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E967A091B335612003AFBBA /* CorePedidoServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679C81B334F4D003AFBBA /* CorePedidoServer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 6E3DA2EB1A316BB100290060;
 			remoteInfo = CorePedidoServerTests;
+		};
+		6E967A071B33560B003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E9679C21B334F4D003AFBBA /* CorePedidoServer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E3DA2DF1A316BB100290060;
+			remoteInfo = CorePedidoServer;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -97,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E967A091B335612003AFBBA /* CorePedidoServer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +207,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6E967A081B33560B003AFBBA /* PBXTargetDependency */,
 			);
 			name = PedidoServerDaemon;
 			productName = PedidoServerDaemon;
@@ -315,6 +325,11 @@
 			isa = PBXTargetDependency;
 			target = 6E65D26D1A3295AF00FEB0B5 /* PedidoServerDaemon */;
 			targetProxy = 6E65D2D51A329A9400FEB0B5 /* PBXContainerItemProxy */;
+		};
+		6E967A081B33560B003AFBBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CorePedidoServer;
+			targetProxy = 6E967A071B33560B003AFBBA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

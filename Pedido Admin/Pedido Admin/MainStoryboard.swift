@@ -51,13 +51,13 @@ extension FetchedResultsViewController {
     func showMainStoryboardDetailController(detailController: MainStoryboardDetailControllerIdentifier, forManagedObjectAtIndexPath indexPath: NSIndexPath) {
         
         // get model object
-        let managedObject = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as NSManagedObject
+        let managedObject = self.fetchedResultsController!.objectAtIndexPath(self.tableView.indexPathForSelectedRow()!) as! NSManagedObject
         
         // get detail navigation controller stack
-        let detailNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier(detailController.rawValue) as UINavigationController
+        let detailNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier(detailController.rawValue) as! UINavigationController
         
         // get managed object VC
-        let managedObjectVC = detailNavigationController.topViewController as ManagedObjectViewController
+        let managedObjectVC = detailNavigationController.topViewController as! ManagedObjectViewController
         
         // set model object
         managedObjectVC.managedObject = managedObject
@@ -79,7 +79,7 @@ extension FetchedResultsViewController {
             managedObjectVC.didEditManagedObjectHandler = {
                 
                 // pop VC
-                (managedObjectVC.tabBarController!.selectedViewController as UINavigationController).popToRootViewControllerAnimated(true)
+                (managedObjectVC.tabBarController!.selectedViewController as! UINavigationController).popToRootViewControllerAnimated(true)
                 
                 return
             }
@@ -98,11 +98,11 @@ extension ManagedObjectViewController {
         if regularLayout {
             
             // show empty selection if root VC and visible detail VC
-            if self.navigationController!.viewControllers.first! as UIViewController == self &&
-                self.splitViewController!.viewControllers[1] as UIViewController == self.navigationController! {
+            if self.navigationController!.viewControllers.first! as! UIViewController == self &&
+                self.splitViewController!.viewControllers[1] as! UIViewController == self.navigationController! {
                 
                 // get detail navigation controller stack
-                let detailNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier(MainStoryboardDetailControllerIdentifier.EmptySelectionDetail.rawValue) as UINavigationController
+                let detailNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier(MainStoryboardDetailControllerIdentifier.EmptySelectionDetail.rawValue) as! UINavigationController
                 
                 // set detailVC
                 self.splitViewController!.showDetailViewController(detailNavigationController, sender: self)

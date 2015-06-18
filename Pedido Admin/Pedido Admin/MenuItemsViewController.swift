@@ -41,7 +41,7 @@ class MenuItemsViewController: FetchedResultsViewController {
     
     override func dequeueReusableCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         
-        return self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MenuItemCell.rawValue, forIndexPath: indexPath) as UITableViewCell
+        return self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MenuItemCell.rawValue, forIndexPath: indexPath) as! UITableViewCell
     }
     
     override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath, withError error: NSError?) {
@@ -53,7 +53,7 @@ class MenuItemsViewController: FetchedResultsViewController {
         }
         
         // get model object
-        let menuItem = self.fetchedResultsController!.objectAtIndexPath(indexPath) as MenuItem
+        let menuItem = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! MenuItem
         
         let dateCached = menuItem.valueForKey(Store.sharedStore.dateCachedAttributeName!) as? NSDate
         
