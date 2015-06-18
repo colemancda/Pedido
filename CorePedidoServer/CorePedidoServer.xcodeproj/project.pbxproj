@@ -56,6 +56,13 @@
 			remoteGlobalIDString = 6E96797D1B334DE3003AFBBA;
 			remoteInfo = "CorePedidoTests iOS";
 		};
+		6E967A661B335E3F003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E96799F1B334F1D003AFBBA /* CorePedido.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E3B1B131A300BE600655F36;
+			remoteInfo = "CorePedido OS X";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -239,6 +246,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6E967A671B335E3F003AFBBA /* PBXTargetDependency */,
 			);
 			name = CorePedidoServer;
 			productName = CorePedidoServer;
@@ -383,6 +391,11 @@
 			isa = PBXTargetDependency;
 			target = 6E3DA2DF1A316BB100290060 /* CorePedidoServer */;
 			targetProxy = 6E3DA2ED1A316BB100290060 /* PBXContainerItemProxy */;
+		};
+		6E967A671B335E3F003AFBBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePedido OS X";
+			targetProxy = 6E967A661B335E3F003AFBBA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
