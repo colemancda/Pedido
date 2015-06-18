@@ -24,7 +24,7 @@ func PerformFunction(function: String, managedObject: NSManagedObject, context: 
     
     switch managedObject.entity.name! {
         
-    case "User": return UserPerformFunction(UserFunction(rawValue: function)!, managedObject as User, context, session?.user, recievedJsonObject)
+    case "User": return UserPerformFunction(UserFunction(rawValue: function)!, managedObject as! User, context, session?.user, recievedJsonObject)
     
     default: return (ServerFunctionCode.InternalErrorPerformingFunction, nil)
     }

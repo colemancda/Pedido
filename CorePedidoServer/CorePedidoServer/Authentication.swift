@@ -47,7 +47,7 @@ func AuthenticationSessionFromRequestHeaders(headers: [String: String], context:
 func SessionTokenWithLength(length: UInt) -> String {
     
     /** Random string generator. http://stackoverflow.com/questions/26845307/generate-random-alphanumeric-string-in-swift */
-    func randomStringWithLength (len : Int) -> NSString {
+    func randomStringWithLength (len : Int) -> String {
         
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         
@@ -59,7 +59,7 @@ func SessionTokenWithLength(length: UInt) -> String {
             randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
         }
         
-        return randomString
+        return randomString as String
     }
     
     return randomStringWithLength(Int(length))

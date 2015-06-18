@@ -67,6 +67,20 @@
 			remoteGlobalIDString = 6E7DFE801A3150D1002BE54B;
 			remoteInfo = CorePedidoClient;
 		};
+		6E9679E21B334F6A003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E9679441B333E26003AFBBA;
+			remoteInfo = "CorePedidoClient iOS";
+		};
+		6E9679E41B334F6A003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E9679521B333E36003AFBBA;
+			remoteInfo = "CorePedidoClientTests iOS";
+		};
 		6EEA6B4F1A35002A00105413 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6EEA6B311A35002A00105413 /* Project object */;
@@ -108,6 +122,12 @@
 		6E71F1961A7C966500601C20 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		6E81863B1A3A719000291F73 /* ManagedObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectViewController.swift; sourceTree = "<group>"; };
 		6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePedidoClient.xcodeproj; path = ../CorePedidoClient/CorePedidoClient.xcodeproj; sourceTree = "<group>"; };
+		6E9679DA1B334F6A003AFBBA /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		6E9679DB1B334F6A003AFBBA /* CocoaHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaHTTPServer.framework; sourceTree = "<group>"; };
+		6E9679DC1B334F6A003AFBBA /* ExSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExSwift.framework; sourceTree = "<group>"; };
+		6E9679DD1B334F6A003AFBBA /* JTSImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JTSImage.framework; sourceTree = "<group>"; };
+		6E9679DE1B334F6A003AFBBA /* NetworkObjects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkObjects.framework; sourceTree = "<group>"; };
+		6E9679DF1B334F6A003AFBBA /* RoutingHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RoutingHTTPServer.framework; sourceTree = "<group>"; };
 		6E9D2ABE1A4CC3A800F78363 /* NewManagedObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewManagedObjectViewController.swift; sourceTree = "<group>"; };
 		6EAD376B1A4F5C0A0073905A /* NewMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMenuItemViewController.swift; sourceTree = "<group>"; };
 		6EBF13D31A6B63DE00F57F2F /* EditLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditLocationViewController.swift; sourceTree = "<group>"; };
@@ -214,8 +234,24 @@
 			children = (
 				6E96792A1B332371003AFBBA /* CorePedidoClient.framework */,
 				6E96792C1B332371003AFBBA /* CorePedidoClientTests.xctest */,
+				6E9679E31B334F6A003AFBBA /* CorePedidoClient.framework */,
+				6E9679E51B334F6A003AFBBA /* CorePedidoClientTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6E9679D91B334F6A003AFBBA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6E9679DA1B334F6A003AFBBA /* CocoaAsyncSocket.framework */,
+				6E9679DB1B334F6A003AFBBA /* CocoaHTTPServer.framework */,
+				6E9679DC1B334F6A003AFBBA /* ExSwift.framework */,
+				6E9679DD1B334F6A003AFBBA /* JTSImage.framework */,
+				6E9679DE1B334F6A003AFBBA /* NetworkObjects.framework */,
+				6E9679DF1B334F6A003AFBBA /* RoutingHTTPServer.framework */,
+			);
+			name = iOS;
+			path = ../Carthage/Build/iOS;
 			sourceTree = "<group>";
 		};
 		6EBF13D51A6B649100F57F2F /* Picker View Controllers */ = {
@@ -293,6 +329,7 @@
 		6EEA6B651A3504EE00105413 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E9679D91B334F6A003AFBBA /* iOS */,
 				6E9679241B332371003AFBBA /* CorePedidoClient.xcodeproj */,
 			);
 			name = Frameworks;
@@ -408,6 +445,20 @@
 			fileType = wrapper.cfbundle;
 			path = CorePedidoClientTests.xctest;
 			remoteRef = 6E96792B1B332371003AFBBA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E9679E31B334F6A003AFBBA /* CorePedidoClient.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CorePedidoClient.framework;
+			remoteRef = 6E9679E21B334F6A003AFBBA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6E9679E51B334F6A003AFBBA /* CorePedidoClientTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CorePedidoClientTests.xctest;
+			remoteRef = 6E9679E41B334F6A003AFBBA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

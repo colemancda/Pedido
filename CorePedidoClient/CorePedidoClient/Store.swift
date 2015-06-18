@@ -56,7 +56,7 @@ public class Store: NetworkObjects.Store {
                 return
             }
             
-            let httpResponse = response as NSHTTPURLResponse
+            let httpResponse = response as! NSHTTPURLResponse
             
             // error codes
             
@@ -161,7 +161,7 @@ public class Store: NetworkObjects.Store {
             return originalRequest
         }
         
-        let request = originalRequest.mutableCopy() as NSMutableURLRequest
+        let request = originalRequest.mutableCopy() as! NSMutableURLRequest
         
         request.setValue(token, forHTTPHeaderField: AuthorizationHeader)
         

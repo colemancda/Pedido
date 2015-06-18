@@ -25,6 +25,35 @@
 		6E7DFE601A314D8D002BE54B /* LocalizedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE5F1A314D8D002BE54B /* LocalizedText.swift */; };
 		6E7DFE621A314D8D002BE54B /* DeliveryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE611A314D8D002BE54B /* DeliveryTarget.swift */; };
 		6E7DFE641A314D8D002BE54B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE631A314D8D002BE54B /* Image.swift */; };
+		6E9679591B334DE1003AFBBA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DA2D01A315B3700290060 /* User.swift */; };
+		6E96795A1B334DE1003AFBBA /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE551A314D8D002BE54B /* MenuItem.swift */; };
+		6E96795B1B334DE1003AFBBA /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E79A45D1A34D9A400C7DE76 /* Define.swift */; };
+		6E96795C1B334DE1003AFBBA /* ClientUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DA2CE1A315B3700290060 /* ClientUser.swift */; };
+		6E96795D1B334DE1003AFBBA /* ExternalDeliveryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE5D1A314D8D002BE54B /* ExternalDeliveryTarget.swift */; };
+		6E96795E1B334DE1003AFBBA /* LocalizedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE5F1A314D8D002BE54B /* LocalizedText.swift */; };
+		6E96795F1B334DE1003AFBBA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB41B51A3357DB0024986A /* Session.swift */; };
+		6E9679601B334DE1003AFBBA /* Establishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE571A314D8D002BE54B /* Establishment.swift */; };
+		6E9679611B334DE1003AFBBA /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE591A314D8D002BE54B /* Order.swift */; };
+		6E9679621B334DE1003AFBBA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B1B401A300F1F00655F36 /* Model.xcdatamodeld */; };
+		6E9679631B334DE1003AFBBA /* DeliveryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE611A314D8D002BE54B /* DeliveryTarget.swift */; };
+		6E9679641B334DE1003AFBBA /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DA2D21A3161A300290060 /* OrderItem.swift */; };
+		6E9679651B334DE1003AFBBA /* PickUpDeliveryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE5B1A314D8D002BE54B /* PickUpDeliveryTarget.swift */; };
+		6E9679661B334DE1003AFBBA /* TableDeliveryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE531A314D8C002BE54B /* TableDeliveryTarget.swift */; };
+		6E9679671B334DE1003AFBBA /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DFE631A314D8D002BE54B /* Image.swift */; };
+		6E9679681B334DE1003AFBBA /* StaffUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DA2CC1A315B3700290060 /* StaffUser.swift */; };
+		6E96796B1B334DE1003AFBBA /* CorePedido.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3B1B191A300BE600655F36 /* CorePedido.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E9679761B334DE3003AFBBA /* CorePedidoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B1B261A300BE600655F36 /* CorePedidoTests.swift */; };
+		6E9679781B334DE3003AFBBA /* CorePedido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3B1B141A300BE600655F36 /* CorePedido.framework */; };
+		6E9679E91B3350D0003AFBBA /* CocoaAsyncSocket.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679801B334ED4003AFBBA /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E9679EA1B3350D0003AFBBA /* CocoaHTTPServer.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679811B334ED4003AFBBA /* CocoaHTTPServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E9679EB1B3350D0003AFBBA /* ExSwift.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679821B334ED4003AFBBA /* ExSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E9679EC1B3350D0003AFBBA /* NetworkObjects.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679841B334ED4003AFBBA /* NetworkObjects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E9679ED1B3350D0003AFBBA /* RoutingHTTPServer.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679851B334ED4003AFBBA /* RoutingHTTPServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E9679F01B3350EF003AFBBA /* CocoaAsyncSocket.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679871B334ED4003AFBBA /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E9679F11B3350EF003AFBBA /* CocoaHTTPServer.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679881B334ED4003AFBBA /* CocoaHTTPServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E9679F21B3350EF003AFBBA /* ExSwift.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9679891B334ED4003AFBBA /* ExSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E9679F31B3350EF003AFBBA /* NetworkObjects.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E96798A1B334ED4003AFBBA /* NetworkObjects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E9679F41B3350EF003AFBBA /* RoutingHTTPServer.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6E96798B1B334ED4003AFBBA /* RoutingHTTPServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EBB41B61A3357DB0024986A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB41B51A3357DB0024986A /* Session.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +65,47 @@
 			remoteGlobalIDString = 6E3B1B131A300BE600655F36;
 			remoteInfo = CorePedido;
 		};
+		6E9679E61B3350B3003AFBBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E3B1B0B1A300BE600655F36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9679571B334DE1003AFBBA;
+			remoteInfo = "CorePedido iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6E9679E81B3350BB003AFBBA /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6E9679E91B3350D0003AFBBA /* CocoaAsyncSocket.framework in Copy Frameworks */,
+				6E9679EA1B3350D0003AFBBA /* CocoaHTTPServer.framework in Copy Frameworks */,
+				6E9679EB1B3350D0003AFBBA /* ExSwift.framework in Copy Frameworks */,
+				6E9679EC1B3350D0003AFBBA /* NetworkObjects.framework in Copy Frameworks */,
+				6E9679ED1B3350D0003AFBBA /* RoutingHTTPServer.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9679EF1B3350E2003AFBBA /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6E9679F01B3350EF003AFBBA /* CocoaAsyncSocket.framework in Copy Frameworks */,
+				6E9679F11B3350EF003AFBBA /* CocoaHTTPServer.framework in Copy Frameworks */,
+				6E9679F21B3350EF003AFBBA /* ExSwift.framework in Copy Frameworks */,
+				6E9679F31B3350EF003AFBBA /* NetworkObjects.framework in Copy Frameworks */,
+				6E9679F41B3350EF003AFBBA /* RoutingHTTPServer.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6E3B1B141A300BE600655F36 /* CorePedido.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CorePedido.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +129,18 @@
 		6E7DFE5F1A314D8D002BE54B /* LocalizedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedText.swift; sourceTree = "<group>"; };
 		6E7DFE611A314D8D002BE54B /* DeliveryTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTarget.swift; sourceTree = "<group>"; };
 		6E7DFE631A314D8D002BE54B /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		6E9679701B334DE1003AFBBA /* CorePedido.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CorePedido.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E96797D1B334DE3003AFBBA /* CorePedidoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorePedidoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9679801B334ED4003AFBBA /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		6E9679811B334ED4003AFBBA /* CocoaHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaHTTPServer.framework; sourceTree = "<group>"; };
+		6E9679821B334ED4003AFBBA /* ExSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExSwift.framework; sourceTree = "<group>"; };
+		6E9679841B334ED4003AFBBA /* NetworkObjects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkObjects.framework; sourceTree = "<group>"; };
+		6E9679851B334ED4003AFBBA /* RoutingHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RoutingHTTPServer.framework; sourceTree = "<group>"; };
+		6E9679871B334ED4003AFBBA /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		6E9679881B334ED4003AFBBA /* CocoaHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaHTTPServer.framework; sourceTree = "<group>"; };
+		6E9679891B334ED4003AFBBA /* ExSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExSwift.framework; sourceTree = "<group>"; };
+		6E96798A1B334ED4003AFBBA /* NetworkObjects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkObjects.framework; sourceTree = "<group>"; };
+		6E96798B1B334ED4003AFBBA /* RoutingHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RoutingHTTPServer.framework; sourceTree = "<group>"; };
 		6EBB41B51A3357DB0024986A /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +157,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E3B1B201A300BE600655F36 /* CorePedido.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9679691B334DE1003AFBBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9679771B334DE3003AFBBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E9679781B334DE3003AFBBA /* CorePedido.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +193,8 @@
 			children = (
 				6E3B1B141A300BE600655F36 /* CorePedido.framework */,
 				6E3B1B1F1A300BE600655F36 /* CorePedidoTests.xctest */,
+				6E9679701B334DE1003AFBBA /* CorePedido.framework */,
+				6E96797D1B334DE3003AFBBA /* CorePedidoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,8 +260,36 @@
 		6E9679311B332534003AFBBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E9679861B334ED4003AFBBA /* Mac */,
+				6E96797F1B334ED4003AFBBA /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E96797F1B334ED4003AFBBA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6E9679801B334ED4003AFBBA /* CocoaAsyncSocket.framework */,
+				6E9679811B334ED4003AFBBA /* CocoaHTTPServer.framework */,
+				6E9679821B334ED4003AFBBA /* ExSwift.framework */,
+				6E9679841B334ED4003AFBBA /* NetworkObjects.framework */,
+				6E9679851B334ED4003AFBBA /* RoutingHTTPServer.framework */,
+			);
+			name = iOS;
+			path = ../Carthage/Build/iOS;
+			sourceTree = "<group>";
+		};
+		6E9679861B334ED4003AFBBA /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				6E9679871B334ED4003AFBBA /* CocoaAsyncSocket.framework */,
+				6E9679881B334ED4003AFBBA /* CocoaHTTPServer.framework */,
+				6E9679891B334ED4003AFBBA /* ExSwift.framework */,
+				6E96798A1B334ED4003AFBBA /* NetworkObjects.framework */,
+				6E96798B1B334ED4003AFBBA /* RoutingHTTPServer.framework */,
+			);
+			name = Mac;
+			path = ../Carthage/Build/Mac;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,12 +303,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E96796A1B334DE1003AFBBA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E96796B1B334DE1003AFBBA /* CorePedido.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6E3B1B131A300BE600655F36 /* CorePedido */ = {
+		6E3B1B131A300BE600655F36 /* CorePedido OS X */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E3B1B2A1A300BE600655F36 /* Build configuration list for PBXNativeTarget "CorePedido" */;
+			buildConfigurationList = 6E3B1B2A1A300BE600655F36 /* Build configuration list for PBXNativeTarget "CorePedido OS X" */;
 			buildPhases = (
 				6E3B1B0F1A300BE600655F36 /* Sources */,
 				6E3B1B101A300BE600655F36 /* Frameworks */,
@@ -193,27 +327,65 @@
 			);
 			dependencies = (
 			);
-			name = CorePedido;
+			name = "CorePedido OS X";
 			productName = CorePedido;
 			productReference = 6E3B1B141A300BE600655F36 /* CorePedido.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6E3B1B1E1A300BE600655F36 /* CorePedidoTests */ = {
+		6E3B1B1E1A300BE600655F36 /* CorePedidoTests OS X */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E3B1B2D1A300BE600655F36 /* Build configuration list for PBXNativeTarget "CorePedidoTests" */;
+			buildConfigurationList = 6E3B1B2D1A300BE600655F36 /* Build configuration list for PBXNativeTarget "CorePedidoTests OS X" */;
 			buildPhases = (
 				6E3B1B1B1A300BE600655F36 /* Sources */,
 				6E3B1B1C1A300BE600655F36 /* Frameworks */,
 				6E3B1B1D1A300BE600655F36 /* Resources */,
+				6E9679EF1B3350E2003AFBBA /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6E3B1B221A300BE600655F36 /* PBXTargetDependency */,
 			);
-			name = CorePedidoTests;
+			name = "CorePedidoTests OS X";
 			productName = CorePedidoTests;
 			productReference = 6E3B1B1F1A300BE600655F36 /* CorePedidoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6E9679571B334DE1003AFBBA /* CorePedido iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E96796D1B334DE1003AFBBA /* Build configuration list for PBXNativeTarget "CorePedido iOS" */;
+			buildPhases = (
+				6E9679581B334DE1003AFBBA /* Sources */,
+				6E9679691B334DE1003AFBBA /* Frameworks */,
+				6E96796A1B334DE1003AFBBA /* Headers */,
+				6E96796C1B334DE1003AFBBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CorePedido iOS";
+			productName = CorePedido;
+			productReference = 6E9679701B334DE1003AFBBA /* CorePedido.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6E9679721B334DE3003AFBBA /* CorePedidoTests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E96797A1B334DE3003AFBBA /* Build configuration list for PBXNativeTarget "CorePedidoTests iOS" */;
+			buildPhases = (
+				6E9679751B334DE3003AFBBA /* Sources */,
+				6E9679771B334DE3003AFBBA /* Frameworks */,
+				6E9679791B334DE3003AFBBA /* Resources */,
+				6E9679E81B3350BB003AFBBA /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E9679E71B3350B3003AFBBA /* PBXTargetDependency */,
+			);
+			name = "CorePedidoTests iOS";
+			productName = CorePedidoTests;
+			productReference = 6E96797D1B334DE3003AFBBA /* CorePedidoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -245,8 +417,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6E3B1B131A300BE600655F36 /* CorePedido */,
-				6E3B1B1E1A300BE600655F36 /* CorePedidoTests */,
+				6E3B1B131A300BE600655F36 /* CorePedido OS X */,
+				6E3B1B1E1A300BE600655F36 /* CorePedidoTests OS X */,
+				6E9679571B334DE1003AFBBA /* CorePedido iOS */,
+				6E9679721B334DE3003AFBBA /* CorePedidoTests iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -260,6 +434,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6E3B1B1D1A300BE600655F36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E96796C1B334DE1003AFBBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9679791B334DE3003AFBBA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -300,13 +488,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E9679581B334DE1003AFBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E9679591B334DE1003AFBBA /* User.swift in Sources */,
+				6E96795A1B334DE1003AFBBA /* MenuItem.swift in Sources */,
+				6E96795B1B334DE1003AFBBA /* Define.swift in Sources */,
+				6E96795C1B334DE1003AFBBA /* ClientUser.swift in Sources */,
+				6E96795D1B334DE1003AFBBA /* ExternalDeliveryTarget.swift in Sources */,
+				6E96795E1B334DE1003AFBBA /* LocalizedText.swift in Sources */,
+				6E96795F1B334DE1003AFBBA /* Session.swift in Sources */,
+				6E9679601B334DE1003AFBBA /* Establishment.swift in Sources */,
+				6E9679611B334DE1003AFBBA /* Order.swift in Sources */,
+				6E9679621B334DE1003AFBBA /* Model.xcdatamodeld in Sources */,
+				6E9679631B334DE1003AFBBA /* DeliveryTarget.swift in Sources */,
+				6E9679641B334DE1003AFBBA /* OrderItem.swift in Sources */,
+				6E9679651B334DE1003AFBBA /* PickUpDeliveryTarget.swift in Sources */,
+				6E9679661B334DE1003AFBBA /* TableDeliveryTarget.swift in Sources */,
+				6E9679671B334DE1003AFBBA /* Image.swift in Sources */,
+				6E9679681B334DE1003AFBBA /* StaffUser.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9679751B334DE3003AFBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E9679761B334DE3003AFBBA /* CorePedidoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		6E3B1B221A300BE600655F36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6E3B1B131A300BE600655F36 /* CorePedido */;
+			target = 6E3B1B131A300BE600655F36 /* CorePedido OS X */;
 			targetProxy = 6E3B1B211A300BE600655F36 /* PBXContainerItemProxy */;
+		};
+		6E9679E71B3350B3003AFBBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E9679571B334DE1003AFBBA /* CorePedido iOS */;
+			targetProxy = 6E9679E61B3350B3003AFBBA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -350,9 +574,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VALID_ARCHS = "i386 x86_64 armv7 armv7s arm64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -391,8 +613,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
-				VALID_ARCHS = "i386 x86_64 armv7 armv7s arm64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -411,11 +631,9 @@
 				INFOPLIST_FILE = CorePedido/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CorePedido;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VALID_ARCHS = "i386 x86_64 armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -432,10 +650,8 @@
 				INFOPLIST_FILE = CorePedido/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CorePedido;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
-				VALID_ARCHS = "i386 x86_64 armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -453,7 +669,7 @@
 				);
 				INFOPLIST_FILE = CorePedidoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CorePedidoTests;
 			};
 			name = Debug;
 		};
@@ -467,7 +683,82 @@
 				);
 				INFOPLIST_FILE = CorePedidoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CorePedidoTests;
+			};
+			name = Release;
+		};
+		6E96796E1B334DE1003AFBBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = CorePedido/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = CorePedido;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6E96796F1B334DE1003AFBBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = CorePedido/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = CorePedido;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6E96797B1B334DE3003AFBBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CorePedidoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = CorePedidoTests;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6E96797C1B334DE3003AFBBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CorePedidoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = CorePedidoTests;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -483,7 +774,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6E3B1B2A1A300BE600655F36 /* Build configuration list for PBXNativeTarget "CorePedido" */ = {
+		6E3B1B2A1A300BE600655F36 /* Build configuration list for PBXNativeTarget "CorePedido OS X" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E3B1B2B1A300BE600655F36 /* Debug */,
@@ -492,11 +783,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6E3B1B2D1A300BE600655F36 /* Build configuration list for PBXNativeTarget "CorePedidoTests" */ = {
+		6E3B1B2D1A300BE600655F36 /* Build configuration list for PBXNativeTarget "CorePedidoTests OS X" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6E3B1B2E1A300BE600655F36 /* Debug */,
 				6E3B1B2F1A300BE600655F36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E96796D1B334DE1003AFBBA /* Build configuration list for PBXNativeTarget "CorePedido iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E96796E1B334DE1003AFBBA /* Debug */,
+				6E96796F1B334DE1003AFBBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E96797A1B334DE3003AFBBA /* Build configuration list for PBXNativeTarget "CorePedidoTests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E96797B1B334DE3003AFBBA /* Debug */,
+				6E96797C1B334DE3003AFBBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

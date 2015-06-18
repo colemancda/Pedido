@@ -120,7 +120,7 @@ import CorePedido
         return FunctionsForEntity(entity)
     }
     
-    public func server(server: Server, performFunction functionName: String, forManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext, recievedJsonObject: [String : AnyObject]?, request: ServerRequest) -> (ServerFunctionCode, [String : AnyObject]?) {
+    public func server(server: Server, performFunction functionName: String, forManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext, recievedJsonObject: [String : AnyObject]?, request: ServerRequest, inout userInfo: [String : AnyObject]) -> (ServerFunctionCode, [String : AnyObject]?) {
         
         // get user
         let (session, error) = AuthenticationSessionFromRequestHeaders(request.headers, context)
@@ -138,28 +138,28 @@ import CorePedido
     
     // MARK: - ServerDelegate
     
-    public func server(server: Server, didEncounterInternalError error: NSError, forRequest request: ServerRequest, userInfo: [ServerUserInfoKey: AnyObject]) {
+    public func server(server: Server, didEncounterInternalError error: NSError, forRequest request: ServerRequest, userInfo: [String : AnyObject]) {
         
         println("Internal error occurred for request: \(request), userInfo: \(userInfo). (\(error))")
+
     }
     
-    public func server(server: Server, didPerformRequest request: ServerRequest, withResponse response: ServerResponse, userInfo: [ServerUserInfoKey: AnyObject]) {
+    public func server(server: Server, didPerformRequest request: ServerRequest, withResponse response: ServerResponse, userInfo: [String : AnyObject]) {
         
-        println("Processed (\(request.requestType.hashValue)) request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse?)")
+        println("Processed (\(request.requestType.hashValue)) request and responded with: (\(response.statusCode.rawValue)) \(response.JSONResponse)")
     }
     
-    public func server(server: Server, didInsertManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext) {
+    public func server(server: Server, didInsertManagedObject managedObject: NSManagedObject, context: NSManagedObjectContext, inout userInfo: [String : AnyObject]) {
         
         // cleanup sessions
-        
     }
     
-    public func server(server: Server, statusCodeForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext) -> ServerStatusCode {
+    public func server(server: Server, statusCodeForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext, inout userInfo: [String : AnyObject]) -> ServerStatusCode {
         
         return ServerStatusCode.OK
     }
     
-    public func server(server: Server, permissionForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext, key: String?) -> ServerPermission {
+    public func server(server: Server, permissionForRequest request: ServerRequest, managedObject: NSManagedObject?, context: NSManagedObjectContext, key: String?, inout userInfo: [String : AnyObject]) -> ServerPermission {
         
         // get authenticated user from request and return permssions based on authenticated user
         
@@ -298,7 +298,7 @@ import CorePedido
             
             managedObjectContext.performBlockAndWait({ () -> Void in
                 
-                let session = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext: managedObjectContext) as Session
+                let session = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext: managedObjectContext) as! Session
                 
                 // set resource id
                 session.setValue(self.newResourceIDForEntity("Session"), forKey: self.server.resourceIDAttributeName)
@@ -373,7 +373,7 @@ import CorePedido
         // create new admin
         managedObjectContext.performBlockAndWait { () -> Void in
             
-            let admin = NSEntityDescription.insertNewObjectForEntityForName("StaffUser", inManagedObjectContext: managedObjectContext) as StaffUser
+            let admin = NSEntityDescription.insertNewObjectForEntityForName("StaffUser", inManagedObjectContext: managedObjectContext) as! StaffUser
             
             // set default values
             admin.username = "admin"

@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E3B1B131A300BE600655F36"
                BuildableName = "CorePedido.framework"
-               BlueprintName = "CorePedido"
+               BlueprintName = "CorePedido OS X"
                ReferencedContainer = "container:CorePedido.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,7 +30,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E3B1B1E1A300BE600655F36"
                BuildableName = "CorePedidoTests.xctest"
-               BlueprintName = "CorePedidoTests"
+               BlueprintName = "CorePedidoTests OS X"
                ReferencedContainer = "container:CorePedido.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,7 +48,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E3B1B1E1A300BE600655F36"
                BuildableName = "CorePedidoTests.xctest"
-               BlueprintName = "CorePedidoTests"
+               BlueprintName = "CorePedidoTests OS X"
                ReferencedContainer = "container:CorePedido.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,7 +58,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E3B1B131A300BE600655F36"
             BuildableName = "CorePedido.framework"
-            BlueprintName = "CorePedido"
+            BlueprintName = "CorePedido OS X"
             ReferencedContainer = "container:CorePedido.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -77,7 +77,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E3B1B131A300BE600655F36"
             BuildableName = "CorePedido.framework"
-            BlueprintName = "CorePedido"
+            BlueprintName = "CorePedido OS X"
             ReferencedContainer = "container:CorePedido.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -95,7 +95,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E3B1B131A300BE600655F36"
             BuildableName = "CorePedido.framework"
-            BlueprintName = "CorePedido"
+            BlueprintName = "CorePedido OS X"
             ReferencedContainer = "container:CorePedido.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
