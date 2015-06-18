@@ -85,6 +85,7 @@
 		6E3B1B0A1A300BE600655F36 = {
 			isa = PBXGroup;
 			children = (
+				6E9679311B332534003AFBBA /* Frameworks */,
 				6E3B1B161A300BE600655F36 /* CorePedido */,
 				6E3B1B231A300BE600655F36 /* CorePedidoTests */,
 				6E3B1B151A300BE600655F36 /* Products */,
@@ -156,6 +157,13 @@
 				6EBB41B51A3357DB0024986A /* Session.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		6E9679311B332534003AFBBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
